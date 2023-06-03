@@ -1,3 +1,4 @@
+"use client";
 import Navbar from "@/components/partials/Navbar";
 import "./globals.css";
 import { Montserrat } from "next/font/google";
@@ -22,7 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={montserrat.className}>
         <Navbar />
-        {children}
+        <div className=" max-w-[1400px] mx-auto my-10">{children}</div>
       </body>
     </html>
   );

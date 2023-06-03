@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -26,6 +27,21 @@ secoundary button  */
       rgba(46, 47, 58, 0.75) 119.58%
     );
   }
+  .list-component-color {
+    background: linear-gradient(
+      169.43deg,
+      rgba(76, 78, 94, 0.58) 2.23%,
+      rgba(69, 76, 87, 0.68) 10.82%,
+      rgba(62, 64, 80, 0.54) 18.4%,
+      rgba(45, 49, 70, 0) 94.79%
+    );
+  }
+  .primary-button {
+    @apply border-[#268AFF] small-component-color w-full rounded-md border p-2 font-medium transition-all;
+  }
+  .primary-button:hover {
+    background: #268aff;
+  }
 }
 
 body {
@@ -36,5 +52,6 @@ body {
     rgba(36, 44, 60, 1) 35%,
     rgba(13, 15, 29, 1) 100%
   );
-  @apply text-white;
+  font-family: "Montserrat", sans-serif;
+  @apply bg-no-repeat text-white;
 }
