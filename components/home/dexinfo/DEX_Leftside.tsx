@@ -1,30 +1,51 @@
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import { createChart, ColorType } from "lightweight-charts";
+import { ChartApp } from "./TradingChart";
 
-const Leftside = () => {
-  const batchers = [
-    {
-      name: "Earn ADA",
-      subname: "For running a batcher",
-      img: "/images/assets/blue_ada.png",
-    },
-    {
-      name: "10",
-      subname: "Batchers worldwide",
-      img: "/images/assets/world.png",
-    },
-    {
-      name: "1st",
-      subname: "Open source batcher protocol on Cardano",
-      img: "/images/assets/world.png",
-    },
-  ];
+const batchers = [
+  {
+    name: "Earn ADA",
+    subname: "For running a batcher",
+    img: "/images/assets/blue_ada.png",
+  },
+  {
+    name: "10",
+    subname: "Batchers worldwide",
+    img: "/images/assets/world.png",
+  },
+  {
+    name: "1st",
+    subname: "Open source batcher protocol on Cardano",
+    img: "/images/assets/world.png",
+  },
+];
+
+const DEX_Leftside = () => {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 w-full gap-8 pr-10 mt-12">
+    <div className="grid grid-cols-1 lg:grid-cols-2 w-full gap-8 2xl:pr-8 mt-12">
       {/* 1st grid  */}
-      <div className=" rounded-3xl bg-red-300 p-6 h-72">1</div>
+      <div className=" font-medium rounded-3xl chart-component-color p-6 h-72">
+        <div>
+          <h1 className="text-base">Volume</h1>
+          <h2 className="text-base mt-1 mb-0.5">₳6,363,639.46</h2>
+          <p className=" text-[0.7rem] text-[#0FC43B]">
+            +₳544.03 (+2.03%) this week
+          </p>
+        </div>
+        <ChartApp />
+      </div>
       {/* 2nd grid  */}
-      <div className=" rounded-3xl bg-green-300 p-6 h-72">2</div>
+      <div className=" rounded-3xl chart-component-color p-6 h-72">
+        <div>
+          <h1 className="text-base">TVL</h1>
+          <h2 className="text-base mt-1 mb-0.5">₳6,363,639.46</h2>
+          <p className=" text-[0.7rem] text-[#0FC43B]">
+            +₳544.03 (+2.03%) this todays
+          </p>
+        </div>
+        <ChartApp />
+      </div>
       {/* 3rd grid  */}
       <div className=" rounded-3xl component-color p-6">
         <div className="flex flex-col justify-between h-full">
@@ -114,4 +135,4 @@ const Leftside = () => {
   );
 };
 
-export default Leftside;
+export default DEX_Leftside;

@@ -10,6 +10,7 @@ import {
   AiOutlineMenu,
 } from "react-icons/ai";
 import MobileMenu from "./navbar/MobileMenu";
+import Link from "next/link";
 const navMenuList = [
   {
     name: "Dashboard",
@@ -57,16 +58,17 @@ const Navbar = () => {
           {navMenuList.map((item, index) => (
             <li key={index}>
               {item.link != null ? (
-                <a
-                  className={`${
-                    item.link === pathname
-                      ? "text-white"
-                      : "text-neutral-400 transition-all hover:text-neutral-100"
-                  }`}
-                  href={item.link}
-                >
-                  {item.name}
-                </a>
+                <Link legacyBehavior href={item.link}>
+                  <a
+                    className={`${
+                      item.link === pathname
+                        ? "text-white"
+                        : "text-neutral-400 transition-all hover:text-neutral-100"
+                    }`}
+                  >
+                    {item.name}
+                  </a>
+                </Link>
               ) : (
                 <button className="flex group items-center gap-1  text-neutral-400 hover:text-neutral-100 transition-all">
                   {item.name}

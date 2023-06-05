@@ -1,19 +1,37 @@
 "use client";
 import HomeGroupButton from "@/components/home/HomeGroupButton";
-import Leftside from "@/components/home/Leftside";
-import { useState } from "react";
-import DashboardRightsideButtons from "@/components/home/DashboardRightsideButtons";
-import Rightside from "@/components/home/Rightside";
+import DEX_Main from "@/components/home/dexinfo/DEX_Main";
+import Pairs_Main from "@/components/home/pairs/Pairs_Main";
+import User_Main from "@/components/home/userinfo/User_Main";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [activeTab, setActiveTab] = useState("DEX Info");
   const [tabs, setTabs] = useState(["DEX Info", "User Info", "Pairs"]);
+  const [hydration, setHydration] = useState(false);
+  useEffect(() => {
+    setHydration(true);
+  }, []);
+
   return (
     <main className="relative">
-      <HomeGroupButton tabs={tabs} setTabs={setTabs} />
-      <div className="flex justify-between w-full flex-col 2xl:flex-row">
-        <Leftside />
-        <Rightside />
-      </div>
+      <HomeGroupButton
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+        tabs={tabs}
+        setTabs={setTabs}
+      />
+      {hydration && (
+        <>
+          {activeTab == "DEX Info" ? (
+            <DEX_Main />
+          ) : activeTab == "User Info" ? (
+            <User_Main />
+          ) : (
+            <Pairs_Main />
+          )}
+        </>
+      )}
     </main>
   );
 }
