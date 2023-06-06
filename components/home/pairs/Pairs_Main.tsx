@@ -38,7 +38,7 @@ const Pairs_Main = () => {
                     <MdCheckCircle className="w-3 h-3" />
                   </span>
                   <span className="text-gray-300">2.000341 ₳</span>
-                  <span className="text-green">0.23%</span>
+                  <span className="text-o_green">0.23%</span>
                 </li>
               ))}
             </ul>

@@ -50,13 +50,13 @@ const Pairs_TableRow = ({ item }: Props) => {
           <td className="px-10 py-4  gap-1 text-base">
             <span>112,450.88K ₳</span>
           </td>
-          <td className="px-10  py-4 text-green gap-1 text-base">
+          <td className="px-10  py-4 text-o_green gap-1 text-base">
             <span className="flex items-center">
               <span>0.23%</span>
               <MdArrowUpward className={`w-4 h-4 `} />
             </span>
           </td>
-          <td className="px-10  py-4 text-red gap-1 text-base">
+          <td className="px-10  py-4 text-o_red gap-1 text-base">
             <span className="flex items-center">
               <span>0.44%</span>
               <MdArrowDownward className={`w-4 h-4 `} />
