@@ -190,26 +190,27 @@ const User_Leftside = () => {
                         />
                         <h4 className="text-sm">{_item.name}</h4>
                       </div>
-                      <p className="text-sm text-right font-normal ml-4">
-                        A {_item.price} <span className=" text-xss">TVL</span>
+                      <p className="text-sm whitespace-nowrap text-right font-normal ml-4">
+                        <span>₳{_item.price}</span>{" "}
+                        <span className=" text-xss">TVL</span>
                       </p>
                     </div>
                   );
                 })}
               </div>
-              <div className="flex flex-col justify-between space-y-6">
+              <div className="flex flex-col justify-between space-y-6 whitespace-nowrap font-normal">
                 <div className="flex gap-5">
                   <div className=" text-gray-400">
                     <p className="text-xss">Earnings this month</p>
-                    <h4 className="text-base leading-4 text-white">
-                      A13,420.90
+                    <h4 className="text-base leading-2 text-white">
+                      ₳13,420.90
                     </h4>
                     <p className="text-xs">$284.90</p>
                   </div>
                   <div className=" text-gray-400">
                     <p className="text-xss">Earnings this month</p>
-                    <h4 className="text-base leading-4 text-white">
-                      A13,420.90
+                    <h4 className="text-base leading-2 text-white">
+                      ₳13,420.90
                     </h4>
                     <p className="text-xs">$284.90</p>
                   </div>

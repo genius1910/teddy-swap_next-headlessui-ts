@@ -22,7 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={montserrat.className}>
         <Navbar />
-        <div className=" max-w-[1400px] mx-auto my-10">{children}</div>
+        <div className=" max-w-[1420px] mx-auto my-10">{children}</div>
       </body>
     </html>
   );
