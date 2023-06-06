@@ -11,6 +11,9 @@ module.exports = {
         o_green: "#7BEF8E",
         o_red: "#FF6060",
       },
+      fontSize: {
+        xss: "0.7rem",
+      },
     },
   },
   plugins: [],

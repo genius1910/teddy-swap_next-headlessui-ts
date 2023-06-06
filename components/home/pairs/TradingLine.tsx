@@ -50,6 +50,10 @@ export const ChartComponent: React.FC<ChartComponentProps> = (props) => {
       lineColor,
       topColor: areaTopColor,
       bottomColor: areaBottomColor,
+      title: "Hellow",
+      lineType: 2,
+      baseLineColor: "red",
+      crosshairMarkerBorderWidth: 10,
     });
     newSeries.setData(data);
 
@@ -90,6 +94,6 @@ const initialData = [
   { time: "2023-12-31", value: 55 },
 ];
 
-export const ChartApp: React.FC = () => {
+export const TradingLine: React.FC = () => {
   return <ChartComponent data={initialData} />;
 };

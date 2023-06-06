@@ -2,22 +2,92 @@ import Image from "next/image";
 import React, { useEffect, useRef } from "react";
 import { createChart, ColorType } from "lightweight-charts";
 import { ChartApp } from "../dexinfo/TradingChart";
+import { TradingLine } from "../pairs/TradingLine";
 
-const batchers = [
+const liquidityAndFarms = [
   {
-    name: "Earn ADA",
-    subname: "For running a batcher",
-    img: "/images/assets/blue_ada.png",
+    title: "Your Liquidity",
+    perc1: 6.52,
+    perc1_Subtitle: "APR this week",
+    perc2: 8.3,
+    perc2_Subtitle: "Pool Diversion This Week",
+    button1: "Add/Remove",
+    button2: "View Liquidity",
+    tvl: [
+      {
+        color: "bg-purple-500",
+        name: "ADA/TEDY",
+        price: "120,030",
+      },
+      {
+        color: "bg-cyan-500",
+        name: "cUSD/TEDY",
+        price: "124,943",
+      },
+      {
+        color: "bg-blue-500",
+        name: "ADA/cBTC",
+        price: "532,63",
+      },
+      {
+        color: "bg-blue-500",
+        name: "ADA/USD",
+        price: "843,030",
+      },
+      {
+        color: "bg-green-500",
+        name: "USD/TEDY",
+        price: "843,030",
+      },
+    ],
+    earningTokens: [
+      "/images/assets/teddy.png",
+      "/images/assets/blue_ada.png",
+      "/images/assets/token-1.png",
+      "/images/assets/wallet-1.png",
+    ],
   },
   {
-    name: "10",
-    subname: "Batchers worldwide",
-    img: "/images/assets/world.png",
-  },
-  {
-    name: "1st",
-    subname: "Open source batcher protocol on Cardano",
-    img: "/images/assets/world.png",
+    title: "Your Farms",
+    perc1: 86.52,
+    perc1_Subtitle: "APR this week",
+    perc2: "21,134.92",
+    perc2_Subtitle: "Pending harvest |+5 more|",
+    button1: "Harvest All",
+    button2: "View Farms",
+    tvl: [
+      {
+        color: "bg-purple-500",
+        name: "ADA/TEDY",
+        price: "120,030",
+      },
+      {
+        color: "bg-cyan-500",
+        name: "cUSD/TEDY",
+        price: "124,943",
+      },
+      {
+        color: "bg-blue-500",
+        name: "ADA/cBTC",
+        price: "532,63",
+      },
+      {
+        color: "bg-blue-500",
+        name: "ADA/USD",
+        price: "843,030",
+      },
+      {
+        color: "bg-green-500",
+        name: "USD/TEDY",
+        price: "843,030",
+      },
+    ],
+    earningTokens: [
+      "/images/assets/teddy.png",
+      "/images/assets/blue_ada.png",
+      "/images/assets/token-1.png",
+      "/images/assets/wallet-1.png",
+    ],
   },
 ];
 
@@ -25,10 +95,13 @@ const User_Leftside = () => {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 w-full gap-8 2xl:pr-8 mt-12">
       {/* 1st grid  */}
-      <div className=" font-medium rounded-3xl chart-component-color p-6 h-72">
-        <div>
-          <h1 className="text-base">Volume</h1>
-          <h2 className="text-base mt-1 mb-0.5">₳6,363,639.46</h2>
+      <div className=" font-medium rounded-3xl chart-component-color h-72">
+        <div className="px-6 pt-6">
+          <div className="flex items-center gap-1">
+            <h1 className="text-base">Portfolio</h1>
+            <span className="text-sm text-gray-400"> Wallet assets only</span>
+          </div>
+          <h2 className="text-base mt-1 mb-0.5">₳4,435.46</h2>
           <p className=" text-[0.7rem] text-[#0FC43B]">
             +₳544.03 (+2.03%) this week
           </p>
@@ -36,101 +109,135 @@ const User_Leftside = () => {
         <ChartApp />
       </div>
       {/* 2nd grid  */}
-      <div className=" rounded-3xl chart-component-color p-6 h-72">
-        <div>
-          <h1 className="text-base">TVL</h1>
-          <h2 className="text-base mt-1 mb-0.5">₳6,363,639.46</h2>
+      <div className=" font-medium rounded-3xl chart-component-color h-72">
+        <div className="px-6 pt-6">
+          <div className="flex items-center gap-1">
+            <h1 className="text-base">Portfolio</h1>
+            <span className="text-sm text-gray-400">
+              {" "}
+              Including LP and Farm Positions
+            </span>
+          </div>{" "}
+          <h2 className="text-base mt-1 mb-0.5">₳4,435.46</h2>
           <p className=" text-[0.7rem] text-[#0FC43B]">
             +₳544.03 (+2.03%) this todays
           </p>
         </div>
         <ChartApp />
       </div>
-      {/* 3rd grid  */}
-      <div className=" rounded-3xl component-color p-6">
-        <div className="flex flex-col justify-between h-full">
-          {/* topbar  */}
-          <div className="flex justify-between items-center">
-            <h1>Batchers</h1>
-            <div className="flex items-center gap-2">
-              <Image
-                width={32}
-                height={32}
-                alt="icon"
-                src={`/images/assets/token-1.png`}
-              />
-              <div className=" text-base leading-tight">
-                <h1>₳203,930.12</h1>
-                <p className=" text-[0.7rem]">Distributed this week</p>
+      {/* 3rd and 4th grid  */}
+      {liquidityAndFarms.map((item) => {
+        return (
+          <div
+            key={item.title}
+            className=" lg:col-span-2 rounded-3xl component-color p-6"
+          >
+            <h1>{item.title}</h1>
+            <div className="flex gap-10 xl:gap-4 flex-wrap xl:flex-nowrap justify-center xl:justify-between items-center">
+              <div className=" space-y-3">
+                <div className="flex gap-10 my-4">
+                  <div className="  text-base flex flex-col leading-tight text-cyan-500">
+                    <h2 className="font-semibold">{item.perc1}%</h2>
+                    <p className=" text-xss text-gray-400">
+                      {item.perc1_Subtitle}
+                    </p>
+                  </div>
+                  {item.title == "Your Liquidity" ? (
+                    <div className="  text-base flex flex-col leading-tight">
+                      <h2 className="font-semibold">{item.perc2}%</h2>
+                      <p className=" text-xss text-gray-400">
+                        {item.perc2_Subtitle}
+                      </p>
+                    </div>
+                  ) : (
+                    <div className="  text-base flex flex-col leading-tight">
+                      <div className="flex gap-1 items-end">
+                        <h2 className="font-semibold">{item.perc2}</h2>
+                        <span className="text-xss text-white">TEDY</span>
+                      </div>
+                      <p className=" text-xss text-gray-400">
+                        {item.perc2_Subtitle}{" "}
+                      </p>
+                    </div>
+                  )}
+                </div>
+                <button className=" primary-button text-sm">
+                  {item.button1}
+                </button>
+                <button className=" secondary-button text-sm">
+                  {item.button2}
+                </button>
+              </div>
+              <div className=" w-40 h-40 rounded-full bg-cyan-500" />
+              <div className="flex flex-col gap-2">
+                {item.tvl.map((_item, i) => {
+                  return (
+                    <div key={i} className="flex items-center gap-2">
+                      <div className={`w-3.5 h-3.5 ${_item.color}`} />
+                      <div className="flex items-center gap-1">
+                        <Image
+                          src={`/images/assets/token-1.png`}
+                          alt="icon1"
+                          width={20}
+                          height={20}
+                        />
+                        <Image
+                          src={`/images/assets/teddy.png`}
+                          alt="icon2"
+                          width={20}
+                          height={20}
+                          className="-ml-2"
+                        />
+                        <h4 className="text-sm">{_item.name}</h4>
+                      </div>
+                      <p className="text-sm text-right font-normal ml-4">
+                        A {_item.price} <span className=" text-xss">TVL</span>
+                      </p>
+                    </div>
+                  );
+                })}
+              </div>
+              <div className="flex flex-col justify-between space-y-6">
+                <div className="flex gap-5">
+                  <div className=" text-gray-400">
+                    <p className="text-xss">Earnings this month</p>
+                    <h4 className="text-base leading-4 text-white">
+                      A13,420.90
+                    </h4>
+                    <p className="text-xs">$284.90</p>
+                  </div>
+                  <div className=" text-gray-400">
+                    <p className="text-xss">Earnings this month</p>
+                    <h4 className="text-base leading-4 text-white">
+                      A13,420.90
+                    </h4>
+                    <p className="text-xs">$284.90</p>
+                  </div>
+                </div>
+                <div>
+                  <h4 className="text-xs text-gray-400 my-2">
+                    Tokens you are earning
+                  </h4>
+                  <div className="flex items-center gap-2">
+                    {item.earningTokens.map((token) => {
+                      return (
+                        <Image
+                          key={token}
+                          alt={token}
+                          src={token}
+                          width={26}
+                          height={26}
+                        />
+                      );
+                    })}
+                    <p className="text-xss text-gray-400">+3more</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          {/* bottom  */}
-          <div className="flex justify-between items-center p-3">
-            <div className="flex flex-col gap-8">
-              {batchers.map((item) => (
-                <div key={item.name} className="flex items-center gap-2">
-                  <Image width={29} height={29} alt="icon" src={item.img} />
-                  <div className=" text-base leading-tight">
-                    <h2>{item.name}</h2>
-                    <p className=" text-[0.7rem] max-w-[8rem]">
-                      {item.subname}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="flex flex-col w-1/2 gap-4">
-              <button className="primary-button text-sm">Run a Batcher</button>
-              <button className="primary-button text-sm">View Github</button>
-              <button className="primary-button text-sm">Learn More</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* 4th grid  */}
-      <div className=" font-medium rounded-3xl component-color p-6 flex items-end justify-between gap-6">
-        {/* leftside  */}
-        <div className="flex flex-col gap-6 w-1/2 ">
-          <div className="flex items-center gap-2">
-            <Image
-              width={29}
-              height={29}
-              alt="icon"
-              src={`/images/assets/teddy.png`}
-            />
-            <h1>TEDDY Token</h1>
-          </div>
-          <div>
-            <p className="text-xs text-gray-300">Circulating Supply</p>
-            <h2>328,827,003 TEDY</h2>
-            <div className="h-8 w-full bg-gray-600 mt-1 rounded-lg">
-              <div className="w-1/3 bg-gradient-to-r from-[#1882FF] to-[#36EBCA] h-full rounded-lg" />
-            </div>
-          </div>
-          <div>
-            <p className="text-xs text-gray-300">Earnings Per Share All Time</p>
-            <h2>328,827,003 TEDY</h2>
-          </div>
-          <button className="primary-button text-sm">View Farms</button>
-        </div>
-        {/* rightside  */}
-        <div className="flex flex-col gap-6 w-1/2 ">
-          <div>
-            <p className="text-xs text-gray-300">Max Supply</p>
-            <h2>5,000,000,000 TEDY</h2>
-          </div>
-          <div>
-            <p className="text-xs text-gray-300">Public Allocation</p>
-            <h2>85%</h2>
-          </div>
-          <div>
-            <p className="text-xs text-gray-300">Price</p>
-            <h2>0.1403 ADA</h2>
-          </div>
-          <button className="primary-button text-sm">Tokenomics</button>
-        </div>
-      </div>
+        );
+      })}
     </div>
   );
 };

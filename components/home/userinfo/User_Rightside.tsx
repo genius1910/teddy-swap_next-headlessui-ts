@@ -1,6 +1,7 @@
 import React from "react";
 import TimeGroupButton from "../TimeGroupButton";
 import Image from "next/image";
+import User_RecentTransactions from "./User_RecentTransactions";
 
 const User_Rightside = () => {
   const movers = [
@@ -48,7 +49,7 @@ const User_Rightside = () => {
     },
   ];
   return (
-    <div className="flex flex-col items-center  mt-10 2xl:mt-4">
+    <div className="flex flex-col items-center w-full 2xl:w-auto mt-10 2xl:mt-4">
       <TimeGroupButton />
       <div className="list-component-color w-full 2xl:w-96 rounded-2xl mt-9">
         <h2 className="p-6">Your Top Movers</h2>
@@ -83,6 +84,7 @@ const User_Rightside = () => {
           })}
         </ul>
       </div>
+      <User_RecentTransactions />
     </div>
   );
 };

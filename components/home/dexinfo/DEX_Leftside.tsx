@@ -25,8 +25,8 @@ const DEX_Leftside = () => {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 w-full gap-8 2xl:pr-8 mt-12">
       {/* 1st grid  */}
-      <div className=" font-medium rounded-3xl chart-component-color p-6 h-72">
-        <div>
+      <div className=" font-medium rounded-3xl chart-component-color h-72">
+        <div className="px-6 pt-6">
           <h1 className="text-base">Volume</h1>
           <h2 className="text-base mt-1 mb-0.5">₳6,363,639.46</h2>
           <p className=" text-[0.7rem] text-[#0FC43B]">
@@ -36,8 +36,8 @@ const DEX_Leftside = () => {
         <ChartApp />
       </div>
       {/* 2nd grid  */}
-      <div className=" rounded-3xl chart-component-color p-6 h-72">
-        <div>
+      <div className=" font-medium rounded-3xl chart-component-color h-72">
+        <div className="px-6 pt-6">
           <h1 className="text-base">TVL</h1>
           <h2 className="text-base mt-1 mb-0.5">₳6,363,639.46</h2>
           <p className=" text-[0.7rem] text-[#0FC43B]">
