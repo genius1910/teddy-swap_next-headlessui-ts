@@ -7,14 +7,12 @@ interface Props {
   setShowComponent: (value: string) => void;
 }
 
-const ConfirmSwap = ({ setShowComponent }: Props) => {
+const ConfirmOrder = ({ setShowComponent }: Props) => {
   const [confirming, setConfirming] = useState(false);
   return (
     <div className="relative font-medium flex flex-col gap-6 items-center p-6">
       <div className="text-white flex items-center justify-between w-full">
-        <h1 className=" text-base">
-          {confirming ? "Waiting For Confirmations" : "Confirm Swap"}
-        </h1>
+        <h1 className=" 2xl:text-xl text-base">{"Confirm Order"}</h1>
         <button
           className={` text-gray-100 hover:text-white text-base 2xl:text-lg`}
         >
@@ -58,8 +56,8 @@ const ConfirmSwap = ({ setShowComponent }: Props) => {
       {confirming ? (
         <>
           <p className="text-xss text-gray-200 text-center">
-            Swapping 2,000 ADA for 22.309498 cNETA. Confirm this transaction in
-            your wallet.
+            Output is estimated. You will recieve at least 224.22 cNETA or the
+            transaction will revert.
           </p>
           <div className="flex flex-col gap-8 items-center justify-between w-full text-center">
             <div className="w-24 relative h-24 bg-transparent border-8 border-r-cyan-400 border-transparent rounded-full animate-spin "></div>
@@ -75,20 +73,28 @@ const ConfirmSwap = ({ setShowComponent }: Props) => {
           <div className=" text-xss text-gray-200 w-full">
             <ul className="space-y-3 w-full font-normal px-2">
               <li className=" flex justify-between w-full items-center">
-                <h5>Slippage tolerance:</h5>
+                <h5>Minimum Price Received:</h5>
                 <p className=" text-white text-xs">437.85 iUSD</p>
               </li>
               <li className=" flex justify-between w-full items-center">
-                <h5>Nitro:</h5>
+                <h5>Price Impact:</h5>
                 <p className=" text-white text-xs">0.10%</p>
               </li>
               <li className=" flex justify-between w-full items-center">
-                <h5>Estimated deposit</h5>
-                <p className=" text-white text-xs">{"<"}0.001%</p>
+                <h5>Liquidity Provider</h5>
+                <p className=" text-white text-xs">0.006 ADA</p>
               </li>
               <li className=" flex justify-between w-full items-center">
-                <h5>Total Fees</h5>
-                <p className=" text-white text-xs">{"<"}0.001%</p>
+                <h5>Batcher Fee</h5>
+                <p className=" text-white text-xs">2A</p>
+              </li>
+              <li className=" flex justify-between w-full items-center">
+                <h5>Deposit ADA</h5>
+                <p className=" text-white text-xs">2A</p>
+              </li>
+              <li className=" flex justify-between w-full items-center">
+                <h5>Route</h5>
+                <p className=" text-white text-xs">ADA {" > "} cNETA</p>
               </li>
             </ul>
           </div>
@@ -104,7 +110,7 @@ const ConfirmSwap = ({ setShowComponent }: Props) => {
             type="button"
             className=" primary-button  text-sm 2xl:text-xl py-3 2xl:py-4 rounded-lg border-2"
           >
-            Confirm Swap
+            Confirm Order
           </button>
         </>
       )}
@@ -112,4 +118,4 @@ const ConfirmSwap = ({ setShowComponent }: Props) => {
   );
 };
 
-export default ConfirmSwap;
+export default ConfirmOrder;

@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { MdEqualizer } from "react-icons/md";
 import Market from "./quickSwap/Market";
-import Limit from "./quickSwap/Limit";
 import SelectTokenView from "./quickSwap/SelectTokenView";
-import ConfirmSwap from "./quickSwap/ConfirmSwap";
-import TransactionStatus from "./quickSwap/TransactionStatus";
+import ConfirmSwap from "./quickSwap/market/ConfirmSwap";
+import Limit from "./quickSwap/market/Limit";
+import TransactionStatus from "./quickSwap/market/TransactionStatus";
+import ConfirmOrder from "./quickSwap/limit/ConfirmOrder";
 
 export interface SelectedTokenProps {
   name: string;
@@ -108,6 +109,9 @@ const QuickSwapPopup = ({ close }: { close: () => void }) => {
           )}
           {showComponent == "confirm-swap" && (
             <ConfirmSwap setShowComponent={setShowComponent} />
+          )}
+          {showComponent == "confirm-order" && (
+            <ConfirmOrder setShowComponent={setShowComponent} />
           )}
           {showComponent == "transaction-success" && (
             <TransactionStatus

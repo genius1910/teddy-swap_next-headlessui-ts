@@ -2,7 +2,7 @@ import React from "react";
 import { BsChevronDown } from "react-icons/bs";
 import { RiExchangeLine } from "react-icons/ri";
 import { CgArrowsExchangeAlt } from "react-icons/cg";
-import AmountAndTokenField from "./AmountAndTokenField";
+import AmountAndTokenField from "../AmountAndTokenField";
 
 interface Props {
   setShowComponent: (value: string) => void;
@@ -58,7 +58,13 @@ const Limit = ({ setShowComponent, selectedToken3, selectedToken4 }: Props) => {
           <RiExchangeLine className="text-gray-300 w-8 h-8" />
         </div>
       </div>
-      <button className=" primary-button  text-sm 2xl:text-xl py-3 2xl:py-4 rounded-lg border-2">
+      <button
+        type="button"
+        onClick={() => {
+          setShowComponent("confirm-order");
+        }}
+        className=" primary-button  text-sm 2xl:text-xl py-3 2xl:py-4 rounded-lg border-2"
+      >
         Place Order
       </button>
 

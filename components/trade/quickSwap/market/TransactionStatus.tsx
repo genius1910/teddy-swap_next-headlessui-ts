@@ -15,7 +15,7 @@ const TransactionStatus = ({ setShowComponent, status }: Props) => {
   return (
     <div className="relative font-medium flex flex-col gap-6 items-center p-6">
       <div className="text-white flex items-center justify-between w-full">
-        <h1 className=" text-base">
+        <h1 className=" 2xl:text-xl text-base">
           {status ? "Transaction Successful" : "Transaction Failed"}
         </h1>
         <button
