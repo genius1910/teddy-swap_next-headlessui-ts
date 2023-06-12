@@ -20,6 +20,16 @@ secoundary button  */
       rgba(43, 56, 74, 0.63) 98.82%
     );
   }
+  .component-color-2 {
+    background: linear-gradient(
+      128.53deg,
+      rgba(69, 78, 96, 0.88) 11.81%,
+      rgba(73, 79, 89, 0.88) 48.34%,
+      rgba(43, 56, 74, 0.88) 98.82%
+    );
+    box-shadow: 3px 4px 15px rgba(0, 0, 0, 0.22);
+    backdrop-filter: blur(11px);
+  }
   .small-component-color {
     background: linear-gradient(
       315.01deg,
@@ -56,6 +66,13 @@ secoundary button  */
         rgba(73, 79, 89, 0.63) 48.34%,
         rgba(43, 56, 74, 0.63) 98.82%
       );
+  }
+  .button-component-color {
+    background: linear-gradient(
+      36.62deg,
+      rgba(255, 255, 255, 0.06) 12.45%,
+      rgba(255, 255, 255, 0.13) 106.33%
+    );
   }
   .primary-button {
     @apply border-[#268AFF] small-component-color w-full rounded-md border p-2 font-medium transition-all;

@@ -13,11 +13,15 @@ const Leftside_LBE = () => {
         </h5>
         <div className="small-component-color flex justify-between items-center w-full rounded-lg p-2 pt-3 px-4">
           <div className="font-medium space-y-1">
-            <h2 className=" text-base 2xl:text-xl">0.0</h2>
+            <input
+              type="text"
+              defaultValue={0.0}
+              className=" text-base w-52 2xl:text-xl bg-transparent text-white outline-none"
+            />
             <p className="text-xs text-gray-300">~ $0</p>
           </div>
           <div className=" justify-center items-center">
-            <div className="flex text-gray-300 items-center gap-2 component-color p-1.5 px-3 rounded-xl">
+            <div className="flex text-gray-300 items-center gap-2 button-component-color p-1.5 px-3 rounded-xl">
               <Image
                 src={`/images/assets/token-1.png`}
                 alt="icon"
@@ -38,11 +42,15 @@ const Leftside_LBE = () => {
         </h5>
         <div className="small-component-color flex justify-between items-center w-full rounded-lg p-5 px-4">
           <div className="font-medium space-y-1">
-            <h2 className=" text-base 2xl:text-xl">0.0</h2>
+            <input
+              type="text"
+              defaultValue={0.0}
+              className=" text-base w-52 2xl:text-xl bg-transparent text-white outline-none"
+            />
             <p className="text-xs text-gray-300">~ $0</p>
           </div>
           <div className=" justify-center items-center">
-            <div className="flex text-gray-300 items-center gap-2 component-color p-1.5 px-3 rounded-xl">
+            <div className="flex text-gray-300 items-center gap-2 button-component-color p-1.5 px-3 rounded-xl">
               <Image
                 src={`/images/assets/teddy.png`}
                 alt="icon"

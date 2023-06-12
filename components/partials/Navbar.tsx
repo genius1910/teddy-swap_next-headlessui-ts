@@ -1,16 +1,20 @@
 "use client";
-import { Disclosure, Popover, Transition } from "@headlessui/react";
+import { Popover, Transition } from "@headlessui/react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import React, { Fragment, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   AiOutlineArrowDown,
   AiOutlineSetting,
   AiOutlineHistory,
-  AiOutlineMenu,
+  AiOutlineArrowUp,
 } from "react-icons/ai";
 import MobileMenu from "./navbar/MobileMenu";
 import Link from "next/link";
+const QuickSwapPopup = dynamic(() => import("../trade/QuickSwapPopup"), {
+  ssr: false,
+});
+import dynamic from "next/dynamic";
 const navMenuList = [
   {
     name: "Dashboard",
@@ -18,7 +22,7 @@ const navMenuList = [
   },
   {
     name: "Trade",
-    link: null,
+    link: "/trade",
   },
   {
     name: "Liquidity",
@@ -36,11 +40,16 @@ const navMenuList = [
 
 const Navbar = () => {
   const [toggler, setToggler] = useState("USD");
+  const [hydration, setHydration] = useState(false);
 
   const pathname = usePathname();
 
+  useEffect(() => {
+    setHydration(true);
+  }, []);
+
   return (
-    <div className="navbar-color py-3 2xl:py-5 px-8 flex items-center gap-4 justify-between">
+    <div className="navbar-color relative z-50 py-3 2xl:py-5 px-8 flex items-center gap-4 justify-between">
       {/* leftside  */}
 
       {/* mobile menu  */}
@@ -57,7 +66,7 @@ const Navbar = () => {
         <ul className="flex items-center gap-8 2xl:gap-14 text-sm 2xl:text-[1.10rem] font-semibold">
           {navMenuList.map((item, index) => (
             <li key={index}>
-              {item.link != null ? (
+              {item.link != "/trade" ? (
                 <Link legacyBehavior href={item.link}>
                   <a
                     className={`${
@@ -70,12 +79,40 @@ const Navbar = () => {
                   </a>
                 </Link>
               ) : (
-                <button className="flex group items-center gap-1  text-neutral-400 hover:text-neutral-100 transition-all">
-                  {item.name}
-                  <span className="component-color rounded-sm">
-                    <AiOutlineArrowDown className="w-5 h-5 text-neutral-400 group-hover:text-neutral-100 transition-all" />
-                  </span>
-                </button>
+                <div className="flex items-center gap-1 ">
+                  <Link href={item.link} legacyBehavior>
+                    <a className="hover:text-neutral-100 text-neutral-400 transition-all">
+                      {item.name}
+                    </a>
+                  </Link>
+                  {hydration && (
+                    <Popover>
+                      {({ open }) => (
+                        <>
+                          <Popover.Button className=" rounded-sm group outline-none component-color">
+                            {!open ? (
+                              <AiOutlineArrowDown className="w-5 h-5 outline-none text-neutral-400 group-hover:text-neutral-100 transition-all" />
+                            ) : (
+                              <AiOutlineArrowUp className="w-5 outline-none h-5 text-cyan-400 group-hover:text-cyan-300 transition-all" />
+                            )}
+                          </Popover.Button>
+                          <Transition
+                            enter="transition duration-100 ease-out"
+                            enterFrom="transform scale-95 opacity-0"
+                            enterTo="transform scale-100 opacity-100"
+                            leave="transition duration-75 ease-out"
+                            leaveFrom="transform scale-100 opacity-100"
+                            leaveTo="transform scale-95 opacity-0"
+                          >
+                            <Popover.Panel className="absolute outline-none component-color-2 left-[10.5rem] rounded-2xl z-50 mt-8 -translate-x-1/2 transform w-screen max-w-sm 2xl:max-w-md">
+                              {({ close }) => <QuickSwapPopup close={close} />}
+                            </Popover.Panel>
+                          </Transition>
+                        </>
+                      )}
+                    </Popover>
+                  )}
+                </div>
               )}
             </li>
           ))}
