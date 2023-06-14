@@ -1,12 +1,14 @@
+"use client";
 import React, { useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
-import { MdEqualizer } from "react-icons/md";
-import Market from "./quickSwap/Market";
-import SelectTokenView from "./quickSwap/SelectTokenView";
-import ConfirmSwap from "./quickSwap/market/ConfirmSwap";
-import Limit from "./quickSwap/market/Limit";
-import TransactionStatus from "./quickSwap/market/TransactionStatus";
-import ConfirmOrder from "./quickSwap/limit/ConfirmOrder";
+import { MdEqualizer, MdTune } from "react-icons/md";
+import Market from "../../quickSwap/Market";
+import SelectTokenView from "../../quickSwap/SelectTokenView";
+import ConfirmSwap from "../../quickSwap/market/ConfirmSwap";
+import Limit from "../../quickSwap/market/Limit";
+import TransactionStatus from "../../quickSwap/market/TransactionStatus";
+import ConfirmOrder from "../../quickSwap/limit/ConfirmOrder";
+import Trade_Settings from "./Trade_Settings";
 
 export interface SelectedTokenProps {
   name: string;
@@ -14,7 +16,7 @@ export interface SelectedTokenProps {
   price: number;
 }
 
-const QuickSwapPopup = ({ close }: { close: () => void }) => {
+const Trade_Swap = () => {
   const [isMarket, setIsMarket] = useState(true);
   const [showComponent, setShowComponent] = useState("view-1");
   const [selectedToken, setSelectedToken] = useState<SelectedTokenProps>();
@@ -51,21 +53,12 @@ const QuickSwapPopup = ({ close }: { close: () => void }) => {
                 Limit
               </button>
             </div>
-            <div className="flex gap-4">
-              <button
-                className={` text-gray-300 hover:text-gray-100 text-base 2xl:text-lg`}
-              >
-                <MdEqualizer className=" w-6 h-6 2xl:w-8 2xl:h-8" />
-              </button>
-              <button
-                className={` text-gray-300 hover:text-gray-100 text-base 2xl:text-lg`}
-              >
-                <AiOutlineClose
-                  onClick={() => close()}
-                  className=" w-6 h-6 2xl:w-8 2xl:h-8 "
-                />
-              </button>
-            </div>
+            <button
+              onClick={() => setShowComponent("settings")}
+              className={` text-gray-300 hover:text-gray-100 text-base 2xl:text-lg`}
+            >
+              <MdTune className=" w-6 h-6 2xl:w-8 2xl:h-8" />
+            </button>
           </div>
           {isMarket ? (
             <Market
@@ -125,10 +118,13 @@ const QuickSwapPopup = ({ close }: { close: () => void }) => {
               setShowComponent={setShowComponent}
             />
           )}
+          {showComponent == "settings" && (
+            <Trade_Settings setShowComponent={setShowComponent} />
+          )}
         </>
       )}
     </>
   );
 };
 
-export default QuickSwapPopup;
+export default Trade_Swap;

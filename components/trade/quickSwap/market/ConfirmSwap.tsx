@@ -20,7 +20,7 @@ const ConfirmSwap = ({ setShowComponent }: Props) => {
         >
           <AiOutlineClose
             onClick={() =>
-              confirming ? setConfirming(false) : setShowComponent("view1")
+              confirming ? setConfirming(false) : setShowComponent("view-1")
             }
             className=" w-8 h-8 "
           />

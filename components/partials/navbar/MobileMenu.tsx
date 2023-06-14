@@ -1,6 +1,8 @@
 "use client";
+import QuickSwapPopup from "@/components/trade/QuickSwapPopup";
 import { Disclosure, Popover, Transition } from "@headlessui/react";
 import Image from "next/image";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { Fragment, useState } from "react";
 import {
@@ -8,6 +10,7 @@ import {
   AiOutlineSetting,
   AiOutlineHistory,
   AiOutlineMenu,
+  AiOutlineArrowUp,
 } from "react-icons/ai";
 const navMenuList = [
   {
@@ -16,7 +19,7 @@ const navMenuList = [
   },
   {
     name: "Trade",
-    link: null,
+    link: "/trade",
   },
   {
     name: "Liquidity",
@@ -101,25 +104,17 @@ const MobileMenu = ({ toggler, setToggler }: Props) => {
                 <ul className="flex flex-col gap-8 2xl:gap-14 text-sm 2xl:text-[1.10rem] font-semibold">
                   {navMenuList.map((item, index) => (
                     <li key={index}>
-                      {item.link != null ? (
+                      <Link legacyBehavior href={item.link}>
                         <a
                           className={`${
                             item.link === pathname
                               ? "text-white"
                               : "text-neutral-400 transition-all hover:text-neutral-100"
                           }`}
-                          href={item.link}
                         >
                           {item.name}
                         </a>
-                      ) : (
-                        <button className="flex group items-center gap-1  text-neutral-400 hover:text-neutral-100 transition-all">
-                          {item.name}
-                          <span className="component-color rounded-sm">
-                            <AiOutlineArrowDown className="w-5 h-5 text-neutral-400 group-hover:text-neutral-100 transition-all" />
-                          </span>
-                        </button>
-                      )}
+                      </Link>
                     </li>
                   ))}
                 </ul>

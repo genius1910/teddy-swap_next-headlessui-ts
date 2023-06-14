@@ -91,6 +91,9 @@ secoundary button  */
     );
     @apply border-[#268AFF];
   }
+  .heading-xl {
+    @apply text-base 2xl:text-xl;
+  }
 }
 
 body {

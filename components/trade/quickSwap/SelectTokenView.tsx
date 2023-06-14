@@ -76,7 +76,7 @@ export default function SelectTokenView({
                 key={item.name}
                 onClick={() => {
                   setSelectedToken(item);
-                  setShowComponent("view1");
+                  setShowComponent("view-1");
                 }}
                 className="flex cursor-pointer text-sm justify-between p-2 rounded-lg border-2 border-transparent active:border-cyan-500"
               >

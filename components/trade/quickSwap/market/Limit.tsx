@@ -3,6 +3,7 @@ import { BsChevronDown } from "react-icons/bs";
 import { RiExchangeLine } from "react-icons/ri";
 import { CgArrowsExchangeAlt } from "react-icons/cg";
 import AmountAndTokenField from "../AmountAndTokenField";
+import Image from "next/image";
 
 interface Props {
   setShowComponent: (value: string) => void;
@@ -31,7 +32,13 @@ const Limit = ({ setShowComponent, selectedToken3, selectedToken4 }: Props) => {
           id="token-view-3"
         />
       </div>
-      <RiExchangeLine className="text-gray-300 rotate-90 w-8 h-8 -mb-6" />
+      <Image
+        src={`/images/assets/exchange.svg`}
+        width={32}
+        height={32}
+        alt="Exchange image"
+        className=" rotate-90 -mb-6"
+      />
       <div className="w-full">
         <h5 className=" text-xs font-medium 2xl:text-sm text-gray-300 mb-1">
           First Token
@@ -68,36 +75,36 @@ const Limit = ({ setShowComponent, selectedToken3, selectedToken4 }: Props) => {
         Place Order
       </button>
 
-      <div className=" text-xss text-gray-200 w-full">
+      <div className=" text-sm 2xl:text-base text-gray-200 w-full">
         <ul className="space-y-3 w-full font-normal px-2">
           <li className=" font-semibold">1 ADA = 0.31 iUSD</li>
           <li className=" flex justify-between w-full items-center">
             <h5>Minimum received</h5>
-            <p className=" text-white text-xs">437.85 iUSD</p>
+            <p className=" text-white">437.85 iUSD</p>
           </li>
           <li className=" flex justify-between w-full items-center">
             <h5>Slippage Tolerance</h5>
-            <p className=" text-white text-xs">0.10%</p>
+            <p className=" text-white">0.10%</p>
           </li>
           <li className=" flex justify-between w-full items-center">
             <h5>Price Impact</h5>
-            <p className=" text-white text-xs">{"<"}0.001%</p>
+            <p className=" text-white">{"<"}0.001%</p>
           </li>
           <li className=" flex justify-between w-full items-center">
             <h5>Liquidity Provider Fee</h5>
-            <p className=" text-white text-xs">{"<"}0.001%</p>
+            <p className=" text-white">{"<"}0.001%</p>
           </li>
           <li className=" flex justify-between w-full items-center">
             <h5>Batcher Fee</h5>
-            <p className=" text-white text-xs">2A</p>
+            <p className=" text-white">2A</p>
           </li>
           <li className=" flex justify-between w-full items-center">
             <h5>Deposit ADA</h5>
-            <p className=" text-white text-xs">2A</p>
+            <p className=" text-white">2A</p>
           </li>
           <li className=" flex justify-between w-full items-center">
             <h5>Route</h5>
-            <p className=" text-white text-xs">ADA{">"}iUSD</p>
+            <p className=" text-white">ADA{">"}iUSD</p>
           </li>
         </ul>
         <div className="flex justify-between items-center text-lg font-medium mt-8">

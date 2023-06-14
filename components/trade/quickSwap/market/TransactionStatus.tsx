@@ -29,12 +29,12 @@ const TransactionStatus = ({ setShowComponent, status }: Props) => {
       </div>
       {status ? (
         <img
-          src="/images/assets/tick.png"
+          src="/images/assets/tick.svg"
           className="2xl:w-28 2xl:h-28 w-20 h-20"
         />
       ) : (
         <img
-          src="/images/assets/cross.png"
+          src="/images/assets/cross.svg"
           className="2xl:w-28 2xl:h-28 w-20 h-20"
         />
       )}
@@ -69,7 +69,7 @@ const TransactionStatus = ({ setShowComponent, status }: Props) => {
       </div>
       <button
         onClick={() => {
-          setShowComponent("view1");
+          setShowComponent("view-1");
         }}
         type="button"
         className=" primary-button  text-sm 2xl:text-xl py-3 2xl:py-4 rounded-lg border-2"

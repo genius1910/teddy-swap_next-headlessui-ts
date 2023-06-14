@@ -18,7 +18,7 @@ const AmountAndTokenField = ({
   id,
 }: Props) => {
   return (
-    <div className="small-component-color flex justify-between items-center w-full rounded-lg p-5 px-4">
+    <div className="small-component-color flex justify-between items-center w-full rounded-lg p-2 pl-4">
       <div className="font-medium space-y-1">
         <input
           type="text"
@@ -27,12 +27,12 @@ const AmountAndTokenField = ({
         />
         <p className="text-xs text-gray-300">~ $0</p>
       </div>
-      <div className="justify-center items-center whitespace-nowrap">
+      <div className="flex flex-col justify-center items-center whitespace-nowrap">
         <div className="flex text-white items-center gap-3 button-component-color py-2 px-4 rounded-lg">
           {selectedToken?.name ? (
             <button
               type="button"
-              onClick={() => setShowComponent("view2")}
+              onClick={() => setShowComponent(id)}
               className=" text-sm 2xl:text-base font-medium flex gap-2 items-center"
             >
               <Image
@@ -54,6 +54,16 @@ const AmountAndTokenField = ({
             </button>
           )}
         </div>
+        {selectedToken?.name ? (
+          <p className=" text-xss text-white mt-1 text-center w-full">
+            <span className="text-gray-200 text-center">Balance:</span>
+            236.32
+          </p>
+        ) : (
+          <p className=" text-xss select-none pointer-events-none text-transparent mt-1 text-center w-full">
+            No Balance
+          </p>
+        )}
       </div>
     </div>
   );

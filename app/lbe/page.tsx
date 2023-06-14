@@ -9,11 +9,11 @@ const Index = () => {
     setHydration(true);
   }, []);
   return (
-    <div className="grid grid-cols-8 w-full gap-8 px-4 2xl:px-0 items-start">
-      <div className=" col-span-8 xl:col-span-3 component-color rounded-lg px-6 py-6">
+    <div className="grid grid-cols-12 w-full gap-8 px-4 2xl:px-0 items-start">
+      <div className=" col-span-12 xl:col-span-4 component-color rounded-lg px-6 py-6">
         <LBE_Leftside />
       </div>
-      <div className=" col-span-8 xl:col-span-5 component-color  rounded-lg">
+      <div className=" col-span-12 xl:col-span-8 component-color  rounded-lg">
         {hydration && <LBE_Rightside />}
       </div>
     </div>
