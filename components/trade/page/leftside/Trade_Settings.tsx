@@ -1,6 +1,6 @@
 import Toggler from "@/components/partials/Toggler";
 import React from "react";
-import { AiOutlineClose } from "react-icons/ai";
+import { RxCross2 } from "react-icons/rx"
 
 interface Props {
   setShowComponent: (value: string) => void;
@@ -19,7 +19,7 @@ const Trade_Settings = ({ setShowComponent }: Props) => {
         <button
           className={` text-gray-300 hover:text-gray-100 text-base 2xl:text-lg absolute right-0 top-0 z-10 `}
         >
-          <AiOutlineClose
+          <RxCross2
             onClick={() => setShowComponent("view-1")}
             className=" w-6 h-6 2xl:w-8 2xl:h-8 "
           />

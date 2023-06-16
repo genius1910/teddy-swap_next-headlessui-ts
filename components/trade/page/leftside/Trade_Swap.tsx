@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { AiOutlineClose } from "react-icons/ai";
+import { RxCross2 } from "react-icons/rx"
 import { MdEqualizer, MdTune } from "react-icons/md";
 import Market from "../../quickSwap/Market";
 import SelectTokenView from "../../quickSwap/SelectTokenView";
@@ -35,9 +35,8 @@ const Trade_Swap = () => {
                 onClick={() => {
                   setIsMarket(true);
                 }}
-                className={`${
-                  isMarket ? "text-gray-100" : "text-gray-400"
-                } text-base 2xl:text-xl font-medium`}
+                className={`${isMarket ? "text-gray-100" : "text-gray-400"
+                  } text-base 2xl:text-xl font-medium`}
               >
                 Market
               </button>
@@ -46,9 +45,8 @@ const Trade_Swap = () => {
                 onClick={() => {
                   setIsMarket(false);
                 }}
-                className={`${
-                  !isMarket ? "text-gray-100" : "text-gray-400"
-                } text-base 2xl:text-xl font-medium`}
+                className={`${!isMarket ? "text-gray-100" : "text-gray-400"
+                  } text-base 2xl:text-xl font-medium`}
               >
                 Limit
               </button>

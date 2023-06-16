@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React, { useState } from "react";
-import { AiOutlineClose } from "react-icons/ai";
+import { RxCross2 } from "react-icons/rx"
 import { BsArrowRight } from "react-icons/bs";
 
 interface Props {
@@ -18,7 +18,7 @@ const ConfirmSwap = ({ setShowComponent }: Props) => {
         <button
           className={` text-gray-100 hover:text-white text-base 2xl:text-lg`}
         >
-          <AiOutlineClose
+          <RxCross2
             onClick={() =>
               confirming ? setConfirming(false) : setShowComponent("view-1")
             }

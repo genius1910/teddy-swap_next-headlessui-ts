@@ -2,7 +2,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 import React, { useState } from "react";
-import { AiOutlineClose } from "react-icons/ai";
+import { RxCross2 } from "react-icons/rx"
 import { BsArrowRight } from "react-icons/bs";
 import { GoCheck as GoCheckCircle } from "react-icons/go";
 
@@ -21,7 +21,7 @@ const TransactionStatus = ({ setShowComponent, status }: Props) => {
         <button
           className={` text-gray-100 hover:text-white text-base 2xl:text-lg`}
         >
-          <AiOutlineClose
+          <RxCross2
             onClick={() => (status ? false : setShowComponent("confirm-swap"))}
             className=" w-8 h-8 "
           />

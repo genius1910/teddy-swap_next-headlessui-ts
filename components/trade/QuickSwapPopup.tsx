@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { AiOutlineClose } from "react-icons/ai";
+import { RxCross2 } from "react-icons/rx"
 import { MdEqualizer } from "react-icons/md";
 import Market from "./quickSwap/Market";
 import SelectTokenView from "./quickSwap/SelectTokenView";
@@ -33,9 +33,8 @@ const QuickSwapPopup = ({ close }: { close: () => void }) => {
                 onClick={() => {
                   setIsMarket(true);
                 }}
-                className={`${
-                  isMarket ? "text-gray-100" : "text-gray-400"
-                } text-base 2xl:text-xl font-medium`}
+                className={`${isMarket ? "text-gray-100" : "text-gray-400"
+                  } text-base 2xl:text-xl font-medium`}
               >
                 Market
               </button>
@@ -44,9 +43,8 @@ const QuickSwapPopup = ({ close }: { close: () => void }) => {
                 onClick={() => {
                   setIsMarket(false);
                 }}
-                className={`${
-                  !isMarket ? "text-gray-100" : "text-gray-400"
-                } text-base 2xl:text-xl font-medium`}
+                className={`${!isMarket ? "text-gray-100" : "text-gray-400"
+                  } text-base 2xl:text-xl font-medium`}
               >
                 Limit
               </button>
@@ -60,7 +58,7 @@ const QuickSwapPopup = ({ close }: { close: () => void }) => {
               <button
                 className={` text-gray-300 hover:text-gray-100 text-base 2xl:text-lg`}
               >
-                <AiOutlineClose
+                <RxCross2
                   onClick={() => close()}
                   className=" w-6 h-6 2xl:w-8 2xl:h-8 "
                 />
