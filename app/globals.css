@@ -83,7 +83,7 @@ secoundary button  */
     );
   }
   .primary-button {
-    @apply border-[#268AFF] small-component-color w-full rounded-md border p-2 font-medium transition-all;
+    @apply border-[#268AFF] small-component-color w-full rounded-md border p-2.5 font-medium transition-all;
   }
   .secondary-button {
     @apply border-[#268aff] bg-[#268aff] w-full rounded-md border p-2 font-medium transition-all;
