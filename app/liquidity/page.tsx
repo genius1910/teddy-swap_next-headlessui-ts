@@ -2,14 +2,23 @@
 import LiquidityGroupButton from "@/components/liquidity/LiquidityGroupButton";
 import Liquidity_BottomTable from "@/components/liquidity/Liquidity_BottomTable";
 import Liquidity_Leftside from "@/components/liquidity/Liquidity_Leftside";
+import Liquidity_Rightside from "@/components/liquidity/Liquidity_Rightside";
 import Liquidity_Your from "@/components/liquidity/Liquidity_Your";
 import Trade_Leftside from "@/components/trade/page/Trade_Leftside";
 import Trade_Rightside from "@/components/trade/page/Trade_Rightside";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const Liquidity = () => {
   const [activeTab, setActiveTab] = useState("All Liquidity");
   const [tabs, setTabs] = useState(["All Liquidity", "Your Liquidity"]);
+
+  useEffect(() => {
+    if (activeTab == "ADA / TEDY") {
+      setTabs(["All Liquidity", "Your Liquidity", "ADA / TEDY"]);
+    } else {
+      setTabs(["All Liquidity", "Your Liquidity"]);
+    }
+  }, [activeTab]);
 
   return (
     <div className="relative px-2">
@@ -29,7 +38,7 @@ const Liquidity = () => {
             <Liquidity_Leftside />
           </div>
           <div className=" col-span-12 xl:col-span-8 ">
-            <Trade_Rightside
+            <Liquidity_Rightside
               activeTab={activeTab}
               setActiveTab={setActiveTab}
             />

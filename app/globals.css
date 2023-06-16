@@ -111,6 +111,13 @@ secoundary button  */
   .heading-xl {
     @apply text-base 2xl:text-xl;
   }
+  .text-cyan-gradient {
+    background: linear-gradient(273.96deg, #0084ff -98.53%, #26ffff 130.04%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
 }
 
 body {
@@ -167,4 +174,22 @@ tbody:last-child {
 }
 tbody:first-child {
   @apply border-b-0;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #1ed6ff;
+  cursor: pointer;
+  @apply rounded-full;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #1ed6ff;
+  cursor: pointer;
+  @apply rounded-full;
 }

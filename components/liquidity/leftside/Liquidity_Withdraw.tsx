@@ -42,6 +42,22 @@ const Liquidity_Withdraw = ({
         LP Tokens Available: <span className="text-white">11189.1994</span>
       </p>
       <p className="text-white text-2xl font-medium">0</p>
+      <div className="relative w-full">
+        <input
+          type="range"
+          className="transparent h-1.5 slider w-full cursor-pointer appearance-none rounded-lg border-transparent bg-[#1ED6FF]"
+          min="1"
+          max="4"
+          step="1"
+          id="customRange3"
+        />
+        <div className="w-full flex justify-between text-xs absolute top-1.5 pointer-events-none">
+          <div className="w-4 h-4 bg-[#1ED6FF] rounded-full" />
+          <div className="w-4 h-4 bg-[#1ED6FF] rounded-full" />
+          <div className="w-4 h-4 bg-[#1ED6FF] rounded-full" />
+          <div className="w-4 h-4 bg-[#1ED6FF] rounded-full" />
+        </div>
+      </div>
       <div className="w-full grid grid-cols-4 gap-4">
         <button className=" p-4 small-component-color rounded-lg col-span-1">
           25%
