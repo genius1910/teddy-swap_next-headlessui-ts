@@ -3,7 +3,11 @@ import { AiOutlineSearch } from "react-icons/ai";
 import Liquidity_TableRow from "./Liquidity_TableRow";
 import { BsChevronDown, BsQuestionCircle } from "react-icons/bs";
 
-const Liquidity_BottomTable = () => {
+interface Props {
+  setActiveTab: (value: string) => void;
+}
+
+const Liquidity_BottomTable = ({ setActiveTab }: Props) => {
   return (
     <div className="w-full component-color rounded-2xl p-2 sm:p-6 mt-10">
       <div className="flex justify-between">
@@ -54,7 +58,13 @@ const Liquidity_BottomTable = () => {
             </tr>
           </tbody>
           {[1, 2, 3, 4, 5].map((item) => {
-            return <Liquidity_TableRow key={item} item={item} />;
+            return (
+              <Liquidity_TableRow
+                key={item}
+                item={item}
+                setActiveTab={setActiveTab}
+              />
+            );
           })}
         </table>
       </div>

@@ -2,16 +2,21 @@
 /* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 import React, { useState } from "react";
-import { RxCross2 } from "react-icons/rx"
+import { RxCross2 } from "react-icons/rx";
 import { BsArrowRight } from "react-icons/bs";
 import { GoCheck as GoCheckCircle } from "react-icons/go";
 
 interface Props {
   setShowComponent: (value: string) => void;
   status: boolean;
+  isLiquidity?: boolean;
 }
 
-const TransactionStatus = ({ setShowComponent, status }: Props) => {
+const TransactionStatus = ({
+  setShowComponent,
+  status,
+  isLiquidity,
+}: Props) => {
   return (
     <div className="relative font-medium flex flex-col gap-6 items-center p-6">
       <div className="text-white flex items-center justify-between w-full">
@@ -52,7 +57,17 @@ const TransactionStatus = ({ setShowComponent, status }: Props) => {
             1 ADA
           </h1>
         </div>
-        <BsArrowRight className="w-8 h-8 text-[#00DFFF]" />
+        {isLiquidity ? (
+          <Image
+            alt="plus icons"
+            src={`/images/icons/PlusLinear.svg`}
+            width={30}
+            height={30}
+          />
+        ) : (
+          <BsArrowRight className="w-8 h-8 text-[#00DFFF]" />
+        )}
+
         <div className="flex flex-col gap-2 items-center justify-center relative">
           <div className="p-4 rounded-xl button-component-color">
             <Image
