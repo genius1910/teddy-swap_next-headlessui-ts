@@ -99,6 +99,15 @@ secoundary button  */
     );
     @apply border-[#268AFF];
   }
+  .third-button {
+    background: linear-gradient(
+      36.62deg,
+      rgba(255, 255, 255, 0.16) 12.45%,
+      rgba(255, 255, 255, 0.23) 106.33%
+    );
+    border-radius: 7.1113px;
+    @apply active:opacity-80 hover:opacity-90;
+  }
   .heading-xl {
     @apply text-base 2xl:text-xl;
   }

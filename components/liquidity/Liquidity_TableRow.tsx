@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from "react";
 import { MdArrowDownward, MdArrowUpward, MdCheckCircle } from "react-icons/md";
 import Image from "next/image";
+import { BsChevronDown } from "react-icons/bs";
 
 interface Props {
   item: number;
@@ -37,33 +38,40 @@ const Liquidity_TableRow = ({ item }: Props) => {
               <MdCheckCircle className="w-3 h-3" />
             </span>
           </td>
-          <td className="px-10 py-4 flex flex-col gap-1 text-base">
-            <span>2.000341 ₳</span>
-            <span className=" text-xs">0.871$</span>
-          </td>
-          <td className="px-10 py-4  gap-1 text-base">
-            <span>13.63M ₳</span>
+          <td className="px-10 py-4 text-base">
+            <span>26.29M ₳</span>
           </td>
           <td className="px-10 py-4  gap-1 text-base">
             <span>450.88K ₳</span>
           </td>
           <td className="px-10 py-4  gap-1 text-base">
-            <span>112,450.88K ₳</span>
+            <span>8,230,456 TEDY</span>
           </td>
-          <td className="px-10  py-4 text-o_green gap-1 text-base">
-            <span className="flex items-center">
-              <span>0.23%</span>
-              <MdArrowUpward className={`w-4 h-4 `} />
+          <td className="px-10  py-4 gap-1 text-base">
+            <span>0.23%</span>
+          </td>
+          <td className="px-10  py-4 gap-1 text-base">
+            <span>53</span>
+          </td>
+          <td className="pl-10 py-4  gap-1 text-base">
+            <span className="flex items-center gap-6">
+              <span className="flex items-center gap-1">
+                <Image
+                  src={`/images/assets/token-1.png`}
+                  alt="icon1"
+                  width={29}
+                  height={29}
+                />
+                <Image
+                  src={`/images/assets/teddy.png`}
+                  alt="icon2"
+                  width={29}
+                  height={29}
+                  className="-ml-3"
+                />
+              </span>
+              <BsChevronDown className="w-4 h-4 text-o_cyan" />
             </span>
-          </td>
-          <td className="px-10  py-4 text-o_red gap-1 text-base">
-            <span className="flex items-center">
-              <span>0.44%</span>
-              <MdArrowDownward className={`w-4 h-4 `} />
-            </span>
-          </td>
-          <td className="px-10 py-4  gap-1 text-base">
-            <span>8,230,456 ADA</span>
           </td>
         </tr>
         {showDetails && (
@@ -87,7 +95,7 @@ const Liquidity_TableRow = ({ item }: Props) => {
                   <span className=" text-gray-300">6.2%</span>
                 </p>
                 <p className="px-6 py-4 flex gap-4 text-base">
-                  <button className=" secondary-button w-52">Swap</button>
+                  <button className=" third-button w-52">Swap</button>
                   <button className="primary-button w-52">Add liquidity</button>
                 </p>
               </span>

@@ -92,7 +92,7 @@ const Pairs_TableRow = ({ item }: Props) => {
                   <span className=" text-gray-300">0.23%</span>
                 </p>
                 <p className="px-6 py-4 flex gap-4 text-base">
-                  <button className=" secondary-button w-52">Swap</button>
+                  <button className=" third-button w-52">Swap</button>
                   <button className="primary-button w-52">Add liquidity</button>
                 </p>
               </span>
