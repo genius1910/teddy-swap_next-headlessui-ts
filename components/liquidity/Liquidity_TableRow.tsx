@@ -5,7 +5,7 @@ import Image from "next/image";
 interface Props {
   item: number;
 }
-const Pairs_TableRow = ({ item }: Props) => {
+const Liquidity_TableRow = ({ item }: Props) => {
   const [showDetails, setShowDetails] = useState(false);
   return (
     <Fragment>
@@ -65,7 +65,6 @@ const Pairs_TableRow = ({ item }: Props) => {
           <td className="px-10 py-4  gap-1 text-base">
             <span>8,230,456 ADA</span>
           </td>
-          <td className="px-10 py-4  gap-1 text-base">here is line </td>
         </tr>
         {showDetails && (
           <tr>
@@ -87,10 +86,6 @@ const Pairs_TableRow = ({ item }: Props) => {
                   <span className=" text-gray-500">Trading Fees APR</span>
                   <span className=" text-gray-300">6.2%</span>
                 </p>
-                <p className="px-6 py-4 flex flex-col gap-1 text-base">
-                  <span className=" text-gray-500">LP Fee</span>
-                  <span className=" text-gray-300">0.23%</span>
-                </p>
                 <p className="px-6 py-4 flex gap-4 text-base">
                   <button className=" secondary-button w-52">Swap</button>
                   <button className="primary-button w-52">Add liquidity</button>
@@ -104,4 +99,4 @@ const Pairs_TableRow = ({ item }: Props) => {
   );
 };
 
-export default Pairs_TableRow;
+export default Liquidity_TableRow;
