@@ -111,7 +111,7 @@ const Trade_Rightside = ({ activeTab, setActiveTab }: Props) => {
       {hydration && activeTab == "ADA / TEDY" ? (
         <Trade_Hystory />
       ) : (
-        <Trade_TopPairs />
+        <Trade_TopPairs setActiveTabs={setActiveTab} />
       )}
     </div>
   );
