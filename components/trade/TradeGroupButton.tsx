@@ -30,7 +30,7 @@ const TradeGroupButton = ({
               key={item}
             >
               <span>{item} </span>
-              {item == activeTab && (
+              {item == "ADA / TEDY" && item == activeTab && (
                 <HiOutlineXMark className=" text-white w-5 h-5 pb-1" />
               )}
             </li>

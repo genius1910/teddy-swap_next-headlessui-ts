@@ -36,6 +36,10 @@ const navMenuList = [
     name: "LBE",
     link: "/lbe",
   },
+  {
+    name: "Trading Competition",
+    link: "#",
+  },
 ];
 
 const Navbar = () => {
