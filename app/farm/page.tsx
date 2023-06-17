@@ -3,6 +3,7 @@ import FarmGroupButton from "@/components/farm/FarmGroupButton";
 import Farm_BottomTable from "@/components/farm/Farm_BottomTable";
 import Farm_Dashboard from "@/components/farm/Farm_Dashboard";
 import Farm_Leftside from "@/components/farm/Farm_Leftside";
+import Farm_Rightside from "@/components/farm/Farm_Rightside";
 import React from "react";
 
 const Index = () => {
@@ -36,14 +37,10 @@ const Index = () => {
           <Farm_Leftside />
         </div>
         <div className=" col-span-12 xl:col-span-8 ">
-          {/* <Liquidity_Rightside
-              activeTab={activeTab}
-              setActiveTab={setActiveTab}
-            /> */}
+          <Farm_Rightside setActiveTab={setActiveTab} activeTab={activeTab} />
         </div>
-      </div> : (
-        ""
-      )}
+      </div> : "Select a tab"
+      }
     </div>
   );
 };
