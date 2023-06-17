@@ -129,7 +129,7 @@ body {
     rgba(13, 15, 29, 1) 100%
   );
   font-family: "Montserrat", sans-serif;
-  @apply text-white bg-cover;
+  @apply text-white bg-cover min-h-screen;
 }
 
 /* width */
