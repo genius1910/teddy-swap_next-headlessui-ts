@@ -6,7 +6,7 @@ import {
     AiFillSwitcher,
     AiOutlineSearch,
 } from "react-icons/ai";
-import { BsArrowRight, BsDot } from "react-icons/bs";
+import { BsArrowRight, BsDot, BsThreeDots } from "react-icons/bs";
 import {
     MdArrowDownward,
     MdTune,
@@ -27,8 +27,8 @@ const History_Table = () => {
                     <MdTune className="text-white w-8 h-8" />
                 </button>
             </div>
-            <div className="mt-6 overflow-x-auto whitespace-nowrap">
-                <table>
+            <div className="mt-6 overflow-x-auto whitespace-nowrap w-full">
+                <table className="w-full text-center">
                     <tbody className=" mid-s-component-color text-base ">
                         <tr>
                             <th className=" px-4 py-2 font-medium rounded-l-md">
@@ -83,9 +83,8 @@ const History_Table = () => {
                                         </span>
                                     </td>
                                     <td className="px-10 py-4  gap-1 text-base">
-                                        <span className=" inline-flex items-center gap-1 rounded-md border border-gray-500 pl-2 pr-4 py-1">
-                                            <BsDot className="w-5 h-5 text-o_green" />
-                                            <span>Complete</span>
+                                        <span className=" inline-flex items-center gap-1 rounded-md border border-gray-500 p-1 px-2 py-1">
+                                            <BsThreeDots className="w-5 h-5" />
                                         </span>
                                     </td>
                                 </tr>
