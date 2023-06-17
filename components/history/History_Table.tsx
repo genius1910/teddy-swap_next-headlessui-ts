@@ -46,7 +46,7 @@ const History_Table = () => {
                             <tbody key={item} className=" ">
                                 <tr>
                                     <td className="px-10 pl-4 py-4 whitespace-nowrap">
-                                        <span className="flex items-center gap-3 ">
+                                        <span className="flex items-center gap-3 justify-center ">
                                             <span className=" bg-gray-600 gap-1 flex items-center px-2 py-1.5 rounded-lg">
                                                 <Image
                                                     src={`/images/assets/token-1.png`}
