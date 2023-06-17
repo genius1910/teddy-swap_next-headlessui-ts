@@ -125,10 +125,20 @@ const Farm_TableRow = ({ item, setActiveTab }: Props) => {
                   </span>
                 </p>
                 <p className="px-6 py-4 flex gap-4 text-base items-start my-auto translate-y-2/6">
-                  <button className="primary-button w-52 p-2.5 font-medium">
+                  <button
+                    onClick={() => {
+                      setActiveTab("ADA / TEDY");
+                    }}
+                    className="primary-button w-52 p-2.5 font-medium"
+                  >
                     Harvest
                   </button>
-                  <button className="third-button w-52 p-2.5 font-medium">
+                  <button
+                    onClick={() => {
+                      setActiveTab("ADA / TEDY");
+                    }}
+                    className="third-button w-52 p-2.5 font-medium"
+                  >
                     Withdraw
                   </button>
                   <button

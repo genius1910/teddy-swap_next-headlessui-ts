@@ -1,6 +1,7 @@
 "use client";
 import FarmGroupButton from "@/components/farm/FarmGroupButton";
 import Farm_BottomTable from "@/components/farm/Farm_BottomTable";
+import Farm_Dashboard from "@/components/farm/Farm_Dashboard";
 import React from "react";
 
 const Index = () => {
@@ -24,6 +25,11 @@ const Index = () => {
       />
       {activeTab == "All Farms" ? (
         <Farm_BottomTable setActiveTab={setActiveTab} />
+      ) : activeTab == "Your Farms" ? (
+        <div>
+          <Farm_Dashboard />
+          <Farm_BottomTable setActiveTab={setActiveTab} />
+        </div>
       ) : (
         ""
       )}
