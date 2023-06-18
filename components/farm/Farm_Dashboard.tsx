@@ -1,7 +1,18 @@
 import React from "react";
+import Farm_Dash_Leftside from "./dashboard/Farm_Dash_Leftside";
+import Farm_Dash_Rightside from "./dashboard/Farm_Dash_Rightside";
 
 const Farm_Dashboard = () => {
-  return <div className="w-full py-56 component-color text-center mt-10 rounded-3xl">This dashboard is in development </div>;
+  return (
+    <div className="grid grid-cols-12 w-full gap-8 px-4 2xl:px-0 mt-10 items-start">
+      <div className=" col-span-12 xl:col-span-3 relative">
+        <Farm_Dash_Leftside />{" "}
+      </div>
+      <div className=" col-span-12 xl:col-span-9 ">
+        <Farm_Dash_Rightside />
+      </div>
+    </div>
+  );
 };
 
 export default Farm_Dashboard;

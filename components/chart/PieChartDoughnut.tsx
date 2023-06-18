@@ -16,9 +16,6 @@ const data = {
       hoverOffset: 4,
     },
   ],
-  legend: {
-    display: false,
-  },
 };
 
 export function PieChartDoughnut() {
