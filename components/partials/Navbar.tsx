@@ -18,6 +18,7 @@ import dynamic from "next/dynamic";
 import WalletList from "./navbar/WalletList";
 import SettingsPopup from "./navbar/SettingsPopup";
 import ConnectedWallet from "./navbar/ConnectedWallet";
+import { useRouter } from "next/navigation";
 const navMenuList = [
   {
     name: "Dashboard",
@@ -53,6 +54,7 @@ const Navbar = () => {
   );
 
   const pathname = usePathname();
+  const router = useRouter()
 
   useEffect(() => {
     setHydration(true);
@@ -79,11 +81,10 @@ const Navbar = () => {
               {item.link != "/trade" ? (
                 <Link legacyBehavior href={item.link}>
                   <a
-                    className={`${
-                      item.link === pathname
-                        ? "text-white"
-                        : "text-neutral-400 transition-all hover:text-neutral-100"
-                    }`}
+                    className={`${item.link === pathname
+                      ? "text-white"
+                      : "text-neutral-400 transition-all hover:text-neutral-100"
+                      }`}
                   >
                     {item.name}
                   </a>
@@ -139,9 +140,8 @@ const Navbar = () => {
           className="component-color relative cursor-pointer flex justify-evenly items-center gap-1 rounded-md h-auto"
         >
           <span
-            className={`${
-              toggler == "USD" ? "-translate-x-1/2" : "translate-x-1/2"
-            } rounded-md small-component-color w-6/12 h-full absolute z-0 transition-all duration-500 ease-in-out`}
+            className={`${toggler == "USD" ? "-translate-x-1/2" : "translate-x-1/2"
+              } rounded-md small-component-color w-6/12 h-full absolute z-0 transition-all duration-500 ease-in-out`}
           ></span>
           <span className="h-full 2xl:py-2 px-4 2xl:px-6 rounded-md relative z-10">
             USD
@@ -216,7 +216,7 @@ const Navbar = () => {
         )}
 
         {/* history  */}
-        <button className="component-color rounded-md p-2 2xl:p-2 cursor-pointer text-gray-200 hover:text-white transition-all">
+        <button onClick={() => router.push("/history")} className={`${pathname == "/history" && "bg-gray-500"} component-color rounded-md p-2 2xl:p-2 cursor-pointer text-gray-200 hover:text-white transition-all`}>
           <AiOutlineHistory className="w-5 h-5 2xl:w-6 2xl:h-6" />
         </button>
 
