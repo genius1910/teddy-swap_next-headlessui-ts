@@ -20,7 +20,7 @@ const Liquidity_BottomTable = ({ setActiveTab }: Props) => {
         </div>
       </div>
       <div className="mt-6 overflow-x-auto whitespace-nowrap overflow-hidden">
-        <table>
+        <table className="w-full">
           <tbody>
             <tr className=" mid-s-component-color text-base ">
               <th className="text-left pl-4 pr-10 py-2 font-medium rounded-l-md">

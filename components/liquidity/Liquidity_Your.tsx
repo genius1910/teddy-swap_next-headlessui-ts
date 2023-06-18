@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import Liquidity_BottomTable from "./Liquidity_BottomTable";
+import { PieChartDoughnut } from "../chart/PieChartDoughnut";
 const liquidityAndFarms = [
   {
     title: "Your Liquidity",
@@ -76,7 +77,9 @@ const Liquidity_Your = ({ setActiveTab }: Props) => {
                   </div>
                 </div>
               </div>
-              <div className=" w-40 h-40 rounded-full bg-cyan-500" />
+              <div className=" w-40 h-40">
+                <PieChartDoughnut />
+              </div>
               <div className="flex flex-col gap-2">
                 {item.tvl.map((_item, i) => {
                   return (

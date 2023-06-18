@@ -25,7 +25,7 @@ const Farm_BottomTable = ({ setActiveTab }: Props) => {
         </button>
       </div>
       <div className="mt-6 overflow-x-auto whitespace-nowrap overflow-hidden">
-        <table>
+        <table className="w-full">
           <tbody>
             <tr className=" mid-s-component-color text-base ">
               <th className="text-left pl-4 pr-10 py-2 font-medium rounded-l-md">
@@ -53,7 +53,7 @@ const Farm_BottomTable = ({ setActiveTab }: Props) => {
                   <BsChevronDown className="w-3 h-3 " />
                 </span>
               </th>
-              <th className=" pl-10 py-2 font-medium w-full">
+              <th className=" pl-10 py-2 font-medium">
                 <span className="flex items-center gap-1">
                   <span> APR</span>
                   <BsQuestionCircle className="w-3 h-3 " />

@@ -68,16 +68,13 @@ const Farm_TableRow = ({ item, setActiveTab }: Props) => {
               />
             </span>
           </td>
-          <td className="w-full pr-8 ">
+          <td className=" pr-8 ">
             <BsChevronDown className="w-4  h-4 text-o_cyan" />
           </td>
         </tr>
         {showDetails && (
           <tr>
-            <td
-              colSpan={9}
-              className=" border-t-0 bg-black/10 w-full overflow-hidden"
-            >
+            <td colSpan={9} className=" border-t-0 bg-black/10 overflow-hidden">
               <span className="flex justify-between">
                 <p className="px-6 py-4  gap-1 text-base">
                   <span className=" flex items-center gap-2">

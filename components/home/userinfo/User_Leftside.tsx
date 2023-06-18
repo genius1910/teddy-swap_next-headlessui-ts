@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from "react";
 import { createChart, ColorType } from "lightweight-charts";
 import { ChartApp } from "../dexinfo/TradingChart";
 import { TradingLine } from "../pairs/TradingLine";
+import { PieChartDoughnut } from "@/components/chart/PieChartDoughnut";
 
 const liquidityAndFarms = [
   {
@@ -168,7 +169,9 @@ const User_Leftside = () => {
                   {item.button2}
                 </button>
               </div>
-              <div className=" w-40 h-40 rounded-full bg-cyan-500" />
+              <div className=" w-40 h-40">
+                <PieChartDoughnut />
+              </div>
               <div className="flex flex-col gap-2">
                 {item.tvl.map((_item, i) => {
                   return (

@@ -69,16 +69,13 @@ const Liquidity_TableRow = ({ item, setActiveTab }: Props) => {
               />
             </span>
           </td>
-          <td className="w-full pl-8">
+          <td className=" pl-8">
             <BsChevronDown className="w-4  h-4 text-o_cyan" />
           </td>
         </tr>
         {showDetails && (
           <tr>
-            <td
-              colSpan={9}
-              className=" border-t-0 bg-black/10 w-full overflow-hidden"
-            >
+            <td colSpan={9} className=" border-t-0 bg-black/10 overflow-hidden">
               <span className="flex justify-between">
                 <p className="px-6 py-4 flex flex-col gap-1 text-base">
                   <span className=" text-gray-400">Price:</span>
