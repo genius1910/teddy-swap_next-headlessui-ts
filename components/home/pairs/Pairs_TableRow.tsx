@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from "react";
 import { MdArrowDownward, MdArrowUpward, MdCheckCircle } from "react-icons/md";
 import Image from "next/image";
+import TradeLine from "@/components/chart/TradeLine";
 
 interface Props {
   item: number;
@@ -65,7 +66,9 @@ const Pairs_TableRow = ({ item }: Props) => {
           <td className="px-10 py-4  gap-1 text-base">
             <span>8,230,456 ADA</span>
           </td>
-          <td className="px-10 py-4  gap-1 text-base">here is line </td>
+          <td className="px-10 py-4  gap-1 text-base">
+            <TradeLine key={20} coin={"ADA"} price={230} />{" "}
+          </td>
         </tr>
         {showDetails && (
           <tr>

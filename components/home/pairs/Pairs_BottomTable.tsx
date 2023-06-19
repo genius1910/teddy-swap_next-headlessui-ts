@@ -2,6 +2,7 @@ import React from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import { MdTune } from "react-icons/md";
 import Pairs_TableRow from "./Pairs_TableRow";
+import TradeLine from "@/components/chart/TradeLine";
 
 const Pairs_BottomTable = () => {
   return (

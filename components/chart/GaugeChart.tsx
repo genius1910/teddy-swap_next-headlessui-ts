@@ -17,11 +17,11 @@ function getGradient(chart: any) {
 }
 
 const data = {
-  labels: ["ADA/TEDY"],
+  labels: ["ADA/TEDY", "Other"],
   datasets: [
     {
       label: "Coin database",
-      data: [100],
+      data: [86, 14],
       backgroundColor: (context: any) => {
         const chart = context.chart;
         const { ctx, chartArea } = chart;
