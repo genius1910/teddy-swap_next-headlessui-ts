@@ -30,17 +30,20 @@ const Index = () => {
       ) : activeTab == "Your Farms" ? (
         <div>
           <Farm_Dashboard />
-          <Farm_BottomTable setActiveTab={setActiveTab} />
+          <Farm_BottomTable isItDashboard={true} setActiveTab={setActiveTab} />
         </div>
-      ) : activeTab == "ADA / TEDY" ? <div className="grid grid-cols-12 w-full gap-8 px-4 2xl:px-0 mt-10 items-start">
-        <div className=" col-span-12 xl:col-span-4">
-          <Farm_Leftside />
+      ) : activeTab == "ADA / TEDY" ? (
+        <div className="grid grid-cols-12 w-full gap-8 px-4 2xl:px-0 mt-10 items-start">
+          <div className=" col-span-12 xl:col-span-4">
+            <Farm_Leftside />
+          </div>
+          <div className=" col-span-12 xl:col-span-8 ">
+            <Farm_Rightside setActiveTab={setActiveTab} activeTab={activeTab} />
+          </div>
         </div>
-        <div className=" col-span-12 xl:col-span-8 ">
-          <Farm_Rightside setActiveTab={setActiveTab} activeTab={activeTab} />
-        </div>
-      </div> : "Select a tab"
-      }
+      ) : (
+        "Select a tab"
+      )}
     </div>
   );
 };

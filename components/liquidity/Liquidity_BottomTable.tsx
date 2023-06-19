@@ -11,11 +11,11 @@ const Liquidity_BottomTable = ({ setActiveTab }: Props) => {
   return (
     <div className="w-full component-color rounded-2xl p-2 sm:p-6 mt-10">
       <div className="flex justify-between">
-        <div className="relative mid-s-component-color flex w-10/12 sm:w-auto items-center rounded-lg">
+        <div className="relative small-component-color flex w-10/12 sm:w-auto items-center rounded-lg">
           <AiOutlineSearch className=" text-gray-400 w-6 h-6 ml-2 " />
           <input
             placeholder="Type token name, ticker, or policy id"
-            className=" placeholder:text-gray-400 text-sm w-full sm:w-96 px-2 py-2 bg-transparent outline-none rounded-lg"
+            className=" placeholder:text-gray-400 text-sm w-full sm:w-96 px-2 py-4 bg-transparent outline-none rounded-lg"
           />
         </div>
       </div>

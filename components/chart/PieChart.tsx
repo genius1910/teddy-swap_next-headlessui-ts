@@ -7,6 +7,7 @@ ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
 ChartJS.defaults.set("plugins.datalabels", {
   color: "white",
   datalabels: {
+    display: false,
     formatter: function (value: any, context: any) {
       return value + "%";
     },
@@ -34,7 +35,7 @@ export const data = {
   ],
   datasets: [
     {
-      label: "# of Votes",
+      label: "Coin database",
       data: [39, 27, 12, 42, 16],
       backgroundColor: [
         "rgba(61, 255, 220, 0.6)",

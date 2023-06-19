@@ -11,7 +11,7 @@ const Pairs_BottomTable = () => {
           <AiOutlineSearch className=" text-gray-400 w-6 h-6 ml-2 " />
           <input
             placeholder="Type token name, ticker, or policy id"
-            className=" placeholder:text-gray-400 text-sm w-full sm:w-96 px-2 py-2 bg-transparent outline-none rounded-lg"
+            className=" placeholder:text-gray-400 text-sm w-full sm:w-96 px-2 py-4 bg-transparent outline-none rounded-lg"
           />
         </div>
         <button>

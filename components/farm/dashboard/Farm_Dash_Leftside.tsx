@@ -48,10 +48,10 @@ const Farm_Dash_Leftside = () => {
           </p>
         </div>
       </div>
-      <div className="mx-auto w-56 h-56">
+      <div className="mx-auto w-52 h-52">
         <PieChart />
       </div>
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-1">
         {items.map((_item, i) => {
           return (
             <div key={i} className="flex items-center gap-2">

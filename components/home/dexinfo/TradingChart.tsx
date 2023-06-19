@@ -71,7 +71,7 @@ export const ChartComponent: React.FC<ChartComponentProps> = (props) => {
     areaBottomColor,
   ]);
 
-  return <div className=" " ref={chartContainerRef} />;
+  return <div ref={chartContainerRef} />;
 };
 
 const initialData = [

@@ -1,10 +1,17 @@
 import React, { useState } from "react";
 
 const times = ["1h", "1d", "1w", "1m", "3m", "1y", "All Time"];
-const TimeGroupButton = () => {
+interface Props {
+  isRelative?: boolean;
+}
+const TimeGroupButton = ({ isRelative }: Props) => {
   const [currentTime, setCurrentTime] = useState("1w");
   return (
-    <div className="flex flex-col right-0 top-2 mx-auto 2xl:absolute">
+    <div
+      className={`flex flex-col right-0 top-2 ${
+        !isRelative && "2xl:absolute mx-auto"
+      }`}
+    >
       {/* all button  */}
       <ul className="flex items-center component-color rounded-xl text-sm w-full">
         {times.map((item) => {

@@ -8,7 +8,7 @@ const Farm_Dashboard = () => {
       <div className=" col-span-12 xl:col-span-3 relative">
         <Farm_Dash_Leftside />{" "}
       </div>
-      <div className=" col-span-12 xl:col-span-9 ">
+      <div className=" col-span-12 xl:col-span-9 h-full ">
         <Farm_Dash_Rightside />
       </div>
     </div>

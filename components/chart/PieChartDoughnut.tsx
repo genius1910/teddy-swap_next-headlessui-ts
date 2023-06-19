@@ -2,8 +2,6 @@ import React from "react";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 
-ChartJS.register(ArcElement, Tooltip, Legend);
-
 const data = {
   labels: ["ADA/TEDY", "cUSD/TEDY", "ADA/cBTC", "ADA/USD"],
   datasets: [
@@ -40,17 +38,6 @@ export function PieChartDoughnut() {
         },
       },
     },
-  };
-
-  const centerTextStyles = {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    textAlign: "center",
-    color: "black",
-    fontWeight: "bold",
-    fontSize: "16px",
   };
 
   return (
