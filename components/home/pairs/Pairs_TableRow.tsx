@@ -17,7 +17,7 @@ const Pairs_TableRow = ({ item }: Props) => {
           }
           className={`${
             showDetails && "border-b-0 bg-black/10 mb-20"
-          } cursor-pointer`}
+          } cursor-pointer my-auto`}
         >
           <td className={`px-10 pl-4 py-4`}>
             <span className="flex items-center gap-1">
@@ -38,8 +38,9 @@ const Pairs_TableRow = ({ item }: Props) => {
               <MdCheckCircle className="w-3 h-3" />
             </span>
           </td>
-          <td className="px-10 py-4 flex flex-col gap-1 text-base">
+          <td className="px-10 py-4  gap-1 text-base">
             <span>2.000341 ₳</span>
+            <br />
             <span className=" text-xs">0.871$</span>
           </td>
           <td className="px-10 py-4  gap-1 text-base">
