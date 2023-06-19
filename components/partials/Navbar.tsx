@@ -150,10 +150,10 @@ const Navbar = () => {
               toggler == "USD" ? "-translate-x-1/2" : "translate-x-1/2"
             } rounded-md small-component-color w-6/12 h-full absolute z-0 transition-all duration-500 ease-in-out`}
           ></span>
-          <span className="h-full 2xl:py-2 px-4 2xl:px-6 rounded-md relative z-10">
+          <span className="h-full py-2 px-4 2xl:px-6 rounded-md relative z-10">
             USD
           </span>
-          <span className="h-full 2xl:py-2 px-4 2xl:px-6 rounded-md relative z-10 ">
+          <span className="h-full py-2 px-4 2xl:px-6 rounded-md relative z-10 ">
             ADA
           </span>
         </div>
