@@ -18,7 +18,7 @@ const LiquidityGroupButton = ({
 }: Props) => {
   return (
     <div className="flex justify-center items-center">
-      <ul className=" rounded-full component-color flex items-center">
+      <ul className=" rounded-full component-color flex items-center flex-wrap justify-center">
         {tabs.map((item) => {
           return (
             <li

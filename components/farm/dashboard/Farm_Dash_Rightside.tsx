@@ -6,10 +6,10 @@ import React from "react";
 
 const Farm_Dash_Rightside = () => {
   return (
-    <div className="component-color p-8 rounded-2xl flex flex-col lg:flex-row justify-between gap-8 h-full">
+    <div className="component-color p-2 md:p-8 rounded-2xl flex flex-col lg:flex-row justify-between gap-8 h-full">
       {/* leftside  */}
       <div className="flex flex-col whitespace-nowrap justify-between gap-6 items-center w-full lg:w-1/3">
-        <h1 className=" heading-xl font-medium w-full text-left">
+        <h1 className=" heading-xl font-medium w-full text-left p-4 pb-0 md:p-0">
           Your Harvest
         </h1>
         <div className="h-52">

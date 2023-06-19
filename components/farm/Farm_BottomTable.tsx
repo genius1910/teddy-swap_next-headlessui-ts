@@ -17,7 +17,7 @@ const Farm_BottomTable = ({ setActiveTab, isItDashboard }: Props) => {
     <div>
       {!isItDashboard ? (
         <>
-          <div className="flex justify-between mt-10">
+          <div className="flex flex-wrap justify-between mt-10">
             <div>
               <h1 className="text-lg 2xl:text-2xl font-medium">Farm</h1>
               <p className=" text-base font-medium my-2">
@@ -32,7 +32,7 @@ const Farm_BottomTable = ({ setActiveTab, isItDashboard }: Props) => {
               <h2 className="font-bold text-center">15,904,363.87 TEDY</h2>
             </div>
           </div>
-          <div className="flex justify-between">
+          <div className="flex flex-wrap gap-4 mt-4 justify-between">
             <div className="flex items-center gap-6">
               <div className="flex gap-4 p-2 rounded-md bg-black ">
                 <Image
@@ -50,8 +50,8 @@ const Farm_BottomTable = ({ setActiveTab, isItDashboard }: Props) => {
               </div>
               <Farm_Filterby />
             </div>
-            <div className="flex justify-between">
-              <div className="relative bg-black flex w-10/12 sm:w-auto items-center rounded-lg border border-gray-700">
+            <div className="w-full sm:w-auto">
+              <div className="relative bg-black flex w-auto items-center rounded-lg border border-gray-700">
                 <AiOutlineSearch className=" text-gray-400 w-6 h-6 ml-2 " />
                 <input
                   placeholder="Type token name, ticker, or policy id"

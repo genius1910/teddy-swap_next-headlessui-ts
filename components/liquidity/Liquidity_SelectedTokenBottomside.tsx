@@ -30,13 +30,14 @@ const Liquidity_SelectedTokenBottomside = () => {
           Farm APR: <span className="text-cyan-gradient font-bold">34.56%</span>
         </h4>
       </div>
-      <div className="grid grid-cols-4 border-b border-gray-600 pb-4 text-xl font-medium mt-10">
+      {/* for desktop view */}
+      <div className="hidden md:grid grid-cols-4 border-b border-gray-600 pb-4 text-xl font-medium mt-10">
         <h1>Locked Liquidity</h1>
         <h1>% of Total</h1>
         <h1>Your Liquidity</h1>
         <h1 className="">Farming</h1>
       </div>
-      <div className="grid grid-cols-4 mt-2">
+      <div className="hidden md:grid grid-cols-4 mt-2">
         <div>
           <p>3.23m USDA</p>
           <p>6.12m ADA</p>
@@ -52,6 +53,45 @@ const Liquidity_SelectedTokenBottomside = () => {
         </div>
         <div>
           <p>773,970 LP Tokens</p>
+        </div>
+      </div>
+      {/* for mobile view  */}
+      <div className="flex md:hidden flex-col gap-4">
+        <div>
+          <h1 className="text-lg font-medium border-b border-b-gray-600 py-2">
+            Locked Liquidity
+          </h1>
+          <div className="mt-2">
+            <p>3.23m USDA</p>
+            <p>6.12m ADA</p>
+            <p>77,970,944,334,894 LP Tokens</p>
+          </div>
+        </div>
+        <div>
+          <h1 className="text-lg font-medium border-b border-b-gray-600 py-2">
+            % of Total
+          </h1>
+          <div className="mt-2">
+            <p>13.23%</p>
+          </div>
+        </div>
+        <div>
+          <h1 className="text-lg font-medium border-b border-b-gray-600 py-2">
+            Your Liquidity
+          </h1>
+          <div className="mt-2">
+            <p>1,345 USDA</p>
+            <p>2,130 ADA</p>
+            <p>773,970 LP Tokens</p>
+          </div>
+        </div>
+        <div>
+          <h1 className="text-lg font-medium border-b border-b-gray-600 py-2">
+            Farming
+          </h1>
+          <div className="mt-2">
+            <p>773,970 LP Tokens</p>
+          </div>
         </div>
       </div>
       <Liquidity_BottomStats />
