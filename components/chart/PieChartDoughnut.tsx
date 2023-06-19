@@ -37,6 +37,9 @@ export function PieChartDoughnut() {
           },
         },
       },
+      datalabels: {
+        display: false,
+      },
     },
   };
 

@@ -12,7 +12,7 @@ const Farm_Dash_Rightside = () => {
         <h1 className=" heading-xl font-medium w-full text-left">
           Your Harvest
         </h1>
-        <div className="">
+        <div className="h-52">
           <GaugeChart />
         </div>
         <div className="flex items-center gap-2">
@@ -31,9 +31,9 @@ const Farm_Dash_Rightside = () => {
         <button className="primary-button py-2 px-20">Harvest All</button>
       </div>
       {/* rightside  */}
-      <div className=" h-full w-full lg:w-2/3 space-y-4 relative">
+      <div className=" h-full w-full lg:w-2/3 space-y-4 relative flex flex-col items-end ">
         <TimeGroupButton isRelative={true} />
-        <div className=" rounded-2xl chart-component-color flex flex-col justify-between h-[87%]">
+        <div className=" rounded-2xl w-full chart-component-color flex flex-col justify-between h-[87%]">
           <div className="flex justify-between items-center p-5 px-6">
             <h1 className="text-base">Earnings</h1>
             <div>

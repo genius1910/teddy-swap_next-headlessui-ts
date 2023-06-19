@@ -6,8 +6,8 @@ import ChartDataLabels from "chartjs-plugin-datalabels";
 ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
 ChartJS.defaults.set("plugins.datalabels", {
   color: "white",
+  display: true,
   datalabels: {
-    display: false,
     formatter: function (value: any, context: any) {
       return value + "%";
     },
