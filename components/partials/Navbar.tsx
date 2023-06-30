@@ -61,7 +61,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className="navbar-color relative z-50 py-3 2xl:py-5 px-8 flex items-center gap-4 justify-between">
+    <div className="navbar-color relative z-50 py-3 px-8 flex items-center gap-4 justify-between">
       {/* leftside  */}
 
       {/* mobile menu  */}

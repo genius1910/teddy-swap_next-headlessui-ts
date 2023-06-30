@@ -40,16 +40,28 @@ export const ChartComponent: React.FC<ChartComponentProps> = (props) => {
       layout: {
         background: { type: ColorType.Solid, color: backgroundColor },
         textColor,
+        fontFamily: "Montserrat",
       },
       width: chartContainerRef.current!.clientWidth,
       height: chartContainerRef.current!.clientHeight || 222,
+
+      grid: {
+        vertLines: {
+          color: "transparent",
+        },
+        horzLines: {
+          color: "transparent",
+        },
+      },
     });
+
     chartRef.current.timeScale().fitContent();
 
     const newSeries = chartRef.current.addAreaSeries({
       lineColor,
       topColor: areaTopColor,
       bottomColor: areaBottomColor,
+      priceLineVisible: false,
     });
     newSeries.setData(data);
 
@@ -71,7 +83,17 @@ export const ChartComponent: React.FC<ChartComponentProps> = (props) => {
     areaBottomColor,
   ]);
 
-  return <div ref={chartContainerRef} />;
+  return (
+    <div
+      ref={chartContainerRef}
+      style={{
+        borderBottomLeftRadius: "30px",
+        borderBottomRightRadius: "30px",
+        overflow: "hidden",
+        marginTop: "-26px",
+      }}
+    />
+  );
 };
 
 const initialData = [
