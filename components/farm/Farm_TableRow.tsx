@@ -17,8 +17,8 @@ const Farm_TableRow = ({ item, setActiveTab }: Props) => {
             showDetails ? setShowDetails(false) : setShowDetails(true)
           }
           className={`${
-            showDetails && "border-b-0 bg-black/10 mb-20"
-          } cursor-pointer`}
+            showDetails && "border-b-0 mb-20"
+          } border-b-[#3D505A] border-transparent border-2 cursor-pointer`}
         >
           <td className={`px-10 pl-4 py-4`}>
             <span className="flex items-center gap-1">
@@ -73,7 +73,7 @@ const Farm_TableRow = ({ item, setActiveTab }: Props) => {
           </td>
         </tr>
         {showDetails && (
-          <tr>
+          <tr className="bg-black/10 ">
             <td colSpan={9} className=" border-t-0 bg-black/10 overflow-hidden">
               <span className="flex justify-between">
                 <p className="px-6 py-4  gap-1 text-base">
@@ -92,7 +92,7 @@ const Farm_TableRow = ({ item, setActiveTab }: Props) => {
                     </span>
                   </span>
                   <br />
-                  <span className=" flex items-center gap-2">
+                  <span className=" flex items-center gap-2 -mt-2">
                     <Image
                       src={`/images/assets/token-3.png`}
                       alt="icon1"
@@ -115,7 +115,7 @@ const Farm_TableRow = ({ item, setActiveTab }: Props) => {
                     <span className=" text-white text-sm">12,432</span>
                   </span>
                   <br />
-                  <span>
+                  <span className="-mt-2">
                     <span className=" text-gray-400">Harvested</span>
                     <br />
                     <span className=" text-white text-sm">28.2</span>
