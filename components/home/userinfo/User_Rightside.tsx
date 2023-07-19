@@ -67,7 +67,7 @@ const User_Rightside = () => {
       <div className="hidden 2xl:block">
         <TimeGroupButton />
       </div>
-      <div className="">
+      <div className="w-full">
         {showComponent == "token-view-1" && (
           <SelectTokenView
             setSelectedToken={setSelectedToken}
