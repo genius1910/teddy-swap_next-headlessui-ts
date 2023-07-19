@@ -76,8 +76,8 @@ const History_Table = () => {
         </div>
       </div>
       <div className="mt-6 overflow-x-auto whitespace-nowrap w-full">
-        <table className="w-full text-center">
-          <tbody className=" mid-s-component-color text-base ">
+        <table className="w-full text-center text-sm">
+          <tbody className=" mid-s-component-color text-sm ">
             <tr>
               <th className=" px-4 py-2 font-medium rounded-l-md">Assets</th>
               <th className=" px-4 py-2 font-medium">Action</th>
@@ -114,19 +114,19 @@ const History_Table = () => {
                         </span>
                       </span>
                     </td>
-                    <td className="px-10 py-4 text-base">Swap</td>
-                    <td className="px-10  py-4 text-base">
+                    <td className="px-10 py-4 text-sm 2xl:text-base">Swap</td>
+                    <td className="px-10  py-4 text-sm 2xl:text-base">
                       January 3, 2023
                       <br />
                       11:00 AM
                     </td>
-                    <td className="px-10 py-4  gap-1 text-base">
+                    <td className="px-10 py-4  gap-1 text-sm 2xl:text-base">
                       <span className=" inline-flex items-center gap-1 rounded-md border border-gray-500 pl-2 pr-4 py-1">
                         <BsDot className="w-5 h-5 text-o_green" />
                         <span>Complete</span>
                       </span>
                     </td>
-                    <td className="px-10 py-4  gap-1 text-base">
+                    <td className="px-10 py-4  gap-1 text-sm 2xl:text-base">
                       <Popover>
                         {({ open }) => (
                           <>

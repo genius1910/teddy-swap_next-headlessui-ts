@@ -63,7 +63,7 @@ const User_Rightside = () => {
     },
   ];
   return (
-    <div className="flex flex-row 2xl:flex-col 2xl:items-center gap-6 w-full 2xl:w-auto mt-10 2xl:mt-4">
+    <div className="flex flex-col md:flex-row 2xl:flex-col 2xl:items-center gap-6 w-full 2xl:w-auto mt-10 2xl:mt-4">
       <div className="hidden 2xl:block">
         <TimeGroupButton />
       </div>
