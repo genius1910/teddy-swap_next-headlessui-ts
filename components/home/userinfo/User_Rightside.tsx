@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import TimeGroupButton from "../TimeGroupButton";
 import Image from "next/image";
 import User_RecentTransactions from "./User_RecentTransactions";
+import User_SwapTokens from "./User_SwapTokens";
+import { SelectedTokenProps } from "@/components/trade/QuickSwapPopup";
+import SelectTokenView from "@/components/trade/quickSwap/SelectTokenView";
 
 const User_Rightside = () => {
+  const [selectedToken, setSelectedToken] = useState<SelectedTokenProps>();
+  const [selectedToken2, setSelectedToken2] = useState<SelectedTokenProps>();
+  const [showComponent, setShowComponent] = useState("view-1");
+
   const movers = [
     {
       img: "/images/assets/teddy.png",
@@ -47,18 +54,47 @@ const User_Rightside = () => {
       price: "0.012",
       up_price: "0.012 (+12.34%)",
     },
+    {
+      img: "/images/assets/teddy.png",
+      name: "Tedy",
+      subname: "TeddySwap",
+      price: "0.012",
+      up_price: "0.012 (+54.34%)",
+    },
   ];
   return (
     <div className="flex flex-col items-center w-full 2xl:w-auto mt-10 2xl:mt-4">
       <TimeGroupButton />
+      {showComponent == "token-view-1" && (
+        <SelectTokenView
+          setSelectedToken={setSelectedToken}
+          setShowComponent={setShowComponent}
+        />
+      )}
+      {showComponent == "token-view-2" && (
+        <SelectTokenView
+          setSelectedToken={setSelectedToken2}
+          setShowComponent={setShowComponent}
+        />
+      )}
+      {showComponent == "view-1" ? (
+        <User_SwapTokens
+          setShowComponent={setShowComponent}
+          selectedToken2={selectedToken2}
+          selectedToken={selectedToken}
+        />
+      ) : (
+        ""
+      )}
+
       <div className="list-component-color w-full 2xl:w-96 rounded-2xl mt-9">
         <h2 className="p-6">Your Top Movers</h2>
-        <ul className="flex flex-col">
+        <ul className="flex flex-col gap-0.5">
           {movers.map((item, i) => {
             return (
               <li
                 key={item.name + i}
-                className="flex last:rounded-b-2xl justify-between px-4 py-2 my-1 last:mb-0 component-color"
+                className="flex top-movers last:rounded-b-2xl justify-between px-4 py-2 last:mb-0"
               >
                 <div className="flex gap-2 items-center">
                   <Image
@@ -84,7 +120,7 @@ const User_Rightside = () => {
           })}
         </ul>
       </div>
-      <User_RecentTransactions />
+      {/* <User_RecentTransactions /> */}
     </div>
   );
 };
