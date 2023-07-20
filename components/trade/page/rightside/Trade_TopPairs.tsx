@@ -8,7 +8,7 @@ interface Props {
 
 const Trade_TopPairs = ({ setActiveTabs }: Props) => {
   return (
-    <div className="mt-6 overflow-x-auto whitespace-nowrap component-color rounded-lg px-4 sm:px-8 py-6">
+    <div className=" overflow-x-auto whitespace-nowrap component-color rounded-lg px-4 sm:px-8 py-6">
       <table>
         <tbody className=" text-sm text-left ">
           <tr>
@@ -24,7 +24,7 @@ const Trade_TopPairs = ({ setActiveTabs }: Props) => {
         </tbody>
         {[1, 2, 3, 4, 5].map((item) => {
           return (
-            <tbody key={item} className="w-full text-left">
+            <tbody key={item} className="w-full border-b-0 text-left">
               <tr>
                 <td className="py-4 pr-20">
                   <span className="flex items-center gap-1">
@@ -41,7 +41,7 @@ const Trade_TopPairs = ({ setActiveTabs }: Props) => {
                       height={29}
                       className="-ml-3"
                     />
-                    <h4 className="text-sm">ADA/TEDY</h4>
+                    <h4 className="text-sm font-medium">ADA/TEDY</h4>
                     <MdCheckCircle className="w-3 h-3" />
                   </span>
                 </td>

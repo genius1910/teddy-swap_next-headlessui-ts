@@ -16,13 +16,13 @@ const Trade_Stats = () => {
     },
   ];
   return (
-    <div className="my-6">
+    <div className="my-8">
       <ul className="flex justify-between flex-wrap lg:flex-nowrap gap-6">
         {stats.map((item) => {
           return (
             <li
               key={item.name}
-              className="flex py-4 justify-center gap-2 rounded-xl items-center component-color w-full flex-col  text-center text-xl 2xl:text-2xl text-[#07E73A]"
+              className="flex py-4 justify-center gap-2 rounded-xl items-center component-color w-full flex-col  text-center text-xl 2xl:text-2xl text-white"
             >
               <h1>{item.value}</h1>
               <h5 className="text-xs text-white">{item.name}</h5>

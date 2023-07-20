@@ -5,13 +5,8 @@ import Trade_KeyStats from "./leftside/Trade_KeyStats";
 
 const Trade_Leftside = () => {
   return (
-    <div className="space-y-4">
-      <div className="component-color rounded-2xl">
-        <Trade_Swap />
-      </div>
-      <div className="component-color p-6 rounded-2xl">
-        <Trade_KeyStats />
-      </div>
+    <div className="space-y-8">
+      <Trade_Swap />
     </div>
   );
 };

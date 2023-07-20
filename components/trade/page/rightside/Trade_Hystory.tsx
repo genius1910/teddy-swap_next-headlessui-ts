@@ -2,10 +2,10 @@ import React from "react";
 
 const Trade_Hystory = () => {
   return (
-    <div className="component-color p-6 rounded-2xl">
+    <div className="component-color mt-8 p-6 2xl:p-8 rounded-2xl">
       <h1 className="heading-xl font-medium pb-4">Trading Hystory</h1>
       <div className="mt-6 overflow-x-auto whitespace-nowrap text-left">
-        <table>
+        <table className="">
           <tbody className="">
             <tr className="text-base border-b border-b-gray-400/20">
               <th className=" py-2 font-medium">Created Time</th>
