@@ -1,9 +1,8 @@
 "use client";
-import TimeGroupButton from "@/components/home/TimeGroupButton";
 import { ChartApp } from "@/components/home/dexinfo/TradingChart";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import { AiFillStar, AiOutlineStar } from "react-icons/ai";
+import { AiOutlineStar } from "react-icons/ai";
 import Trade_Stats from "./rightside/Trade_Stats";
 import Trade_Hystory from "./rightside/Trade_Hystory";
 import Trade_TopPairs from "./rightside/Trade_TopPairs";
