@@ -1,4 +1,6 @@
 import { PieChart } from "@/components/chart/PieChart";
+import Progress from "@/components/partials/Progress";
+import ProgressLittle from "@/components/partials/ProgressLittle";
 import Image from "next/image";
 import React from "react";
 
@@ -31,6 +33,8 @@ const Farm_Dash_Leftside = () => {
     },
   ];
 
+  const farms = [12, 89, 37, 74, 55, 73];
+
   return (
     <div className="component-color p-8 rounded-2xl flex flex-col gap-6">
       <h1 className="heading-xl font-medium">Farms</h1>
@@ -48,7 +52,40 @@ const Farm_Dash_Leftside = () => {
           </p>
         </div>
       </div>
-      <div className="mx-auto w-52 h-52">
+      <div className=" space-y-3">
+        {farms.map((item, i) => {
+          return (
+            <div key={i}>
+              <div className="flex justify-between 2xl:text-lg text-base">
+                <div>
+                  <span className="flex items-center gap-1">
+                    <Image
+                      src={`/images/assets/token-1.png`}
+                      alt="icon1"
+                      width={14}
+                      height={14}
+                    />
+                    <Image
+                      src={`/images/assets/teddy.png`}
+                      alt="icon2"
+                      width={14}
+                      height={14}
+                      className="-ml-3"
+                    />
+                    <h4 className="text-xs">ADA/TEDY</h4>
+                  </span>
+                </div>
+                <h5 className=" text-white text-xs">
+                  ₳120,030 <span className="text-xss text-gray-400">TVL</span>
+                </h5>
+              </div>
+              <ProgressLittle percentage={item} />
+            </div>
+          );
+        })}
+      </div>
+
+      {/* <div className="mx-auto w-52 h-52">
         <PieChart />
       </div>
       <div className="flex flex-col gap-1">
@@ -79,7 +116,7 @@ const Farm_Dash_Leftside = () => {
             </div>
           );
         })}
-      </div>
+      </div> */}
     </div>
   );
 };

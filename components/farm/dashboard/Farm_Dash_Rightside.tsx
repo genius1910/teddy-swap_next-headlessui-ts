@@ -28,7 +28,9 @@ const Farm_Dash_Rightside = () => {
           </div>
           <p className="text-[#B7B7B7] text-base mx-1">+8 More</p>
         </div>
-        <button className="primary-button py-2 px-20">Harvest All</button>
+        <button className="primary-button py-3 px-20 rounded-xl">
+          Harvest All
+        </button>
       </div>
       {/* rightside  */}
       <div className=" h-full w-full lg:w-2/3 space-y-4 relative flex flex-col items-end ">

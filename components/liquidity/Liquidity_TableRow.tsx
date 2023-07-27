@@ -16,9 +16,7 @@ const Liquidity_TableRow = ({ item, setActiveTab }: Props) => {
           onClick={() =>
             showDetails ? setShowDetails(false) : setShowDetails(true)
           }
-          className={`${
-            showDetails && "border-b-0 bg-black/10 mb-20"
-          } cursor-pointer`}
+          className={`${showDetails && "border-b-0 mb-20"} cursor-pointer`}
         >
           <td className={`px-10 pl-4 py-4`}>
             <span className="flex items-center gap-1">
