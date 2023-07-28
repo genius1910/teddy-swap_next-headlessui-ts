@@ -81,59 +81,70 @@ const Navbar = () => {
           className="hidden xl:block"
         />
         <ul className="flex items-center gap-8 2xl:gap-14 text-sm 2xl:text-[1.10rem] font-semibold">
-          {navMenuList.map((item, index) => (
-            <li key={index}>
-              {item.link != "/trade" ? (
-                <Link legacyBehavior href={item.link}>
-                  <a
-                    className={`${
-                      item.link === pathname
-                        ? "text-white"
-                        : "text-neutral-400 transition-all hover:text-neutral-100"
-                    }`}
-                  >
-                    {item.name}
-                  </a>
-                </Link>
-              ) : (
-                <div className="flex items-center gap-1 ">
-                  <Link href={item.link} legacyBehavior>
-                    <a className="hover:text-neutral-100 text-neutral-400 transition-all">
+          {navMenuList.map((item, index) => {
+            console.log(item.link == pathname);
+            return (
+              <li key={index}>
+                {item.link != "/trade" ? (
+                  <Link legacyBehavior href={item.link}>
+                    <a
+                      className={`${
+                        item.link == pathname
+                          ? "text-white"
+                          : "text-neutral-400 transition-all hover:text-neutral-100"
+                      }`}
+                    >
                       {item.name}
                     </a>
                   </Link>
-                  {/* quick swap popup  */}
-                  {hydration && (
-                    <Popover>
-                      {({ open }) => (
-                        <>
-                          <Popover.Button className=" rounded-sm group outline-none component-color">
-                            {!open ? (
-                              <AiOutlineArrowDown className="w-5 h-5 outline-none text-neutral-400 group-hover:text-neutral-100 transition-all" />
-                            ) : (
-                              <AiOutlineArrowUp className="w-5 outline-none h-5 text-cyan-400 group-hover:text-cyan-300 transition-all" />
-                            )}
-                          </Popover.Button>
-                          <Transition
-                            enter="transition duration-100 ease-out"
-                            enterFrom="transform scale-95 opacity-0"
-                            enterTo="transform scale-100 opacity-100"
-                            leave="transition duration-75 ease-out"
-                            leaveFrom="transform scale-100 opacity-100"
-                            leaveTo="transform scale-95 opacity-0"
-                          >
-                            <Popover.Panel className="absolute outline-none component-color-2 left-[10.5rem] rounded-2xl z-50 mt-8 -translate-x-1/2 transform w-screen max-w-sm 2xl:max-w-md">
-                              {({ close }) => <QuickSwapPopup close={close} />}
-                            </Popover.Panel>
-                          </Transition>
-                        </>
-                      )}
-                    </Popover>
-                  )}
-                </div>
-              )}
-            </li>
-          ))}
+                ) : (
+                  <div className="flex items-center gap-1 ">
+                    <Link href={item.link} legacyBehavior>
+                      <a
+                        className={`${
+                          item.link == pathname
+                            ? "text-white"
+                            : "text-neutral-400 transition-all hover:text-neutral-100"
+                        }`}
+                      >
+                        {item.name}
+                      </a>
+                    </Link>
+                    {/* quick swap popup  */}
+                    {hydration && (
+                      <Popover>
+                        {({ open }) => (
+                          <>
+                            <Popover.Button className=" rounded-sm group outline-none component-color">
+                              {!open ? (
+                                <AiOutlineArrowDown className="w-5 h-5 outline-none text-neutral-400 group-hover:text-neutral-100 transition-all" />
+                              ) : (
+                                <AiOutlineArrowUp className="w-5 outline-none h-5 text-cyan-400 group-hover:text-cyan-300 transition-all" />
+                              )}
+                            </Popover.Button>
+                            <Transition
+                              enter="transition duration-100 ease-out"
+                              enterFrom="transform scale-95 opacity-0"
+                              enterTo="transform scale-100 opacity-100"
+                              leave="transition duration-75 ease-out"
+                              leaveFrom="transform scale-100 opacity-100"
+                              leaveTo="transform scale-95 opacity-0"
+                            >
+                              <Popover.Panel className="absolute outline-none component-color-2 left-[10.5rem] rounded-2xl z-50 mt-8 -translate-x-1/2 transform w-screen max-w-sm 2xl:max-w-md">
+                                {({ close }) => (
+                                  <QuickSwapPopup close={close} />
+                                )}
+                              </Popover.Panel>
+                            </Transition>
+                          </>
+                        )}
+                      </Popover>
+                    )}
+                  </div>
+                )}
+              </li>
+            );
+          })}
         </ul>
       </div>
       {/* rightside */}
@@ -141,7 +152,7 @@ const Navbar = () => {
         {/* toggle button  */}
         <div
           onClick={() =>
-            toggler === "USD" ? setToggler("ADA") : setToggler("USD")
+            toggler == "USD" ? setToggler("ADA") : setToggler("USD")
           }
           className="component-color relative cursor-pointer flex justify-evenly items-center gap-1 rounded-md h-auto"
         >
