@@ -1,6 +1,6 @@
 import React from "react";
 import { AiOutlineSearch } from "react-icons/ai";
-import { BsChevronDown, BsQuestionCircle } from "react-icons/bs";
+import { BsChevronDown, BsChevronUp, BsQuestionCircle } from "react-icons/bs";
 import Liquidity_TableRow from "../liquidity/Liquidity_TableRow";
 import Farm_TableRow from "./Farm_TableRow";
 import { MdHistory } from "react-icons/md";
@@ -13,9 +13,10 @@ interface Props {
 }
 
 const Farm_BottomTable = ({ setActiveTab, isItDashboard }: Props) => {
+  const [advanceFiltered, setAdvanceFiltered] = React.useState(false);
   return (
     <div>
-      {!isItDashboard ? (
+      {advanceFiltered && (
         <>
           <div className="flex flex-wrap justify-between mt-10">
             <div>
@@ -61,21 +62,30 @@ const Farm_BottomTable = ({ setActiveTab, isItDashboard }: Props) => {
             </div>
           </div>{" "}
         </>
-      ) : (
-        ""
       )}
       <div className="w-full component-color rounded-2xl p-2 sm:p-6 mt-10">
-        {isItDashboard && (
-          <div className="flex justify-between">
-            <div className="relative mid-s-component-color flex w-10/12 sm:w-auto items-center rounded-lg border border-gray-700">
-              <AiOutlineSearch className=" text-gray-400 w-6 h-6 ml-2 " />
-              <input
-                placeholder="Type token name, ticker, or policy id"
-                className=" placeholder:text-gray-400 text-sm w-full sm:w-96 px-2 py-4 bg-transparent outline-none rounded-lg"
-              />
-            </div>
+        <div className="flex justify-between items-center">
+          <div className="relative mid-s-component-color flex w-10/12 sm:w-auto items-center rounded-lg border border-gray-700">
+            <AiOutlineSearch className=" text-gray-400 w-6 h-6 ml-2 " />
+            <input
+              placeholder="Type token name, ticker, or policy id"
+              className=" placeholder:text-gray-400 text-sm w-full sm:w-96 px-2 py-4 bg-transparent outline-none rounded-lg"
+            />
           </div>
-        )}
+          <button
+            onClick={() => setAdvanceFiltered(!advanceFiltered)}
+            className={`flex items-center gap-2 ${
+              advanceFiltered ? "text-white" : "text-gray-400"
+            }`}
+          >
+            <p>Advanced Filter</p>
+            {advanceFiltered ? (
+              <BsChevronUp className="w-4 h-4" />
+            ) : (
+              <BsChevronDown className="w-4 h-4" />
+            )}
+          </button>
+        </div>
         <div className="mt-6 overflow-x-auto whitespace-nowrap overflow-hidden">
           <table className="w-full">
             <tbody>
