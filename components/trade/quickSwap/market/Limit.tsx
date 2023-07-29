@@ -1,9 +1,6 @@
 import React from "react";
-import { BsChevronDown } from "react-icons/bs";
 import { RiExchangeLine } from "react-icons/ri";
 import { CgArrowsExchangeAlt } from "react-icons/cg";
-import AmountAndTokenField from "../AmountAndTokenField";
-import Image from "next/image";
 import AmountAndTokenField_2 from "../AmountAndTokenField_2";
 import { AiOutlineExclamationCircle } from "react-icons/ai";
 

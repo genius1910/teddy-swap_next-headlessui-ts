@@ -1,10 +1,5 @@
 import React, { useState } from "react";
-import { BsChevronDown } from "react-icons/bs";
 import { CgArrowsExchangeAlt } from "react-icons/cg";
-import { RiExchangeLine } from "react-icons/ri";
-import SelectTokenView from "./SelectTokenView";
-import Image from "next/image";
-import AmountAndTokenField from "./AmountAndTokenField";
 import AmountAndTokenField_2 from "./AmountAndTokenField_2";
 import { AiOutlineExclamationCircle } from "react-icons/ai";
 

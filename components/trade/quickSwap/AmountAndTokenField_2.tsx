@@ -47,7 +47,7 @@ const AmountAndTokenField_2 = ({
               onClick={() => setShowComponent(id)}
               className=" text-sm 2xl:text-base font-medium flex items-center gap-2"
             >
-              <span>select token</span>
+              <span>Select Token</span>
               <span className="w-6">
                 <FaAngleDown className="w-3 h-3" />{" "}
               </span>
