@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { CgArrowsExchangeAlt } from "react-icons/cg";
 import Image from "next/image";
 import LiquidityAmountAndTokenField from "../LiquidityAmountAndTokenField";
+import { AiOutlineExclamationCircle } from "react-icons/ai";
 
 interface Props {
   setShowComponent: (value: string) => void;
@@ -36,6 +37,28 @@ const Liquidity_Deposit = ({
               id="token-view-2"
               name="Second Token"
             />
+          </div>
+          <div className="bg-[#1F2635] text-sm text-[#505A63] flex flex-col gap-3 w-full rounded-2xl p-3">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <h4>Our current rate</h4>
+                <AiOutlineExclamationCircle
+                  title="This is our current rate"
+                  className="cursor-pointer w-5 h-5"
+                />
+              </div>
+              <p className="text-xs text-white">$1 = ₳0.7777</p>
+            </div>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <h4>No fees</h4>
+                <AiOutlineExclamationCircle
+                  title="don't need to additional fees "
+                  className="cursor-pointer w-5 h-5"
+                />
+              </div>
+              <p className="text-xs text-white">$0.00</p>
+            </div>
           </div>
           <button
             onClick={() => {
