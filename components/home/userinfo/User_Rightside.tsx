@@ -5,6 +5,9 @@ import User_RecentTransactions from "./User_RecentTransactions";
 import User_SwapTokens from "./User_SwapTokens";
 import { SelectedTokenProps } from "@/components/trade/QuickSwapPopup";
 import SelectTokenView from "@/components/trade/quickSwap/SelectTokenView";
+import ConfirmSwap from "@/components/trade/quickSwap/market/ConfirmSwap";
+import ConfirmOrder from "@/components/trade/quickSwap/limit/ConfirmOrder";
+import TransactionStatus from "@/components/trade/quickSwap/market/TransactionStatus";
 
 const User_Rightside = () => {
   const [selectedToken, setSelectedToken] = useState<SelectedTokenProps>();
@@ -80,14 +83,30 @@ const User_Rightside = () => {
             setShowComponent={setShowComponent}
           />
         )}
-        {showComponent == "view-1" ? (
+        {showComponent == "view-1" && (
           <User_SwapTokens
             setShowComponent={setShowComponent}
             selectedToken2={selectedToken2}
             selectedToken={selectedToken}
           />
-        ) : (
-          "Something wrong, please refresh the page"
+        )}
+        {showComponent == "confirm-swap" && (
+          <ConfirmSwap setShowComponent={setShowComponent} />
+        )}
+        {showComponent == "confirm-order" && (
+          <ConfirmOrder setShowComponent={setShowComponent} />
+        )}
+        {showComponent == "transaction-success" && (
+          <TransactionStatus
+            status={true}
+            setShowComponent={setShowComponent}
+          />
+        )}
+        {showComponent == "transaction-failed" && (
+          <TransactionStatus
+            status={false}
+            setShowComponent={setShowComponent}
+          />
         )}
       </div>
       <div className="w-full flex justify-center items-center flex-col">

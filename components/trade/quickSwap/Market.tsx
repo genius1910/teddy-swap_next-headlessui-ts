@@ -5,6 +5,8 @@ import { RiExchangeLine } from "react-icons/ri";
 import SelectTokenView from "./SelectTokenView";
 import Image from "next/image";
 import AmountAndTokenField from "./AmountAndTokenField";
+import AmountAndTokenField_2 from "./AmountAndTokenField_2";
+import { AiOutlineExclamationCircle } from "react-icons/ai";
 
 interface Props {
   setShowComponent: (value: string) => void;
@@ -23,43 +25,64 @@ interface Props {
 const Market = ({ setShowComponent, selectedToken, selectedToken2 }: Props) => {
   return (
     <React.Fragment>
-      <>
-        <div className="w-full">
-          <h5 className=" text-xs font-medium 2xl:text-sm text-gray-300 mb-1">
-            From
-          </h5>
-          <AmountAndTokenField
-            selectedToken={selectedToken}
-            setShowComponent={setShowComponent}
-            id="token-view-1"
-          />
+      <div className="w-full">
+        <div className="space-y-2">
+          <div className="w-full">
+            <AmountAndTokenField_2
+              selectedToken={selectedToken}
+              setShowComponent={setShowComponent}
+              id="token-view-1"
+              name="Amount"
+            />
+          </div>
+          <div className="w-full">
+            <AmountAndTokenField_2
+              selectedToken={selectedToken2}
+              setShowComponent={setShowComponent}
+              id="token-view-2"
+              name="Converted To"
+            />
+          </div>
+          <div className="bg-[#1F2635] text-sm text-[#505A63] flex flex-col gap-3 w-full rounded-2xl p-3">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <h4>Our current rate</h4>
+                <AiOutlineExclamationCircle
+                  title="This is our current rate"
+                  className="cursor-pointer w-5 h-5"
+                />
+              </div>
+              <p className="text-xs text-white">$1 = ₳0.7777</p>
+            </div>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <h4>No fees</h4>
+                <AiOutlineExclamationCircle
+                  title="don't need to additional fees "
+                  className="cursor-pointer w-5 h-5"
+                />
+              </div>
+              <p className="text-xs text-white">$0.00</p>
+            </div>
+          </div>
+          <button
+            onClick={() => {
+              selectedToken && selectedToken2
+                ? setShowComponent("confirm-swap")
+                : alert("Please select two tokens");
+            }}
+            type="button"
+            className={`${
+              selectedToken && selectedToken2
+                ? "secondary-button"
+                : "primary-button"
+            } rounded-2xl text-sm 2xl:text-xl py-3 2xl:py-4 border-2`}
+          >
+            {selectedToken && selectedToken2 ? "Swap" : "Select Pair"}
+          </button>
         </div>
-        <Image
-          src={`/images/assets/exchange.svg`}
-          width={32}
-          height={32}
-          alt="Exchange image"
-          className=" rotate-90 -mb-6"
-        />
-        <div className="w-full">
-          <h5 className=" text-xs font-medium 2xl:text-sm text-gray-300 mb-1">
-            To (estimated)
-          </h5>
-          <AmountAndTokenField
-            selectedToken={selectedToken2}
-            setShowComponent={setShowComponent}
-            id="token-view-2"
-          />
-        </div>
-        <button
-          onClick={() => setShowComponent("confirm-swap")}
-          type="button"
-          className=" primary-button  text-sm 2xl:text-xl py-3 2xl:py-4 rounded-lg border-2"
-        >
-          {selectedToken && selectedToken2 ? "Swap" : "Select Pair"}
-        </button>
         {selectedToken && selectedToken2 && (
-          <div className="font-medium text-sm 2xl:text-base text-gray-200 w-full">
+          <div className="mt-4 font-medium text-sm 2xl:text-base text-gray-200 w-full">
             <ul className="space-y-3 w-full font-normal px-2">
               <li className=" font-semibold">1 ADA = 0.31 iUSD</li>
               <li className=" flex justify-between w-full items-center">
@@ -100,7 +123,7 @@ const Market = ({ setShowComponent, selectedToken, selectedToken2 }: Props) => {
             </div>
           </div>
         )}
-      </>
+      </div>
     </React.Fragment>
   );
 };

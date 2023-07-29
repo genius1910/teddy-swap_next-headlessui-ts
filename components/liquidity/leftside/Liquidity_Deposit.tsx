@@ -20,40 +20,39 @@ const Liquidity_Deposit = ({
   return (
     <React.Fragment>
       <>
-        <div className="w-full">
-          <h5 className=" text-xs font-medium 2xl:text-sm text-gray-300 mb-1">
-            First Token
-          </h5>
-          <LiquidityAmountAndTokenField
-            selectedToken={selectedToken}
-            setShowComponent={setShowComponent}
-            id="token-view-1"
-          />
+        <div className="space-y-2 w-full">
+          <div className="w-full">
+            <LiquidityAmountAndTokenField
+              selectedToken={selectedToken}
+              setShowComponent={setShowComponent}
+              id="token-view-1"
+              name="First Token"
+            />
+          </div>
+          <div className="w-full">
+            <LiquidityAmountAndTokenField
+              selectedToken={selectedToken2}
+              setShowComponent={setShowComponent}
+              id="token-view-2"
+              name="Second Token"
+            />
+          </div>
+          <button
+            onClick={() => {
+              selectedToken && selectedToken2
+                ? setShowComponent("confirm-liquidity")
+                : alert("Please select two tokens");
+            }}
+            type="button"
+            className={`${
+              selectedToken && selectedToken2
+                ? "secondary-button"
+                : "primary-button"
+            } text-sm 2xl:text-xl py-3 2xl:py-4 rounded-2xl border-2`}
+          >
+            {selectedToken && selectedToken2 ? "Add Liquidity" : "Select Pair"}
+          </button>
         </div>
-        <Image
-          src={`/images/icons/PlusCircle.svg`}
-          width={32}
-          height={32}
-          alt="Exchange image"
-          className=" rotate-90 -mb-6"
-        />
-        <div className="w-full">
-          <h5 className=" text-xs font-medium 2xl:text-sm text-gray-300 mb-1">
-            Second Token
-          </h5>
-          <LiquidityAmountAndTokenField
-            selectedToken={selectedToken2}
-            setShowComponent={setShowComponent}
-            id="token-view-2"
-          />
-        </div>
-        <button
-          onClick={() => setShowComponent("confirm-liquidity")}
-          type="button"
-          className=" primary-button  text-sm 2xl:text-xl py-3 2xl:py-4 rounded-lg border-2"
-        >
-          Add Liquidity
-        </button>
         <div className="font-medium text-sm 2xl:text-base text-gray-200 w-full">
           <ul className="space-y-3 w-full font-normal px-2">
             <li className=" flex justify-between w-full items-center">

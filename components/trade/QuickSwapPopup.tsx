@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { RxCross2 } from "react-icons/rx"
+import { RxCross2 } from "react-icons/rx";
 import { MdEqualizer } from "react-icons/md";
 import Market from "./quickSwap/Market";
 import SelectTokenView from "./quickSwap/SelectTokenView";
@@ -25,7 +25,7 @@ const QuickSwapPopup = ({ close }: { close: () => void }) => {
   return (
     <>
       {showComponent === "view-1" ? (
-        <div className="relative flex flex-col gap-6 items-center p-6">
+        <div className="relative flex flex-col gap-6 items-center px-4 p-6">
           <div className="flex items-center justify-between w-full">
             <div className="flex gap-4">
               <button
@@ -33,8 +33,9 @@ const QuickSwapPopup = ({ close }: { close: () => void }) => {
                 onClick={() => {
                   setIsMarket(true);
                 }}
-                className={`${isMarket ? "text-gray-100" : "text-gray-400"
-                  } text-base 2xl:text-xl font-medium`}
+                className={`${
+                  isMarket ? "text-gray-100" : "text-gray-400"
+                } text-base 2xl:text-xl font-medium`}
               >
                 Market
               </button>
@@ -43,8 +44,9 @@ const QuickSwapPopup = ({ close }: { close: () => void }) => {
                 onClick={() => {
                   setIsMarket(false);
                 }}
-                className={`${!isMarket ? "text-gray-100" : "text-gray-400"
-                  } text-base 2xl:text-xl font-medium`}
+                className={`${
+                  !isMarket ? "text-gray-100" : "text-gray-400"
+                } text-base 2xl:text-xl font-medium`}
               >
                 Limit
               </button>
