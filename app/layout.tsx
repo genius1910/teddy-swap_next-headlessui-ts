@@ -1,7 +1,9 @@
+"use client";
 import Navbar from "@/components/partials/Navbar";
 import "./globals.css";
 import { Montserrat } from "next/font/google";
 import { Metadata } from "next";
+import { usePathname } from "next/navigation";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -18,11 +20,19 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const pathname = usePathname();
+  console.log({ pathname });
   return (
     <html lang="en">
       <body className={montserrat.className}>
         <Navbar />
-        <div className=" max-w-[1420px] mx-auto my-10">{children}</div>
+        <div
+          className={`max-w-[${
+            pathname == "/" ? "1620" : "1420"
+          }px] mx-auto my-10 px-4`}
+        >
+          {children}
+        </div>
       </body>
     </html>
   );
