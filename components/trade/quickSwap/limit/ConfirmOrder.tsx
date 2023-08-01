@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React, { useState } from "react";
-import { RxCross2 } from "react-icons/rx"
+import { RxCross2 } from "react-icons/rx";
 import { BsArrowRight } from "react-icons/bs";
 
 interface Props {
@@ -38,7 +38,7 @@ const ConfirmOrder = ({ setShowComponent }: Props) => {
             1 ADA
           </h1>
         </div>
-        <BsArrowRight className="w-8 h-8 text-[#00DFFF]" />
+        <BsArrowRight className="w-8 h-8 text-[#268aff]" />
         <div className="flex flex-col gap-2 items-center justify-center relative">
           <div className="p-4 rounded-xl button-component-color">
             <Image
@@ -60,7 +60,7 @@ const ConfirmOrder = ({ setShowComponent }: Props) => {
             transaction will revert.
           </p>
           <div className="flex flex-col gap-8 items-center justify-between w-full text-center">
-            <div className="w-24 relative h-24 bg-transparent border-8 border-r-cyan-400 border-transparent rounded-full animate-spin "></div>
+            <div className="w-24 relative h-24 bg-transparent border-8 border-r-[#268aff] border-transparent rounded-full animate-spin "></div>
             <h1>Confirming...</h1>
           </div>
         </>

@@ -10,15 +10,21 @@ interface Props {
   setShowComponent: (value: string) => void;
   status: boolean;
   isLiquidity?: boolean;
+  isNotPadding?: boolean;
 }
 
 const TransactionStatus = ({
   setShowComponent,
   status,
   isLiquidity,
+  isNotPadding,
 }: Props) => {
   return (
-    <div className="relative font-medium flex flex-col gap-6 items-center p-6">
+    <div
+      className={`relative font-medium flex flex-col gap-6 items-center ${
+        isNotPadding ? "" : "p-6"
+      }`}
+    >
       <div className="text-white flex items-center justify-between w-full">
         <h1 className=" 2xl:text-xl text-base">
           {status ? "Transaction Successful" : "Transaction Failed"}
@@ -65,7 +71,7 @@ const TransactionStatus = ({
             height={30}
           />
         ) : (
-          <BsArrowRight className="w-8 h-8 text-[#00DFFF]" />
+          <BsArrowRight className="w-8 h-8 text-[#268aff]" />
         )}
 
         <div className="flex flex-col gap-2 items-center justify-center relative">

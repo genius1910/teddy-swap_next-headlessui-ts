@@ -22,7 +22,7 @@ import { useRouter } from "next/navigation";
 const navMenuList = [
   {
     name: "Dashboard",
-    link: "/",
+    link: "/dashboard",
   },
   {
     name: "Trade",
@@ -73,16 +73,17 @@ const Navbar = () => {
       />
       {/* desktop menu  */}
       <div className="hidden xl:flex items-center gap-10 2xl:gap-20">
-        <Image
-          src="/images/logo/primary.png"
-          alt="logo"
-          width={143}
-          height={26}
-          className="hidden xl:block"
-        />
+        <Link legacyBehavior href="/">
+          <Image
+            src="/images/logo/primary.png"
+            alt="logo"
+            width={143}
+            height={26}
+            className="hidden xl:block"
+          />
+        </Link>
         <ul className="flex items-center gap-8 2xl:gap-14 text-sm 2xl:text-[1.10rem] font-semibold">
           {navMenuList.map((item, index) => {
-            console.log(item.link == pathname);
             return (
               <li key={index}>
                 {item.link != "/trade" ? (
@@ -117,9 +118,9 @@ const Navbar = () => {
                           <>
                             <Popover.Button className=" rounded-sm group outline-none component-color">
                               {!open ? (
-                                <AiOutlineArrowDown className="w-5 h-5 outline-none text-neutral-400 group-hover:text-neutral-100 transition-all" />
+                                <AiOutlineArrowDown className="w-4 h-4 outline-none text-neutral-400 group-hover:text-neutral-100 transition-all" />
                               ) : (
-                                <AiOutlineArrowUp className="w-5 outline-none h-5 text-cyan-400 group-hover:text-cyan-300 transition-all" />
+                                <AiOutlineArrowUp className="w-4 outline-none h-4 text-cyan-400 group-hover:text-cyan-300 transition-all" />
                               )}
                             </Popover.Button>
                             <Transition

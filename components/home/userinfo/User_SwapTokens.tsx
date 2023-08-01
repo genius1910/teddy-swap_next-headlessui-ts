@@ -22,7 +22,7 @@ const User_SwapTokens = ({
   selectedToken2,
 }: Props) => {
   return (
-    <div className="component-color w-full p-4 rounded-2xl flex flex-col gap-2">
+    <div className=" w-full flex flex-col gap-2">
       <AmountAndTokenField_2
         selectedToken={selectedToken}
         setShowComponent={setShowComponent}

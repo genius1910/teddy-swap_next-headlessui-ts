@@ -68,7 +68,7 @@ const Liquidity_Confirm = ({ setShowComponent, isAdd }: Props) => {
             in your wallet.
           </p>
           <div className="flex flex-col gap-8 items-center justify-between w-full text-center">
-            <div className="w-24 relative h-24 bg-transparent border-8 border-r-cyan-400 border-transparent rounded-full animate-spin "></div>
+            <div className="w-24 relative h-24 bg-transparent border-8 border-r-[#268aff] border-transparent rounded-full animate-spin "></div>
             <h1>Confirming...</h1>
           </div>
         </>

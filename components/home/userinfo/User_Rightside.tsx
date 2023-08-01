@@ -70,7 +70,7 @@ const User_Rightside = () => {
       <div className="hidden 2xl:block">
         <TimeGroupButton />
       </div>
-      <div className="w-full">
+      <div className="w-full component-color p-4 rounded-2xl">
         {showComponent == "token-view-1" && (
           <SelectTokenView
             setSelectedToken={setSelectedToken}
@@ -91,19 +91,24 @@ const User_Rightside = () => {
           />
         )}
         {showComponent == "confirm-swap" && (
-          <ConfirmSwap setShowComponent={setShowComponent} />
+          <ConfirmSwap
+            isNotPadding={true}
+            setShowComponent={setShowComponent}
+          />
         )}
         {showComponent == "confirm-order" && (
           <ConfirmOrder setShowComponent={setShowComponent} />
         )}
         {showComponent == "transaction-success" && (
           <TransactionStatus
+            isNotPadding={true}
             status={true}
             setShowComponent={setShowComponent}
           />
         )}
         {showComponent == "transaction-failed" && (
           <TransactionStatus
+            isNotPadding={true}
             status={false}
             setShowComponent={setShowComponent}
           />

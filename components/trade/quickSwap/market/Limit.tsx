@@ -19,7 +19,6 @@ interface Props {
 }
 
 const Limit = ({ setShowComponent, selectedToken3, selectedToken4 }: Props) => {
-  console.log(selectedToken3, selectedToken4, selectedToken3 && selectedToken4);
   return (
     <React.Fragment>
       <div className="space-y-2 w-full">
