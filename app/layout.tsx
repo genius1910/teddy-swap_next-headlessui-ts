@@ -27,9 +27,10 @@ export default function RootLayout({
       <body className={montserrat.className}>
         <Navbar />
         <div
-          className={`max-w-[${
-            pathname == "/" ? "1620" : "1420"
-          }px] mx-auto my-10 px-4`}
+          style={{
+            maxWidth: `${pathname == "/" ? "1620" : "1420"}px`,
+          }}
+          className={`mx-auto my-10 px-4`}
         >
           {children}
         </div>

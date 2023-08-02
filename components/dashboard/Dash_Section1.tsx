@@ -5,25 +5,24 @@ import { BsDiscord, BsTelegram, BsTwitter } from "react-icons/bs";
 const Dash_Section1 = () => {
   return (
     <section>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-14 text-lg 2xl:text-2xl  py-16 md:py-28 2xl:py-36">
-        <div className=" col-span-1 lg:col-span-2 flex flex-col gap-6">
-          <h1 className="text-5xl 2xl:text-7xl font-medium">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-14 text-lg 2xl:text-2xl items-center py-16 md:py-28 2xl:py-36">
+        <div className=" col-span-1 lg:col-span-2 flex flex-col gap-10">
+          <h1 className="l-heading">
             Decentralized Stablecoin Exchange on Cardano
           </h1>
-          <h4 className=" font-light max-w-2xl tracking-wide">
+          <h4 className="l-subtitle">
             A scalable decentralized exchange and automated liquidity provision
             protocol for stablecoins.
           </h4>
-          <button className="primary-button px-12 py-4 w-fit max-sm:w-full">
-            {"What's New"}
-          </button>
+          <button className="l-button mt-2">{"What's New"}</button>
         </div>
-        <div className="col-span-1">
+        <div className="col-span-1 relative">
           <Image
             src="/images/assets/swap-tokens-modal.svg"
             alt="Swap tokens"
             width={520}
             height={520}
+            className="drop-shadow-2xl"
           />
         </div>
       </div>

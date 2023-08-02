@@ -79,7 +79,7 @@ const Navbar = () => {
             alt="logo"
             width={143}
             height={26}
-            className="hidden xl:block"
+            className="hidden xl:block cursor-pointer"
           />
         </Link>
         <ul className="flex items-center gap-8 2xl:gap-14 text-sm 2xl:text-[1.10rem] font-semibold">
