@@ -6,6 +6,8 @@ import Dash_Section5 from "@/components/dashboard/Dash_Section5";
 import Dash_Section6 from "@/components/dashboard/Dash_Section6";
 import Dash_Section7 from "@/components/dashboard/Dash_Section7";
 import Dash_Section8 from "@/components/dashboard/Dash_Section8";
+import Dash_Section9 from "@/components/dashboard/Dash_Section9";
+import Footer from "@/components/partials/Footer";
 import React from "react";
 
 const LandingPage = () => {
@@ -19,6 +21,8 @@ const LandingPage = () => {
       <Dash_Section6 />
       <Dash_Section7 />
       <Dash_Section8 />
+      <Dash_Section9 />
+      <Footer />
     </main>
   );
 };

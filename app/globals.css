@@ -142,36 +142,35 @@ secoundary button  */
   }
   .l-subtitle2 {
     color: #e2e2e2;
-    font-size: 22.857px;
     font-style: normal;
     font-weight: 400;
-    line-height: 33.016px;
+    @apply lg:text-[1.35rem] leading-7 lg:leading-9 text-base;
   }
   .l-button {
-    @apply primary-button border-2 rounded-2xl px-12 py-4 w-fit max-sm:w-full;
+    @apply primary-button border-2 rounded-2xl px-12 text-sm lg:text-base py-4 w-fit max-sm:w-full;
   }
   .l-xl-heading {
-    @apply text-[2.50rem] lg:text-[3.5rem] 2xl:text-[4.8rem] max-w-5xl font-semibold text-[#D6D4C6];
+    @apply text-[2rem] lg:text-[3.5rem] 2xl:text-[4.8rem] max-w-5xl font-semibold text-[#D6D4C6];
   }
   /* s meaning small  */
   .l-s-heading {
     color: #3dffdc;
     font-family: Montserrat;
-    font-size: 23px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
     letter-spacing: 1.5px;
+    @apply lg:text-2xl text-sm;
   }
   .l-section-heading {
     color: #ade1ff;
     text-align: center;
     font-family: Montserrat;
-    font-size: 23px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
     letter-spacing: 1.5px;
+    @apply lg:text-2xl text-lg;
   }
   .tokenomics-bg {
     background: var(

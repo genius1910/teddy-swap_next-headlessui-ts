@@ -1,5 +1,7 @@
 import React from "react";
 import { Doughnut } from "react-chartjs-2";
+import { Chart, ArcElement } from "chart.js";
+Chart.register(ArcElement);
 
 const data = {
   labels: ["ADA/TEDY", "cUSD/TEDY", "ADA/cBTC", "ADA/USD"],
@@ -43,7 +45,7 @@ export function PieChartTokenOmics() {
   };
 
   return (
-    <div className="relative drop-shadow-2xl blur-shadow rounded-full">
+    <div className="relative drop-shadow-2xl w-full h-full">
       <Doughnut data={data} options={options} />
       <div className="absolute pointer-events-none inset-0 m-auto flex flex-col justify-center items-center w-full h-full text-sm">
         <h1 className="text-5xl text-[#3DFFDC] lg:text-8xl font-bold">85%</h1>

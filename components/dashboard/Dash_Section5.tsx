@@ -3,9 +3,9 @@ import React from "react";
 
 const Dash_Section5 = () => {
   return (
-    <section>
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-14 lg:gap-28 text-lg 2xl:text-2xl items-center py-24 md:py-36 2xl:py-44">
-        <div className="col-span-1 lg:col-span-2 relative">
+    <section id="dash-section-5">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-14 lg:gap-28 text-lg 2xl:text-2xl items-center py-32 md:py-44 2xl:py-60 ">
+        <div className="col-span-1 lg:col-span-2 relative hidden lg:block">
           <Image
             src="/images/assets/l-sec5.svg"
             alt="Liquidity Farm image"
@@ -32,6 +32,15 @@ const Dash_Section5 = () => {
               height={40}
             />
           </button>
+        </div>
+        <div className="col-span-1 lg:col-span-2 relative lg:hidden">
+          <Image
+            src="/images/assets/l-sec5.svg"
+            alt="Liquidity Farm image"
+            width={520}
+            height={520}
+            className="w-full drop-shadow-2xl"
+          />
         </div>
       </div>
     </section>
