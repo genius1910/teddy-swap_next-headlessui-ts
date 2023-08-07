@@ -5,7 +5,9 @@ import "./globals.css";
 import { Montserrat } from "next/font/google";
 // import { Metadata } from "next";
 import { usePathname } from "next/navigation";
-
+import { useWindowSize } from "@/hook/useWindowSize";
+import { calculateZoom } from "@/utils/calculateZoom";
+import Head from "next/head";
 const montserrat = Montserrat({ subsets: ["latin"] });
 
 // export const metadata: Metadata = {
@@ -23,34 +25,28 @@ export default function RootLayout({
 }) {
   const pathname = usePathname();
   const size = useWindowSize();
-  const calculateZoom = (width: number) => {
-    const minWidth = 1920;
-    const maxWidth = 3840;
-    const baseZoom = 100;
-    const zoomRange = 100 - 72;
-    const widthRange = maxWidth - minWidth;
-
-    // Calculate the ratio of current width within the range of minWidth and maxWidth
-    const widthRatio = (width - minWidth) / widthRange;
-
-    // Calculate the new zoom value
-    const newZoom = baseZoom - widthRatio * zoomRange;
-
-    // Return the clamped zoom value between 100 and 72
-    return Math.max(72, Math.min(100, newZoom));
-  };
 
   const zoom = (size?.width && calculateZoom(size.width)) || 100;
 
   return (
     <html lang="en">
+      <Head>
+        <title>Teddyswap</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+          name="description"
+          content="TeddySwap is a decentralized exchange and automated liquidity protocol for stablecoins."
+        />
+        <link rel="icon" href="/images/logo/small-primary.png" />
+      </Head>
       <body className={montserrat.className}>
         <Navbar />
         <div
-          style={{
-            maxWidth: `${pathname == "/" ? "1620" : "1420"}px`,
-          }}
-          className={`mx-auto my-10 px-4`}
+          className={`mx-auto my-10 px-4 ${
+            pathname == "/"
+              ? "lg:max-w-6xl 2xl:max-w-[1620px]"
+              : "max-w-[1420px]"
+          }`}
         >
           {children}
         </div>
@@ -64,30 +60,4 @@ export default function RootLayout({
       </body>
     </html>
   );
-}
-
-function useWindowSize() {
-  const [windowSize, setWindowSize] = React.useState<{
-    width: number | undefined;
-    height: number | undefined;
-  }>({
-    width: undefined,
-    height: undefined,
-  });
-
-  React.useEffect(() => {
-    function handleResize() {
-      setWindowSize({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    }
-
-    window.addEventListener("resize", handleResize);
-
-    handleResize();
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-  return windowSize;
 }

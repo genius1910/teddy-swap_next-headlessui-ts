@@ -11,21 +11,21 @@ const Dash_Section9 = () => {
         <h1 className="l-heading font-semibold">
           Together, we drive financial freedom and opportunity to all
         </h1>
-        <h4 className="l-subtitle max-w-3xl text-base lg:text-2xl ">
+        <h4 className="l-subtitle max-w-3xl text-base 2xl:text-2xl ">
           Join a dedicated community and shapethe future of finance -
           decentralized, non-custodial and effiecient.
         </h4>
         <div className="flex items-center justify-center w-full gap-6">
-          <Link legacyBehavior href={"#"}>
+          <Link legacyBehavior href={"https://twitter.com/TeddySwap"}>
             <BsTwitter className="w-14 h-14 text-white rounded-full border-2 border-[#1c64b7] p-3" />
           </Link>
-          <Link legacyBehavior href={"#"}>
+          <Link legacyBehavior href={"https://t.me/teddyswap"}>
             <FaTelegramPlane className="w-14 h-14 text-white rounded-full border-2 border-[#1c64b7] p-3" />
           </Link>
-          <Link legacyBehavior href={"#"}>
+          <Link legacyBehavior href={"https://discord.gg/GRvcAnqtZG"}>
             <BsDiscord className="w-14 h-14 text-white rounded-full border-2 border-[#1c64b7] p-3" />
           </Link>
-          <Link legacyBehavior href={"#"}>
+          <Link legacyBehavior href={"https://medium.com/@TeddySwapDEX"}>
             <BsMedium className="w-14 h-14 text-white rounded-full border-2 border-[#1c64b7] p-3" />
           </Link>
         </div>

@@ -4,7 +4,7 @@ import React from "react";
 const Dash_Section5 = () => {
   return (
     <section id="dash-section-5">
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-14 lg:gap-28 text-lg 2xl:text-2xl items-center py-32 md:py-44 2xl:py-60 ">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-14 lg:gap-28 text-base 2xl:text-2xl items-center py-32 md:py-44 2xl:py-60 ">
         <div className="col-span-1 lg:col-span-2 relative hidden lg:block">
           <Image
             src="/images/assets/l-sec5.svg"
@@ -14,7 +14,7 @@ const Dash_Section5 = () => {
             className="w-full drop-shadow-2xl"
           />
         </div>
-        <div className=" col-span-1 lg:col-span-2 flex flex-col gap-10 lg:pl-10">
+        <div className=" col-span-1 lg:col-span-2 flex flex-col gap-7 2xl:gap-10 lg:pl-10">
           <h3 className="l-s-heading">A NEW PERSPECTIVE ON DEFI</h3>
           <h1 className="l-heading font-medium">Best in Class Accessibility</h1>
           <h4 className="l-subtitle">

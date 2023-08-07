@@ -4,8 +4,8 @@ import React from "react";
 const Dash_Section2 = () => {
   return (
     <section id="dash-section-2">
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-14 text-lg 2xl:text-2xl items-center py-32 md:py-44 2xl:py-60">
-        <div className=" col-span-1 lg:col-span-2 flex flex-col gap-10">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-14 text-base 2xl:text-2xl items-center py-32 md:py-44 2xl:py-60">
+        <div className=" col-span-1 lg:col-span-2 flex flex-col gap-7 2xl:gap-10">
           <h3 className="l-s-heading">A NEW PARADIGM FOR THE DEX</h3>
           <h1 className="l-heading">
             The {`world’s`} most accessible exchange

@@ -1,7 +1,12 @@
+"use client";
+import { useWindowSize } from "@/hook/useWindowSize";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const Dash_Section8 = () => {
+  const window = useWindowSize();
+
   return (
     <section id="dash-section-8">
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-14 text-lg 2xl:text-2xl items-center py-24 md:py-36 2xl:py-44 mt-16 lg:mt-20 2xl:mt-28">
@@ -14,34 +19,53 @@ const Dash_Section8 = () => {
           </h4>
         </div>
       </div>
-      <ul className=" flex flex-wrap justify-evenly mx-auto gap-16 lg:gap-28 w-full pb-24 md:pb-36 2xl:pb-44">
-        <li className="space-y-16 lg:space-y-28">
-          <Image
-            width={302}
-            height={302}
-            alt="Harmonic labs"
-            src={`/images/assets/harmonic.svg`}
-          />
-          <Image
-            width={372}
-            height={200}
-            alt="Saturn labs"
-            src={`/images/assets/saturnlabs.svg`}
-          />
+      <ul
+        style={{
+          zoom: `${window?.width && window.width < 1601 ? "80%" : "100%"}`,
+        }}
+        className=" flex flex-wrap justify-evenly mx-auto gap-16 lg:gap-28 w-full pb-24 md:pb-36 2xl:pb-44"
+      >
+        <li className="space-y-16 lg:space-y-28 ">
+          <Link legacyBehavior href={`https://www.harmoniclabs.tech/`}>
+            <Image
+              width={302}
+              height={302}
+              alt="Harmonic labs"
+              src={`/images/assets/harmonic.svg`}
+            />
+          </Link>
+          <Link legacyBehavior href={`https://saturnlabs.org/`}>
+            <Image
+              width={372}
+              height={200}
+              alt="Saturn labs"
+              src={`/images/assets/saturnlabs.svg`}
+            />
+          </Link>
         </li>
         <li className="space-y-16 lg:space-y-28">
-          <Image
-            width={252}
-            height={252}
-            alt="Plus Ts labs"
-            src={`/images/assets/plus-ts.svg`}
-          />
-          <Image
-            width={372}
-            height={200}
-            alt="Tspipe.io"
-            src={`/images/assets/tx.svg`}
-          />
+          <Link
+            legacyBehavior
+            href={`https://www.harmoniclabs.tech/plu-ts-docs/index.html`}
+          >
+            <Image
+              width={252}
+              height={252}
+              alt="Plus Ts labs"
+              src={`/images/assets/plus-ts.svg`}
+            />
+          </Link>
+          <Link
+            legacyBehavior
+            href={`https://www.harmoniclabs.tech/plu-ts-docs/index.html`}
+          >
+            <Image
+              width={372}
+              height={200}
+              alt="Tspipe.io"
+              src={`/images/assets/tx.svg`}
+            />
+          </Link>
         </li>
       </ul>
     </section>

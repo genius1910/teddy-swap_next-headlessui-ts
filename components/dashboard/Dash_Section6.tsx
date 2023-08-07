@@ -4,7 +4,7 @@ import React from "react";
 const Dash_Section6 = () => {
   return (
     <section id="dash-section-6">
-      <div className="flex flex-col justify-center items-center text-center gap-10 mt-10">
+      <div className="flex flex-col justify-center items-center text-center gap-6 2xl:gap-10 mt-10">
         <h3 className="l-section-heading">SECURITY</h3>
         <h1 className="l-xl-heading">Making DeFi Secure for everyone</h1>
       </div>
