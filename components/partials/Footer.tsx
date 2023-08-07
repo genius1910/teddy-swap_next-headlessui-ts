@@ -48,7 +48,7 @@ const Footer = () => {
         </li>
         <li className="space-y-4 max-w-[17rem]">
           <div className="flex items-center gap-4">
-            <Link href={"#"} legacyBehavior>
+            <Link href={"https://twitter.com/TeddySwap"} legacyBehavior>
               <Image
                 src="/images/icons/solid/twitter.svg"
                 alt="Twitter"
@@ -56,7 +56,7 @@ const Footer = () => {
                 height={40}
               />
             </Link>
-            <Link href={"#"} legacyBehavior>
+            <Link href={"https://t.me/teddyswap"} legacyBehavior>
               <Image
                 src="/images/icons/solid/telegram.svg"
                 alt="Telegram"
@@ -64,7 +64,7 @@ const Footer = () => {
                 height={40}
               />
             </Link>
-            <Link href={"#"} legacyBehavior>
+            <Link href={"https://discord.gg/GRvcAnqtZG"} legacyBehavior>
               <Image
                 src="/images/icons/solid/discord.svg"
                 alt="Discord"
@@ -72,7 +72,7 @@ const Footer = () => {
                 height={40}
               />
             </Link>
-            <Link href={"#"} legacyBehavior>
+            <Link href={"https://medium.com/@TeddySwapDEX"} legacyBehavior>
               <Image
                 src="/images/icons/solid/medium.svg"
                 alt="Medium"
