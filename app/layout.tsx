@@ -23,7 +23,6 @@ export default function RootLayout({
 }) {
   const pathname = usePathname();
   const size = useWindowSize();
-  console.log(size?.width);
   const calculateZoom = (width: number) => {
     const minWidth = 1920;
     const maxWidth = 3840;
@@ -43,7 +42,6 @@ export default function RootLayout({
 
   const zoom = (size?.width && calculateZoom(size.width)) || 100;
 
-  //0 - 1920px the zoom will be 100% then when above 1920px to going 4k resolutin width the zoom automatically will be decreasing to 72%
   return (
     <html lang="en">
       <body className={montserrat.className}>
