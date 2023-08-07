@@ -3,20 +3,10 @@ import React from "react";
 import Navbar from "@/components/partials/Navbar";
 import "./globals.css";
 import { Montserrat } from "next/font/google";
-// import { Metadata } from "next";
 import { usePathname } from "next/navigation";
 import { useWindowSize } from "@/hook/useWindowSize";
 import { calculateZoom } from "@/utils/calculateZoom";
-import Head from "next/head";
 const montserrat = Montserrat({ subsets: ["latin"] });
-
-// export const metadata: Metadata = {
-//   title: "Teddyswap",
-//   description: "Use 100% Brains",
-//   icons: {
-//     icon: "/images/logo/small-primary.png",
-//   },
-// };
 
 export default function RootLayout({
   children,
@@ -30,15 +20,19 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <Head>
+      <head>
         <title>Teddyswap</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta
           name="description"
           content="TeddySwap is a decentralized exchange and automated liquidity protocol for stablecoins."
         />
-        <link rel="icon" href="/images/logo/small-primary.png" />
-      </Head>
+        <link
+          rel="icon"
+          type="image/x-icon"
+          href="/images/logo/small-primary.png"
+        />
+      </head>
       <body className={montserrat.className}>
         <Navbar />
         <div
