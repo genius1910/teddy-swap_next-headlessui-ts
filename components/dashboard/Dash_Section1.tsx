@@ -30,16 +30,24 @@ const Dash_Section1 = () => {
       <div className="flex items-center lg:justify-end w-full gap-6">
         <h5>Join Our Community:</h5>
         <Link legacyBehavior href={"https://twitter.com/TeddySwap"}>
-          <BsTwitter className="w-5 h-5 text-[#ade1ff]" />
+          <a>
+            <BsTwitter className="w-5 h-5 text-[#ade1ff]" />
+          </a>
         </Link>
         <Link legacyBehavior href={"https://t.me/teddyswap"}>
-          <BsTelegram className="w-5 h-5 text-[#ade1ff]" />
+          <a>
+            <BsTelegram className="w-5 h-5 text-[#ade1ff]" />
+          </a>
         </Link>
         <Link legacyBehavior href={"https://discord.gg/GRvcAnqtZG"}>
-          <BsDiscord className="w-5 h-5 text-[#ade1ff]" />
+          <a>
+            <BsDiscord className="w-5 h-5 text-[#ade1ff]" />
+          </a>
         </Link>
         <Link legacyBehavior href={"https://medium.com/@TeddySwapDEX"}>
-          <BsMedium className="w-5 h-5 text-[#ade1ff]" />
+          <a>
+            <BsMedium className="w-5 h-5 text-[#ade1ff]" />
+          </a>
         </Link>
       </div>
     </section>

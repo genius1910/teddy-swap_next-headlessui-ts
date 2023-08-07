@@ -27,20 +27,24 @@ const Dash_Section8 = () => {
       >
         <li className="space-y-16 lg:space-y-28 ">
           <Link legacyBehavior href={`https://www.harmoniclabs.tech/`}>
-            <Image
-              width={302}
-              height={302}
-              alt="Harmonic labs"
-              src={`/images/assets/harmonic.svg`}
-            />
+            <a>
+              <Image
+                width={302}
+                height={302}
+                alt="Harmonic labs"
+                src={`/images/assets/harmonic.svg`}
+              />
+            </a>
           </Link>
           <Link legacyBehavior href={`https://saturnlabs.org/`}>
-            <Image
-              width={372}
-              height={200}
-              alt="Saturn labs"
-              src={`/images/assets/saturnlabs.svg`}
-            />
+            <a>
+              <Image
+                width={372}
+                height={200}
+                alt="Saturn labs"
+                src={`/images/assets/saturnlabs.svg`}
+              />
+            </a>
           </Link>
         </li>
         <li className="space-y-16 lg:space-y-28">
@@ -48,23 +52,27 @@ const Dash_Section8 = () => {
             legacyBehavior
             href={`https://www.harmoniclabs.tech/plu-ts-docs/index.html`}
           >
-            <Image
-              width={252}
-              height={252}
-              alt="Plus Ts labs"
-              src={`/images/assets/plus-ts.svg`}
-            />
+            <a>
+              <Image
+                width={252}
+                height={252}
+                alt="Plus Ts labs"
+                src={`/images/assets/plus-ts.svg`}
+              />
+            </a>
           </Link>
           <Link
             legacyBehavior
             href={`https://www.harmoniclabs.tech/plu-ts-docs/index.html`}
           >
-            <Image
-              width={372}
-              height={200}
-              alt="Tspipe.io"
-              src={`/images/assets/tx.svg`}
-            />
+            <a>
+              <Image
+                width={372}
+                height={200}
+                alt="Tspipe.io"
+                src={`/images/assets/tx.svg`}
+              />
+            </a>
           </Link>
         </li>
       </ul>

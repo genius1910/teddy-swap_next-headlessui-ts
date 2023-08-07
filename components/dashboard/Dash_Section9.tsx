@@ -17,16 +17,24 @@ const Dash_Section9 = () => {
         </h4>
         <div className="flex items-center justify-center w-full gap-6">
           <Link legacyBehavior href={"https://twitter.com/TeddySwap"}>
-            <BsTwitter className="w-14 h-14 text-white rounded-full border-2 border-[#1c64b7] p-3" />
+            <a>
+              <BsTwitter className="w-14 h-14 text-white rounded-full border-2 border-[#1c64b7] p-3" />
+            </a>
           </Link>
           <Link legacyBehavior href={"https://t.me/teddyswap"}>
-            <FaTelegramPlane className="w-14 h-14 text-white rounded-full border-2 border-[#1c64b7] p-3" />
+            <a>
+              <FaTelegramPlane className="w-14 h-14 text-white rounded-full border-2 border-[#1c64b7] p-3" />
+            </a>
           </Link>
           <Link legacyBehavior href={"https://discord.gg/GRvcAnqtZG"}>
-            <BsDiscord className="w-14 h-14 text-white rounded-full border-2 border-[#1c64b7] p-3" />
+            <a>
+              <BsDiscord className="w-14 h-14 text-white rounded-full border-2 border-[#1c64b7] p-3" />
+            </a>
           </Link>
           <Link legacyBehavior href={"https://medium.com/@TeddySwapDEX"}>
-            <BsMedium className="w-14 h-14 text-white rounded-full border-2 border-[#1c64b7] p-3" />
+            <a>
+              <BsMedium className="w-14 h-14 text-white rounded-full border-2 border-[#1c64b7] p-3" />
+            </a>
           </Link>
         </div>
       </div>

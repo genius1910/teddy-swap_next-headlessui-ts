@@ -49,36 +49,44 @@ const Footer = () => {
         <li className="space-y-4 max-w-[17rem]">
           <div className="flex items-center gap-4">
             <Link href={"https://twitter.com/TeddySwap"} legacyBehavior>
-              <Image
-                src="/images/icons/solid/twitter.svg"
-                alt="Twitter"
-                width={40}
-                height={40}
-              />
+              <a>
+                <Image
+                  src="/images/icons/solid/twitter.svg"
+                  alt="Twitter"
+                  width={40}
+                  height={40}
+                />
+              </a>
             </Link>
             <Link href={"https://t.me/teddyswap"} legacyBehavior>
-              <Image
-                src="/images/icons/solid/telegram.svg"
-                alt="Telegram"
-                width={40}
-                height={40}
-              />
+              <a>
+                <Image
+                  src="/images/icons/solid/telegram.svg"
+                  alt="Telegram"
+                  width={40}
+                  height={40}
+                />
+              </a>
             </Link>
             <Link href={"https://discord.gg/GRvcAnqtZG"} legacyBehavior>
-              <Image
-                src="/images/icons/solid/discord.svg"
-                alt="Discord"
-                width={40}
-                height={40}
-              />
+              <a>
+                <Image
+                  src="/images/icons/solid/discord.svg"
+                  alt="Discord"
+                  width={40}
+                  height={40}
+                />
+              </a>
             </Link>
             <Link href={"https://medium.com/@TeddySwapDEX"} legacyBehavior>
-              <Image
-                src="/images/icons/solid/medium.svg"
-                alt="Medium"
-                width={40}
-                height={40}
-              />
+              <a>
+                <Image
+                  src="/images/icons/solid/medium.svg"
+                  alt="Medium"
+                  width={40}
+                  height={40}
+                />
+              </a>
             </Link>
           </div>
           <h2 className="text-[#EAFFFC] font-semibold text-lg">
