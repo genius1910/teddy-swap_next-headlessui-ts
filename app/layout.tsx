@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import Navbar from "@/components/partials/Navbar";
 import "./globals.css";
 import { Montserrat } from "next/font/google";
@@ -21,7 +22,28 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
-  console.log({ pathname });
+  const size = useWindowSize();
+  console.log(size?.width);
+  const calculateZoom = (width: number) => {
+    const minWidth = 1920;
+    const maxWidth = 3840;
+    const baseZoom = 100;
+    const zoomRange = 100 - 72;
+    const widthRange = maxWidth - minWidth;
+
+    // Calculate the ratio of current width within the range of minWidth and maxWidth
+    const widthRatio = (width - minWidth) / widthRange;
+
+    // Calculate the new zoom value
+    const newZoom = baseZoom - widthRatio * zoomRange;
+
+    // Return the clamped zoom value between 100 and 72
+    return Math.max(72, Math.min(100, newZoom));
+  };
+
+  const zoom = (size?.width && calculateZoom(size.width)) || 100;
+
+  //0 - 1920px the zoom will be 100% then when above 1920px to going 4k resolutin width the zoom automatically will be decreasing to 72%
   return (
     <html lang="en">
       <body className={montserrat.className}>
@@ -34,7 +56,40 @@ export default function RootLayout({
         >
           {children}
         </div>
+        <style jsx global>
+          {`
+            body {
+              zoom: ${zoom}%;
+            }
+          `}
+        </style>
       </body>
     </html>
   );
+}
+
+function useWindowSize() {
+  const [windowSize, setWindowSize] = React.useState<{
+    width: number | undefined;
+    height: number | undefined;
+  }>({
+    width: undefined,
+    height: undefined,
+  });
+
+  React.useEffect(() => {
+    function handleResize() {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    }
+
+    window.addEventListener("resize", handleResize);
+
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+  return windowSize;
 }
