@@ -16,7 +16,7 @@ const Dash_Section2 = () => {
               alt="User info"
               width={520}
               height={520}
-              className="w-full drop-shadow-2xl -ml-2"
+              className="w-full drop-shadow-2xl -ml-1"
             />
           </div>
           <h4 className="l-subtitle">
