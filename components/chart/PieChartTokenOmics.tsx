@@ -8,7 +8,7 @@ const data = {
   datasets: [
     {
       label: "Coin database",
-      data: [180030, 86342, 23085, 12018],
+      data: [85, 10, 5, 10],
       backgroundColor: ["#3DFFDC", "#5A3FFF", "#268AFF", "#1ED6FF"],
       borderColor: "transparent",
       borderWidth: 5,
