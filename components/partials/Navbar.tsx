@@ -288,10 +288,10 @@ const Navbar = () => {
           />
         ) : (
           <Image
-            src="/images/logo/small-primary.png"
+            src="/images/logo/primary.png"
             alt="logo"
-            width={40}
-            height={40}
+            width={143}
+            height={143}
             className="xl:hidden"
           />
         )}
