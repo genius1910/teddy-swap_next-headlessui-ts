@@ -8,7 +8,7 @@ const Dash_Section6 = () => {
         <h3 className="l-section-heading">SECURITY</h3>
         <h1 className="l-xl-heading">Making DeFi Secure for everyone</h1>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-14 lg:gap-24 text-lg 2xl:text-2xl items-center py-32 md:py-44 2xl:py-60">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-14 lg:gap-24 text-lg 2xl:text-2xl items-center py-32 max-lg:pt-14 md:py-44 2xl:py-60">
         <div className="max-lg:hidden col-span-1 lg:col-span-2 relative flex items-center justify-center lg:justify-end">
           <Image
             src="/images/assets/global.svg"
