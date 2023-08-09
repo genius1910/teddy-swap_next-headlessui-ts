@@ -14,7 +14,7 @@ const Dash_Section8 = () => {
           <h3 className="l-s-heading text-[#1ED6FF]">POWERED BY CARDANO</h3>
           <h1 className="l-heading font-medium">Built on a solid foundation</h1>
           <h4 className="l-subtitle max-w-5xl">
-            Axo leverages on- and off-chain infrastructure to provide an
+            TeddySwap leverages on- and off-chain infrastructure to provide an
             unparalleled user experience and functionality.
           </h4>
         </div>
