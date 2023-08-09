@@ -6,7 +6,7 @@ import { BsDiscord, BsMedium, BsTelegram, BsTwitter } from "react-icons/bs";
 const Dash_Section1 = () => {
   return (
     <section id="dash-section-1">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-14 text-lg 2xl:text-2xl items-center py-16 md:py-28 2xl:py-36">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-14 text-lg 2xl:text-2xl items-center py-16 max-sm:pb-6 md:py-28 2xl:py-36">
         <div className=" col-span-1 lg:col-span-2 flex flex-col gap-6 2xl:gap-10">
           <h1 className="l-heading">
             Decentralized Stablecoin Exchange on Cardano
@@ -40,9 +40,9 @@ const Dash_Section1 = () => {
           />
         </div>
       </div>
-      <div className="flex max-sm:flex-col whitespace-nowrap items-center justify-center lg:justify-end w-full gap-6">
+      <div className="flex max-sm:flex-col whitespace-nowrap max-sm:items-start justify-end w-full gap-6">
         <h5>Join Our Community:</h5>
-        <div className="flex items-center max-sm:justify-center lg:justify-end w-full gap-6">
+        <div className="flex items-center max-sm:justify-start lg:justify-end gap-6">
           <Link legacyBehavior href={"https://twitter.com/TeddySwap"}>
             <a>
               <BsTwitter className="w-5 h-5 text-[#ade1ff]" />
