@@ -10,6 +10,11 @@ const Dash_Section4 = () => {
             CARDANO TOKENS, AT YOUR FINGERTIPS
           </h3>
           <h1 className="l-heading">Stable Swap for Cardano</h1>
+          <h4 className="l-subtitle">
+            Leverage the power of smart contracts to achieve stable and reliable
+            transactions, anytime, anywhere. Say goodbye to excessive volatility
+            and enjoy seamless trading with minimal slippage.
+          </h4>
           <div className="lg:hidden col-span-1 lg:col-span-2 flex items-center justify-center w-full h-full">
             <Image
               src="/images/assets/quick-swap.svg"
@@ -19,11 +24,6 @@ const Dash_Section4 = () => {
               className=" w-full lg:w-7/12 drop-shadow-2xl"
             />
           </div>
-          <h4 className="l-subtitle">
-            Leverage the power of smart contracts to achieve stable and reliable
-            transactions, anytime, anywhere. Say goodbye to excessive volatility
-            and enjoy seamless trading with minimal slippage.
-          </h4>
           <button className="max-md:hidden mt-2 inline-flex items-center gap-4 font-medium">
             {"Swap now"}
             <Image

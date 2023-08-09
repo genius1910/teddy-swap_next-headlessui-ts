@@ -17,6 +17,12 @@ const Dash_Section5 = () => {
         <div className=" col-span-1 lg:col-span-2 flex flex-col gap-7 2xl:gap-10 lg:pl-10">
           <h3 className="l-s-heading">A NEW PERSPECTIVE ON DEFI</h3>
           <h1 className="l-heading font-medium">Best in Class Accessibility</h1>
+          <h4 className="l-subtitle">
+            Access vital information about your liquidity, farming activity, and
+            more, personalized to your wallet. Get actionable data at your
+            fingertips, empowering you to make informed decisions and optimize
+            your returns.
+          </h4>
           <div className="col-span-1 lg:col-span-2 relative lg:hidden">
             <Image
               src="/images/assets/l-sec5.svg"
@@ -26,12 +32,6 @@ const Dash_Section5 = () => {
               className="w-full drop-shadow-2xl"
             />
           </div>
-          <h4 className="l-subtitle">
-            Access vital information about your liquidity, farming activity, and
-            more, personalized to your wallet. Get actionable data at your
-            fingertips, empowering you to make informed decisions and optimize
-            your returns.
-          </h4>
           <button className="max-md:hidden mt-2 inline-flex items-center gap-4 font-medium">
             {"Launch TeddySwap"}
             <Image

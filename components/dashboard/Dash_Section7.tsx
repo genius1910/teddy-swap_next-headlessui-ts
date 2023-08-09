@@ -13,15 +13,15 @@ const Dash_Section7 = () => {
           <div className=" lg:col-span-2 flex flex-col lg:px-4 2xl:px-10 gap-6 2xl:gap-10">
             <h3 className="l-s-heading">TOKENOMICS</h3>
             <h2 className="l-heading font-semibold">85% Public Distribution</h2>
-            <div className="lg:hidden lg:col-span-2 relative w-full h-full flex items-center justify-center lg:px-16 2xl:px-32 px-4">
-              <PieChartTokenOmics />
-            </div>
             <h4 className="l-subtitle2 font-medium leading-loose">
               TeddySwap tokenomics are engineered for wide-as-possible
               distribution. With over 75% of TEDY tokens available through yield
               farming, and another 10% through giveaways and more, TeddySwap is
               one with the Community.
             </h4>
+            <div className="lg:hidden lg:col-span-2 relative w-full h-full flex items-center justify-center lg:px-16 2xl:px-32 px-4">
+              <PieChartTokenOmics />
+            </div>
           </div>
         </div>
       </div>

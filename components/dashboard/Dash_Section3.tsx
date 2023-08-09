@@ -23,6 +23,12 @@ const Dash_Section3 = () => {
           <h1 className="l-heading font-medium">
             Open-Source Batcher Protocol
           </h1>
+          <h4 className="l-subtitle">
+            TeddySwap combines stable-swap formulas, enhanced security features,
+            and {`Cardano's`} first open source batcher protocol to enhance the
+            AMM Decentralized Exchange experience. A cutting edge user interface
+            ties it all together.
+          </h4>
           <div className="lg:hidden col-span-1 lg:col-span-2 relative">
             <Image
               src="/images/assets/l-sec3.svg"
@@ -32,12 +38,6 @@ const Dash_Section3 = () => {
               className="w-full lg:w-9/12 drop-shadow-2xl"
             />
           </div>
-          <h4 className="l-subtitle">
-            TeddySwap combines stable-swap formulas, enhanced security features,
-            and {`Cardano's`} first open source batcher protocol to enhance the
-            AMM Decentralized Exchange experience. A cutting edge user interface
-            ties it all together.
-          </h4>
           <button className="mt-2 max-md:hidden inline-flex items-center gap-4 font-medium">
             {"How it works"}
             <Image
