@@ -147,7 +147,7 @@ secoundary button  */
     @apply 2xl:text-[1.35rem] leading-7 lg:leading-9 text-base;
   }
   .l-button {
-    @apply primary-button border-2 rounded-2xl px-12 text-sm 2xl:text-base py-3 2xl:py-4 w-fit max-sm:w-full;
+    @apply primary-button border-2 rounded-2xl px-12 text-sm 2xl:text-base py-3 2xl:py-4 w-fit;
   }
   .l-xl-heading {
     @apply text-[2rem] lg:text-[3rem] 2xl:text-[4.8rem] max-w-4xl 2xl:max-w-5xl font-semibold text-[#D6D4C6];

@@ -10,6 +10,15 @@ const Dash_Section2 = () => {
           <h1 className="l-heading">
             The {`world’s`} most accessible exchange
           </h1>
+          <div className="lg:hidden col-span-1 lg:col-span-2">
+            <Image
+              src="/images/assets/l-sec2.svg"
+              alt="User info"
+              width={520}
+              height={520}
+              className="w-full drop-shadow-2xl -ml-2"
+            />
+          </div>
           <h4 className="l-subtitle">
             TeddySwap combines stable-swap formulas, enhanced security features,
             and {`Cardano's`} first open source batcher protocol to enhance the
@@ -26,7 +35,7 @@ const Dash_Section2 = () => {
             />
           </button>
         </div>
-        <div className="col-span-1 lg:col-span-2">
+        <div className="max-lg:hidden col-span-1 lg:col-span-2">
           <Image
             src="/images/assets/l-sec2.svg"
             alt="User info"

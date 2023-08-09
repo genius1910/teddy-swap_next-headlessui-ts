@@ -21,7 +21,11 @@ const Dash_Section8 = () => {
       </div>
       <ul
         style={{
-          zoom: `${window?.width && window.width < 1601 ? "80%" : "100%"}`,
+          zoom: `${
+            window?.width && window.width > 720 && window.width < 1601
+              ? "80%"
+              : "100%"
+          }`,
         }}
         className=" flex flex-wrap justify-evenly mx-auto gap-16 lg:gap-28 w-full pb-24 md:pb-36 2xl:pb-44"
       >

@@ -11,6 +11,15 @@ const Dash_Section1 = () => {
           <h1 className="l-heading">
             Decentralized Stablecoin Exchange on Cardano
           </h1>
+          <div className="lg:hidden col-span-1 relative">
+            <Image
+              src="/images/assets/swap-tokens-modal.svg"
+              alt="Swap tokens"
+              width={520}
+              height={520}
+              className="drop-shadow-2xl"
+            />
+          </div>
           <h4 className="l-subtitle">
             A scalable decentralized exchange and automated liquidity provision
             protocol for stablecoins.
@@ -21,7 +30,7 @@ const Dash_Section1 = () => {
             <button className="l-button mt-2">{"What's New"}</button>
           </Link>
         </div>
-        <div className="col-span-1 relative">
+        <div className="max-lg:hidden col-span-1 relative">
           <Image
             src="/images/assets/swap-tokens-modal.svg"
             alt="Swap tokens"
@@ -31,28 +40,30 @@ const Dash_Section1 = () => {
           />
         </div>
       </div>
-      <div className="flex items-center lg:justify-end w-full gap-6">
+      <div className="flex max-sm:flex-col whitespace-nowrap items-center justify-center lg:justify-end w-full gap-6">
         <h5>Join Our Community:</h5>
-        <Link legacyBehavior href={"https://twitter.com/TeddySwap"}>
-          <a>
-            <BsTwitter className="w-5 h-5 text-[#ade1ff]" />
-          </a>
-        </Link>
-        <Link legacyBehavior href={"https://t.me/teddyswap"}>
-          <a>
-            <BsTelegram className="w-5 h-5 text-[#ade1ff]" />
-          </a>
-        </Link>
-        <Link legacyBehavior href={"https://discord.gg/GRvcAnqtZG"}>
-          <a>
-            <BsDiscord className="w-5 h-5 text-[#ade1ff]" />
-          </a>
-        </Link>
-        <Link legacyBehavior href={"https://medium.com/@TeddySwapDEX"}>
-          <a>
-            <BsMedium className="w-5 h-5 text-[#ade1ff]" />
-          </a>
-        </Link>
+        <div className="flex items-center max-sm:justify-center lg:justify-end w-full gap-6">
+          <Link legacyBehavior href={"https://twitter.com/TeddySwap"}>
+            <a>
+              <BsTwitter className="w-5 h-5 text-[#ade1ff]" />
+            </a>
+          </Link>
+          <Link legacyBehavior href={"https://t.me/teddyswap"}>
+            <a>
+              <BsTelegram className="w-5 h-5 text-[#ade1ff]" />
+            </a>
+          </Link>
+          <Link legacyBehavior href={"https://discord.gg/GRvcAnqtZG"}>
+            <a>
+              <BsDiscord className="w-5 h-5 text-[#ade1ff]" />
+            </a>
+          </Link>
+          <Link legacyBehavior href={"https://medium.com/@TeddySwapDEX"}>
+            <a>
+              <BsMedium className="w-5 h-5 text-[#ade1ff]" />
+            </a>
+          </Link>
+        </div>
       </div>
     </section>
   );

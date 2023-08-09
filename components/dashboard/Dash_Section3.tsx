@@ -9,7 +9,7 @@ const Dash_Section3 = () => {
         <h1 className="l-xl-heading">Making DeFi easy to use for everyone</h1>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-14 text-base 2xl:text-2xl items-center py-32 max-lg:pt-10 md:py-44 2xl:py-60">
-        <div className="col-span-1 lg:col-span-2 relative">
+        <div className="max-lg:hidden col-span-1 lg:col-span-2 relative">
           <Image
             src="/images/assets/l-sec3.svg"
             alt="Batchers info"
@@ -23,6 +23,15 @@ const Dash_Section3 = () => {
           <h1 className="l-heading font-medium">
             Open-Source Batcher Protocol
           </h1>
+          <div className="lg:hidden col-span-1 lg:col-span-2 relative">
+            <Image
+              src="/images/assets/l-sec3.svg"
+              alt="Batchers info"
+              width={520}
+              height={520}
+              className="w-full lg:w-9/12 drop-shadow-2xl"
+            />
+          </div>
           <h4 className="l-subtitle">
             TeddySwap combines stable-swap formulas, enhanced security features,
             and {`Cardano's`} first open source batcher protocol to enhance the
