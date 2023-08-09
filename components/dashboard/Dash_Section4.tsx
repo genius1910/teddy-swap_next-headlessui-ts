@@ -24,7 +24,7 @@ const Dash_Section4 = () => {
             transactions, anytime, anywhere. Say goodbye to excessive volatility
             and enjoy seamless trading with minimal slippage.
           </h4>
-          <button className="mt-2 inline-flex items-center gap-4 font-medium">
+          <button className="max-md:hidden mt-2 inline-flex items-center gap-4 font-medium">
             {"Swap now"}
             <Image
               src={`/images/assets/right-arrow-circle.svg`}

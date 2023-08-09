@@ -25,7 +25,7 @@ const Dash_Section2 = () => {
             AMM Decentralized Exchange experience. A cutting edge user interface
             ties it all together.
           </h4>
-          <button className="mt-2 inline-flex items-center gap-4 font-medium">
+          <button className="mt-2 max-md:hidden inline-flex items-center gap-4 font-medium">
             {"Try demo"}
             <Image
               src={`/images/assets/right-arrow-circle.svg`}

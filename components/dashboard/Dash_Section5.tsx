@@ -32,7 +32,7 @@ const Dash_Section5 = () => {
             fingertips, empowering you to make informed decisions and optimize
             your returns.
           </h4>
-          <button className="mt-2 inline-flex items-center gap-4 font-medium">
+          <button className="max-md:hidden mt-2 inline-flex items-center gap-4 font-medium">
             {"Launch TeddySwap"}
             <Image
               src={`/images/assets/right-arrow-circle.svg`}
