@@ -56,15 +56,6 @@ const Dash_Section1 = () => {
           </Link>
         </div>
       </div>
-      <div className="lg:hidden col-span-1 relative">
-        <Image
-          src="/images/assets/swap-tokens-modal.svg"
-          alt="Swap tokens"
-          width={520}
-          height={520}
-          className="drop-shadow-2xl"
-        />
-      </div>
     </section>
   );
 };
