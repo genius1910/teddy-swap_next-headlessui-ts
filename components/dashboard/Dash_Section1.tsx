@@ -15,7 +15,11 @@ const Dash_Section1 = () => {
             A scalable decentralized exchange and automated liquidity provision
             protocol for stablecoins.
           </h4>
-          <button className="l-button mt-2">{"What's New"}</button>
+          <Link
+            href={`https://twitter.com/TeddySwap/status/1684620004350738432?s=20`}
+          >
+            <button className="l-button mt-2">{"What's New"}</button>
+          </Link>
         </div>
         <div className="col-span-1 relative">
           <Image
