@@ -11,15 +11,6 @@ const Dash_Section1 = () => {
           <h1 className="l-heading">
             Decentralized Stablecoin Exchange on Cardano
           </h1>
-          <div className="lg:hidden col-span-1 relative">
-            <Image
-              src="/images/assets/swap-tokens-modal.svg"
-              alt="Swap tokens"
-              width={520}
-              height={520}
-              className="drop-shadow-2xl"
-            />
-          </div>
           <h4 className="l-subtitle">
             A scalable decentralized exchange and automated liquidity provision
             protocol for stablecoins.
@@ -64,6 +55,15 @@ const Dash_Section1 = () => {
             </a>
           </Link>
         </div>
+      </div>
+      <div className="lg:hidden col-span-1 relative">
+        <Image
+          src="/images/assets/swap-tokens-modal.svg"
+          alt="Swap tokens"
+          width={520}
+          height={520}
+          className="drop-shadow-2xl"
+        />
       </div>
     </section>
   );
