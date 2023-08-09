@@ -64,8 +64,8 @@ const Navbar = () => {
     <header className="navbar-color mx-auto">
       <div
         className={`${
-          pathname != "/" ? "justify-between" : "max-lg:justify-center"
-        } max-w-[1800px] mx-auto relative z-50 py-4 px-8 flex items-center gap-4`}
+          pathname != "/" ? "max-w-[1800px]" : ""
+        } justify-between mx-auto relative z-50 py-4 px-8 flex items-center gap-4`}
       >
         {/* leftside  */}
 
