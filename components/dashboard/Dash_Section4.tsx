@@ -4,12 +4,12 @@ import React from "react";
 const Dash_Section4 = () => {
   return (
     <section id="dash-section-4">
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-14 text-base 2xl:text-2xl items-center py-24 max-2xl:pt-10 md:py-36 2xl:py-44">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-14 text-base 2xl:text-2xl items-center py-24 max-lg:pb-10 max-2xl:pt-10 md:py-36 2xl:py-44">
         <div className=" col-span-1 lg:col-span-2 flex flex-col gap-7 2xl:gap-10">
           <h3 className="l-s-heading text-[#ADE1FF]">
             CARDANO TOKENS, AT YOUR FINGERTIPS
           </h3>
-          <h1 className="l-heading">Stable Swap for Cardano</h1>
+          <h1 className="l-heading font-medium">Stable Swap for Cardano</h1>
           <h4 className="l-subtitle">
             Leverage the power of smart contracts to achieve stable and reliable
             transactions, anytime, anywhere. Say goodbye to excessive volatility
