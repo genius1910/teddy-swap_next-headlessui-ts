@@ -50,7 +50,10 @@ const Dash_Section8 = () => {
           </Link>
         </li>
         <li className="space-y-16 lg:space-y-28">
-          <Link legacyBehavior href={`https://saturnlabs.org/`}>
+          <Link
+            legacyBehavior
+            href={`https://developers.cardano.org/docs/smart-contracts/plu-ts/`}
+          >
             <Image
               width={252}
               height={252}
@@ -59,11 +62,11 @@ const Dash_Section8 = () => {
               className=" cursor-pointer"
             />
           </Link>
-          <Link legacyBehavior href={`https://saturnlabs.org/`}>
+          <Link legacyBehavior href={`https://txpipe.io/`}>
             <Image
               width={372}
               height={200}
-              alt="Tspipe.io"
+              alt="Txpipe.io"
               src={`/images/assets/tx.svg`}
               className=" cursor-pointer"
             />

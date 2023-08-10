@@ -24,10 +24,10 @@ const Dash_Section3 = () => {
             Open-Source Batcher Protocol
           </h1>
           <h4 className="l-subtitle">
-            TeddySwap combines stable-swap formulas, enhanced security features,
-            and {`Cardano's`} first open source batcher protocol to enhance the
-            AMM Decentralized Exchange experience. A cutting edge user interface
-            ties it all together.
+            Streamline your transaction processing and boost scalability like
+            never before. Our cutting-edge solution enables efficient batching
+            of multiple transactions, reducing costs and improving network
+            throughput
           </h4>
           <div className="lg:hidden col-span-1 lg:col-span-2 relative">
             <Image
