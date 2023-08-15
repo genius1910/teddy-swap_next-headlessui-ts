@@ -25,7 +25,7 @@ const LiquidityGroupButton = ({
               onClick={() => setActiveTab(item)}
               className={`${
                 item == activeTab && " text-white flex items-end"
-              } cursor-pointer px-8 2xl:px-14 py-2 text-sm md:text-base 2xl:text-lg text-neutral-400 hover:text-white font-semibold transition-all`}
+              } cursor-pointer px-6 md:px-8 2xl:px-14 py-2 text-xs 2xl:text-base text-neutral-400 hover:text-white font-semibold transition-all`}
               key={item}
             >
               <span>{item}</span>

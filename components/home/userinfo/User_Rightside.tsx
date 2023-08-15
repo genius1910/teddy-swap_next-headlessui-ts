@@ -66,10 +66,10 @@ const User_Rightside = () => {
     },
   ];
   return (
-    <div className="flex flex-col md:flex-row 2xl:flex-col 2xl:items-center gap-6 w-full 2xl:w-auto mt-10 2xl:mt-4">
-      <div className="hidden 2xl:block">
+    <div className="flex flex-col md:flex-row 2xl:flex-col 2xl:items-center gap-6 w-full 2xl:w-auto mt-6">
+      {/* <div className="hidden 2xl:block">
         <TimeGroupButton />
-      </div>
+      </div> */}
       <div className="w-full component-color p-4 rounded-2xl">
         {showComponent == "token-view-1" && (
           <SelectTokenView
@@ -125,7 +125,7 @@ const User_Rightside = () => {
               return (
                 <li
                   key={item.name + i}
-                  className="flex top-movers last:rounded-b-2xl justify-between px-4 py-2 last:mb-0"
+                  className="flex top-mover last:rounded-b-2xl justify-between px-4 py-2 last:mb-0"
                 >
                   <div className="flex gap-2 items-center">
                     <Image
@@ -139,7 +139,7 @@ const User_Rightside = () => {
                       <h1 className="text-sm uppercase font-medium">
                         {item.name}
                       </h1>
-                      <p className="text-[0.7rem] text-xs">{item.subname}</p>
+                      {/* <p className="text-[0.7rem] text-xs">{item.subname}</p> */}
                     </div>
                   </div>
                   <div className="text-right text-sm">

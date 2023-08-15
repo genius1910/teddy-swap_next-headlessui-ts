@@ -6,13 +6,10 @@ import { Montserrat } from "next/font/google";
 import { usePathname } from "next/navigation";
 import { useWindowSize } from "@/hook/useWindowSize";
 import { calculateZoom } from "@/utils/calculateZoom";
+import { observer } from "mobx-react-lite";
 const montserrat = Montserrat({ subsets: ["latin"] });
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+function RootLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const size = useWindowSize();
 
@@ -55,3 +52,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+export default observer(RootLayout);

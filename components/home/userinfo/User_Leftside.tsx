@@ -4,6 +4,7 @@ import { createChart, ColorType } from "lightweight-charts";
 import { ChartApp } from "../dexinfo/TradingChart";
 import { TradingLine } from "../pairs/TradingLine";
 import { PieChartDoughnut } from "@/components/chart/PieChartDoughnut";
+import useAuthenticate from "@/context/mobx/useAuthenticate";
 
 const liquidityAndFarms = [
   {
@@ -93,8 +94,9 @@ const liquidityAndFarms = [
 ];
 
 const User_Leftside = () => {
+  const isWalletConnected = useAuthenticate.isWalletConnected();
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 w-full gap-8 2xl:pr-8 mt-12">
+    <div className="grid grid-cols-1 lg:grid-cols-2 w-full gap-8 2xl:pr-8 mt-6">
       {/* 1st grid  */}
       <div className=" font-medium rounded-3xl chart-component-color h-72">
         <div className="px-6 pt-6">
@@ -102,9 +104,12 @@ const User_Leftside = () => {
             <h1 className="text-base">Portfolio</h1>
             <span className="text-sm text-gray-400"> Wallet assets only</span>
           </div>
-          <h2 className="text-base mt-1 mb-0.5">₳4,435.46</h2>
+          <h2 className="text-base mt-1 mb-0.5">
+            ₳{isWalletConnected ? "4,435.46" : "--"}
+          </h2>
           <p className=" text-[0.7rem] text-[#0FC43B]">
-            +₳544.03 (+2.03%) this week
+            +₳{isWalletConnected ? "544.03" : "--"} (
+            {isWalletConnected ? "+2.03%" : "--"}) this week
           </p>
         </div>
         <ChartApp />
@@ -119,9 +124,12 @@ const User_Leftside = () => {
               Including LP and Farm Positions
             </span>
           </div>{" "}
-          <h2 className="text-base mt-1 mb-0.5">₳4,435.46</h2>
+          <h2 className="text-base mt-1 mb-0.5">
+            ₳{isWalletConnected ? "4,435.46" : "--"}
+          </h2>
           <p className=" text-[0.7rem] text-[#0FC43B]">
-            +₳544.03 (+2.03%) this todays
+            +₳{isWalletConnected ? "544.03" : "--"} (
+            {isWalletConnected ? "+2.03%" : "--"}) this todays
           </p>
         </div>
         <ChartApp />
@@ -138,14 +146,18 @@ const User_Leftside = () => {
               <div className=" space-y-3">
                 <div className="flex gap-10 my-4">
                   <div className="  text-base flex flex-col leading-tight text-cyan-500">
-                    <h2 className="font-semibold">{item.perc1}%</h2>
+                    <h2 className="font-semibold">
+                      {isWalletConnected ? item.perc1 : "--"}%
+                    </h2>
                     <p className=" text-xss text-gray-400">
                       {item.perc1_Subtitle}
                     </p>
                   </div>
                   {item.title == "Your Liquidity" ? (
                     <div className="  text-base flex flex-col leading-tight">
-                      <h2 className="font-semibold">{item.perc2}%</h2>
+                      <h2 className="font-semibold">
+                        {isWalletConnected ? item.perc2 : "--"}%
+                      </h2>
                       <p className=" text-xss text-gray-400">
                         {item.perc2_Subtitle}
                       </p>
@@ -153,7 +165,9 @@ const User_Leftside = () => {
                   ) : (
                     <div className="  text-base flex flex-col leading-tight">
                       <div className="flex gap-1 items-end">
-                        <h2 className="font-semibold">{item.perc2}</h2>
+                        <h2 className="font-semibold">
+                          {isWalletConnected ? item.perc2 : "--"}
+                        </h2>
                         <span className="text-xss text-white">TEDY</span>
                       </div>
                       <p className=" text-xss text-gray-400">
@@ -194,7 +208,7 @@ const User_Leftside = () => {
                         <h4 className="text-sm">{_item.name}</h4>
                       </div>
                       <p className="text-sm whitespace-nowrap text-right font-normal ml-4">
-                        <span>₳{_item.price}</span>{" "}
+                        <span>₳{isWalletConnected ? _item.price : "--"}</span>{" "}
                         <span className=" text-xss">TVL</span>
                       </p>
                     </div>
@@ -206,16 +220,20 @@ const User_Leftside = () => {
                   <div className=" text-gray-400">
                     <p className="text-xss">Earnings this month</p>
                     <h4 className="text-base leading-2 text-white">
-                      ₳13,420.90
+                      ₳{isWalletConnected ? "13,420.90" : "--"}
                     </h4>
-                    <p className="text-xs">$284.90</p>
+                    <p className="text-xs">
+                      ${isWalletConnected ? "284.90" : "--"}
+                    </p>
                   </div>
                   <div className=" text-gray-400">
                     <p className="text-xss">Earnings this month</p>
                     <h4 className="text-base leading-2 text-white">
-                      ₳13,420.90
+                      ₳{isWalletConnected ? "13,420.90" : "--"}
                     </h4>
-                    <p className="text-xs">$284.90</p>
+                    <p className="text-xs">
+                      ${isWalletConnected ? "284.90" : "--"}
+                    </p>
                   </div>
                 </div>
                 <div>

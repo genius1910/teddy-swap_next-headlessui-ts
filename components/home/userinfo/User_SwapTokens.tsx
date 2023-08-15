@@ -1,6 +1,7 @@
 import React from "react";
 import AmountAndTokenField_2 from "@/components/trade/quickSwap/AmountAndTokenField_2";
 import { AiOutlineExclamationCircle } from "react-icons/ai";
+import useAuthenticate from "@/context/mobx/useAuthenticate";
 
 interface Props {
   setShowComponent: (value: string) => void;
@@ -21,6 +22,7 @@ const User_SwapTokens = ({
   selectedToken,
   selectedToken2,
 }: Props) => {
+  const authenticate = useAuthenticate;
   return (
     <div className=" w-full flex flex-col gap-2">
       <AmountAndTokenField_2
@@ -58,11 +60,17 @@ const User_SwapTokens = ({
         </div>
       </div>
       <button
-        onClick={() => setShowComponent("confirm-swap")}
+        onClick={() =>
+          authenticate.walletConnected != null
+            ? setShowComponent("confirm-swap")
+            : document.getElementById("connect-wallet")?.click()
+        }
         type="button"
         className=" secondary-button text-sm 2xl:text-lg py-2 2xl:py-3 rounded-2xl border-2"
       >
-        Swap Tokens
+        {authenticate.walletConnected != null
+          ? "Confirm Swap"
+          : "Connect Wallet"}
       </button>
       <p className="  text-[#505A63] text-[0.65rem] mt-2 flex flex-col text-center mx-auto w-80">
         Above rates and fees are applicable to card transactions only (not

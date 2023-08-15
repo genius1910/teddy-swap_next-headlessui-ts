@@ -1,16 +1,17 @@
+import useAuthenticate from "@/context/mobx/useAuthenticate";
 import Image from "next/image";
 import React, { useState } from "react";
 import { AiOutlineCopy } from "react-icons/ai";
 import { MdLogout } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
+import { observer } from "mobx-react-lite";
+import { BsClipboard } from "react-icons/bs";
 
 interface Props {
   close: () => void;
-  setWallet: (value: { img: string; name: string } | null) => void;
-  wallet: { img: string; name: string } | null;
 }
 
-const ConnectedWallet = ({ close, setWallet, wallet }: Props) => {
+const ConnectedWallet = ({ close }: Props) => {
   const [activeTab, setActiveTab] = useState("Tokens");
   const token = [
     {
@@ -39,16 +40,20 @@ const ConnectedWallet = ({ close, setWallet, wallet }: Props) => {
       price: 0,
     },
   ];
+
+  const authenticate = useAuthenticate;
+  const wallet = authenticate.walletConnected;
+
   return (
-    <div className="relative flex flex-col gap-6 items-center p-6 w-full ">
+    <div className="relative flex flex-col gap-6 items-center p-4 lg:p-6 w-[91vw] ">
       <div className="flex items-center justify-between w-full">
-        <div className="flex items-center gap-4 text-base 2xl:text-xl font-medium">
+        <div className="flex items-center gap-4 text-sm 2xl:text-xl font-medium">
           <Image src={wallet?.img || ""} alt="wallet" width={30} height={30} />
           <h1 className="">{wallet?.name}</h1>
         </div>
         <div className="flex gap-4">
           <button
-            className={` text-gray-300 hover:text-gray-100 text-base 2xl:text-lg`}
+            className={` text-gray-300 hover:text-gray-100 text-sm 2xl:text-lg`}
           >
             <RxCross2
               onClick={() => close()}
@@ -58,10 +63,14 @@ const ConnectedWallet = ({ close, setWallet, wallet }: Props) => {
         </div>
       </div>
       <div className="flex items-center gap-1 small-component-color py-2 px-4 rounded-2xl">
-        <p>addr1qyktedkdpu...av5tsefrbxuhsxkyq0u</p>
-        <AiOutlineCopy className="w-4 h-4" />
+        <p className="hidden lg:block">addr1qyktedkdpu...av5tsefrbxuhsxkyq0u</p>
+        <p className=" lg:hidden">addr1qy...sxkyq0u</p>
+
+        <button>
+          <BsClipboard className="w-4 h-4" />
+        </button>
       </div>
-      <div className="w-full text-base 2xl:text-lg">
+      <div className="w-full text-sm 2xl:text-lg">
         <button
           className={`p-2 text-gray-500 ${
             activeTab == "Tokens" && "border-b border-b-gray-500 text-white"
@@ -109,7 +118,7 @@ const ConnectedWallet = ({ close, setWallet, wallet }: Props) => {
       </ul>
       <button
         onClick={() => {
-          setWallet(null);
+          authenticate.disconnectWallet();
         }}
         className="w-full py-4 rounded-2xl border-gray-400 border flex items-center justify-center gap-2 text-center text-gray-400"
       >
@@ -119,4 +128,4 @@ const ConnectedWallet = ({ close, setWallet, wallet }: Props) => {
   );
 };
 
-export default ConnectedWallet;
+export default observer(ConnectedWallet);

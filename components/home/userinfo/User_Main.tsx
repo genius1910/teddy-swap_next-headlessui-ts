@@ -1,17 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
 import User_Rightside from "./User_Rightside";
 import User_Leftside from "./User_Leftside";
-import User_RecentTransactions from "./User_RecentTransactions";
 import History_Table from "@/components/history/History_Table";
+import LockButton from "@/components/svg/LockButton";
+import TimeGroupButton from "../TimeGroupButton";
+import UnlockButton from "@/components/svg/UnlockButton";
+import useAuthenticate from "@/context/mobx/useAuthenticate";
 
 const User_Main = () => {
+  const [lock, setLock] = useState(false);
+
+  const isWalletConnected = useAuthenticate.isWalletConnected();
+
   return (
     <>
-      <div className="flex px-4 2xl:px-0 justify-between items-start w-full flex-col 2xl:flex-row">
+      <div
+        className={`${
+          isWalletConnected ? "justify-between" : "justify-end"
+        } flex max-sm:justify-center max-sm:items-center gap-6 flex-wrap items-center mt-6 xl:mt-0 2xl:px-0 sm:px-4`}
+      >
+        {isWalletConnected ? (
+          <button
+            onClick={() => (lock ? setLock(false) : setLock(true))}
+            type="button"
+            className="-mb-4 max-sm:mb-0"
+          >
+            {lock ? <UnlockButton /> : <LockButton />}
+          </button>
+        ) : (
+          <span className="sr-only">No lock button</span>
+        )}
+        <div className={`${lock && "blur-sm pointer-events-none select-none"}`}>
+          <TimeGroupButton isRelative={true} />
+        </div>
+      </div>
+      <div
+        className={`${
+          lock && "blur-sm pointer-events-none select-none"
+        } flex px-0 justify-between items-start w-full flex-col 2xl:flex-row`}
+      >
         <User_Leftside />
         <User_Rightside />
       </div>
-      <div className="px-4 2xl:px-0 ">
+      <div
+        className={`${
+          lock && "blur-sm pointer-events-none select-none"
+        } 2xl:px-0`}
+      >
         <History_Table />
       </div>
     </>

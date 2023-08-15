@@ -1,28 +1,32 @@
 "use client";
 
+import { useRouter, useSearchParams } from "next/navigation";
 import React, { useState } from "react";
 
 interface Props {
-  tabs: string[];
-  setTabs: (value: string[]) => void;
-  activeTab: string;
-  setActiveTab: (value: string) => void;
+  tabs: {
+    name: string;
+    params: string;
+  }[];
 }
 
-const HomeGroupButton = ({ tabs, setTabs, activeTab, setActiveTab }: Props) => {
+const HomeGroupButton = ({ tabs }: Props) => {
+  const searchParams = useSearchParams();
+  const tab = searchParams.get("tab");
+  const router = useRouter();
   return (
     <div className="flex justify-center items-center">
       <ul className=" rounded-full component-color flex items-center">
-        {tabs.map((item) => {
+        {tabs.map((item, i) => {
           return (
             <li
-              onClick={() => setActiveTab(item)}
+              onClick={() => router.push(`/dashboard?tab=${item.params}`)}
               className={`${
-                item == activeTab && " text-white"
-              } cursor-pointer px-8 2xl:px-14 py-2 text-sm md:text-base 2xl:text-lg text-neutral-400 hover:text-white font-semibold transition-all`}
-              key={item}
+                (item.params == tab || (i == 0 && !tab)) && " text-white"
+              } cursor-pointer px-6 md:px-8 2xl:px-14 py-2 text-xs 2xl:text-base text-neutral-400 hover:text-white font-semibold transition-all`}
+              key={item.params}
             >
-              {item}
+              {item.name}
             </li>
           );
         })}

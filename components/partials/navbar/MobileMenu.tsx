@@ -15,6 +15,7 @@ import {
 import ConnectedWallet from "./ConnectedWallet";
 import WalletLists from "./WalletList";
 import { HiXMark } from "react-icons/hi2";
+import useAuthenticate from "@/context/mobx/useAuthenticate";
 const navMenuList = [
   {
     name: "Dashboard",
@@ -41,11 +42,11 @@ const navMenuList = [
 interface Props {
   toggler: string;
   setToggler: (value: string) => void;
-  wallet: { img: string; name: string } | null;
-  setWallet: (value: { img: string; name: string } | null) => void;
 }
-const MobileMenu = ({ toggler, setToggler, wallet, setWallet }: Props) => {
+const MobileMenu = ({ toggler, setToggler }: Props) => {
   const pathname = usePathname();
+  const authenticate = useAuthenticate;
+  const wallet = authenticate.walletConnected;
 
   return (
     <Popover className="xl:hidden">
@@ -63,7 +64,7 @@ const MobileMenu = ({ toggler, setToggler, wallet, setWallet }: Props) => {
             leaveFrom="opacity-100 translate-y-0"
             leaveTo="opacity-0 translate-y-1"
           >
-            <Popover.Panel className="fixed inset-0 whitespace-nowrap navbar-color border border-gray-900 rounded-md z-10 w-screen min-h-screen transform p-6">
+            <Popover.Panel className="fixed inset-0 whitespace-nowrap navbar-color border border-gray-900 rounded-md z-10 w-screen min-h-screen transform p-4 md:p-6">
               {({ close }) => {
                 return (
                   <div className="flex flex-col gap-6">
@@ -100,7 +101,10 @@ const MobileMenu = ({ toggler, setToggler, wallet, setWallet }: Props) => {
                         <Popover className="h-auto w-full">
                           {({ open }) => (
                             <>
-                              <Popover.Button className="w-full group outline-none primary-button px-4 py-2 rounded-lg h-full ">
+                              <Popover.Button
+                                id="connect-wallet"
+                                className="w-full group outline-none primary-button px-4 py-2 rounded-lg h-full "
+                              >
                                 Connect Wallet
                               </Popover.Button>
                               <Transition
@@ -112,12 +116,7 @@ const MobileMenu = ({ toggler, setToggler, wallet, setWallet }: Props) => {
                                 leaveTo="transform scale-95 opacity-0"
                               >
                                 <Popover.Panel className="fixed outline-none component-color-2 rounded-2xl z-50 mt-8 right-0 transform w-full -top-5 2xl:max-w-md">
-                                  {({ close }) => (
-                                    <WalletLists
-                                      close={close}
-                                      setWallet={setWallet}
-                                    />
-                                  )}
+                                  {({ close }) => <WalletLists close={close} />}
                                 </Popover.Panel>
                               </Transition>
                             </>
@@ -129,7 +128,7 @@ const MobileMenu = ({ toggler, setToggler, wallet, setWallet }: Props) => {
                           <Popover>
                             {({ open }) => (
                               <>
-                                <Popover.Button className="w-max small-component-color flex items-center gap-2 rounded-md p-1 2xl:p-1.5 ">
+                                <Popover.Button className="w-max small-component-color flex items-center gap-2 rounded-md p-1 2xl:p-1.5">
                                   <Image
                                     src={wallet?.img}
                                     alt="wallet image"
@@ -148,13 +147,9 @@ const MobileMenu = ({ toggler, setToggler, wallet, setWallet }: Props) => {
                                   leaveFrom="transform scale-100 opacity-100"
                                   leaveTo="transform scale-95 opacity-0"
                                 >
-                                  <Popover.Panel className="fixed w-max outline-none component-color-2 rounded-2xl z-50 mt-8 right-0 transform -top-5 2xl:max-w-md">
+                                  <Popover.Panel className="fixed w-max outline-none component-color-2 rounded-2xl z-50 right-0 top-2 mb-8 transform 2xl:max-w-md">
                                     {({ close }) => (
-                                      <ConnectedWallet
-                                        close={close}
-                                        setWallet={setWallet}
-                                        wallet={wallet}
-                                      />
+                                      <ConnectedWallet close={close} />
                                     )}
                                   </Popover.Panel>
                                 </Transition>

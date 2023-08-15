@@ -19,6 +19,9 @@ import WalletList from "./navbar/WalletList";
 import SettingsPopup from "./navbar/SettingsPopup";
 import ConnectedWallet from "./navbar/ConnectedWallet";
 import { useRouter } from "next/navigation";
+import useAuthenticate from "@/context/mobx/useAuthenticate";
+import { observer } from "mobx-react-lite";
+
 const navMenuList = [
   {
     name: "Dashboard",
@@ -41,7 +44,7 @@ const navMenuList = [
     link: "/lbe",
   },
   {
-    name: "Trading Competition",
+    name: "Compete",
     link: "#",
   },
 ];
@@ -49,10 +52,6 @@ const navMenuList = [
 const Navbar = () => {
   const [toggler, setToggler] = useState("USD");
   const [hydration, setHydration] = useState(false);
-  const [wallet, setWallet] = useState<{ img: string; name: string } | null>(
-    null
-  );
-
   const pathname = usePathname();
   const router = useRouter();
 
@@ -60,36 +59,41 @@ const Navbar = () => {
     setHydration(true);
   }, []);
 
+  const authenticate = useAuthenticate;
+  const wallet = authenticate.walletConnected;
+
   return (
     <header className="navbar-color mx-auto">
       <div
         className={`${
-          pathname != "/" ? "max-w-[1800px]" : ""
-        } justify-between mx-auto relative z-50 py-4 px-8 flex items-center gap-4`}
+          pathname != "/" ? "max-w-[1800px] xl:py-2" : ""
+        } justify-between mx-auto relative z-50 py-4 2xl:py-4 px-4 md:px-8 flex items-center gap-4`}
       >
-        {/* leftside  */}
-
         {/* mobile menu  */}
         {pathname != "/" && (
-          <MobileMenu
-            wallet={wallet}
-            setWallet={setWallet}
-            toggler={toggler}
-            setToggler={setToggler}
-          />
+          <MobileMenu toggler={toggler} setToggler={setToggler} />
         )}
         {/* desktop menu  */}
         <div className="hidden xl:flex items-center gap-10 2xl:gap-20">
           <Link legacyBehavior href="/">
-            <Image
-              src="/images/logo/primary.png"
-              alt="logo"
-              width={143}
-              height={26}
-              className="hidden xl:block cursor-pointer"
-            />
+            <a>
+              <Image
+                src="/images/logo/primary.png"
+                alt="logo"
+                width={143}
+                height={26}
+                className="hidden 2xl:block cursor-pointer"
+              />
+              <Image
+                src="/images/logo/primary.png"
+                alt="logo"
+                width={110}
+                height={26}
+                className="hidden xl:block 2xl:hidden cursor-pointer"
+              />
+            </a>
           </Link>
-          <ul className="flex items-center gap-8 2xl:gap-14 text-sm 2xl:text-[1.10rem] font-semibold">
+          <ul className="flex items-center gap-10 2xl:gap-14 text-xs 2xl:text-base font-semibold">
             {pathname != "/" &&
               navMenuList.map((item, index) => {
                 return (
@@ -158,23 +162,23 @@ const Navbar = () => {
         </div>
         {/* rightside */}
         {pathname != "/" && (
-          <div className="hidden xl:flex text-sm 2xl:text-base gap-2 2xl:gap-4 font-medium h-full ">
+          <div className="hidden xl:flex text-xs 2xl:text-base gap-2 2xl:gap-4 font-medium h-full ">
             {/* toggle button  */}
             <div
               onClick={() =>
                 toggler == "USD" ? setToggler("ADA") : setToggler("USD")
               }
-              className="component-color relative cursor-pointer flex justify-evenly items-center gap-1 rounded-md h-auto"
+              className="component-color relative cursor-pointer flex justify-center items-center rounded-md h-auto"
             >
               <span
                 className={`${
                   toggler == "USD" ? "-translate-x-1/2" : "translate-x-1/2"
-                } rounded-md small-component-color w-6/12 h-full absolute z-0 transition-all duration-500 ease-in-out`}
+                } absolute small-component-color w-6/12 h-full z-0 transition-all duration-500 ease-in-out`}
               ></span>
-              <span className="h-full py-2 px-4 2xl:px-6 rounded-md relative z-10">
+              <span className="h-full my-auto py-2 px-4 2xl:px-6 rounded-md relative z-10">
                 USD
               </span>
-              <span className="h-full py-2 px-4 2xl:px-6 rounded-md relative z-10 ">
+              <span className="h-full my-auto py-2 px-4 2xl:px-6 rounded-md relative z-10">
                 ADA
               </span>
             </div>
@@ -184,7 +188,10 @@ const Navbar = () => {
               <Popover className="h-auto">
                 {({ open }) => (
                   <>
-                    <Popover.Button className=" group outline-none primary-button px-4 py-2 rounded-lg h-full ">
+                    <Popover.Button
+                      id="connect-wallet"
+                      className=" group outline-none secondary-button px-4 py-2 rounded-lg h-full "
+                    >
                       Connect Wallet
                     </Popover.Button>
                     <Transition
@@ -196,9 +203,7 @@ const Navbar = () => {
                       leaveTo="transform scale-95 opacity-0"
                     >
                       <Popover.Panel className="absolute outline-none component-color-2 rounded-2xl z-50 mt-8 right-0 transform w-screen max-w-sm 2xl:max-w-md">
-                        {({ close }) => (
-                          <WalletList close={close} setWallet={setWallet} />
-                        )}
+                        {({ close }) => <WalletList close={close} />}
                       </Popover.Panel>
                     </Transition>
                   </>
@@ -214,8 +219,8 @@ const Navbar = () => {
                         <Image
                           src={wallet?.img}
                           alt="wallet image"
-                          width={27}
-                          height={27}
+                          width={24}
+                          height={24}
                         />
                         <span className=" font-normal">addr1...qx6lyz1h</span>
                       </Popover.Button>
@@ -228,13 +233,7 @@ const Navbar = () => {
                         leaveTo="transform scale-95 opacity-0"
                       >
                         <Popover.Panel className="absolute outline-none component-color-2 rounded-2xl z-50 mt-8 right-0 transform w-screen max-w-sm 2xl:max-w-md">
-                          {({ close }) => (
-                            <ConnectedWallet
-                              close={close}
-                              setWallet={setWallet}
-                              wallet={wallet}
-                            />
-                          )}
+                          {({ close }) => <ConnectedWallet close={close} />}
                         </Popover.Panel>
                       </Transition>
                     </>
@@ -248,17 +247,17 @@ const Navbar = () => {
               onClick={() => router.push("/history")}
               className={`${
                 pathname == "/history" && "bg-gray-500"
-              } component-color rounded-md p-2 2xl:p-2 cursor-pointer text-gray-200 hover:text-white transition-all`}
+              } component-color rounded-md p-2 cursor-pointer text-gray-200 hover:text-white transition-all`}
             >
-              <AiOutlineHistory className="w-5 h-5 2xl:w-6 2xl:h-6" />
+              <AiOutlineHistory className="w-4 h-4 2xl:w-6 2xl:h-6" />
             </button>
 
             {/* settings  */}
             <Popover className={` h-auto`}>
               {({ open }) => (
                 <>
-                  <Popover.Button className="h-full group component-color rounded-md p-2 2xl:p-2 cursor-pointer text-gray-200 hover:text-white transition-all ">
-                    <AiOutlineSetting className="w-5 h-5 2xl:w-6 2xl:h-6" />
+                  <Popover.Button className="h-full group component-color rounded-md p-2 cursor-pointer text-gray-200 hover:text-white transition-all ">
+                    <AiOutlineSetting className="w-4 h-4 2xl:w-6 2xl:h-6" />
                   </Popover.Button>
                   <Transition
                     enter="transition duration-100 ease-out"
@@ -278,26 +277,16 @@ const Navbar = () => {
           </div>
         )}
         {/* in mobile version only this logo will apear  */}
-        {pathname != "/" ? (
-          <Image
-            src="/images/logo/primary.png"
-            alt="logo"
-            width={40}
-            height={40}
-            className="xl:hidden"
-          />
-        ) : (
-          <Image
-            src="/images/logo/primary.png"
-            alt="logo"
-            width={143}
-            height={143}
-            className="xl:hidden"
-          />
-        )}
+        <Image
+          src="/images/logo/primary.png"
+          alt="logo"
+          width={143}
+          height={143}
+          className="xl:hidden"
+        />
       </div>
     </header>
   );
 };
 
-export default Navbar;
+export default observer(Navbar);

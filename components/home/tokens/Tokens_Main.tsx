@@ -1,16 +1,16 @@
 import React from "react";
-import TimeGroupButton from "../TimeGroupButton";
-import Pairs_BottomTable from "./Pairs_BottomTable";
+import Tokens_TopChartbar from "./Tokens_TopChartbar";
 import Image from "next/image";
-import { BsPatchCheckFill } from "react-icons/bs";
+import { MdCheckCircle } from "react-icons/md";
+import Tokens_BottomTable from "./Tokens_BottomTable";
 
-const Pairs_Main = () => {
+const Tokens_Main = () => {
   return (
-    <div className="">
-      <div className="flex items-center justify-center mt-6">
-        <TimeGroupButton />
+    <div>
+      <div className="">
+        <Tokens_TopChartbar />
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-6 mt-6">
+      <div className="mt-6 grid grid-cols-1 xl:grid-cols-3 gap-6">
         {["Top Gainers", "Top Volume", "Top Losers"].map((heading) => (
           <div
             key={heading}
@@ -35,21 +35,31 @@ const Pairs_Main = () => {
                       className="-ml-3"
                     />
                     <h4 className="text-base">ADA/TEDY</h4>
-                    <BsPatchCheckFill className="w-3 h-3" />
+                    <MdCheckCircle className="w-3 h-3" />
                   </span>
-                  <span className="text-gray-300">2.000341 ₳</span>
-                  <span className="text-o_green">0.23%</span>
+                  <span className="text-gray-300">
+                    {Math.random().toFixed(4)} ₳
+                  </span>
+                  {heading == "Top Losers" ? (
+                    <span className=" text-o_red">
+                      {(Math.random() * -6).toFixed(4)}
+                      <span className="ml-0.5">%</span>
+                    </span>
+                  ) : (
+                    <span className="text-o_green">
+                      +{(Math.random() * 2).toFixed(4)}
+                      <span className="ml-0.5">%</span>
+                    </span>
+                  )}
                 </li>
               ))}
             </ul>
           </div>
         ))}
-        <div className=" col-span-1 lg:col-span-2 2xl:col-span-3">
-          <Pairs_BottomTable />
-        </div>
       </div>
+      <Tokens_BottomTable />
     </div>
   );
 };
 
-export default Pairs_Main;
+export default Tokens_Main;
