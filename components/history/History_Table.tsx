@@ -145,7 +145,7 @@ const History_Table = () => {
                 <tbody
                   style={{ borderBottom: isWalletConnected ? "2px" : "0px" }}
                   key={i}
-                  className="my-4 relative"
+                  className="my-4 relative px-0"
                 >
                   <tr
                     aria-colspan={5}
