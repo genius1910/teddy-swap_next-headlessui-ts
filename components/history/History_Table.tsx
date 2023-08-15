@@ -147,23 +147,25 @@ const History_Table = () => {
                   key={i}
                   className="my-4 relative px-0"
                 >
-                  <tr
-                    aria-colspan={5}
-                    className=" backdrop-blur-md h-full w-full absolute"
-                  >
-                    {i == 1 && (
-                      <td className="flex items-center justify-center mt-10">
-                        <button
-                          onClick={() =>
-                            document.getElementById("connect-wallet")?.click()
-                          }
-                          className="w-auto secondary-button py-2 px-6"
-                        >
-                          Connect Wallet
-                        </button>
-                      </td>
-                    )}
-                  </tr>
+                  {isWalletConnected && (
+                    <tr
+                      aria-colspan={5}
+                      className=" backdrop-blur-md h-full w-full absolute"
+                    >
+                      {i == 1 && (
+                        <td className="flex items-center justify-center mt-10">
+                          <button
+                            onClick={() =>
+                              document.getElementById("connect-wallet")?.click()
+                            }
+                            className="w-auto secondary-button py-2 px-6"
+                          >
+                            Connect Wallet
+                          </button>
+                        </td>
+                      )}
+                    </tr>
+                  )}
                   <tr>
                     <td className="px-10 pl-4 py-10 whitespace-nowrap">
                       <span className="flex items-center gap-3 justify-center ">
