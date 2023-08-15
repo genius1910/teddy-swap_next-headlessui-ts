@@ -3,7 +3,12 @@ import { Popover, Transition } from "@headlessui/react";
 import Image from "next/image";
 import React, { useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
-import { BsExclamationCircle, BsPlus, BsThreeDots } from "react-icons/bs";
+import {
+  BsDot,
+  BsExclamationCircle,
+  BsPlus,
+  BsThreeDots,
+} from "react-icons/bs";
 import { MdEventRepeat } from "react-icons/md";
 
 const History_Table = () => {
@@ -143,11 +148,11 @@ const History_Table = () => {
             histories.map((item, i) => {
               return (
                 <tbody
-                  style={{ borderBottom: isWalletConnected ? "2px" : "0px" }}
+                  style={{ borderBottom: 0 }}
                   key={i}
-                  className="my-4 relative px-0"
+                  className=" relative px-0 border-gray-600"
                 >
-                  {isWalletConnected && (
+                  {!isWalletConnected && (
                     <tr
                       aria-colspan={5}
                       className=" backdrop-blur-md h-full w-full absolute"
@@ -158,7 +163,7 @@ const History_Table = () => {
                             onClick={() =>
                               document.getElementById("connect-wallet")?.click()
                             }
-                            className="w-auto secondary-button py-2 px-6"
+                            className="w-auto secondary-button py-2 px-6 -mt-3"
                           >
                             Connect Wallet
                           </button>
@@ -167,7 +172,7 @@ const History_Table = () => {
                     </tr>
                   )}
                   <tr>
-                    <td className="px-10 pl-4 py-10 whitespace-nowrap">
+                    <td className="px-10 pl-4 py-4 whitespace-nowrap">
                       <span className="flex items-center gap-3 justify-center ">
                         <span className="gap-1 w-max flex items-center px-2 py-1.5 rounded-lg">
                           <Image
@@ -216,7 +221,10 @@ const History_Table = () => {
                       January 3, 2023 11:00 AM
                     </td>
                     <td className="px-10 py-4 gap-1 text-sm 2xl:text-base">
-                      <span>Complete</span>
+                      <span className="flex items-center">
+                        {" "}
+                        <BsDot className="w-6 h-6 text-green-500" /> Complete
+                      </span>
                     </td>
                     <td className="px-10 py-4  gap-1 text-sm 2xl:text-base">
                       <span className="grid grid-cols-3 gap-2">

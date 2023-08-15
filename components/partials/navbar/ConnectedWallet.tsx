@@ -45,7 +45,7 @@ const ConnectedWallet = ({ close }: Props) => {
   const wallet = authenticate.walletConnected;
 
   return (
-    <div className="relative flex flex-col gap-6 items-center p-4 lg:p-6 w-[91vw] ">
+    <div className="relative flex flex-col gap-6 items-center p-4 lg:p-6 w-full max-sm:w-[91vw] ">
       <div className="flex items-center justify-between w-full">
         <div className="flex items-center gap-4 text-sm 2xl:text-xl font-medium">
           <Image src={wallet?.img || ""} alt="wallet" width={30} height={30} />
