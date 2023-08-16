@@ -22,7 +22,7 @@ const Pairs_BottomTable = () => {
       <div className="mt-6 overflow-x-auto whitespace-nowrap overflow-hidden">
         <table>
           <tbody>
-            <tr className=" mid-s-component-color text-base ">
+            <tr className=" mid-s-component-color medium-text ">
               <th className=" px-4 py-2 font-medium rounded-l-md">
                 Asset Pair
               </th>

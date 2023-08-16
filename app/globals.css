@@ -191,6 +191,15 @@ secoundary button  */
       )
     );
   }
+  .big-text {
+    @apply 2xl:text-xl xl:text-lg text-base;
+  }
+  .medium-text {
+    @apply 2xl:text-lg xl:text-base text-sm;
+  }
+  .small-text {
+    @apply 2xl:text-base xl:text-sm text-xs;
+  }
 }
 
 body {

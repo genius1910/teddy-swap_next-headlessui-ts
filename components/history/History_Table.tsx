@@ -150,7 +150,7 @@ const History_Table = () => {
                 <tbody
                   style={{ borderBottom: 0 }}
                   key={i}
-                  className=" relative px-0 border-gray-600"
+                  className="relative px-0 border-gray-600"
                 >
                   {!isWalletConnected && (
                     <tr

@@ -1,8 +1,8 @@
 import React from "react";
 import Tokens_TopChartbar from "./Tokens_TopChartbar";
 import Image from "next/image";
-import { MdCheckCircle } from "react-icons/md";
 import Tokens_BottomTable from "./Tokens_BottomTable";
+import { BsPatchCheckFill } from "react-icons/bs";
 
 const Tokens_Main = () => {
   return (
@@ -16,10 +16,13 @@ const Tokens_Main = () => {
             key={heading}
             className="col-span-1 rounded-3xl component-color p-4 sm:p-6"
           >
-            <h1 className=" text-base 2xl:text-lg font-medium">{heading}</h1>
+            <h1 className="medium-text font-medium">{heading}</h1>
             <ul className="mt-4 space-y-4">
               {[1, 2, 3, 4].map((num) => (
-                <li key={num} className="flex items-center justify-between">
+                <li
+                  key={num}
+                  className="flex small-text items-center justify-between"
+                >
                   <span className="flex items-center gap-1">
                     <Image
                       src={`/images/assets/token-1.png`}
@@ -34,8 +37,8 @@ const Tokens_Main = () => {
                       height={29}
                       className="-ml-3"
                     />
-                    <h4 className="text-base">ADA/TEDY</h4>
-                    <MdCheckCircle className="w-3 h-3" />
+                    <h4 className="">ADA/TEDY</h4>
+                    <BsPatchCheckFill className="w-3 h-3" />
                   </span>
                   <span className="text-gray-300">
                     {Math.random().toFixed(4)} ₳

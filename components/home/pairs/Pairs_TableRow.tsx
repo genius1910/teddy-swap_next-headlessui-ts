@@ -10,7 +10,7 @@ const Pairs_TableRow = ({ item }: Props) => {
   const [showDetails, setShowDetails] = useState(false);
   return (
     <Fragment>
-      <tbody>
+      <tbody className="medium-text">
         <tr
           onClick={() =>
             showDetails ? setShowDetails(false) : setShowDetails(true)
@@ -34,40 +34,40 @@ const Pairs_TableRow = ({ item }: Props) => {
                 height={29}
                 className="-ml-3"
               />
-              <h4 className="text-base">ADA/TEDY</h4>
+              <h4 className="">ADA/TEDY</h4>
               <MdCheckCircle className="w-3 h-3" />
             </span>
           </td>
-          <td className="px-10 py-4  gap-1 text-base">
+          <td className="px-10 py-4  gap-1 ">
             <span>2.000341 ₳</span>
             <br />
             <span className=" text-xs">0.871$</span>
           </td>
-          <td className="px-10 py-4  gap-1 text-base">
+          <td className="px-10 py-4  gap-1 ">
             <span>13.63M ₳</span>
           </td>
-          <td className="px-10 py-4  gap-1 text-base">
+          <td className="px-10 py-4  gap-1 ">
             <span>450.88K ₳</span>
           </td>
-          <td className="px-10 py-4  gap-1 text-base">
+          <td className="px-10 py-4  gap-1 ">
             <span>112,450.88K ₳</span>
           </td>
-          <td className="px-10  py-4 text-o_green gap-1 text-base">
+          <td className="px-10  py-4 text-o_green gap-1 ">
             <span className="flex items-center">
               <span>0.23%</span>
               <MdArrowUpward className={`w-4 h-4 `} />
             </span>
           </td>
-          <td className="px-10  py-4 text-o_red gap-1 text-base">
+          <td className="px-10  py-4 text-o_red gap-1 ">
             <span className="flex items-center">
               <span>0.44%</span>
               <MdArrowDownward className={`w-4 h-4 `} />
             </span>
           </td>
-          <td className="px-10 py-4  gap-1 text-base">
+          <td className="px-10 py-4  gap-1 ">
             <span>8,230,456 ADA</span>
           </td>
-          <td className="px-10 py-4  gap-1 text-base">
+          <td className="px-10 py-4  gap-1 ">
             <TradeLine key={20} coin={"ADA"} price={230} />{" "}
           </td>
         </tr>
@@ -75,27 +75,27 @@ const Pairs_TableRow = ({ item }: Props) => {
           <tr>
             <td colSpan={9} className=" border-t-0 bg-black/10 w-full ">
               <span className="flex">
-                <p className="px-6 py-4 flex flex-col gap-1 text-base">
+                <p className="px-6 py-4 flex flex-col gap-1 ">
                   <span className=" text-gray-500">ADA Price</span>
                   <span className=" text-gray-300">1 ADA = 10.4545 TEDDY</span>
                 </p>
-                <p className="px-6 py-4 flex flex-col gap-1 text-base">
+                <p className="px-6 py-4 flex flex-col gap-1 ">
                   <span className=" text-gray-500">Pool tdergence</span>
                   <span className=" text-gray-300">3.2% (1 hour)</span>
                 </p>
-                <p className="px-6 py-4 flex flex-col gap-1 text-base">
+                <p className="px-6 py-4 flex flex-col gap-1 ">
                   <span className=" text-gray-500">Total LPs</span>
                   <span className=" text-gray-300">10393020302190034</span>
                 </p>
-                <p className="px-6 py-4 flex flex-col gap-1 text-base">
+                <p className="px-6 py-4 flex flex-col gap-1 ">
                   <span className=" text-gray-500">Trading Fees APR</span>
                   <span className=" text-gray-300">6.2%</span>
                 </p>
-                <p className="px-6 py-4 flex flex-col gap-1 text-base">
+                <p className="px-6 py-4 flex flex-col gap-1 ">
                   <span className=" text-gray-500">LP Fee</span>
                   <span className=" text-gray-300">0.23%</span>
                 </p>
-                <p className="px-6 py-4 flex gap-4 text-base">
+                <p className="px-6 py-4 flex gap-4 ">
                   <button className=" third-button w-52">Swap</button>
                   <button className="primary-button w-52">Add liquidity</button>
                 </p>
