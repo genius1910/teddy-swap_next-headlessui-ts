@@ -20,12 +20,12 @@ const FarmGroupButton = ({ tabs, setTabs, activeTab, setActiveTab }: Props) => {
               onClick={() => setActiveTab(item)}
               className={`${
                 item == activeTab && " text-white flex items-end"
-              } cursor-pointer px-6 md:px-8 2xl:px-14 py-2 text-xs 2xl:text-base text-neutral-400 hover:text-white font-semibold transition-all`}
+              } cursor-pointer relative px-6 md:px-8 2xl:px-14 py-2 text-xs 2xl:text-base text-neutral-400 hover:text-white font-semibold transition-all`}
               key={item}
             >
               <span>{item}</span>
               {item == "ADA / TEDY" && item == activeTab && (
-                <HiOutlineXMark className=" text-white w-5 h-5 pb-1" />
+                <HiOutlineXMark className=" absolute top-1 right-3 text-white w-5 h-5 pb-1" />
               )}
             </li>
           );
