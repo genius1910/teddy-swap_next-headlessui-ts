@@ -21,32 +21,36 @@ const Liquidity = () => {
   }, [activeTab]);
 
   return (
-    <div className="relative px-2">
-      <LiquidityGroupButton
-        activeTab={activeTab}
-        setActiveTab={setActiveTab}
-        tabs={tabs}
-        setTabs={setTabs}
-      />
-      {activeTab == "All Liquidity" ? (
-        <Liquidity_BottomTable setActiveTab={setActiveTab} />
-      ) : activeTab == "Your Liquidity" ? (
-        <Liquidity_Your setActiveTab={setActiveTab} />
-      ) : activeTab == "ADA / TEDY" ? (
-        <div className="grid grid-cols-12 w-full gap-8 mt-10 items-start">
-          <div className=" col-span-12 xl:col-span-4">
-            <Liquidity_Leftside />
+    <div>
+      <div className="px-2">
+        <LiquidityGroupButton
+          activeTab={activeTab}
+          setActiveTab={setActiveTab}
+          tabs={tabs}
+          setTabs={setTabs}
+        />
+      </div>
+      <div className="relative px-2 max-2xl:max-w-[1400px] mx-auto xl:zoom-80 2xl:zoom-100">
+        {activeTab == "All Liquidity" ? (
+          <Liquidity_BottomTable setActiveTab={setActiveTab} />
+        ) : activeTab == "Your Liquidity" ? (
+          <Liquidity_Your setActiveTab={setActiveTab} />
+        ) : activeTab == "ADA / TEDY" ? (
+          <div className="grid grid-cols-12 w-full gap-8 mt-10 items-start">
+            <div className=" col-span-12 xl:col-span-4">
+              <Liquidity_Leftside />
+            </div>
+            <div className=" col-span-12 xl:col-span-8 ">
+              <Liquidity_Rightside
+                activeTab={activeTab}
+                setActiveTab={setActiveTab}
+              />
+            </div>
           </div>
-          <div className=" col-span-12 xl:col-span-8 ">
-            <Liquidity_Rightside
-              activeTab={activeTab}
-              setActiveTab={setActiveTab}
-            />
-          </div>
-        </div>
-      ) : (
-        "Select Tab"
-      )}
+        ) : (
+          "Select Tab"
+        )}
+      </div>
     </div>
   );
 };

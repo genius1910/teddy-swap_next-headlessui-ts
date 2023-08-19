@@ -26,7 +26,7 @@ const Trade_TopPairs = ({ setActiveTabs }: Props) => {
           return (
             <tbody key={item} className="w-full border-b-0 text-left">
               <tr>
-                <td className="py-4 pr-20">
+                <td className="py-4 pr-16">
                   <span className="flex items-center gap-1">
                     <Image
                       src={`/images/assets/token-1.png`}
@@ -45,9 +45,9 @@ const Trade_TopPairs = ({ setActiveTabs }: Props) => {
                     <MdCheckCircle className="w-3 h-3" />
                   </span>
                 </td>
-                <td className="py-4 pr-20  text-sm">₳0.0983</td>
-                <td className=" py-4 pr-20  text-o_green text-sm">+0.23%</td>
-                <td className=" py-4 pr-20  text-o_red text-sm">-0.44%</td>
+                <td className="py-4 pr-16  text-sm">₳0.0983</td>
+                <td className=" py-4 pr-16  text-o_green text-sm">+0.23%</td>
+                <td className=" py-4 pr-16  text-o_red text-sm">-0.44%</td>
                 <td className="py-4 pr-16  text-sm">450.88K ₳</td>
                 <td className="py-4 text-sm">
                   <button

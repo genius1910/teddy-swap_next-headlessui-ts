@@ -130,9 +130,9 @@ const Navbar = () => {
                               <>
                                 <Popover.Button className=" rounded-sm group outline-none component-color">
                                   {!open ? (
-                                    <AiOutlineArrowDown className="w-4 h-4 outline-none text-neutral-400 group-hover:text-neutral-100 transition-all" />
+                                    <AiOutlineArrowDown className="2xl:w-4 2xl:h-4 w-3 h-3 outline-none text-neutral-400 group-hover:text-neutral-100 transition-all" />
                                   ) : (
-                                    <AiOutlineArrowUp className="w-4 outline-none h-4 text-cyan-400 group-hover:text-cyan-300 transition-all" />
+                                    <AiOutlineArrowUp className="2xl:w-4 2xl:h-4 w-3 h-3 outline-none text-cyan-400 group-hover:text-cyan-300 transition-all" />
                                   )}
                                 </Popover.Button>
                                 <Transition
@@ -175,10 +175,10 @@ const Navbar = () => {
                   toggler == "USD" ? "-translate-x-1/2" : "translate-x-1/2"
                 } absolute small-component-color w-6/12 h-full z-0 transition-all duration-500 ease-in-out`}
               ></span>
-              <span className="h-full my-auto py-2 px-4 2xl:px-6 rounded-md relative z-10">
+              <span className="h-full flex justify-center items-center my-auto py-2 px-4 2xl:px-6 rounded-md relative z-10">
                 USD
               </span>
-              <span className="h-full my-auto py-2 px-4 2xl:px-6 rounded-md relative z-10">
+              <span className="h-full flex justify-center items-center my-auto py-2 px-4 2xl:px-6 rounded-md relative z-10">
                 ADA
               </span>
             </div>
