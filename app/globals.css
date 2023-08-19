@@ -6,10 +6,6 @@
 :root {
 }
 
-/* components color
-small components color 
-primary button 
-secoundary button  */
 @layer components {
   .navbar-color {
     background: linear-gradient(93.42deg, #212936 -21.87%, #131725 172.12%);
@@ -199,6 +195,24 @@ secoundary button  */
   }
   .small-text {
     @apply 2xl:text-base xl:text-sm text-xs;
+  }
+  .zoom-70 {
+    zoom: 70%;
+  }
+  .zoom-80 {
+    zoom: 80%;
+  }
+  .zoom-90 {
+    zoom: 90%;
+  }
+  .zoom-100 {
+    zoom: 100%;
+  }
+  .zoom-110 {
+    zoom: 110%;
+  }
+  .zoom-120 {
+    zoom: 120%;
   }
 }
 

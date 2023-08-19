@@ -13,11 +13,14 @@ const User_Main = () => {
   const isWalletConnected = useAuthenticate.isWalletConnected();
 
   return (
-    <>
+    <section
+      id="user-main"
+      className="max-2xl:max-w-[1400px] mx-auto xl:zoom-80 2xl:zoom-100"
+    >
       <div
         className={`${
           isWalletConnected ? "justify-between" : "justify-end"
-        } flex max-sm:justify-center max-sm:items-center gap-6 flex-wrap items-center mt-6 xl:mt-0 2xl:px-0 sm:px-4`}
+        } flex max-sm:justify-center max-sm:items-center gap-6 flex-wrap items-center mt-6 xl:mt-0 xl:px-0 sm:px-4`}
       >
         {isWalletConnected ? (
           <button
@@ -37,7 +40,7 @@ const User_Main = () => {
       <div
         className={`${
           lock && "blur-sm pointer-events-none select-none"
-        } flex px-0 justify-between items-start w-full flex-col 2xl:flex-row`}
+        } flex px-0 justify-between items-start w-full flex-col xl:flex-row`}
       >
         <User_Leftside />
         <User_Rightside />
@@ -45,11 +48,11 @@ const User_Main = () => {
       <div
         className={`${
           lock && "blur-sm pointer-events-none select-none"
-        } 2xl:px-0`}
+        } xl:px-0`}
       >
         <History_Table />
       </div>
-    </>
+    </section>
   );
 };
 

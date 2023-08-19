@@ -39,7 +39,7 @@ const History_Table = () => {
   return (
     <div className="w-full mt-10 component-color rounded-lg px-4 sm:px-8 py-6 ">
       <h1 className="heading-xl mb-6 font-medium">Transaction History</h1>
-      <div className="flex justify-between gap-4 w-full flex-wrap 2xl:flex-nowrap relative ">
+      <div className="flex justify-between gap-4 w-full flex-wrap xl:flex-nowrap relative ">
         <div className="w-full ">
           <h4 className="mb-2 max-lg:text-sm">Search by token</h4>
           <div className="relative mid-s-component-color flex w-full sm:w-auto items-center rounded-lg">
@@ -70,7 +70,7 @@ const History_Table = () => {
             <select
               name="actions"
               id="actions"
-              className=" placeholder:text-gray-400 text-sm w-full 2xl:w-96 p-4 bg-transparent outline-none rounded-lg"
+              className=" placeholder:text-gray-400 text-sm w-full xl:w-96 p-4 bg-transparent outline-none rounded-lg"
             >
               <option className=" bg-gray-800" value="All">
                 All
@@ -93,7 +93,7 @@ const History_Table = () => {
             <select
               name="actions"
               id="actions"
-              className=" placeholder:text-gray-400 text-sm w-full 2xl:w-96 p-4 bg-transparent outline-none rounded-lg"
+              className=" placeholder:text-gray-400 text-sm w-full xl:w-96 p-4 bg-transparent outline-none rounded-lg"
             >
               <option className=" bg-gray-800" value="All">
                 All
@@ -214,19 +214,19 @@ const History_Table = () => {
                         </span>
                       </span>
                     </td>
-                    <td className="px-10 py-4 text-sm 2xl:text-base">
+                    <td className="px-10 py-4 text-sm xl:text-base">
                       {item.type}
                     </td>
-                    <td className="px-10  py-4 text-sm 2xl:text-base">
+                    <td className="px-10  py-4 text-sm xl:text-base">
                       January 3, 2023 11:00 AM
                     </td>
-                    <td className="px-10 py-4 gap-1 text-sm 2xl:text-base">
+                    <td className="px-10 py-4 gap-1 text-sm xl:text-base">
                       <span className="flex items-center">
                         {" "}
                         <BsDot className="w-6 h-6 text-green-500" /> Complete
                       </span>
                     </td>
-                    <td className="px-10 py-4  gap-1 text-sm 2xl:text-base">
+                    <td className="px-10 py-4  gap-1 text-sm xl:text-base">
                       <span className="grid grid-cols-3 gap-2">
                         <button className="flex h-8 w-8 bg-gray-800 items-center gap-1 rounded-md p-1">
                           <svg
@@ -272,7 +272,7 @@ const History_Table = () => {
                                 leaveFrom="transform scale-100 opacity-100"
                                 leaveTo="transform scale-95 opacity-0"
                               >
-                                <Popover.Panel className="absolute outline-none small-component-color text-gray-300 rounded-2xl -top-8 right-5 z-50 mt-8 transform max-w-sm 2xl:max-w-md">
+                                <Popover.Panel className="absolute outline-none small-component-color text-gray-300 rounded-2xl -top-8 right-5 z-50 mt-8 transform max-w-sm xl:max-w-md">
                                   {({ close }) => (
                                     <div className=" p-3 rounded-xl text-xs font-normal flex flex-col items-start justify-start w-full gap-2">
                                       <button>View on Explorer</button>
@@ -303,8 +303,8 @@ const History_Table = () => {
                       className="mx-auto "
                     />
                   </span>
-                  <h2 className="text-lg 2xl:text-2xl my-6">No orders found</h2>
-                  <button className="py-4 px-20 primary-button rounded-2xl text-lg 2xl:text-xl w-72">
+                  <h2 className="text-lg xl:text-2xl my-6">No orders found</h2>
+                  <button className="py-4 px-20 primary-button rounded-2xl text-lg xl:text-xl w-72">
                     Swap
                   </button>
                 </td>

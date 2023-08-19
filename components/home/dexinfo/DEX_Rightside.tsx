@@ -69,9 +69,11 @@ const DEX_Rightside = () => {
     },
   ];
   return (
-    <div className="flex flex-col items-center justify-center w-full 2xl:w-auto mt-10 2xl:mt-0">
-      <TimeGroupButton />
-      <div className="list-component-color w-full 2xl:w-96 rounded-2xl mt-12">
+    <div className="flex flex-col items-center justify-center w-full xl:w-auto mt-10 xl:mt-0">
+      <div className="flex justify-end items-center">
+        <TimeGroupButton isRelative={true} />
+      </div>
+      <div className="list-component-color w-full xl:w-96 rounded-2xl mt-6">
         <h2 className="p-6">Market Movers</h2>
         <ul className="flex flex-col">
           {movers.map((item, i) => {

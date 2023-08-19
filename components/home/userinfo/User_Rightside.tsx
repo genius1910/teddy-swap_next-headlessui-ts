@@ -66,8 +66,8 @@ const User_Rightside = () => {
     },
   ];
   return (
-    <div className="flex flex-col md:flex-row 2xl:flex-col 2xl:items-center gap-6 w-full 2xl:w-auto mt-6">
-      {/* <div className="hidden 2xl:block">
+    <div className="flex flex-col md:flex-row xl:flex-col xl:items-center gap-8 w-full xl:w-auto mt-6">
+      {/* <div className="hidden xl:block">
         <TimeGroupButton />
       </div> */}
       <div className="w-full component-color p-4 rounded-2xl">
@@ -115,10 +115,10 @@ const User_Rightside = () => {
         )}
       </div>
       <div className="w-full flex justify-center items-center flex-col">
-        <div className="block 2xl:hidden">
+        <div className="block xl:hidden">
           <TimeGroupButton />
         </div>
-        <div className="list-component-color w-full 2xl:w-96 rounded-2xl max-2xl:mt-6">
+        <div className="list-component-color w-full xl:w-96 rounded-2xl max-xl:mt-8">
           <h2 className="p-6">Your Top Movers</h2>
           <ul className="flex flex-col gap-0.5">
             {movers.map((item, i) => {

@@ -6,7 +6,7 @@ import { BsPatchCheckFill } from "react-icons/bs";
 
 const Pairs_Main = () => {
   return (
-    <div className="">
+    <div className="max-2xl:max-w-[1400px] mx-auto xl:zoom-80 2xl:zoom-100">
       <div className="flex items-center justify-center mt-6">
         <TimeGroupButton />
       </div>
