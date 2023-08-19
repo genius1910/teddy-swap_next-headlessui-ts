@@ -23,7 +23,7 @@ const QuickSwapPopup = ({ close }: { close: () => void }) => {
   const [selectedToken4, setSelectedToken4] = useState<SelectedTokenProps>();
 
   return (
-    <>
+    <div className="">
       {showComponent === "view-1" ? (
         <div className="relative flex flex-col gap-6 items-center px-4 p-6">
           <div className="flex items-center justify-between w-full">
@@ -127,7 +127,7 @@ const QuickSwapPopup = ({ close }: { close: () => void }) => {
           )}
         </>
       )}
-    </>
+    </div>
   );
 };
 
