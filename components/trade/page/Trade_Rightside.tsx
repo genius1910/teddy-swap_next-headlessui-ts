@@ -43,13 +43,7 @@ const Trade_Rightside = ({ activeTab, setActiveTab }: Props) => {
                     className="-ml-3"
                   />
                   <h4 className="text-base">ADA/TEDY</h4>
-                  <Image
-                    src={`/images/assets/exchange.svg`}
-                    alt="exchange icon"
-                    width={10}
-                    height={10}
-                    className=""
-                  />
+                  <AiOutlineStar className="w-5 h-5 text-[#E8D648] cursor-pointer ml-2" />
                 </span>
                 <h2 className="text-2xl mt-4">₳6,363,639.46</h2>
                 <p className=" mb-4 text-[0.7rem] text-[#0FC43B]">
@@ -79,7 +73,6 @@ const Trade_Rightside = ({ activeTab, setActiveTab }: Props) => {
                         );
                       })}
                     </ul>
-                    <AiOutlineStar className="w-5 h-5 text-[#E8D648]" />
                   </div>
                 </div>
                 <div className="flex items-center justify-center mt-4">
@@ -98,10 +91,10 @@ const Trade_Rightside = ({ activeTab, setActiveTab }: Props) => {
                           : "translate-x-1/2"
                       } rounded-xl small-component-color w-6/12 h-full absolute z-0 transition-all duration-500 ease-in-out`}
                     ></span>
-                    <span className="py-[0.55rem] 2xl:py-2 px-4 2xl:px-8 rounded-md relative z-10">
+                    <span className="py-[0.55rem] xl:py-2 px-4 xl:px-8 rounded-md relative z-10">
                       Volume
                     </span>
-                    <span className="py-[0.55rem] 2xl:py-2 px-4 2xl:px-8 rounded-md relative z-10 ">
+                    <span className="py-[0.55rem] xl:py-2 px-4 xl:px-8 rounded-md relative z-10 ">
                       Price
                     </span>
                   </div>

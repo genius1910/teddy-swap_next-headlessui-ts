@@ -19,7 +19,7 @@ import useAuthenticate from "@/context/mobx/useAuthenticate";
 const navMenuList = [
   {
     name: "Dashboard",
-    link: "/",
+    link: "/dashboard",
   },
   {
     name: "Trade",
