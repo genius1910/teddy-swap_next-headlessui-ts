@@ -114,7 +114,7 @@ const User_YourLiquidity = () => {
               <h4 className="text-base leading-2 text-white font-medium">
                 ₳{isWalletConnected ? "13,420.90" : "--"}
               </h4>
-              <p className="text-xs">${isWalletConnected ? "284.90" : "--"}</p>
+              <p className="text-xs">${isWalletConnected ? "284.90" : "0.0"}</p>
             </div>
             <div className=" text-gray-400">
               <p className="text-xss text-gray-400 -mb-1">Earnings All Time</p>
@@ -122,7 +122,7 @@ const User_YourLiquidity = () => {
                 ₳{isWalletConnected ? "13,420.90" : "--"}
               </h4>
               <p className="text-xs">
-                ${isWalletConnected ? "1,420.92" : "--"}
+                ${isWalletConnected ? "1,420.92" : "0.0"}
               </p>
             </div>
           </div>

@@ -129,7 +129,7 @@ const User_YourFarms = () => {
                 ₳{isWalletConnected ? "13,420.90" : "--"}
               </h4>
               <p className="text-xs text-gray-400">
-                ${isWalletConnected ? "284.90" : "--"}
+                ${isWalletConnected ? "284.90" : "0.0"}
               </p>
             </div>
             <div className=" ">
@@ -138,7 +138,7 @@ const User_YourFarms = () => {
                 ₳{isWalletConnected ? "13,420.90" : "--"}
               </h4>
               <p className="text-xs text-gray-400">
-                ${isWalletConnected ? "1,420.92" : "--"}
+                ${isWalletConnected ? "1,420.92" : "0.0"}
               </p>
             </div>
           </div>
