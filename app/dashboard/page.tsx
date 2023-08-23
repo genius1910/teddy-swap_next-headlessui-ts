@@ -68,7 +68,7 @@ function Home() {
           )}
         </>
       ) : (
-        <div className="flex min-h-[70vh] flex-col gap-8 items-center justify-center w-full text-center">
+        <div className="max-2xl:max-w-[1400px] mx-auto xl:zoom-80 2xl:zoom-100 flex min-h-[70vh] flex-col gap-8 items-center justify-center w-full text-center">
           <div className="w-24 relative border-dotted h-24 bg-transparent border-8 border-r-[#268aff] border-b-[#268aff] border-transparent rounded-full animate-spin "></div>
           <h1 className="animate-pulse">Connecting...</h1>
         </div>

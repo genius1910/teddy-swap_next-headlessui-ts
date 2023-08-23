@@ -71,13 +71,13 @@ const Market = ({ setShowComponent, selectedToken, selectedToken2 }: Props) => {
               selectedToken && selectedToken2
                 ? "secondary-button"
                 : "primary-button"
-            } rounded-2xl text-sm 2xl:text-xl py-3 2xl:py-4 border-2`}
+            } rounded-2xl text-sm xl:text-lg py-2 xl:py-3 border-2`}
           >
             {selectedToken && selectedToken2 ? "Swap" : "Select Pair"}
           </button>
         </div>
         {selectedToken && selectedToken2 && (
-          <div className="mt-4 font-medium text-sm 2xl:text-base text-gray-200 w-full">
+          <div className="mt-4 font-medium text-sm xl:text-base text-gray-200 w-full">
             <ul className="space-y-3 w-full font-normal px-2">
               <li className=" font-semibold">1 ADA = 0.31 iUSD</li>
               <li className=" flex justify-between w-full items-center">

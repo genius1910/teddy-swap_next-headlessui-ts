@@ -5,6 +5,9 @@ import { ChartApp } from "../dexinfo/TradingChart";
 import { TradingLine } from "../pairs/TradingLine";
 import { PieChartDoughnut } from "@/components/chart/PieChartDoughnut";
 import useAuthenticate from "@/context/mobx/useAuthenticate";
+import { BsQuestionCircle } from "react-icons/bs";
+import User_YourLiquidity from "./User_YourLiquidity";
+import User_YourFarms from "./User_YourFarms";
 
 const liquidityAndFarms = [
   {
@@ -101,8 +104,10 @@ const User_Leftside = () => {
       <div className=" font-medium rounded-3xl chart-component-color h-72">
         <div className="px-6 pt-6">
           <div className="flex items-center gap-1">
-            <h1 className="text-base">Portfolio</h1>
-            <span className="text-sm text-gray-400"> Wallet assets only</span>
+            <h1 className="text-base">Wallet Assets</h1>
+            <button className="text-sm">
+              <BsQuestionCircle className="w-3 h-3" />
+            </button>{" "}
           </div>
           <h2 className="text-base mt-1 mb-0.5">
             ₳{isWalletConnected ? "4,435.46" : "--"}
@@ -118,24 +123,23 @@ const User_Leftside = () => {
       <div className=" font-medium rounded-3xl chart-component-color h-72">
         <div className="px-6 pt-6">
           <div className="flex items-center gap-1">
-            <h1 className="text-base">Portfolio</h1>
-            <span className="text-sm text-gray-400">
-              {" "}
-              Including LP and Farm Positions
-            </span>
+            <h1 className="text-base">Wallet Assets + Liquidity Positions</h1>
+            <button className="text-sm">
+              <BsQuestionCircle className="w-3 h-3" />
+            </button>
           </div>{" "}
           <h2 className="text-base mt-1 mb-0.5">
             ₳{isWalletConnected ? "4,435.46" : "--"}
           </h2>
           <p className=" text-[0.7rem] text-[#0FC43B]">
             +₳{isWalletConnected ? "544.03" : "--"} (
-            {isWalletConnected ? "+2.03%" : "--"}) this todays
+            {isWalletConnected ? "+2.03%" : "--"}) this weeks
           </p>
         </div>
         <ChartApp />
       </div>
       {/* 3rd and 4th grid  */}
-      {liquidityAndFarms.map((item) => {
+      {/* {liquidityAndFarms.map((item) => {
         return (
           <div
             key={item.title}
@@ -145,7 +149,7 @@ const User_Leftside = () => {
             <div className="flex gap-10 xl:gap-4 flex-wrap xl:flex-nowrap justify-center xl:justify-between items-center">
               <div className=" space-y-3">
                 <div className="flex gap-10 my-4">
-                  <div className="  text-base flex flex-col leading-tight text-cyan-500">
+                  <div className="  text-base flex flex-col leading-tight text-[#3DFFDC]">
                     <h2 className="font-semibold">
                       {isWalletConnected ? item.perc1 : "--"}%
                     </h2>
@@ -259,7 +263,9 @@ const User_Leftside = () => {
             </div>
           </div>
         );
-      })}
+      })} */}
+      <User_YourLiquidity />
+      <User_YourFarms />
     </div>
   );
 };

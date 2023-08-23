@@ -93,7 +93,7 @@ const TransactionStatus = ({
           setShowComponent("view-1");
         }}
         type="button"
-        className=" primary-button  text-sm 2xl:text-xl py-3 2xl:py-4 rounded-lg border-2"
+        className=" primary-button  text-sm xl:text-lg py-2 xl:py-3 rounded-lg border-2"
       >
         {status ? "Done" : "Close"}
       </button>

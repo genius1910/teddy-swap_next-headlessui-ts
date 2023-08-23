@@ -12,7 +12,7 @@ const Dash_Section9 = () => {
           Together, we drive financial freedom and opportunity to all
         </h1>
         <h4 className="l-subtitle max-w-3xl text-base 2xl:text-2xl ">
-          Join a dedicated community and shapethe future of finance -
+          Join a dedicated community and shape the future of finance -
           decentralized, non-custodial and effiecient.
         </h4>
         <div className="flex items-center justify-center w-full gap-6">

@@ -66,7 +66,7 @@ const User_SwapTokens = ({
             : document.getElementById("connect-wallet")?.click()
         }
         type="button"
-        className=" secondary-button text-sm 2xl:text-lg py-2 2xl:py-3 rounded-2xl border-2"
+        className=" secondary-button text-sm xl:text-lg py-2 xl:py-3 rounded-2xl border-2"
       >
         {authenticate.walletConnected != null
           ? "Confirm Swap"

@@ -67,7 +67,7 @@ const Limit = ({ setShowComponent, selectedToken3, selectedToken4 }: Props) => {
               <input
                 type="text"
                 defaultValue={0.0}
-                className=" text-base w-full 2xl:text-xl bg-transparent text-white outline-none"
+                className=" text-base w-full xl:text-xl bg-transparent text-white outline-none"
               />
               <p className="text-xs text-gray-300">~ $0</p>
             </div>
@@ -83,13 +83,13 @@ const Limit = ({ setShowComponent, selectedToken3, selectedToken4 }: Props) => {
             selectedToken3 && selectedToken4
               ? "secondary-button"
               : "primary-button"
-          } text-sm 2xl:text-xl py-3 2xl:py-4 rounded-2xl border-2`}
+          } text-sm xl:text-lg py-2 xl:py-3 rounded-2xl border-2`}
         >
           {selectedToken3 && selectedToken4 ? "Place Order" : "Select Pair"}
         </button>
       </div>
 
-      <div className=" text-sm 2xl:text-base text-gray-200 w-full">
+      <div className=" text-sm xl:text-base text-gray-200 w-full">
         <ul className="space-y-3 w-full font-normal px-2">
           <li className=" font-semibold">1 ADA = 0.31 iUSD</li>
           <li className=" flex justify-between w-full items-center">

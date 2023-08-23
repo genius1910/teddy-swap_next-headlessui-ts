@@ -107,7 +107,7 @@ const ConfirmSwap = ({ setShowComponent, isNotPadding }: Props) => {
               }, 2000);
             }}
             type="button"
-            className=" primary-button  text-sm 2xl:text-xl py-3 2xl:py-4 rounded-lg border-2"
+            className=" primary-button  text-sm xl:text-lg py-2 xl:py-3 rounded-lg border-2"
           >
             Confirm Swap
           </button>
