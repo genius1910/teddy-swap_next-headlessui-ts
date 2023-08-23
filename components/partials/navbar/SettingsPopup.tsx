@@ -10,16 +10,16 @@ import {
 
 const SettingsPopup = ({ close }: { close: () => void }) => {
   return (
-    <div className="relative text-base xl:text-xl flex flex-col gap-6 items-center p-6 w-full text-gray-400 ">
+    <div className="relative text-base 2xl:text-xl flex flex-col gap-6 items-center p-6 w-full text-gray-400 ">
       <div className="flex items-center justify-between w-full">
         <h1 className="flex gap-4 font-medium">Theme</h1>
         <div className="flex gap-4">
           <button
-            className={` text-gray-400 hover:text-gray-100 text-base xl:text-lg`}
+            className={` text-gray-400 hover:text-gray-100 text-base 2xl:text-lg`}
           >
             <RxCross2
               onClick={() => close()}
-              className=" w-6 h-6 xl:w-8 xl:h-8 "
+              className=" w-6 h-6 2xl:w-8 2xl:h-8 "
             />
           </button>
         </div>

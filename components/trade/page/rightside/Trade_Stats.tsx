@@ -22,7 +22,7 @@ const Trade_Stats = () => {
           return (
             <li
               key={item.name}
-              className="flex py-4 justify-center gap-2 rounded-xl items-center component-color w-full flex-col  text-center text-xl 2xl:text-2xl text-white"
+              className="flex py-4 justify-center gap-2 rounded-xl items-center component-color w-full flex-col  text-center text-xl xl:text-2xl text-white"
             >
               <h1>{item.value}</h1>
               <h5 className="text-xs text-white">{item.name}</h5>

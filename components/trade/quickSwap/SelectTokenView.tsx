@@ -55,7 +55,7 @@ export default function SelectTokenView({
       <div className=" font-normal  w-full component-color-2 flex flex-col gap-6 p-6 rounded-2xl">
         <div className="flex items-center justify-between w-full">
           <div className="flex gap-4">
-            <h1 className={`text-white text-base xl:text-xl font-medium`}>
+            <h1 className={`text-white text-base 2xl:text-xl font-medium`}>
               Select a token
             </h1>
           </div>

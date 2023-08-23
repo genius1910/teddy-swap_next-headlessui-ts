@@ -4,7 +4,7 @@ import React from "react";
 
 const Index = () => {
   return (
-    <div className="relative mt-20 max-xl:max-w-[1400px] mx-auto xl:zoom-80 xl:zoom-100">
+    <div className="relative mt-20 max-2xl:max-w-[1400px] mx-auto xl:zoom-80 2xl:zoom-100">
       <History_Table />
     </div>
   );

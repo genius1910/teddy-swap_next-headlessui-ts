@@ -5,13 +5,13 @@ import { FaTelegramPlane } from "react-icons/fa";
 
 const Dash_Section9 = () => {
   return (
-    <section id="dash-section-9" className="py-24 md:py-36 xl:py-44 w-full">
+    <section id="dash-section-9" className="py-24 md:py-36 2xl:py-44 w-full">
       <div className="flex flex-col items-center justify-center gap-10 mx-auto text-center w-full max-w-6xl">
         <h3 className="l-s-heading uppercase">A shared journey</h3>
         <h1 className="l-heading font-semibold">
           Together, we drive financial freedom and opportunity to all
         </h1>
-        <h4 className="l-subtitle max-w-3xl text-base xl:text-2xl ">
+        <h4 className="l-subtitle max-w-3xl text-base 2xl:text-2xl ">
           Join a dedicated community and shape the future of finance -
           decentralized, non-custodial and effiecient.
         </h4>

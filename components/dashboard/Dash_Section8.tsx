@@ -9,7 +9,7 @@ const Dash_Section8 = () => {
 
   return (
     <section id="dash-section-8">
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-14 text-lg xl:text-2xl items-center py-24 md:py-36 xl:py-44 mt-16 lg:mt-20 xl:mt-28">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-14 text-lg 2xl:text-2xl items-center py-24 md:py-36 2xl:py-44 mt-16 lg:mt-20 2xl:mt-28">
         <div className=" col-span-1 lg:col-span-3 flex flex-col gap-6">
           <h3 className="l-s-heading text-[#1ED6FF]">POWERED BY CARDANO</h3>
           <h1 className="l-heading font-medium">Built on a solid foundation</h1>
@@ -27,7 +27,7 @@ const Dash_Section8 = () => {
               : "100%"
           }`,
         }}
-        className=" flex flex-wrap justify-evenly mx-auto gap-16 lg:gap-28 w-full pb-24 md:pb-36 xl:pb-44"
+        className=" flex flex-wrap justify-evenly mx-auto gap-16 lg:gap-28 w-full pb-24 md:pb-36 2xl:pb-44"
       >
         <li className="space-y-16 lg:space-y-28 ">
           <Link legacyBehavior href={`https://www.harmoniclabs.tech/`}>

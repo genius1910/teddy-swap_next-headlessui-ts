@@ -4,7 +4,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer id="footer" className="py-16 md:py-28 xl:py-36">
+    <footer id="footer" className="py-16 md:py-28 2xl:py-36">
       <ul className="gap-8 flex justify-between flex-wrap w-full mx-auto text-[#C2CAD1]">
         <li className="space-y-4 max-w-[18rem]">
           <Image

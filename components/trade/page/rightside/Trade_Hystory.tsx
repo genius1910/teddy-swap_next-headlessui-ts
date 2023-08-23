@@ -2,7 +2,7 @@ import React from "react";
 
 const Trade_Hystory = () => {
   return (
-    <div className="component-color mt-8 p-6 2xl:p-8 rounded-2xl">
+    <div className="component-color mt-8 p-6 xl:p-8 rounded-2xl">
       <h1 className="heading-xl font-medium pb-4">Trading Hystory</h1>
       <div className="mt-6 overflow-x-auto whitespace-nowrap text-left">
         <table className="">

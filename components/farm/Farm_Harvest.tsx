@@ -22,7 +22,7 @@ const Farm_Harvest = ({ setShowComponent, isAdd }: Props) => {
               alt="Token 1 image"
             />
           </div>
-          <h1 className=" whitespace-nowrap font-normal text-sm xl:text-base absolute -bottom-7">
+          <h1 className=" whitespace-nowrap font-normal text-sm 2xl:text-base absolute -bottom-7">
             1 ADA
           </h1>
         </div>
@@ -41,7 +41,7 @@ const Farm_Harvest = ({ setShowComponent, isAdd }: Props) => {
               alt="Token 1 image"
             />
           </div>
-          <h1 className=" whitespace-nowrap font-normal text-sm xl:text-base absolute -bottom-7">
+          <h1 className=" whitespace-nowrap font-normal text-sm 2xl:text-base absolute -bottom-7">
             24.23 TEDY
           </h1>
         </div>
@@ -97,7 +97,7 @@ const Farm_Harvest = ({ setShowComponent, isAdd }: Props) => {
               }, 2000);
             }}
             type="button"
-            className=" primary-button  text-sm xl:text-xl py-3 xl:py-4 rounded-lg border-2"
+            className=" primary-button  text-sm 2xl:text-xl py-3 2xl:py-4 rounded-lg border-2"
           >
             Harvest
           </button>

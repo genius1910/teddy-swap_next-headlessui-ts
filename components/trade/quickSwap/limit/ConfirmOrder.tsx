@@ -12,9 +12,9 @@ const ConfirmOrder = ({ setShowComponent }: Props) => {
   return (
     <div className="relative font-medium flex flex-col gap-6 items-center p-6">
       <div className="text-white flex items-center justify-between w-full">
-        <h1 className=" 2xl:text-xl text-base">{"Confirm Order"}</h1>
+        <h1 className=" xl:text-xl text-base">{"Confirm Order"}</h1>
         <button
-          className={` text-gray-100 hover:text-white text-base 2xl:text-lg`}
+          className={` text-gray-100 hover:text-white text-base xl:text-lg`}
         >
           <RxCross2
             onClick={() =>
@@ -34,7 +34,7 @@ const ConfirmOrder = ({ setShowComponent }: Props) => {
               alt="Token 1 image"
             />
           </div>
-          <h1 className=" whitespace-nowrap font-normal text-sm 2xl:text-base absolute -bottom-7">
+          <h1 className=" whitespace-nowrap font-normal text-sm xl:text-base absolute -bottom-7">
             1 ADA
           </h1>
         </div>
@@ -48,7 +48,7 @@ const ConfirmOrder = ({ setShowComponent }: Props) => {
               alt="Token 1 image"
             />
           </div>
-          <h1 className=" whitespace-nowrap font-normal text-sm 2xl:text-base absolute -bottom-7">
+          <h1 className=" whitespace-nowrap font-normal text-sm xl:text-base absolute -bottom-7">
             24.23 TEDY
           </h1>
         </div>
@@ -108,7 +108,7 @@ const ConfirmOrder = ({ setShowComponent }: Props) => {
               }, 2000);
             }}
             type="button"
-            className=" primary-button  text-sm 2xl:text-xl py-3 2xl:py-4 rounded-lg border-2"
+            className=" primary-button  text-sm xl:text-xl py-3 xl:py-4 rounded-lg border-2"
           >
             Confirm Order
           </button>

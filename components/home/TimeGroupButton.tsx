@@ -9,7 +9,7 @@ const TimeGroupButton = ({ isRelative }: Props) => {
   return (
     <div
       className={`flex whitespace-nowrap flex-col right-0 top-2 ${
-        !isRelative && "xl:absolute mx-auto"
+        !isRelative && "2xl:absolute mx-auto"
       }`}
     >
       {/* all button  */}

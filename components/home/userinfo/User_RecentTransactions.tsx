@@ -4,8 +4,8 @@ import { BsArrowRight, BsPlus } from "react-icons/bs";
 
 const User_RecentTransactions = () => {
   return (
-    <div className="flex flex-col items-center w-full xl:w-auto mt-10 xl:mt-4">
-      <div className="component-color p-6 w-full xl:w-96 rounded-2xl mt-4">
+    <div className="flex flex-col items-center w-full 2xl:w-auto mt-10 2xl:mt-4">
+      <div className="component-color p-6 w-full 2xl:w-96 rounded-2xl mt-4">
         <h2 className="mb-6">Recent Transactions</h2>
         <div className="mt-6">
           <p className=" text-xss mb-0.5">Swap, 8/12 12:23 PM</p>

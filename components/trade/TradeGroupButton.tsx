@@ -26,7 +26,7 @@ const TradeGroupButton = ({
               onClick={() => setActiveTab(item)}
               className={`${
                 item == activeTab && " text-white flex items-end"
-              } cursor-pointer px-8 group xl:px-14 py-2 text-sm md:text-base xl:text-lg text-neutral-400 hover:text-white font-semibold transition-all`}
+              } cursor-pointer px-8 group 2xl:px-14 py-2 text-sm md:text-base 2xl:text-lg text-neutral-400 hover:text-white font-semibold transition-all`}
               key={item}
             >
               <span>{item} </span>
@@ -39,7 +39,7 @@ const TradeGroupButton = ({
         <li>
           <button
             onClick={() => setActiveTab("ADA/TEDY")}
-            className={`cursor-pointer px-6 md:px-8 xl:px-14 py-2 text-xs xl:text-base text-neutral-400 hover:text-white font-semibold transition-all`}
+            className={`cursor-pointer px-6 md:px-8 2xl:px-14 py-2 text-xs 2xl:text-base text-neutral-400 hover:text-white font-semibold transition-all`}
           >
             <AiOutlinePlusCircle className=" text-neutral-400 hover:text-white w-8 h-8 transition-all" />
           </button>

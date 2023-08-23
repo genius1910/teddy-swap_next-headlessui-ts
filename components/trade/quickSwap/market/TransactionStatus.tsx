@@ -26,11 +26,11 @@ const TransactionStatus = ({
       }`}
     >
       <div className="text-white flex items-center justify-between w-full">
-        <h1 className=" 2xl:text-xl text-base">
+        <h1 className=" xl:text-xl text-base">
           {status ? "Transaction Successful" : "Transaction Failed"}
         </h1>
         <button
-          className={` text-gray-100 hover:text-white text-base 2xl:text-lg`}
+          className={` text-gray-100 hover:text-white text-base xl:text-lg`}
         >
           <RxCross2
             onClick={() => (status ? false : setShowComponent("confirm-swap"))}
@@ -41,12 +41,12 @@ const TransactionStatus = ({
       {status ? (
         <img
           src="/images/assets/tick.svg"
-          className="2xl:w-28 2xl:h-28 w-20 h-20"
+          className="xl:w-28 xl:h-28 w-20 h-20"
         />
       ) : (
         <img
           src="/images/assets/cross.svg"
-          className="2xl:w-28 2xl:h-28 w-20 h-20"
+          className="xl:w-28 xl:h-28 w-20 h-20"
         />
       )}
       <div className="flex justify-between items-center px-6 w-full mb-6">
@@ -59,7 +59,7 @@ const TransactionStatus = ({
               alt="Token 1 image"
             />
           </div>
-          <h1 className=" whitespace-nowrap font-normal text-sm 2xl:text-base absolute -bottom-7">
+          <h1 className=" whitespace-nowrap font-normal text-sm xl:text-base absolute -bottom-7">
             1 ADA
           </h1>
         </div>
@@ -83,7 +83,7 @@ const TransactionStatus = ({
               alt="Token 1 image"
             />
           </div>
-          <h1 className=" whitespace-nowrap font-normal text-sm 2xl:text-base absolute -bottom-7">
+          <h1 className=" whitespace-nowrap font-normal text-sm xl:text-base absolute -bottom-7">
             24.23 TEDY
           </h1>
         </div>

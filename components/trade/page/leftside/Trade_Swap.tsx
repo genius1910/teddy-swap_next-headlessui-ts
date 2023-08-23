@@ -39,7 +39,7 @@ const Trade_Swap = () => {
                   }}
                   className={`${
                     isMarket ? "text-gray-100" : "text-gray-400"
-                  } text-base 2xl:text-xl font-medium`}
+                  } text-base xl:text-xl font-medium`}
                 >
                   Market
                 </button>
@@ -50,16 +50,16 @@ const Trade_Swap = () => {
                   }}
                   className={`${
                     !isMarket ? "text-gray-100" : "text-gray-400"
-                  } text-base 2xl:text-xl font-medium`}
+                  } text-base xl:text-xl font-medium`}
                 >
                   Limit
                 </button>
               </div>
               <button
                 onClick={() => setShowComponent("settings")}
-                className={` text-gray-300 hover:text-gray-100 text-base 2xl:text-lg`}
+                className={` text-gray-300 hover:text-gray-100 text-base xl:text-lg`}
               >
-                <MdTune className=" w-6 h-6 2xl:w-8 2xl:h-8" />
+                <MdTune className=" w-6 h-6 xl:w-8 xl:h-8" />
               </button>
             </div>
             {isMarket ? (

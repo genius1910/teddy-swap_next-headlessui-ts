@@ -28,7 +28,7 @@ const AmountAndTokenField_2 = ({
             <button
               type="button"
               onClick={() => setShowComponent(id)}
-              className=" text-sm xl:text-base font-medium flex gap-2 items-center"
+              className=" text-sm 2xl:text-base font-medium flex gap-2 items-center"
             >
               <Image
                 src={`/images/assets/token-${selectedToken.imgId}.png`}
@@ -45,7 +45,7 @@ const AmountAndTokenField_2 = ({
             <button
               type="button"
               onClick={() => setShowComponent(id)}
-              className=" text-sm xl:text-base font-medium flex items-center gap-2"
+              className=" text-sm 2xl:text-base font-medium flex items-center gap-2"
             >
               <span>Select Token</span>
               <span className="w-6">
@@ -60,7 +60,7 @@ const AmountAndTokenField_2 = ({
           <input
             type="text"
             defaultValue={957.3}
-            className=" text-base pr-4 pl-2 w-full font-medium text-right xl:text-lg bg-transparent text-white outline-none"
+            className=" text-base pr-4 pl-2 w-full font-medium text-right 2xl:text-lg bg-transparent text-white outline-none"
           />
         ) : (
           <p className=" text-xss select-none pointer-events-none text-transparent mt-1 text-center w-full">

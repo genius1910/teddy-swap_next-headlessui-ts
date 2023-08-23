@@ -17,11 +17,11 @@ const ConfirmSwap = ({ setShowComponent, isNotPadding }: Props) => {
       }`}
     >
       <div className="text-white flex items-center justify-between w-full">
-        <h1 className="2xl:text-xl text-base">
+        <h1 className="xl:text-xl text-base">
           {confirming ? "Waiting For Confirmations" : "Confirm Swap"}
         </h1>
         <button
-          className={` text-gray-100 hover:text-white text-base 2xl:text-lg`}
+          className={` text-gray-100 hover:text-white text-base xl:text-lg`}
         >
           <RxCross2
             onClick={() =>
@@ -41,7 +41,7 @@ const ConfirmSwap = ({ setShowComponent, isNotPadding }: Props) => {
               alt="Token 1 image"
             />
           </div>
-          <h1 className=" whitespace-nowrap font-normal text-sm 2xl:text-base absolute -bottom-7">
+          <h1 className=" whitespace-nowrap font-normal text-sm xl:text-base absolute -bottom-7">
             1 ADA
           </h1>
         </div>
@@ -55,7 +55,7 @@ const ConfirmSwap = ({ setShowComponent, isNotPadding }: Props) => {
               alt="Token 1 image"
             />
           </div>
-          <h1 className=" whitespace-nowrap font-normal text-sm 2xl:text-base absolute -bottom-7">
+          <h1 className=" whitespace-nowrap font-normal text-sm xl:text-base absolute -bottom-7">
             24.23 TEDY
           </h1>
         </div>

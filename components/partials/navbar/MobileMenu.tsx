@@ -90,10 +90,10 @@ const MobileMenu = ({ toggler, setToggler }: Props) => {
                               : "translate-x-1/2"
                           } rounded-md small-component-color w-6/12 h-full absolute z-0 transition-all duration-500 ease-in-out`}
                         ></span>
-                        <span className="py-[0.55rem] xl:py-2 px-4 xl:px-6 rounded-md relative z-10">
+                        <span className="py-[0.55rem] 2xl:py-2 px-4 2xl:px-6 rounded-md relative z-10">
                           USD
                         </span>
-                        <span className="py-[0.55rem] xl:py-2 px-4 xl:px-6 rounded-md relative z-10 ">
+                        <span className="py-[0.55rem] 2xl:py-2 px-4 2xl:px-6 rounded-md relative z-10 ">
                           ADA
                         </span>
                       </div>
@@ -115,7 +115,7 @@ const MobileMenu = ({ toggler, setToggler }: Props) => {
                                 leaveFrom="transform scale-100 opacity-100"
                                 leaveTo="transform scale-95 opacity-0"
                               >
-                                <Popover.Panel className="fixed outline-none component-color-2 rounded-2xl z-50 mt-8 right-0 transform w-full -top-5 xl:max-w-md">
+                                <Popover.Panel className="fixed outline-none component-color-2 rounded-2xl z-50 mt-8 right-0 transform w-full -top-5 2xl:max-w-md">
                                   {({ close }) => <WalletLists close={close} />}
                                 </Popover.Panel>
                               </Transition>
@@ -123,12 +123,12 @@ const MobileMenu = ({ toggler, setToggler }: Props) => {
                           )}
                         </Popover>
                       ) : (
-                        <div className="component-color w-full flex items-center justify-between gap-6 rounded-md pr-0.5 pl-4 xl:pl-6 py-0.5">
+                        <div className="component-color w-full flex items-center justify-between gap-6 rounded-md pr-0.5 pl-4 2xl:pl-6 py-0.5">
                           <span className="">9,386.5863 ₳</span>
                           <Popover>
                             {({ open }) => (
                               <>
-                                <Popover.Button className="w-max small-component-color flex items-center gap-2 rounded-md p-1 xl:p-1.5">
+                                <Popover.Button className="w-max small-component-color flex items-center gap-2 rounded-md p-1 2xl:p-1.5">
                                   <Image
                                     src={wallet?.img}
                                     alt="wallet image"
@@ -147,7 +147,7 @@ const MobileMenu = ({ toggler, setToggler }: Props) => {
                                   leaveFrom="transform scale-100 opacity-100"
                                   leaveTo="transform scale-95 opacity-0"
                                 >
-                                  <Popover.Panel className="fixed w-max outline-none component-color-2 rounded-2xl z-50 right-0 top-2 mb-8 transform xl:max-w-md">
+                                  <Popover.Panel className="fixed w-max outline-none component-color-2 rounded-2xl z-50 right-0 top-2 mb-8 transform 2xl:max-w-md">
                                     {({ close }) => (
                                       <ConnectedWallet close={close} />
                                     )}
@@ -158,14 +158,14 @@ const MobileMenu = ({ toggler, setToggler }: Props) => {
                           </Popover>
                         </div>
                       )}
-                      <span className="component-color rounded-md p-2 xl:p-2 cursor-pointer text-gray-200 hover:text-white transition-all">
-                        <AiOutlineHistory className="w-5 h-5 xl:w-6 xl:h-6" />
+                      <span className="component-color rounded-md p-2 2xl:p-2 cursor-pointer text-gray-200 hover:text-white transition-all">
+                        <AiOutlineHistory className="w-5 h-5 2xl:w-6 2xl:h-6" />
                       </span>
-                      <span className="component-color rounded-md p-2 xl:p-2 cursor-pointer text-gray-200 hover:text-white transition-all">
-                        <AiOutlineSetting className="w-5 h-5 xl:w-6 xl:h-6" />
+                      <span className="component-color rounded-md p-2 2xl:p-2 cursor-pointer text-gray-200 hover:text-white transition-all">
+                        <AiOutlineSetting className="w-5 h-5 2xl:w-6 2xl:h-6" />
                       </span>
                     </div>
-                    <ul className="flex flex-col gap-8 xl:gap-14 text-sm xl:text-[1.10rem] font-semibold">
+                    <ul className="flex flex-col gap-8 2xl:gap-14 text-sm 2xl:text-[1.10rem] font-semibold">
                       {navMenuList.map((item, index) => (
                         <li onClick={() => close()} key={index}>
                           <Link legacyBehavior href={item.link}>

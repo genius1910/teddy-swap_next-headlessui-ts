@@ -47,17 +47,17 @@ const ConnectedWallet = ({ close }: Props) => {
   return (
     <div className="relative flex flex-col gap-6 items-center p-4 lg:p-6 w-full max-sm:w-[91vw] ">
       <div className="flex items-center justify-between w-full">
-        <div className="flex items-center gap-4 text-sm xl:text-xl font-medium">
+        <div className="flex items-center gap-4 text-sm 2xl:text-xl font-medium">
           <Image src={wallet?.img || ""} alt="wallet" width={30} height={30} />
           <h1 className="">{wallet?.name}</h1>
         </div>
         <div className="flex gap-4">
           <button
-            className={` text-gray-300 hover:text-gray-100 text-sm xl:text-lg`}
+            className={` text-gray-300 hover:text-gray-100 text-sm 2xl:text-lg`}
           >
             <RxCross2
               onClick={() => close()}
-              className=" w-6 h-6 xl:w-8 xl:h-8 "
+              className=" w-6 h-6 2xl:w-8 2xl:h-8 "
             />
           </button>
         </div>
@@ -70,7 +70,7 @@ const ConnectedWallet = ({ close }: Props) => {
           <BsClipboard className="w-4 h-4" />
         </button>
       </div>
-      <div className="w-full text-sm xl:text-lg">
+      <div className="w-full text-sm 2xl:text-lg">
         <button
           className={`p-2 text-gray-500 ${
             activeTab == "Tokens" && "border-b border-b-gray-500 text-white"
