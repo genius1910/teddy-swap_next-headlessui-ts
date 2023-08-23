@@ -7,12 +7,12 @@ const LBE_Rightside = () => {
   return (
     <div className="p-6 flex flex-col">
       <div className="flex justify-between items-center">
-        <h1 className="text-base 2xl:text-lg font-medium">
+        <h1 className="text-base xl:text-lg font-medium">
           TeddySwap Liquidity Bootstraping Event
         </h1>
         <p className="flex flex-col items-center justify-center text-sm text-gray-400 font-medium gap-2">
           <p>Remaining time</p>
-          <p className="text-base 2xl:text-lg font-medium text-blue-400">
+          <p className="text-base xl:text-lg font-medium text-blue-400">
             1 Day left
           </p>
         </p>
@@ -79,7 +79,7 @@ const LBE_Rightside = () => {
           </div>
         </div>
         <div className="flex justify-between flex-wrap md:flex-nowrap">
-          <div className="font-medium text-xs 2xl:text-sm mt-4 ">
+          <div className="font-medium text-xs xl:text-sm mt-4 ">
             <div className="flex items-center gap-2 text-gray-300">
               <h3>My TeddyADA</h3>
               <AiOutlineInfoCircle
@@ -87,9 +87,9 @@ const LBE_Rightside = () => {
                 className="w-4 h-4"
               />
             </div>
-            <p className="  text-sm 2xl:text-xl mt-2">0</p>
+            <p className="  text-sm xl:text-xl mt-2">0</p>
           </div>
-          <div className="font-medium text-xs 2xl:text-sm mt-4 flex flex-col items-start md:items-end">
+          <div className="font-medium text-xs xl:text-sm mt-4 flex flex-col items-start md:items-end">
             <div className="flex items-center gap-2 text-gray-300">
               <h3>Current TEDY/ADA pool</h3>
               <AiOutlineInfoCircle
@@ -97,14 +97,14 @@ const LBE_Rightside = () => {
                 className="w-4 h-4"
               />
             </div>
-            <p className="  text-sm 2xl:text-lg mt-2 font-normal">
+            <p className="  text-sm xl:text-lg mt-2 font-normal">
               <span className=" font-semibold">ADA</span> 17.84M /{" "}
               <span className=" font-semibold">TEDY</span> 100M
             </p>
           </div>
         </div>
         <div className="flex justify-between items-center flex-wrap md:flex-nowrap">
-          <div className="font-medium text-xs 2xl:text-sm mt-4 ">
+          <div className="font-medium text-xs xl:text-sm mt-4 ">
             <div className="flex items-center gap-2 text-gray-300">
               <h3>Estimated LP Tokens</h3>
               <AiOutlineInfoCircle
@@ -112,9 +112,9 @@ const LBE_Rightside = () => {
                 className="w-4 h-4"
               />
             </div>
-            <p className="  text-sm 2xl:text-xl mt-2">--</p>
+            <p className="  text-sm xl:text-xl mt-2">--</p>
           </div>
-          <div className="font-medium text-xs 2xl:text-sm mt-4 ">
+          <div className="font-medium text-xs xl:text-sm mt-4 ">
             <div className="flex items-center gap-2 text-gray-300">
               <h3>My Pool Share</h3>
               <AiOutlineInfoCircle
@@ -122,13 +122,13 @@ const LBE_Rightside = () => {
                 className="w-4 h-4"
               />
             </div>
-            <p className="  text-sm 2xl:text-xl mt-2">--</p>
+            <p className="  text-sm xl:text-xl mt-2">--</p>
           </div>
         </div>
       </div>
 
       <div>
-        <h1 className="text-base 2xl:text-lg font-medium">
+        <h1 className="text-base xl:text-lg font-medium">
           TeddySwap Liquidity Bootstraping Event
         </h1>
         <p className=" py-4 px-4 md:px-8">

@@ -67,14 +67,14 @@ const Navbar = () => {
       <div
         className={`${
           pathname != "/" ? "max-w-[1800px] xl:py-2" : ""
-        } justify-between mx-auto relative z-50 py-4 2xl:py-4 px-4 md:px-8 flex items-center gap-4`}
+        } justify-between mx-auto relative z-50 py-4 xl:py-4 px-4 md:px-8 flex items-center gap-4`}
       >
         {/* mobile menu  */}
         {pathname != "/" && (
           <MobileMenu toggler={toggler} setToggler={setToggler} />
         )}
         {/* desktop menu  */}
-        <div className="hidden xl:flex items-center gap-10 2xl:gap-20">
+        <div className="hidden xl:flex items-center gap-10 xl:gap-20">
           <Link legacyBehavior href="/">
             <a>
               <Image
@@ -82,18 +82,18 @@ const Navbar = () => {
                 alt="logo"
                 width={143}
                 height={26}
-                className="hidden 2xl:block cursor-pointer"
+                className="hidden xl:block cursor-pointer"
               />
               <Image
                 src="/images/logo/primary.png"
                 alt="logo"
                 width={110}
                 height={26}
-                className="hidden xl:block 2xl:hidden cursor-pointer"
+                className="hidden xl:block xl:hidden cursor-pointer"
               />
             </a>
           </Link>
-          <ul className="flex items-center gap-10 2xl:gap-14 text-xs 2xl:text-base font-semibold">
+          <ul className="flex items-center gap-10 xl:gap-14 text-xs xl:text-base font-semibold">
             {pathname != "/" &&
               navMenuList.map((item, index) => {
                 return (
@@ -130,9 +130,9 @@ const Navbar = () => {
                               <>
                                 <Popover.Button className=" rounded-sm group outline-none component-color">
                                   {!open ? (
-                                    <AiOutlineArrowDown className="2xl:w-4 2xl:h-4 w-3 h-3 outline-none text-neutral-400 group-hover:text-neutral-100 transition-all" />
+                                    <AiOutlineArrowDown className="xl:w-4 xl:h-4 w-3 h-3 outline-none text-neutral-400 group-hover:text-neutral-100 transition-all" />
                                   ) : (
-                                    <AiOutlineArrowUp className="2xl:w-4 2xl:h-4 w-3 h-3 outline-none text-cyan-400 group-hover:text-cyan-300 transition-all" />
+                                    <AiOutlineArrowUp className="xl:w-4 xl:h-4 w-3 h-3 outline-none text-cyan-400 group-hover:text-cyan-300 transition-all" />
                                   )}
                                 </Popover.Button>
                                 <Transition
@@ -143,7 +143,7 @@ const Navbar = () => {
                                   leaveFrom="transform scale-100 opacity-100"
                                   leaveTo="transform scale-95 opacity-0"
                                 >
-                                  <Popover.Panel className="absolute outline-none component-color-2 left-[10.5rem] rounded-2xl z-50 mt-8 -translate-x-1/2 transform w-screen max-w-sm zoom-80 2xl:zoom-100 2xl:max-w-md">
+                                  <Popover.Panel className="absolute outline-none component-color-2 left-[10.5rem] rounded-2xl z-50 mt-8 -translate-x-1/2 transform w-screen max-w-sm zoom-80 xl:zoom-100 xl:max-w-md">
                                     {({ close }) => (
                                       <QuickSwapPopup close={close} />
                                     )}
@@ -162,7 +162,7 @@ const Navbar = () => {
         </div>
         {/* rightside */}
         {pathname != "/" && (
-          <div className="hidden xl:flex text-xs 2xl:text-base gap-2 2xl:gap-4 font-medium h-full ">
+          <div className="hidden xl:flex text-xs xl:text-base gap-2 xl:gap-4 font-medium h-full ">
             {/* toggle button  */}
             <div
               onClick={() =>
@@ -175,10 +175,10 @@ const Navbar = () => {
                   toggler == "USD" ? "-translate-x-1/2" : "translate-x-1/2"
                 } absolute small-component-color w-6/12 h-full z-0 transition-all duration-500 ease-in-out`}
               ></span>
-              <span className="h-full flex justify-center items-center my-auto py-2 px-4 2xl:px-6 rounded-md relative z-10">
+              <span className="h-full flex justify-center items-center my-auto py-2 px-4 xl:px-6 rounded-md relative z-10">
                 USD
               </span>
-              <span className="h-full flex justify-center items-center my-auto py-2 px-4 2xl:px-6 rounded-md relative z-10">
+              <span className="h-full flex justify-center items-center my-auto py-2 px-4 xl:px-6 rounded-md relative z-10">
                 ADA
               </span>
             </div>
@@ -202,7 +202,7 @@ const Navbar = () => {
                       leaveFrom="transform scale-100 opacity-100"
                       leaveTo="transform scale-95 opacity-0"
                     >
-                      <Popover.Panel className="absolute zoom-80 2xl:zoom-100 outline-none component-color-2 rounded-2xl z-50 mt-8 right-0 transform w-screen max-w-sm 2xl:max-w-md">
+                      <Popover.Panel className="absolute zoom-80 xl:zoom-100 outline-none component-color-2 rounded-2xl z-50 mt-8 right-0 transform w-screen max-w-sm xl:max-w-md">
                         {({ close }) => <WalletList close={close} />}
                       </Popover.Panel>
                     </Transition>
@@ -210,12 +210,12 @@ const Navbar = () => {
                 )}
               </Popover>
             ) : (
-              <div className="component-color h-auto flex items-center gap-6 rounded-md pr-0.5 pl-4 2xl:pl-6 py-0.5">
+              <div className="component-color h-auto flex items-center gap-6 rounded-md pr-0.5 pl-4 xl:pl-6 py-0.5">
                 <span className="">9,386.5863 ₳</span>
                 <Popover>
                   {({ open }) => (
                     <>
-                      <Popover.Button className=" small-component-color flex items-center gap-2 rounded-md p-1 2xl:p-1.5 ">
+                      <Popover.Button className=" small-component-color flex items-center gap-2 rounded-md p-1 xl:p-1.5 ">
                         <Image
                           src={wallet?.img}
                           alt="wallet image"
@@ -232,7 +232,7 @@ const Navbar = () => {
                         leaveFrom="transform scale-100 opacity-100"
                         leaveTo="transform scale-95 opacity-0"
                       >
-                        <Popover.Panel className="absolute zoom-80 2xl:zoom-100 outline-none component-color-2 rounded-2xl z-50 mt-8 right-0 transform w-screen max-w-sm 2xl:max-w-md">
+                        <Popover.Panel className="absolute zoom-80 xl:zoom-100 outline-none component-color-2 rounded-2xl z-50 mt-8 right-0 transform w-screen max-w-sm xl:max-w-md">
                           {({ close }) => <ConnectedWallet close={close} />}
                         </Popover.Panel>
                       </Transition>
@@ -249,7 +249,7 @@ const Navbar = () => {
                 pathname == "/history" && "bg-gray-500"
               } component-color rounded-md p-2 cursor-pointer text-gray-200 hover:text-white transition-all`}
             >
-              <AiOutlineHistory className="w-4 h-4 2xl:w-6 2xl:h-6" />
+              <AiOutlineHistory className="w-4 h-4 xl:w-6 xl:h-6" />
             </button>
 
             {/* settings  */}
@@ -257,7 +257,7 @@ const Navbar = () => {
               {({ open }) => (
                 <>
                   <Popover.Button className="h-full group component-color rounded-md p-2 cursor-pointer text-gray-200 hover:text-white transition-all ">
-                    <AiOutlineSetting className="w-4 h-4 2xl:w-6 2xl:h-6" />
+                    <AiOutlineSetting className="w-4 h-4 xl:w-6 xl:h-6" />
                   </Popover.Button>
                   <Transition
                     enter="transition duration-100 ease-out"
@@ -267,7 +267,7 @@ const Navbar = () => {
                     leaveFrom="transform scale-100 opacity-100"
                     leaveTo="transform scale-95 opacity-0"
                   >
-                    <Popover.Panel className="absolute zoom-80 2xl:zoom-100 outline-none component-color-2 rounded-2xl z-50 2xl:mt-8 mt-4  right-0 transform w-screen max-w-sm 2xl:max-w-md">
+                    <Popover.Panel className="absolute zoom-80 xl:zoom-100 outline-none component-color-2 rounded-2xl z-50 xl:mt-8 mt-4  right-0 transform w-screen max-w-sm xl:max-w-md">
                       {({ close }) => <SettingsPopup close={close} />}
                     </Popover.Panel>
                   </Transition>

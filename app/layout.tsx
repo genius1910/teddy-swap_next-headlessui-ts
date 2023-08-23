@@ -35,7 +35,7 @@ function RootLayout({ children }: { children: React.ReactNode }) {
         <div
           className={`mx-auto my-10 px-4 ${
             pathname == "/"
-              ? "lg:max-w-6xl 2xl:max-w-[1620px]"
+              ? "lg:max-w-6xl xl:max-w-[1620px]"
               : "max-w-[1420px]"
           }`}
         >

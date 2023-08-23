@@ -103,7 +103,7 @@ const Farm_Withdraw = ({ setShowComponent }: Props) => {
         onClick={() => {
           setShowComponent("confirm-withdraw");
         }}
-        className=" primary-button  text-sm 2xl:text-xl py-3 2xl:py-4 rounded-lg border-2"
+        className=" primary-button  text-sm xl:text-xl py-3 xl:py-4 rounded-lg border-2"
       >
         Withdraw
       </button>

@@ -4,11 +4,11 @@ import React from "react";
 const Dash_Section3 = () => {
   return (
     <section id="dash-section-3">
-      <div className="flex flex-col justify-center items-center text-center gap-6 2xl:gap-10">
+      <div className="flex flex-col justify-center items-center text-center gap-6 xl:gap-10">
         <h3 className="l-section-heading">FEATURES</h3>
         <h1 className="l-xl-heading">Making DeFi easy to use for everyone</h1>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-14 text-base 2xl:text-2xl items-center py-32 max-lg:pt-16 md:py-44 2xl:py-60">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-14 text-base xl:text-2xl items-center py-32 max-lg:pt-16 md:py-44 xl:py-60">
         <div className="max-lg:hidden col-span-1 lg:col-span-2 relative">
           <Image
             src="/images/assets/l-sec3.svg"
@@ -18,7 +18,7 @@ const Dash_Section3 = () => {
             className="w-full lg:w-9/12 drop-shadow-2xl"
           />
         </div>
-        <div className=" col-span-1 lg:col-span-2 flex flex-col gap-7 2xl:gap-10">
+        <div className=" col-span-1 lg:col-span-2 flex flex-col gap-7 xl:gap-10">
           <h3 className="l-s-heading">DECENTRALIZING TRADING</h3>
           <h1 className="l-heading font-medium">
             Open-Source Batcher Protocol

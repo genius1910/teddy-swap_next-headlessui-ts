@@ -71,12 +71,12 @@ const Liquidity_Deposit = ({
               selectedToken && selectedToken2
                 ? "secondary-button"
                 : "primary-button"
-            } text-sm 2xl:text-xl py-3 2xl:py-4 rounded-2xl border-2`}
+            } text-sm xl:text-xl py-3 xl:py-4 rounded-2xl border-2`}
           >
             {selectedToken && selectedToken2 ? "Add Liquidity" : "Select Pair"}
           </button>
         </div>
-        <div className="font-medium text-sm 2xl:text-base text-gray-200 w-full">
+        <div className="font-medium text-sm xl:text-base text-gray-200 w-full">
           <ul className="space-y-3 w-full font-normal px-2">
             <li className=" flex justify-between w-full items-center">
               <h5>Price:</h5>

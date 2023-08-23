@@ -127,7 +127,7 @@
     @apply active:opacity-80 hover:opacity-90;
   }
   .heading-xl {
-    @apply text-base 2xl:text-xl;
+    @apply text-base xl:text-xl;
   }
   .text-cyan-gradient {
     background: linear-gradient(273.96deg, #0084ff -98.53%, #26ffff 130.04%);
@@ -139,7 +139,7 @@
   /* below code for landing page   */
   /* l mean landing page  */
   .l-heading {
-    @apply text-3xl lg:text-5xl 2xl:text-7xl font-semibold text-[#D6D4C6];
+    @apply text-3xl lg:text-5xl xl:text-7xl font-semibold text-[#D6D4C6];
   }
   .l-subtitle {
     @apply font-light max-w-2xl tracking-wide text-[#D6D4C6];
@@ -148,13 +148,13 @@
     color: #e2e2e2;
     font-style: normal;
     font-weight: 400;
-    @apply 2xl:text-[1.35rem] leading-7 lg:leading-9 text-base;
+    @apply xl:text-[1.35rem] leading-7 lg:leading-9 text-base;
   }
   .l-button {
-    @apply primary-button border-2 rounded-2xl px-12 text-sm 2xl:text-base py-3 2xl:py-4 w-fit;
+    @apply primary-button border-2 rounded-2xl px-12 text-sm xl:text-base py-3 xl:py-4 w-fit;
   }
   .l-xl-heading {
-    @apply text-[1.9rem] lg:text-[3rem] 2xl:text-[4.8rem] max-w-4xl 2xl:max-w-5xl font-semibold text-[#D6D4C6];
+    @apply text-[1.9rem] lg:text-[3rem] xl:text-[4.8rem] max-w-4xl xl:max-w-5xl font-semibold text-[#D6D4C6];
   }
   /* s meaning small  */
   .l-s-heading {
@@ -164,7 +164,7 @@
     font-weight: 500;
     line-height: normal;
     letter-spacing: 1.5px;
-    @apply text-sm lg:text-base 2xl:text-2xl;
+    @apply text-sm lg:text-base xl:text-2xl;
   }
   .l-section-heading {
     color: #ade1ff;
@@ -174,7 +174,7 @@
     font-weight: 500;
     line-height: normal;
     letter-spacing: 1.5px;
-    @apply 2xl:text-2xl text-lg;
+    @apply xl:text-2xl text-lg;
   }
   .tokenomics-bg {
     background: var(
@@ -188,13 +188,13 @@
     );
   }
   .big-text {
-    @apply 2xl:text-xl xl:text-lg text-base;
+    @apply xl:text-xl xl:text-lg text-base;
   }
   .medium-text {
-    @apply 2xl:text-lg xl:text-base text-sm;
+    @apply xl:text-lg xl:text-base text-sm;
   }
   .small-text {
-    @apply 2xl:text-base xl:text-sm text-xs;
+    @apply xl:text-base xl:text-sm text-xs;
   }
   .zoom-70 {
     zoom: 70%;

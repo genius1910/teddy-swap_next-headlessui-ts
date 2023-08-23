@@ -20,7 +20,7 @@ const FarmGroupButton = ({ tabs, setTabs, activeTab, setActiveTab }: Props) => {
               onClick={() => setActiveTab(item)}
               className={`${
                 item == activeTab && " text-white flex items-end"
-              } cursor-pointer relative px-6 md:px-8 2xl:px-14 py-2 text-xs 2xl:text-base text-neutral-400 hover:text-white font-semibold transition-all`}
+              } cursor-pointer relative px-6 md:px-8 xl:px-14 py-2 text-xs xl:text-base text-neutral-400 hover:text-white font-semibold transition-all`}
               key={item}
             >
               <span>{item}</span>

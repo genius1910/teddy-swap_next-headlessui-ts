@@ -56,7 +56,7 @@ const Farm_Dash_Leftside = () => {
         {farms.map((item, i) => {
           return (
             <div key={i}>
-              <div className="flex justify-between 2xl:text-lg text-base">
+              <div className="flex justify-between xl:text-lg text-base">
                 <div>
                   <span className="flex items-center gap-1">
                     <Image

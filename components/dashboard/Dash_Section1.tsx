@@ -6,8 +6,8 @@ import { BsDiscord, BsMedium, BsTelegram, BsTwitter } from "react-icons/bs";
 const Dash_Section1 = () => {
   return (
     <section id="dash-section-1">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-14 text-lg 2xl:text-2xl items-center py-16 max-sm:pb-6 md:py-28 2xl:py-36">
-        <div className=" col-span-1 lg:col-span-2 flex flex-col gap-6 2xl:gap-10">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-14 text-lg xl:text-2xl items-center py-16 max-sm:pb-6 md:py-28 xl:py-36">
+        <div className=" col-span-1 lg:col-span-2 flex flex-col gap-6 xl:gap-10">
           <h1 className="l-heading">
             Decentralized Stablecoin Exchange on Cardano
           </h1>

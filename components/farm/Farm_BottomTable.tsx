@@ -20,7 +20,7 @@ const Farm_BottomTable = ({ setActiveTab, isItDashboard }: Props) => {
         <>
           <div className="flex flex-wrap justify-between mt-10">
             <div>
-              <h1 className="text-lg 2xl:text-2xl font-medium">Farm</h1>
+              <h1 className="text-lg xl:text-2xl font-medium">Farm</h1>
               <p className=" text-base font-medium my-2">
                 Stake LP tokens to earn MIN and more.
               </p>

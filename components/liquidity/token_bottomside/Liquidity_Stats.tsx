@@ -64,7 +64,7 @@ const Liquidity_BottomStats = () => {
         <h1 className="heading-xl font-medium border-b border-gray-600 pb-4">
           Key Stats
         </h1>
-        <div className=" text-sm 2xl:text-base text-white w-full">
+        <div className=" text-sm xl:text-base text-white w-full">
           <ul className="space-y-3 w-full font-normal mt-4">
             {keyStats.map((item, i) => {
               return (
@@ -94,7 +94,7 @@ const Liquidity_BottomStats = () => {
                 alt="Token 1 image"
               />
             </div>
-            <h1 className=" whitespace-nowrap font-normal text-sm 2xl:text-base absolute -bottom-7">
+            <h1 className=" whitespace-nowrap font-normal text-sm xl:text-base absolute -bottom-7">
               1 ADA
             </h1>
           </div>
@@ -113,7 +113,7 @@ const Liquidity_BottomStats = () => {
                 alt="Token 1 image"
               />
             </div>
-            <h1 className=" whitespace-nowrap font-normal text-sm 2xl:text-base absolute -bottom-7">
+            <h1 className=" whitespace-nowrap font-normal text-sm xl:text-base absolute -bottom-7">
               24.23 TEDY
             </h1>
           </div>
@@ -128,7 +128,7 @@ const Liquidity_BottomStats = () => {
                 alt="Token 1 image"
               />
             </div>
-            <h1 className=" whitespace-nowrap font-normal text-sm 2xl:text-base absolute -bottom-7">
+            <h1 className=" whitespace-nowrap font-normal text-sm xl:text-base absolute -bottom-7">
               24.23 TEDY
             </h1>
           </div>
@@ -148,7 +148,7 @@ const Liquidity_BottomStats = () => {
               />
             </div>
 
-            <h1 className=" whitespace-nowrap font-normal text-sm 2xl:text-base absolute -bottom-7">
+            <h1 className=" whitespace-nowrap font-normal text-sm xl:text-base absolute -bottom-7">
               0.523 ADA
             </h1>
           </div>

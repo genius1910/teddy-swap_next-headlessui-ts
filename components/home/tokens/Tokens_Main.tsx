@@ -6,7 +6,7 @@ import { BsPatchCheckFill } from "react-icons/bs";
 
 const Tokens_Main = () => {
   return (
-    <div className="max-2xl:max-w-[1400px] mx-auto xl:zoom-80 2xl:zoom-100">
+    <div className="max-xl:max-w-[1400px] mx-auto xl:zoom-80 xl:zoom-100">
       <div className="">
         <Tokens_TopChartbar />
       </div>

@@ -93,10 +93,10 @@ const Liquidity_Rightside = ({ activeTab, setActiveTab }: Props) => {
                     toggler == "Volume" ? "-translate-x-1/2" : "translate-x-1/2"
                   } rounded-md small-component-color w-6/12 h-full absolute z-0 transition-all duration-500 ease-in-out`}
                 ></span>
-                <span className="py-[0.55rem] 2xl:py-2 px-4 2xl:px-8 rounded-md relative z-10">
+                <span className="py-[0.55rem] xl:py-2 px-4 xl:px-8 rounded-md relative z-10">
                   Volume
                 </span>
-                <span className="py-[0.55rem] 2xl:py-2 px-4 2xl:px-8 rounded-md relative z-10 ">
+                <span className="py-[0.55rem] xl:py-2 px-4 xl:px-8 rounded-md relative z-10 ">
                   Price
                 </span>
               </div>

@@ -27,7 +27,7 @@ const LiquidityAmountAndTokenField = ({
             <button
               type="button"
               onClick={() => setShowComponent(id)}
-              className=" text-sm 2xl:text-base font-medium flex gap-2 items-center"
+              className=" text-sm xl:text-base font-medium flex gap-2 items-center"
             >
               <Image
                 src={`/images/assets/token-1.png`}
@@ -51,7 +51,7 @@ const LiquidityAmountAndTokenField = ({
             <button
               type="button"
               onClick={() => setShowComponent(id)}
-              className=" text-sm 2xl:text-base font-medium flex items-center gap-2"
+              className=" text-sm xl:text-base font-medium flex items-center gap-2"
             >
               <span>Select Token</span>
               <span className="w-6">
@@ -66,7 +66,7 @@ const LiquidityAmountAndTokenField = ({
           <input
             type="text"
             defaultValue={957.3}
-            className=" text-base pr-4 pl-2 w-full font-medium text-right 2xl:text-lg bg-transparent text-white outline-none"
+            className=" text-base pr-4 pl-2 w-full font-medium text-right xl:text-lg bg-transparent text-white outline-none"
           />
         ) : (
           <p className=" text-xss select-none pointer-events-none text-transparent mt-1 text-center w-full">
