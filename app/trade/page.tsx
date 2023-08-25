@@ -9,14 +9,14 @@ const Trade = () => {
   const [tabs, setTabs] = React.useState(["Select Pair", "ADA / TEDY"]);
 
   return (
-    <div className="relative max-2xl:max-w-[1400px] mx-auto xl:zoom-80 2xl:zoom-100">
+    <div className="relative">
       <TradeGroupButton
         activeTab={activeTab}
         setActiveTab={setActiveTab}
         tabs={tabs}
         setTabs={setTabs}
       />
-      <div className="grid grid-cols-12 w-full gap-8 px-4 2xl:px-0 items-start">
+      <div className="max-2xl:max-w-[1400px] mx-auto xl:zoom-80 2xl:zoom-100 grid grid-cols-12 w-full gap-8 px-4 xl:px-0 items-start">
         <div className=" col-span-12 xl:col-span-4">
           <Trade_Leftside />
         </div>

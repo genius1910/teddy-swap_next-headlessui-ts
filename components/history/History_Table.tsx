@@ -1,5 +1,6 @@
 import useAuthenticate from "@/context/mobx/useAuthenticate";
 import { Popover, Transition } from "@headlessui/react";
+import { observer } from "mobx-react-lite";
 import Image from "next/image";
 import React, { useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
@@ -317,4 +318,4 @@ const History_Table = () => {
   );
 };
 
-export default History_Table;
+export default observer(History_Table);

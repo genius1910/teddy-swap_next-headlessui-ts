@@ -2,14 +2,15 @@
 import React from "react";
 import Progress from "../partials/Progress";
 import Farm_StakeWithdrawHarvest from "./Farm_StakeWithdrawHarvest";
+import Liquidity_KeyStats from "../liquidity/leftside/Liquidity_KeyStats";
 
 const Farm_Leftside = () => {
-    return (
-        <div className="space-y-4">
-            <div className="component-color rounded-2xl">
-                <Farm_StakeWithdrawHarvest />
-            </div>
-            <div className="component-color p-8 rounded-2xl space-y-6">
+  return (
+    <div className="space-y-4">
+      <div className="component-color rounded-2xl">
+        <Farm_StakeWithdrawHarvest />
+      </div>
+      {/* <div className="component-color p-8 rounded-2xl space-y-6">
                 <div>
                     <div className="flex justify-between 2xl:text-lg text-base">
                         <h4 className=" text-gray-400">TVL:</h4>
@@ -31,9 +32,12 @@ const Farm_Leftside = () => {
                     </div>
                     <Progress percentage={56} />
                 </div>
-            </div>
-        </div>
-    );
+            </div> */}
+
+      {/* it's same design  */}
+      <Liquidity_KeyStats />
+    </div>
+  );
 };
 
 export default Farm_Leftside;

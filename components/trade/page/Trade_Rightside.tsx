@@ -4,7 +4,7 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { AiOutlineStar } from "react-icons/ai";
 import Trade_Stats from "./rightside/Trade_Stats";
-import Trade_Hystory from "./rightside/Trade_Hystory";
+import Trade_History from "./rightside/Trade_History";
 import Trade_TopPairs from "./rightside/Trade_TopPairs";
 
 const times = ["1h", "1d", "1w", "1m", "All Time"];
@@ -104,7 +104,7 @@ const Trade_Rightside = ({ activeTab, setActiveTab }: Props) => {
             <ChartApp />
           </div>
           <Trade_Stats />
-          <Trade_Hystory />
+          <Trade_History />
         </>
       ) : (
         <Trade_TopPairs setActiveTabs={setActiveTab} />

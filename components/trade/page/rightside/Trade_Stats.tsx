@@ -1,18 +1,23 @@
 import React from "react";
+import { BsExclamationCircle } from "react-icons/bs";
 
 const Trade_Stats = () => {
   const stats = [
     {
-      name: "Change 24H",
-      value: "+13.3%",
+      name: "Market Cap",
+      value: "85,503,700 ADA",
     },
     {
-      name: "Change 1M",
-      value: "+24.3%",
+      name: "FD Market Cap",
+      value: "43,203,100 ADA",
     },
     {
-      name: "Volume 1M",
-      value: "₳6.23m",
+      name: "Circulating Supply",
+      value: "623.42M TEDY",
+    },
+    {
+      name: "Max Supply",
+      value: "5B TEDY",
     },
   ];
   return (
@@ -22,10 +27,15 @@ const Trade_Stats = () => {
           return (
             <li
               key={item.name}
-              className="flex py-4 justify-center gap-2 rounded-xl items-center component-color w-full flex-col  text-center text-xl xl:text-2xl text-white"
+              className="flex gap-2 rounded-xl p-4 component-color w-full flex-col text-lg xl:text-xl text-white"
             >
+              <h5 className="text-xs text-white flex items-center gap-1">
+                <span>{item.name}</span>
+                <button title={item.name}>
+                  <BsExclamationCircle className="w-3 h-3" />
+                </button>
+              </h5>
               <h1>{item.value}</h1>
-              <h5 className="text-xs text-white">{item.name}</h5>
             </li>
           );
         })}

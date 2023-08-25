@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { RiExchangeLine } from "react-icons/ri";
 import { CgArrowsExchangeAlt } from "react-icons/cg";
 import Image from "next/image";
@@ -13,11 +13,12 @@ interface Props {
   selectedToken4?: { name: string; percentage: number };
 }
 
-const Liquidity_Withdraw = ({
+const Liquidity_Remove = ({
   setShowComponent,
   selectedToken3,
   selectedToken4,
 }: Props) => {
+  const [removeRange, setRemoveRange] = useState(1);
   return (
     <React.Fragment>
       <div className="w-full">
@@ -45,17 +46,43 @@ const Liquidity_Withdraw = ({
       <div className="relative w-full">
         <input
           type="range"
-          className="transparent h-1.5 slider w-full cursor-pointer appearance-none rounded-lg border-transparent bg-[#1ED6FF]"
+          className="transparent h-1.5 slider w-full cursor-pointer appearance-none rounded-lg border-transparent bg-[#959595]"
           min="1"
           max="4"
           step="1"
-          id="customRange3"
+          id="removeRange"
+          value={removeRange}
+          onChange={(e) => setRemoveRange(Number(e.target.value))}
+        />
+        <div
+          style={{ width: `${33.33 * (removeRange - 1)}%` }}
+          className={`bg-[#1ED6FF] h-1.5 pointer-events-none absolute inset-0 top-1 my-auto rounded-full`}
         />
         <div className="w-full flex justify-between text-xs absolute top-1.5 pointer-events-none">
-          <div className="w-4 h-4 bg-[#1ED6FF] rounded-full" />
-          <div className="w-4 h-4 bg-[#1ED6FF] rounded-full" />
-          <div className="w-4 h-4 bg-[#1ED6FF] rounded-full" />
-          <div className="w-4 h-4 bg-[#1ED6FF] rounded-full" />
+          <div
+            style={{
+              background: `${removeRange >= 1 ? "#1ED6FF" : "#D9D9D9"}`,
+            }}
+            className="w-4 h-4 rounded-full"
+          />
+          <div
+            style={{
+              background: `${removeRange >= 2 ? "#1ED6FF" : "#D9D9D9"}`,
+            }}
+            className="w-4 h-4 rounded-full"
+          />
+          <div
+            style={{
+              background: `${removeRange >= 3 ? "#1ED6FF" : "#D9D9D9"}`,
+            }}
+            className="w-4 h-4 rounded-full"
+          />
+          <div
+            style={{
+              background: `${removeRange >= 4 ? "#1ED6FF" : "#D9D9D9"}`,
+            }}
+            className="w-4 h-4 rounded-full"
+          />
         </div>
       </div>
       <div className="w-full grid grid-cols-4 gap-4">
@@ -95,4 +122,4 @@ const Liquidity_Withdraw = ({
   );
 };
 
-export default Liquidity_Withdraw;
+export default Liquidity_Remove;

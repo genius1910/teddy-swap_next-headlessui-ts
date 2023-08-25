@@ -1,18 +1,23 @@
 import React from "react";
+import { BsExclamationCircle } from "react-icons/bs";
 
 const Liquidity_Stats = () => {
   const stats = [
     {
-      name: "Earned by Liquidity Providers",
-      value: "₳236.23k",
+      name: "LP Fee",
+      value: "0.5%",
     },
     {
-      name: "Average Annual Yield",
-      value: "3.69%",
+      name: "Market Earnings",
+      value: "203k ₳, 1.2M TEDY",
     },
     {
-      name: "1 Month Pool Divergence",
-      value: "37.43%",
+      name: "Your Earnings",
+      value: "146 ADA, 10.3k TEDY",
+    },
+    {
+      name: "Impermanent Loss",
+      value: "-8.36%",
     },
   ];
   return (
@@ -22,10 +27,19 @@ const Liquidity_Stats = () => {
           return (
             <li
               key={item.name}
-              className="flex py-4 justify-center gap-2 rounded-xl items-center component-color w-full flex-col  text-center text-xl 2xl:text-2xl text-white"
+              className="flex gap-2 whitespace-nowrap rounded-xl p-4 component-color w-full flex-col text-lg xl:text-xl text-white"
             >
-              <h1 className="font-medium">{item.value}</h1>
-              <h5 className="text-xs text-white">{item.name}</h5>
+              <h5 className="text-xs text-white flex items-center gap-1">
+                <span>{item.name}</span>
+                <button title={item.name}>
+                  <BsExclamationCircle className="w-3 h-3" />
+                </button>
+              </h5>
+              {item.name == "Impermanent Loss" ? (
+                <h1 className="text-[#B0D5FF]">{item.value}</h1>
+              ) : (
+                <h1>{item.value}</h1>
+              )}
             </li>
           );
         })}

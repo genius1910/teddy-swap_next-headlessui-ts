@@ -2,6 +2,7 @@ import React from "react";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 import ChartDataLabels from "chartjs-plugin-datalabels";
+import Image from "next/image";
 
 ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
 
@@ -56,8 +57,17 @@ export function GaugeChart() {
   };
 
   return (
-    <div className="relative -mt-10">
-      <Doughnut data={data} options={options} />
+    <div className="relative h-40 w-80">
+      <div className="absolute inset-0 m-auto">
+        <img
+          src={`/images/assets/gauge.png`}
+          className="w-full h-full"
+          alt="Gauge chart"
+        />
+      </div>
+      {/* <div className="opacity-0">
+        <Doughnut data={data} options={options} />
+      </div> */}
       <div className="text-5xl text-white absolute pointer-events-none inset-0  top-0 my-auto flex flex-col items-center justify-center mt-11 h-full text-center">
         <h1>86%</h1>
         <p className="text-xs text-gray-400">Average Apr</p>

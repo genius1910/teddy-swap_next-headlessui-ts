@@ -1,15 +1,17 @@
 "use-client";
 import React from "react";
-import Liquidity_DepositWithdraw from "./leftside/Liquidity_DepositWithdraw";
+import Liquidity_AddRemove from "./leftside/Liquidity_AddRemove";
 import Progress from "../partials/Progress";
+import Trade_KeyStats from "../trade/page/leftside/Trade_KeyStats";
+import Liquidity_KeyStats from "./leftside/Liquidity_KeyStats";
 
 const Liquidity_Leftside = () => {
   return (
-    <div className="space-y-4">
+    <div className="space-y-8">
       <div className="component-color rounded-2xl">
-        <Liquidity_DepositWithdraw />
+        <Liquidity_AddRemove />
       </div>
-      <div className="component-color p-8 rounded-2xl space-y-6">
+      {/* <div className="component-color p-8 rounded-2xl space-y-6">
         <div>
           <div className="flex justify-between 2xl:text-lg text-base">
             <h4 className=" text-gray-400">TVL:</h4>
@@ -31,7 +33,8 @@ const Liquidity_Leftside = () => {
           </div>
           <Progress percentage={56} />
         </div>
-      </div>
+      </div> */}
+      <Liquidity_KeyStats />
     </div>
   );
 };

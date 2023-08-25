@@ -1,7 +1,11 @@
 import React, { Fragment, useState } from "react";
-import { MdArrowDownward, MdArrowUpward, MdCheckCircle } from "react-icons/md";
 import Image from "next/image";
-import { BsChevronDown } from "react-icons/bs";
+import {
+  BsChevronDown,
+  BsExclamationCircle,
+  BsPatchCheck,
+  BsPatchCheckFill,
+} from "react-icons/bs";
 
 interface Props {
   item: number;
@@ -34,7 +38,7 @@ const Liquidity_TableRow = ({ item, setActiveTab }: Props) => {
                 className="-ml-3"
               />
               <h4 className="text-base">ADA/TEDY</h4>
-              <MdCheckCircle className="w-3 h-3" />
+              <BsPatchCheckFill className="w-3 h-3" />
             </span>
           </td>
           <td className="px-8 lg:px-16 py-8 text-base">
@@ -76,7 +80,7 @@ const Liquidity_TableRow = ({ item, setActiveTab }: Props) => {
             <td colSpan={9} className=" border-t-0 bg-black/10 overflow-hidden">
               <span className="flex justify-between">
                 <p className="px-6 py-4 flex flex-col gap-1 text-base">
-                  <span className=" text-gray-400">Price:</span>
+                  <span className=" text-gray-400">Price</span>
                   <span>
                     <span className=" text-gray-300 text-sm">
                       1 ADA = 10.4545 TEDDY
@@ -88,7 +92,12 @@ const Liquidity_TableRow = ({ item, setActiveTab }: Props) => {
                   </span>
                 </p>
                 <p className="px-6 py-4 flex flex-col gap-1 text-base">
-                  <span className=" text-gray-400">Total Liquidity:</span>
+                  <span className=" text-gray-400 flex items-center gap-1">
+                    <span>Total Liquidity</span>{" "}
+                    <button>
+                      <BsExclamationCircle className="w-3 h-3" />
+                    </button>
+                  </span>
                   <span>
                     <span className=" text-gray-300 text-sm">
                       ADA: 26,747,918
@@ -100,7 +109,12 @@ const Liquidity_TableRow = ({ item, setActiveTab }: Props) => {
                   </span>
                 </p>
                 <p className="px-6 py-4 flex flex-col gap-1 text-base">
-                  <span className=" text-gray-400">Your Liquidity:</span>
+                  <span className=" text-gray-400 flex items-center gap-1">
+                    Your Liquidity{" "}
+                    <button>
+                      <BsExclamationCircle className="w-3 h-3" />
+                    </button>
+                  </span>
                   <span>
                     <span className=" text-gray-300 text-sm">ADA: 0</span>
                     <br />
@@ -108,29 +122,26 @@ const Liquidity_TableRow = ({ item, setActiveTab }: Props) => {
                   </span>
                 </p>
                 <p className="px-6 py-4 flex flex-col gap-1 text-base">
-                  <span>
-                    <span className=" text-gray-400">
-                      Volatility Index (1M):
-                    </span>
-                    <br />
-                    <span className=" text-gray-300 text-sm">2.3</span>
+                  <span className=" text-gray-400 flex items-center gap-1">
+                    Impermanent Loss (1M){" "}
+                    <button>
+                      <BsExclamationCircle className="w-3 h-3" />
+                    </button>
                   </span>
-                  <br />
-                  <span>
-                    <span className=" text-gray-400">Volume:TVL (1M):</span>
-                    <br />
-                    <span className=" text-gray-300 text-sm">0.253</span>
+                  <span className="text-gray-300 text-sm">
+                    <span>2.3</span>
+                    <span> </span>
                   </span>
                 </p>
                 <p className="px-6 py-4 flex gap-4 text-base items-start my-auto translate-y-2/6">
-                  <button className="third-button w-52 p-2.5 font-medium">
+                  <button className="primary-button w-52 rounded-lg p-2.5 font-medium">
                     Swap
                   </button>
                   <button
                     onClick={() => {
                       setActiveTab("ADA / TEDY");
                     }}
-                    className="primary-button w-52"
+                    className="primary-button w-52 rounded-lg"
                   >
                     Add liquidity
                   </button>

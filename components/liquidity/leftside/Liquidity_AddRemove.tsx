@@ -2,8 +2,8 @@
 import React, { useState } from "react";
 import { RxCross2 } from "react-icons/rx";
 import { MdEqualizer, MdTune } from "react-icons/md";
-import Liquidity_Deposit from "./Liquidity_Deposit";
-import Liquidity_Withdraw from "./Liquidity_Withdraw";
+import Liquidity_Add from "./Liquidity_Add";
+import Liquidity_Remove from "./Liquidity_Remove";
 import Liquidity_SelectTokenView from "./Liquidity_SelectTokenView";
 import Liquidity_Confirm from "./Liquidity_Confirm";
 import TransactionStatus from "@/components/trade/quickSwap/market/TransactionStatus";
@@ -14,7 +14,7 @@ export interface SelectedTokenProps {
   percentage: number;
 }
 
-const Liquidity_DepositWithdraw = () => {
+const Liquidity_AddRemove = () => {
   const [isDeposit, setIsDeposit] = useState(true);
   const [showComponent, setShowComponent] = useState("view-1");
   const [selectedToken, setSelectedToken] = useState<SelectedTokenProps>();
@@ -37,7 +37,7 @@ const Liquidity_DepositWithdraw = () => {
                   isDeposit ? "text-gray-100" : "text-gray-400"
                 } text-base 2xl:text-xl font-medium`}
               >
-                Deposit
+                Add
               </button>
               <button
                 type="button"
@@ -48,7 +48,7 @@ const Liquidity_DepositWithdraw = () => {
                   !isDeposit ? "text-gray-100" : "text-gray-400"
                 } text-base 2xl:text-xl font-medium`}
               >
-                Withdraw
+                Remove
               </button>
             </div>
             <button
@@ -59,13 +59,13 @@ const Liquidity_DepositWithdraw = () => {
             </button>
           </div>
           {isDeposit ? (
-            <Liquidity_Deposit
+            <Liquidity_Add
               setShowComponent={setShowComponent}
               selectedToken={selectedToken}
               selectedToken2={selectedToken2}
             />
           ) : (
-            <Liquidity_Withdraw
+            <Liquidity_Remove
               setShowComponent={setShowComponent}
               selectedToken3={selectedToken3}
               selectedToken4={selectedToken4}
@@ -133,4 +133,4 @@ const Liquidity_DepositWithdraw = () => {
   );
 };
 
-export default Liquidity_DepositWithdraw;
+export default Liquidity_AddRemove;

@@ -109,13 +109,13 @@ const Market = ({ setShowComponent, selectedToken, selectedToken2 }: Props) => {
                 <p className=" text-white">ADA{">"}iUSD</p>
               </li>
             </ul>
-            <div className="flex justify-between items-center text-lg font-medium mt-8">
+            {/* <div className="flex justify-between items-center text-lg font-medium mt-8">
               <h1>1 ADA = 0.945iUSD</h1>
               <button className="flex items-center text-white ">
                 <CgArrowsExchangeAlt className="w-6 h-6" />
                 <p>Reverse Rate</p>
               </button>
-            </div>
+            </div> */}
           </div>
         )}
       </div>

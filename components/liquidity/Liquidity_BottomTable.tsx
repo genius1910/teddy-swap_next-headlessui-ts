@@ -1,7 +1,11 @@
 import React from "react";
-import { AiOutlineSearch } from "react-icons/ai";
+import { AiOutlineArrowDown, AiOutlineSearch } from "react-icons/ai";
 import Liquidity_TableRow from "./Liquidity_TableRow";
-import { BsChevronDown, BsQuestionCircle } from "react-icons/bs";
+import {
+  BsChevronDown,
+  BsExclamationCircle,
+  BsQuestionCircle,
+} from "react-icons/bs";
 
 interface Props {
   setActiveTab: (value: string) => void;
@@ -28,24 +32,27 @@ const Liquidity_BottomTable = ({ setActiveTab }: Props) => {
               </th>
               <th className=" pl-8 lg:pl-16 py-2 font-medium flex items-center gap-1">
                 <span>TVL</span>
-                <BsChevronDown className="w-3 h-3 " />
+                <BsExclamationCircle className="w-3 h-3 " />
               </th>
               <th className=" pl-8 lg:pl-16 py-2 font-medium">
                 <span className="flex items-center gap-1">
+                  <button>
+                    <AiOutlineArrowDown className="w-4 h-4 text-[#268AFF]" />
+                  </button>
                   <span>Volume 24H</span>
-                  <BsChevronDown className="w-3 h-3 " />
+                  <BsExclamationCircle className="w-3 h-3 " />
                 </span>
               </th>
               <th className=" pl-8 lg:pl-16 py-2 font-medium">
                 <span className="flex items-center gap-1">
                   <span>Volume 7D </span>
-                  <BsChevronDown className="w-3 h-3 " />
+                  <BsExclamationCircle className="w-3 h-3 " />
                 </span>
               </th>
               <th className=" pl-8 lg:pl-16 py-2 font-medium">
                 <span className="flex items-center gap-1">
                   <span>LP Fee </span>
-                  <BsChevronDown className="w-3 h-3 " />
+                  <BsExclamationCircle className="w-3 h-3 " />
                 </span>
               </th>
               <th className=" pl-10 py-2 font-medium">

@@ -12,10 +12,10 @@ const Farm_Dash_Rightside = () => {
         <h1 className=" heading-xl font-medium w-full text-left p-4 pb-0 md:p-0">
           Your Harvest
         </h1>
-        <div className="h-52">
+        <div className="">
           <GaugeChart />
         </div>
-        <div className="flex items-center gap-2">
+        <div className="relative z-10 flex items-center gap-2">
           <Image
             src={`/images/assets/teddy.png`}
             alt="teddy"

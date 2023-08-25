@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import { BsExclamationCircle } from "react-icons/bs";
 import { MdCheckCircle } from "react-icons/md";
 
 interface Props {
@@ -16,9 +17,14 @@ const Trade_TopPairs = ({ setActiveTabs }: Props) => {
               Top Pairs
             </th>
             <th className=" pr-4 py-2 font-medium">Price</th>
-            <th className=" pr-4 py-2 font-medium">Volume 24H</th>
-            <th className=" pr-4 py-2 font-medium">Volume 7D</th>
-            <th className=" pr-4 py-2 font-medium">24H %</th>
+            <th className=" pr-4 py-2 font-medium">Change 24H</th>
+            <th className=" pr-4 py-2 font-medium">Change 7D</th>
+            <th className=" pr-4 py-2 font-medium flex items-center gap-1">
+              Volume 24H
+              <button title={`24 volume changing data`}>
+                <BsExclamationCircle className="w-3 h-3" />
+              </button>
+            </th>
             <th className=" pr-4 py-2 font-medium rounded-r-md"></th>
           </tr>
         </tbody>

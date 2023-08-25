@@ -126,7 +126,7 @@ const Farm_TableRow = ({ item, setActiveTab }: Props) => {
                     onClick={() => {
                       setActiveTab("ADA / TEDY");
                     }}
-                    className="primary-button w-52 p-2.5 font-medium"
+                    className="primary-button w-44 p-2.5 font-medium"
                   >
                     Harvest
                   </button>
@@ -134,17 +134,17 @@ const Farm_TableRow = ({ item, setActiveTab }: Props) => {
                     onClick={() => {
                       setActiveTab("ADA / TEDY");
                     }}
-                    className="third-button w-52 p-2.5 font-medium"
+                    className="primary-button w-44 p-2.5 font-medium"
                   >
-                    Withdraw
+                    Add
                   </button>
                   <button
                     onClick={() => {
                       setActiveTab("ADA / TEDY");
                     }}
-                    className="primary-button w-52"
+                    className="third-button w-44 p-[11px] font-medium"
                   >
-                    Stake
+                    Withdraw
                   </button>
                 </p>
               </span>

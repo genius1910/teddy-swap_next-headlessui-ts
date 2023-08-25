@@ -4,7 +4,7 @@ import { BsExclamationCircle } from "react-icons/bs";
 import { CgArrowsExchangeAlt } from "react-icons/cg";
 import { RiExchangeLine } from "react-icons/ri";
 
-const Trade_KeyStats = () => {
+const Liquidity_KeyStats = () => {
   const keyStats = [
     {
       property: "Daily Volume",
@@ -14,12 +14,10 @@ const Trade_KeyStats = () => {
     {
       property: "Pooled ADA",
       value: "5,963,608 ₳",
-      about: "This is pooled ADA",
     },
     {
       property: "Pooled TEDY",
       value: "5,762,468 AGIX",
-      about: "This is pooled tedy",
     },
     {
       property: "TEDY Holders",
@@ -32,13 +30,34 @@ const Trade_KeyStats = () => {
       about: "This is total tax",
     },
     {
-      property: "Total Tx",
-      value: "55,525",
+      property: "Market Cap",
+      value: "95,525",
+      about: "Total tax charge",
+    },
+    {
+      property: "FD Market Cap",
+      value: "13,456",
+      about: "Fd Market cap",
+    },
+    {
+      property: "Circulating Supply",
+      value: "1.21B (60.3%)",
+      about: "This is circulating supply",
+    },
+    {
+      property: "Total Supply",
+      value: "1.29B",
+      about: "This is total supply",
+    },
+    {
+      property: "Max Supply",
+      value: "2.00B",
       about: "Total tax charge",
     },
     {
       property: "Pool Created",
       value: "04/18/2022 13:00",
+      about: "Pool created",
     },
     {
       property: "% of TeddySwap TVL",
@@ -47,7 +66,7 @@ const Trade_KeyStats = () => {
     },
   ];
   return (
-    <div>
+    <div className="component-color rounded-2xl p-8">
       <h1 className="heading-xl font-medium border-b border-gray-600 pb-4">
         Key Stats
       </h1>
@@ -91,4 +110,4 @@ const Trade_KeyStats = () => {
   );
 };
 
-export default Trade_KeyStats;
+export default Liquidity_KeyStats;

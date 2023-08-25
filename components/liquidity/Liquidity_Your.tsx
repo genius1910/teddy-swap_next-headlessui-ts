@@ -2,13 +2,14 @@ import Image from "next/image";
 import React from "react";
 import Liquidity_BottomTable from "./Liquidity_BottomTable";
 import { PieChartDoughnut } from "../chart/PieChartDoughnut";
+import { BsExclamationCircle } from "react-icons/bs";
 const liquidityAndFarms = [
   {
     title: "Your Liquidity",
     perc1: 6.52,
     perc1_Subtitle: "APR this week",
     perc2: 8.3,
-    perc2_Subtitle: "Pool Diversion This Week",
+    perc2_Subtitle: "Impermanent Loss",
     button1: "Add/Remove",
     button2: "View Liquidity",
     tvl: [
@@ -59,10 +60,15 @@ const Liquidity_Your = ({ setActiveTab }: Props) => {
             key={item.title}
             className=" lg:col-span-2 rounded-2xl component-color p-6"
           >
-            <h1>{item.title}</h1>
+            <h1 className="flex items-center gap-1">
+              {item.title}{" "}
+              <button>
+                <BsExclamationCircle className="w-3 h-3" />
+              </button>{" "}
+            </h1>
             <div className="flex gap-10 xl:gap-4 flex-wrap xl:flex-nowrap justify-center xl:justify-between items-center">
               <div className=" space-y-3">
-                <div className="flex lg:flex-col flex-row gap-6 my-4 w-full lg:translate-x-1/3 text-center">
+                <div className="flex lg:flex-col flex-row gap-6 my-4 w-full lg:translate-x-1/3">
                   <div className="  text-2xl flex flex-col leading-tight text-[#3DFFDC]">
                     <h2 className="font-semibold">{item.perc1}%</h2>
                     <p className=" text-xss text-gray-400">

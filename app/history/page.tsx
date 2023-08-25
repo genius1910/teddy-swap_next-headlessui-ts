@@ -1,5 +1,6 @@
 "use client";
 import History_Table from "@/components/history/History_Table";
+import { observer } from "mobx-react-lite";
 import React from "react";
 
 const Index = () => {
@@ -10,4 +11,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default observer(Index);

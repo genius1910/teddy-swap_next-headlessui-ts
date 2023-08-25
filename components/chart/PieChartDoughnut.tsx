@@ -2,6 +2,7 @@ import React from "react";
 import { Doughnut } from "react-chartjs-2";
 import { Chart, ArcElement } from "chart.js";
 import useAuthenticate from "@/context/mobx/useAuthenticate";
+import { usePathname } from "next/navigation";
 Chart.register(ArcElement);
 
 const data = {
@@ -46,14 +47,27 @@ export function PieChartDoughnut() {
   };
 
   const isWalletConnected = useAuthenticate.isWalletConnected();
+  const pathname = usePathname();
 
   return (
     <div className="relative">
       <Doughnut data={data} options={options} />
       <div className=" absolute pointer-events-none inset-0 top-32 my-auto flex flex-col items-center h-full text-center text-sm">
-        <h1>₳{isWalletConnected ? "198,930" : "--"}</h1>
+        <h1>
+          ₳
+          {isWalletConnected
+            ? "198,930"
+            : pathname != "/dashboard"
+            ? "124,213"
+            : "--"}
+        </h1>
         <p className="text-xs text-gray-400">
-          ${isWalletConnected ? "54,023" : "--"}
+          $
+          {isWalletConnected
+            ? "54,023"
+            : pathname != "/dashboard"
+            ? "32,213"
+            : "--"}
         </p>
       </div>
     </div>
