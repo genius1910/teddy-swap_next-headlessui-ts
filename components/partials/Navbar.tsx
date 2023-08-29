@@ -61,14 +61,12 @@ const Navbar = () => {
   return (
     <header className="navbar-color mx-auto">
       <div
-        className={`${
-          pathname != "/" ? "max-w-[1880px] xl:py-2" : ""
-        } justify-between mx-auto relative z-50 py-4 2xl:py-4 px-4 flex items-center gap-4`}
+        className={
+          "justify-between mx-auto relative z-50 py-4 2xl:py-4 2xl:px-10 flex items-center gap-4 px-4"
+        }
       >
         {/* mobile menu  */}
-        {pathname != "/" && (
-          <MobileMenu toggler={toggler} setToggler={setToggler} />
-        )}
+        {<MobileMenu toggler={toggler} setToggler={setToggler} />}
         {/* desktop menu  */}
         <div className="hidden xl:flex items-center gap-12">
           <Link legacyBehavior href="/" className="mr-8">

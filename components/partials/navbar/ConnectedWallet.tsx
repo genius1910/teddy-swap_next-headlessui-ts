@@ -55,10 +55,7 @@ const ConnectedWallet = ({ close }: Props) => {
           <button
             className={` text-gray-300 hover:text-gray-100 text-sm 2xl:text-lg`}
           >
-            <RxCross2
-              onClick={() => close()}
-              className=" w-6 h-6 2xl:w-8 2xl:h-8 "
-            />
+            <RxCross2 onClick={() => close()} className=" w-6 h-6" />
           </button>
         </div>
       </div>
@@ -120,9 +117,9 @@ const ConnectedWallet = ({ close }: Props) => {
         onClick={() => {
           authenticate.disconnectWallet();
         }}
-        className="w-full py-4 rounded-2xl border-gray-400 border flex items-center justify-center gap-2 text-center text-gray-400"
+        className="w-full py-3 rounded-2xl border-[#575757] border flex items-center justify-center gap-2 text-center text-gray-400"
       >
-        <MdLogout className="w-5 h-5" /> Disconnect
+        <MdLogout className="" /> Disconnect
       </button>
     </div>
   );
