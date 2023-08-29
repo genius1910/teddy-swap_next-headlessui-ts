@@ -43,10 +43,6 @@ const navMenuList = [
     name: "LBE",
     link: "/lbe",
   },
-  {
-    name: "Compete",
-    link: "#",
-  },
 ];
 
 const Navbar = () => {
@@ -66,16 +62,16 @@ const Navbar = () => {
     <header className="navbar-color mx-auto">
       <div
         className={`${
-          pathname != "/" ? "max-w-[1800px] xl:py-2" : ""
-        } justify-between mx-auto relative z-50 py-4 2xl:py-4 px-4 md:px-8 flex items-center gap-4`}
+          pathname != "/" ? "max-w-[1880px] xl:py-2" : ""
+        } justify-between mx-auto relative z-50 py-4 2xl:py-4 px-4 flex items-center gap-4`}
       >
         {/* mobile menu  */}
         {pathname != "/" && (
           <MobileMenu toggler={toggler} setToggler={setToggler} />
         )}
         {/* desktop menu  */}
-        <div className="hidden xl:flex items-center gap-10 2xl:gap-20">
-          <Link legacyBehavior href="/">
+        <div className="hidden xl:flex items-center gap-12">
+          <Link legacyBehavior href="/" className="mr-8">
             <a>
               <Image
                 src="/images/logo/primary.png"
@@ -93,13 +89,25 @@ const Navbar = () => {
               />
             </a>
           </Link>
-          <ul className="flex items-center gap-10 2xl:gap-14 text-xs 2xl:text-base font-semibold">
-            {pathname != "/" &&
-              navMenuList.map((item, index) => {
-                return (
-                  <li key={index}>
-                    {item.link != "/trade" ? (
-                      <Link legacyBehavior href={item.link}>
+          <ul className="flex items-center gap-12 2xl:text-base font-semibold">
+            {navMenuList.map((item, index) => {
+              return (
+                <li key={index}>
+                  {item.link != "/trade" ? (
+                    <Link legacyBehavior href={item.link}>
+                      <a
+                        className={`${
+                          item.link == pathname
+                            ? "text-white"
+                            : "text-neutral-400 transition-all hover:text-neutral-100"
+                        }`}
+                      >
+                        {item.name}
+                      </a>
+                    </Link>
+                  ) : (
+                    <div className="flex items-center gap-1 ">
+                      <Link href={item.link} legacyBehavior>
                         <a
                           className={`${
                             item.link == pathname
@@ -110,75 +118,62 @@ const Navbar = () => {
                           {item.name}
                         </a>
                       </Link>
-                    ) : (
-                      <div className="flex items-center gap-1 ">
-                        <Link href={item.link} legacyBehavior>
-                          <a
-                            className={`${
-                              item.link == pathname
-                                ? "text-white"
-                                : "text-neutral-400 transition-all hover:text-neutral-100"
-                            }`}
-                          >
-                            {item.name}
-                          </a>
-                        </Link>
-                        {/* quick swap popup  */}
-                        {hydration && (
-                          <Popover>
-                            {({ open }) => (
-                              <>
-                                <Popover.Button className=" rounded-sm group outline-none component-color">
-                                  {!open ? (
-                                    <AiOutlineArrowDown className="2xl:w-4 2xl:h-4 w-3 h-3 outline-none text-neutral-400 group-hover:text-neutral-100 transition-all" />
-                                  ) : (
-                                    <AiOutlineArrowUp className="2xl:w-4 2xl:h-4 w-3 h-3 outline-none text-cyan-400 group-hover:text-cyan-300 transition-all" />
+                      {/* quick swap popup  */}
+                      {hydration && (
+                        <Popover>
+                          {({ open }) => (
+                            <>
+                              <Popover.Button className="flex flex-row justify-center items-center rounded-sm group outline-none component-color">
+                                {!open ? (
+                                  <AiOutlineArrowDown className="2xl:w-4 2xl:h-4 w-3 h-3 outline-none text-neutral-400 group-hover:text-neutral-100 transition-all" />
+                                ) : (
+                                  <AiOutlineArrowUp className="2xl:w-4 2xl:h-4 w-3 h-3 outline-none text-cyan-400 group-hover:text-cyan-300 transition-all" />
+                                )}
+                              </Popover.Button>
+                              <Transition
+                                enter="transition duration-100 ease-out"
+                                enterFrom="transform scale-95 opacity-0"
+                                enterTo="transform scale-100 opacity-100"
+                                leave="transition duration-75 ease-out"
+                                leaveFrom="transform scale-100 opacity-100"
+                                leaveTo="transform scale-95 opacity-0"
+                              >
+                                <Popover.Panel className="absolute outline-none component-color-2 left-[10.5rem] rounded-2xl z-50 mt-8 -translate-x-1/2 transform w-screen max-w-sm zoom-80 2xl:zoom-100 2xl:max-w-md">
+                                  {({ close }) => (
+                                    <QuickSwapPopup close={close} />
                                   )}
-                                </Popover.Button>
-                                <Transition
-                                  enter="transition duration-100 ease-out"
-                                  enterFrom="transform scale-95 opacity-0"
-                                  enterTo="transform scale-100 opacity-100"
-                                  leave="transition duration-75 ease-out"
-                                  leaveFrom="transform scale-100 opacity-100"
-                                  leaveTo="transform scale-95 opacity-0"
-                                >
-                                  <Popover.Panel className="absolute outline-none component-color-2 left-[10.5rem] rounded-2xl z-50 mt-8 -translate-x-1/2 transform w-screen max-w-sm zoom-80 2xl:zoom-100 2xl:max-w-md">
-                                    {({ close }) => (
-                                      <QuickSwapPopup close={close} />
-                                    )}
-                                  </Popover.Panel>
-                                </Transition>
-                              </>
-                            )}
-                          </Popover>
-                        )}
-                      </div>
-                    )}
-                  </li>
-                );
-              })}
+                                </Popover.Panel>
+                              </Transition>
+                            </>
+                          )}
+                        </Popover>
+                      )}
+                    </div>
+                  )}
+                </li>
+              );
+            })}
           </ul>
         </div>
         {/* rightside */}
-        {pathname != "/" && (
+        {
           <div className="hidden xl:flex text-xs 2xl:text-base gap-2 2xl:gap-4 font-medium h-full ">
             {/* toggle button  */}
             <div
               onClick={() =>
                 toggler == "USD" ? setToggler("ADA") : setToggler("USD")
               }
-              className="component-color relative cursor-pointer flex justify-center items-center rounded-md h-auto"
+              className="component-color relative cursor-pointer flex justify-center items-center rounded-[8px] h-auto"
             >
               <span
                 className={`${
                   toggler == "USD" ? "-translate-x-1/2" : "translate-x-1/2"
-                } absolute small-component-color w-6/12 h-full z-0 transition-all duration-500 ease-in-out`}
+                } absolute small-component-color w-6/12 h-full z-0 transition-all duration-500 ease-in-out rounded-[10px]`}
               ></span>
-              <span className="h-full flex justify-center items-center my-auto py-2 px-4 2xl:px-6 rounded-md relative z-10">
+              <span className="h-full flex justify-center items-center my-auto py-2 px-4 2xl:px-6 rounded-[8px] relative z-10">
                 USD
               </span>
-              <span className="h-full flex justify-center items-center my-auto py-2 px-4 2xl:px-6 rounded-md relative z-10">
+              <span className="h-full flex justify-center items-center my-auto py-2 px-4 2xl:px-6 rounded-[8px] relative z-10">
                 ADA
               </span>
             </div>
@@ -275,7 +270,7 @@ const Navbar = () => {
               )}
             </Popover>
           </div>
-        )}
+        }
         {/* in mobile version only this logo will apear  */}
         <Image
           src="/images/logo/primary.png"
