@@ -1,8 +1,28 @@
 import { GaugeChart } from "@/components/chart/GaugeChart";
 import TimeGroupButton from "@/components/home/TimeGroupButton";
-import { ChartApp } from "@/components/home/dexinfo/TradingChart";
+import CustomChat from "../../chart/CustomChart";
 import Image from "next/image";
 import React from "react";
+import { BsExclamationCircle } from "react-icons/bs";
+
+const data = [
+  { name: "09/20", price: 700 },
+  { name: "09/21", price: 800 },
+  { name: "09/22", price: 900 },
+  { name: "09/23", price: 1200 },
+  { name: "09/24", price: 900 },
+  { name: "09/25", price: 1500 },
+  { name: "09/26", price: 900 },
+  { name: "09/27", price: 800 },
+  { name: "09/28", price: 900 },
+  { name: "09/29", price: 500 },
+  { name: "09/30", price: 1000 },
+  { name: "10/01", price: 900 },
+  { name: "10/02", price: 1500 },
+  { name: "10/03", price: 1900 },
+  { name: "10/04", price: 2000 },
+  { name: "10/05", price: 2200 },
+];
 
 const Farm_Dash_Rightside = () => {
   return (
@@ -35,9 +55,14 @@ const Farm_Dash_Rightside = () => {
       {/* rightside  */}
       <div className=" h-full w-full lg:w-2/3 space-y-4 relative flex flex-col items-end ">
         <TimeGroupButton isRelative={true} />
-        <div className=" rounded-2xl w-full chart-component-color flex flex-col justify-between h-[87%]">
+        <div className=" rounded-2xl w-full chart-component-color flex flex-col h-[87%] grid relative">
           <div className="flex justify-between items-center p-5 px-6">
-            <h1 className="text-base">Earnings</h1>
+            <div className="flex items-center gap-1">
+              <h1 className="text-base">Earnings</h1>
+              <button className="text-sm">
+                <BsExclamationCircle className="w-3 h-3" />
+              </button>
+            </div>
             <div>
               <h2 className="text-base mt-1 mb-0.5">₳6,363,639.46</h2>
               <p className=" text-[0.7rem] text-[#0FC43B]">
@@ -45,7 +70,7 @@ const Farm_Dash_Rightside = () => {
               </p>
             </div>
           </div>
-          <ChartApp />
+          <CustomChat data={data} />
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React, { useEffect, useRef } from "react";
 import { createChart, ColorType } from "lightweight-charts";
-import { ChartApp } from "../dexinfo/TradingChart";
+import CustomChart from "../../chart/CustomChart";
 import { TradingLine } from "../pairs/TradingLine";
 import { PieChartDoughnut } from "@/components/chart/PieChartDoughnut";
 import useAuthenticate from "@/context/mobx/useAuthenticate";
@@ -96,12 +96,31 @@ const liquidityAndFarms = [
   },
 ];
 
+const data = [
+  { name: "09/20", price: 700 },
+  { name: "09/21", price: 800 },
+  { name: "09/22", price: 900 },
+  { name: "09/23", price: 1200 },
+  { name: "09/24", price: 900 },
+  { name: "09/25", price: 1500 },
+  { name: "09/26", price: 900 },
+  { name: "09/27", price: 800 },
+  { name: "09/28", price: 900 },
+  { name: "09/29", price: 500 },
+  { name: "09/30", price: 1000 },
+  { name: "10/01", price: 900 },
+  { name: "10/02", price: 1500 },
+  { name: "10/03", price: 1900 },
+  { name: "10/04", price: 2000 },
+  { name: "10/05", price: 2200 },
+];
+
 const User_Leftside = () => {
   const isWalletConnected = useAuthenticate.isWalletConnected();
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 w-full gap-8 xl:pr-8 mt-6">
       {/* 1st grid  */}
-      <div className=" font-medium rounded-3xl chart-component-color h-72">
+      <div className=" font-medium rounded-3xl chart-component-color h-72 grid relative">
         <div className="px-6 pt-6">
           <div className="flex items-center gap-1">
             <h1 className="text-base">Wallet Assets</h1>
@@ -117,10 +136,10 @@ const User_Leftside = () => {
             {isWalletConnected ? "+2.03%" : "--"}) this week
           </p>
         </div>
-        <ChartApp />
+        <CustomChart data={data} />
       </div>
       {/* 2nd grid  */}
-      <div className=" font-medium rounded-3xl chart-component-color h-72">
+      <div className=" font-medium rounded-3xl chart-component-color h-72 grid relative">
         <div className="px-6 pt-6">
           <div className="flex items-center gap-1">
             <h1 className="text-base">Wallet Assets + Liquidity Positions</h1>
@@ -136,7 +155,7 @@ const User_Leftside = () => {
             {isWalletConnected ? "+2.03%" : "--"}) this weeks
           </p>
         </div>
-        <ChartApp />
+        <CustomChart data={data} />
       </div>
       {/* 3rd and 4th grid  */}
       {/* {liquidityAndFarms.map((item) => {

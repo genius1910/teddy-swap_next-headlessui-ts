@@ -1,5 +1,5 @@
 "use client";
-import { ChartApp } from "@/components/home/dexinfo/TradingChart";
+import CustomChart from "../../chart/CustomChart";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { AiOutlineStar } from "react-icons/ai";
@@ -8,6 +8,25 @@ import Trade_History from "./rightside/Trade_History";
 import Trade_TopPairs from "./rightside/Trade_TopPairs";
 
 const times = ["1h", "1d", "1w", "1m", "All Time"];
+
+const data = [
+  { name: "09/20", price: 700 },
+  { name: "09/21", price: 800 },
+  { name: "09/22", price: 900 },
+  { name: "09/23", price: 1200 },
+  { name: "09/24", price: 900 },
+  { name: "09/25", price: 1500 },
+  { name: "09/26", price: 900 },
+  { name: "09/27", price: 800 },
+  { name: "09/28", price: 900 },
+  { name: "09/29", price: 500 },
+  { name: "09/30", price: 1000 },
+  { name: "10/01", price: 900 },
+  { name: "10/02", price: 1500 },
+  { name: "10/03", price: 1900 },
+  { name: "10/04", price: 2000 },
+  { name: "10/05", price: 2200 },
+];
 interface Props {
   activeTab: string;
   setActiveTab: (value: string) => void;
@@ -25,7 +44,7 @@ const Trade_Rightside = ({ activeTab, setActiveTab }: Props) => {
     <div className="">
       {hydration && activeTab == "ADA / TEDY" ? (
         <>
-          <div className=" font-medium overflow-hidden component-color  rounded-2xl">
+          <div className=" font-medium component-color h-[479px] rounded-2xl grid relative">
             <div className="flex justify-between">
               <div className="px-6 pt-6">
                 <span className="flex items-center gap-1">
@@ -101,7 +120,7 @@ const Trade_Rightside = ({ activeTab, setActiveTab }: Props) => {
                 </div>
               </div>
             </div>
-            <ChartApp />
+            <CustomChart data={data} labelVisble unit="₳" />
           </div>
           <Trade_Stats />
           <Trade_History />

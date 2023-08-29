@@ -1,13 +1,37 @@
 "use client";
-import { ChartApp } from "@/components/home/dexinfo/TradingChart";
+import CustomChat from "../chart/CustomChart";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import { AiFillStar, AiOutlineStar } from "react-icons/ai";
+import { AiOutlineStar } from "react-icons/ai";
+import { BsExclamationCircle } from "react-icons/bs";
 import Farm_Stats from "./rightside/Farm_Stats";
 import Farm_SelectedTokenBottomside from "./rightside/Farm_SelectedTokenBottomside";
-import { BsExclamationCircle } from "react-icons/bs";
 
 const times = ["1h", "1d", "1w", "1m", "All Time"];
+
+const data = [
+  { name: "09/20", price: 700 },
+  { name: "09/21", price: 800 },
+  { name: "09/22", price: 900 },
+  { name: "09/23", price: 1200 },
+  { name: "09/24", price: 900 },
+  { name: "09/25", price: 1500 },
+  { name: "09/26", price: 900 },
+  { name: "09/27", price: 800 },
+  { name: "09/28", price: 900 },
+  { name: "09/29", price: 500 },
+  { name: "09/30", price: 1000 },
+  { name: "10/01", price: 900 },
+  { name: "10/02", price: 1500 },
+  { name: "10/03", price: 1900 },
+  { name: "10/04", price: 2000 },
+  { name: "10/05", price: 2200 },
+];
+
+const fixedLines = [
+  { title: "Current Price", price: 1200 },
+  { title: "Your Liquidity Deposit", price: 700 },
+];
 interface Props {
   activeTab: string;
   setActiveTab: (value: string) => void;
@@ -23,7 +47,7 @@ const Farm_Rightside = ({ activeTab, setActiveTab }: Props) => {
 
   return (
     <div className="">
-      <div className=" font-medium h-full overflow-hidden component-color rounded-2xl">
+      <div className=" font-medium h-[479px] overflow-hidden component-color rounded-2xl grid relative">
         <div className="flex justify-between">
           <div className="px-6 pt-6 flex flex-col gap-1">
             <span className="flex items-center gap-1">
@@ -81,7 +105,7 @@ const Farm_Rightside = ({ activeTab, setActiveTab }: Props) => {
             </div>
           </div>
         </div>
-        <ChartApp />
+        <CustomChat data={data} fixedLines={fixedLines} />
       </div>
       <Farm_Stats />
       <Farm_SelectedTokenBottomside />

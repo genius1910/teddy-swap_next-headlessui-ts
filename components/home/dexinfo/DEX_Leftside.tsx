@@ -1,7 +1,8 @@
 import Image from "next/image";
 import React, { useEffect, useRef } from "react";
 import { createChart, ColorType } from "lightweight-charts";
-import { ChartApp } from "./TradingChart";
+import CustomChart from "../../chart/CustomChart";
+import { BsExclamationCircle } from "react-icons/bs";
 
 const batchers = [
   {
@@ -21,30 +22,58 @@ const batchers = [
   },
 ];
 
+const data = [
+  { name: "09/20", price: 700 },
+  { name: "09/21", price: 800 },
+  { name: "09/22", price: 900 },
+  { name: "09/23", price: 1200 },
+  { name: "09/24", price: 900 },
+  { name: "09/25", price: 1500 },
+  { name: "09/26", price: 900 },
+  { name: "09/27", price: 800 },
+  { name: "09/28", price: 900 },
+  { name: "09/29", price: 500 },
+  { name: "09/30", price: 1000 },
+  { name: "10/01", price: 900 },
+  { name: "10/02", price: 1500 },
+  { name: "10/03", price: 1900 },
+  { name: "10/04", price: 2000 },
+  { name: "10/05", price: 2200 },
+];
+
+const fixedLines = [
+  { title: "Current Price", price: 700 },
+  { title: "Your Liquidity Deposit", price: 1000 },
+];
+
 const DEX_Leftside = () => {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 w-full gap-8 mt-14">
       {/* 1st grid  */}
-      <div className=" font-medium rounded-3xl chart-component-color h-72">
+      <div className="font-medium rounded-3xl chart-component-color h-72 grid relative">
         <div className="px-6 pt-6">
-          <h1 className="text-base">Volume</h1>
-          <h2 className="text-base mt-1 mb-0.5">₳6,363,639.46</h2>
-          <p className=" text-[0.7rem] text-[#0FC43B]">
-            +₳544.03 (+2.03%) this week
-          </p>
+          <div className="flex items-center gap-1">
+            <h1 className="text-base">TVL</h1>
+            <button className="text-sm">
+              <BsExclamationCircle className="w-3 h-3" />
+            </button>
+          </div>
+          <h2 className="text-base mt-1 mb-0.5">₳ 8.32M</h2>
         </div>
-        <ChartApp />
+        <CustomChart data={data} unit="k" />
       </div>
       {/* 2nd grid  */}
-      <div className=" font-medium rounded-3xl chart-component-color h-72">
+      <div className=" font-medium rounded-3xl chart-component-color h-72 grid relative">
         <div className="px-6 pt-6">
-          <h1 className="text-base">TVL</h1>
-          <h2 className="text-base mt-1 mb-0.5">₳6,363,639.46</h2>
-          <p className=" text-[0.7rem] text-[#0FC43B]">
-            +₳544.03 (+2.03%) this todays
-          </p>
+          <div className="flex items-center gap-1">
+            <h1 className="text-base">Volume</h1>
+            <button className="text-sm">
+              <BsExclamationCircle className="w-3 h-3" />
+            </button>
+          </div>
+          <h2 className="text-base mt-1 mb-0.5">₳ 1.25M</h2>
         </div>
-        <ChartApp />
+        <CustomChart data={data} unit="k" />
       </div>
       {/* 3rd grid  */}
       <div className=" rounded-3xl component-color p-6">
