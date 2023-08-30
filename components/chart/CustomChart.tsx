@@ -45,8 +45,17 @@ interface clickType {
 }
 
 const CustomChat = ({ data, fixedLines, labelVisble, unit }: Props) => {
+  const yConfig = {
+    default: 100,
+    min: 200,
+  };
+
   const [point, setPoint] = useState<null | PointType>();
-  const [scaleSize, setScaleSize] = useState({ xl: 0, xr: 0, y: 0 });
+  const [scaleSize, setScaleSize] = useState({
+    xl: 0,
+    xr: 0,
+    y: yConfig.default,
+  });
   const [clickPoint, setClickPoint] = useState<clickType>({
     x: null,
     y: null,
@@ -55,7 +64,7 @@ const CustomChat = ({ data, fixedLines, labelVisble, unit }: Props) => {
 
   const CustomLabel = (props: CustomLabelProps) => {
     const bx = props.size;
-    const by = 24;
+    const by = 17;
     let sx = 0;
     if (props.align === "center")
       sx = props.viewBox.x + props.viewBox.width / 2 - bx / 2;
@@ -87,7 +96,7 @@ const CustomChat = ({ data, fixedLines, labelVisble, unit }: Props) => {
           fontSize={props.fontsize}
           textAnchor="middle"
         >
-          {`${props.value}${unit ? unit : ""}`}
+          {`${unit ? unit : ""}${props.value}`}
         </text>
       </g>
     );
@@ -98,10 +107,10 @@ const CustomChat = ({ data, fixedLines, labelVisble, unit }: Props) => {
       const { x, y, payload }: any = this.props;
       return (
         payload.index < data.length - 1 && (
-          <g transform={`translate(${x},${y})`}>
+          <g transform={`translate(${x},${y + 3})`}>
             <text
               fill="#ffffff99"
-              fontSize={9.92}
+              fontSize={10}
               textAnchor="middle"
               fontFamily="Montserrat"
             >
@@ -109,6 +118,24 @@ const CustomChat = ({ data, fixedLines, labelVisble, unit }: Props) => {
             </text>
           </g>
         )
+      );
+    }
+  }
+
+  class CustomizedYAxisTick extends PureComponent {
+    render() {
+      const { x, y, payload }: any = this.props;
+      return (
+        <g transform={`translate(${x - 12},${y})`}>
+          <text
+            fill="#ffffff99"
+            fontSize={10}
+            textAnchor="middle"
+            fontFamily="Montserrat"
+          >
+            {`${unit ? unit : ""}${payload.value}`}
+          </text>
+        </g>
       );
     }
   }
@@ -132,7 +159,11 @@ const CustomChat = ({ data, fixedLines, labelVisble, unit }: Props) => {
       const dy = props.clientY - clickPoint.y;
 
       if (clickPoint.type === "yaxis") {
-        const sy = scaleSize.y + dy < 0 ? scaleSize.y + dy : 0;
+        let sy = scaleSize.y;
+        if (scaleSize.y + dy < yConfig.min) {
+          sy += dy;
+        }
+
         setScaleSize({ ...scaleSize, y: sy });
       }
     }
@@ -159,7 +190,9 @@ const CustomChat = ({ data, fixedLines, labelVisble, unit }: Props) => {
     if (props.deltaY > 0) {
       sxl = scaleSize.xl < 0 ? scaleSize.xl + 45 : 0;
       sxr = scaleSize.xr < 0 ? scaleSize.xr + 45 : 0;
-      sy = scaleSize.y < 0 ? scaleSize.y + 25 : 0;
+      if (scaleSize.y + 25 < yConfig.default) {
+        sy += 25;
+      }
     } else {
       sxl = scaleSize.xl - 45;
       sxr = scaleSize.xr - 45;
@@ -190,12 +223,17 @@ const CustomChat = ({ data, fixedLines, labelVisble, unit }: Props) => {
         onWheel={(e) => handleScroll(e)}
         onMouseLeave={() => enableScroll()}
         onMouseEnter={() => disableScroll()}
-        style={{ overflow: "hidden", flexBasis: "50%" }}
+        style={{
+          overflow: "hidden",
+          flexBasis: "50%",
+          height: "100%",
+          top: "0",
+        }}
       >
         <ResponsiveContainer>
           <AreaChart
             data={data}
-            margin={{ top: 10, right: 0, left: 0, bottom: 0 }}
+            margin={{ top: 0, right: 0, left: 0, bottom: 0 }}
             onMouseDown={(e) => mouseDown(e)}
             onMouseUp={() => mouseUpOut()}
             onMouseMove={(e) => mouseMove(e)}
@@ -222,11 +260,25 @@ const CustomChat = ({ data, fixedLines, labelVisble, unit }: Props) => {
               stroke="#ffffff99"
               strokeDasharray="3 3"
               x={point?.name}
+              label={{
+                value: point?.name,
+                position: "insideBottom",
+                fontSize: 10,
+                fill: "#ffffff99",
+                fontWeight: "600",
+              }}
             />
             <ReferenceLine
               stroke="#ffffff99"
               strokeDasharray="3 3"
               y={point?.price}
+              label={{
+                value: `${unit ? unit : ""}${point?.price}`,
+                position: "insideRight",
+                fontSize: 10,
+                fill: "#ffffff99",
+                fontWeight: "600",
+              }}
             />
             <ReferenceDot
               x={point?.name}
@@ -244,9 +296,9 @@ const CustomChat = ({ data, fixedLines, labelVisble, unit }: Props) => {
                 label={
                   <CustomLabel
                     value={point?.price}
-                    align="center"
-                    size={83}
-                    fontsize={12}
+                    align="left"
+                    size={175}
+                    fontsize={9}
                   />
                 }
               />
@@ -280,31 +332,27 @@ const CustomChat = ({ data, fixedLines, labelVisble, unit }: Props) => {
               mirror
               padding={{ left: scaleSize.xl, right: scaleSize.xr }}
             />
-
             <YAxis
               id="yaxis"
               dataKey="price"
               orientation="right"
               axisLine={{ stroke: "transparent" }}
-              stroke="#ffffff99"
               tickLine={false}
-              fontSize={9.92}
-              fontFamily="Montserrat"
-              unit={unit}
               mirror
+              tick={<CustomizedYAxisTick />}
               padding={{ top: scaleSize.y }}
             />
           </AreaChart>
         </ResponsiveContainer>
       </div>
       <div
-        className="absolute right-0 h-full w-[40px] cursor-ns-resize"
+        className="absolute right-0 h-full w-[40px] cursor-ns-resize top-0"
         onMouseDown={(e) => mouseYDown(e)}
         onMouseMove={(e) => mouseYMove(e)}
         onMouseUp={() => mouseUpOut()}
         onMouseOut={() => mouseUpOut()}
       />
-      <div className="absolute left-0 h-full w-[30px]" />
+      <div className="absolute left-0 h-full w-[30px]  top-0" />
     </>
   );
 };
