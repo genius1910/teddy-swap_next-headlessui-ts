@@ -1,4 +1,4 @@
-import React, { PureComponent, useState, useEffect } from "react";
+import React, { PureComponent, useState } from "react";
 import {
   AreaChart,
   Area,
@@ -190,6 +190,7 @@ const CustomChat = ({ data, fixedLines, labelVisble, unit }: Props) => {
         onWheel={(e) => handleScroll(e)}
         onMouseLeave={() => enableScroll()}
         onMouseEnter={() => disableScroll()}
+        style={{ overflow: "hidden", flexBasis: "50%" }}
       >
         <ResponsiveContainer>
           <AreaChart
@@ -217,6 +218,16 @@ const CustomChat = ({ data, fixedLines, labelVisble, unit }: Props) => {
               fill="url(#price)"
             />
 
+            <ReferenceLine
+              stroke="#ffffff99"
+              strokeDasharray="3 3"
+              x={point?.name}
+            />
+            <ReferenceLine
+              stroke="#ffffff99"
+              strokeDasharray="3 3"
+              y={point?.price}
+            />
             <ReferenceDot
               x={point?.name}
               y={point?.price}
@@ -293,6 +304,7 @@ const CustomChat = ({ data, fixedLines, labelVisble, unit }: Props) => {
         onMouseUp={() => mouseUpOut()}
         onMouseOut={() => mouseUpOut()}
       />
+      <div className="absolute left-0 h-full w-[30px]" />
     </>
   );
 };
