@@ -7,7 +7,7 @@ import { BsExclamationCircle } from "react-icons/bs";
 import Farm_Stats from "./rightside/Farm_Stats";
 import Farm_SelectedTokenBottomside from "./rightside/Farm_SelectedTokenBottomside";
 
-const times = ["1h", "1d", "1w", "1m", "All Time"];
+const times = ["1H", "1D", "1W", "1M", "All Time"];
 
 const data = [
   { name: "09/20", price: 700 },
@@ -48,7 +48,7 @@ const Farm_Rightside = ({ activeTab, setActiveTab }: Props) => {
   return (
     <div className="">
       <div className=" font-medium h-[479px] overflow-hidden component-color rounded-2xl grid relative">
-        <div className="flex justify-between">
+        <div className="flex justify-between absolute z-10 w-full">
           <div className="px-6 pt-6 flex flex-col gap-1">
             <span className="flex items-center gap-1">
               <Image
@@ -105,7 +105,7 @@ const Farm_Rightside = ({ activeTab, setActiveTab }: Props) => {
             </div>
           </div>
         </div>
-        <CustomChat data={data} fixedLines={fixedLines} />
+        <CustomChat data={data} fixedLines={fixedLines} labelVisble unit="₳" />
       </div>
       <Farm_Stats />
       <Farm_SelectedTokenBottomside />

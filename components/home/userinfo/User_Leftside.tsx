@@ -121,7 +121,7 @@ const User_Leftside = () => {
     <div className="grid grid-cols-1 lg:grid-cols-2 w-full gap-8 xl:pr-8 mt-6">
       {/* 1st grid  */}
       <div className=" font-medium rounded-3xl chart-component-color h-72 grid relative">
-        <div className="px-6 pt-6">
+        <div className="px-6 pt-6 absolute z-10 w-full">
           <div className="flex items-center gap-1">
             <h1 className="text-base">Wallet Assets</h1>
             <button className="text-sm">
@@ -136,11 +136,11 @@ const User_Leftside = () => {
             {isWalletConnected ? "+2.03%" : "--"}) this week
           </p>
         </div>
-        <CustomChart data={data} />
+        <CustomChart data={data} unit="₳" />
       </div>
       {/* 2nd grid  */}
       <div className=" font-medium rounded-3xl chart-component-color h-72 grid relative">
-        <div className="px-6 pt-6">
+        <div className="px-6 pt-6 absolute z-10 w-full">
           <div className="flex items-center gap-1">
             <h1 className="text-base">Wallet Assets + Liquidity Positions</h1>
             <button className="text-sm">
@@ -155,7 +155,7 @@ const User_Leftside = () => {
             {isWalletConnected ? "+2.03%" : "--"}) this weeks
           </p>
         </div>
-        <CustomChart data={data} />
+        <CustomChart data={data} unit="₳" />
       </div>
       {/* 3rd and 4th grid  */}
       {/* {liquidityAndFarms.map((item) => {

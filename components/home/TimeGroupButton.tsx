@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const times = ["1h", "1d", "1w", "1m", "3m", "1y", "All Time"];
+const times = ["1H", "1D", "1W", "1M", "3M", "1Y", "All Time"];
 interface Props {
   isRelative?: boolean;
 }

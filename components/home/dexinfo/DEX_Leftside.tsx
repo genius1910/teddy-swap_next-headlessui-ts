@@ -51,7 +51,7 @@ const DEX_Leftside = () => {
     <div className="grid grid-cols-1 lg:grid-cols-2 w-full gap-8 mt-14">
       {/* 1st grid  */}
       <div className="font-medium rounded-3xl chart-component-color h-72 grid relative">
-        <div className="px-6 pt-6">
+        <div className="px-6 pt-6 absolute z-10">
           <div className="flex items-center gap-1">
             <h1 className="text-base">TVL</h1>
             <button className="text-sm">
@@ -64,7 +64,7 @@ const DEX_Leftside = () => {
       </div>
       {/* 2nd grid  */}
       <div className=" font-medium rounded-3xl chart-component-color h-72 grid relative">
-        <div className="px-6 pt-6">
+        <div className="px-6 pt-6 absolute z-10">
           <div className="flex items-center gap-1">
             <h1 className="text-base">Volume</h1>
             <button className="text-sm">

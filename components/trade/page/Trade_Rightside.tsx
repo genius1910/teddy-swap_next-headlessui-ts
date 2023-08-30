@@ -7,7 +7,7 @@ import Trade_Stats from "./rightside/Trade_Stats";
 import Trade_History from "./rightside/Trade_History";
 import Trade_TopPairs from "./rightside/Trade_TopPairs";
 
-const times = ["1h", "1d", "1w", "1m", "All Time"];
+const times = ["1H", "1D", "1W", "1M", "All Time"];
 
 const data = [
   { name: "09/20", price: 700 },
@@ -45,7 +45,7 @@ const Trade_Rightside = ({ activeTab, setActiveTab }: Props) => {
       {hydration && activeTab == "ADA / TEDY" ? (
         <>
           <div className=" font-medium component-color h-[479px] rounded-2xl grid relative">
-            <div className="flex justify-between">
+            <div className="flex justify-between absolute z-10 w-full">
               <div className="px-6 pt-6">
                 <span className="flex items-center gap-1">
                   <Image
@@ -71,7 +71,7 @@ const Trade_Rightside = ({ activeTab, setActiveTab }: Props) => {
               </div>
 
               {/* rightside  */}
-              <div className="flex flex-col p-6">
+              <div className="flex flex-col p-6 ">
                 <div className="flex flex-col">
                   <div className="flex gap-0.5">
                     {/* all button  */}

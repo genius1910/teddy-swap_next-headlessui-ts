@@ -56,7 +56,7 @@ const Farm_Dash_Rightside = () => {
       <div className=" h-full w-full lg:w-2/3 space-y-4 relative flex flex-col items-end ">
         <TimeGroupButton isRelative={true} />
         <div className=" rounded-2xl w-full chart-component-color flex flex-col h-[87%] grid relative">
-          <div className="flex justify-between items-center p-5 px-6">
+          <div className="flex justify-between items-center p-5 px-6 absolute z-10 w-full">
             <div className="flex items-center gap-1">
               <h1 className="text-base">Earnings</h1>
               <button className="text-sm">
@@ -70,7 +70,7 @@ const Farm_Dash_Rightside = () => {
               </p>
             </div>
           </div>
-          <CustomChat data={data} />
+          <CustomChat data={data} unit="₳" />
         </div>
       </div>
     </div>
