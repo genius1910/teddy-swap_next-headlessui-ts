@@ -5,34 +5,40 @@ import { BsDiscord, BsMedium, BsTelegram, BsTwitter } from "react-icons/bs";
 
 const Dash_Section1 = () => {
   return (
-    <section id="dash-section-1">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-14 text-lg 2xl:text-2xl items-center py-16 max-sm:pb-6 md:py-28 2xl:py-36">
-        <div className=" col-span-1 lg:col-span-2 flex flex-col gap-6 2xl:gap-10">
-          <h1 className="l-heading">
-            Decentralized Stablecoin Exchange on Cardano
-          </h1>
-          <h4 className="l-subtitle">
+    <section
+      id="dash-section-1"
+      className="max-w-[1152px] mx-auto xl:zoom-80 2xl:zoom-100 px-4"
+    >
+      <div className="grid grid-cols-1 lg:grid-cols-3 items-center md:pt-44 2xl:pt-52">
+        <div className=" col-span-1 lg:col-span-2 flex flex-col max-w-[656px] max-lg:justify-center max-lg:items-center max-lg:max-w-full ">
+          <p className="text-[50px] font-semibold leading-[60px] text-[#D6D4C6] max-lg:text-3xl max-lg:text-center">
+            Stablecoin Decentralized Exchange on Cardano
+          </p>
+          <p className="pt-6 text-lg font-normal max-w-[540px] pr-20 max-lg:text-center max-lg:px-10">
             A scalable decentralized exchange and automated liquidity provision
-            protocol for stablecoins.
-          </h4>
+            protocol for Cardano stablecoins.
+          </p>
           <Link
             href={`https://twitter.com/TeddySwap/status/1684620004350738432?s=20`}
+            className="pt-8"
           >
-            <button className="l-button mt-2">{"What's New"}</button>
+            <button className="l-button mt-2 text-base font-medium">
+              {"What's New"}
+            </button>
           </Link>
         </div>
-        <div className="max-lg:hidden col-span-1 relative">
+        <div className="max-lg:py-4 max-lg:justify-center max-lg:items-center flex col-span-1 relative ml-7 max-lg:ml-0">
           <Image
             src="/images/assets/swap-tokens-modal.svg"
             alt="Swap tokens"
-            width={520}
-            height={520}
+            width={342}
+            height={350}
             className="drop-shadow-2xl"
           />
         </div>
       </div>
-      <div className="flex max-sm:flex-col whitespace-nowrap max-sm:items-start justify-end w-full gap-6">
-        <h5>Join Our Community:</h5>
+      <div className="flex whitespace-nowrap max-sm:items-start justify-end w-full gap-6 mt-28 max-lg:mt-10 max-md:justify-center">
+        <p className=" text-sm font-medium">Join Our Community:</p>
         <div className="flex items-center max-sm:justify-start lg:justify-end gap-6">
           <Link legacyBehavior href={"https://twitter.com/TeddySwap"}>
             <a>

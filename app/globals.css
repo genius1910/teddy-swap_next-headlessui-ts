@@ -187,6 +187,18 @@
       )
     );
   }
+  .cardano-soild-bg {
+    background: var(
+      --glass,
+      linear-gradient(
+        180deg,
+        rgba(16, 23, 41, 0) 0%,
+        rgba(17, 23, 41, 0.63) 40%,
+        rgba(17, 23, 41, 0.63) 90%,
+        rgba(16, 23, 41, 0) 100%
+      )
+    );
+  }
   .big-text {
     @apply 2xl:text-xl xl:text-lg text-base;
   }

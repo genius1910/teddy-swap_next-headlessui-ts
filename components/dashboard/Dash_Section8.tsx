@@ -8,15 +8,19 @@ const Dash_Section8 = () => {
   const window = useWindowSize();
 
   return (
-    <section id="dash-section-8">
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-14 text-lg 2xl:text-2xl items-center py-24 md:py-36 2xl:py-44 mt-16 lg:mt-20 2xl:mt-28">
-        <div className=" col-span-1 lg:col-span-3 flex flex-col gap-6">
-          <h3 className="l-s-heading text-[#1ED6FF]">POWERED BY CARDANO</h3>
-          <h1 className="l-heading font-medium">Built on a solid foundation</h1>
-          <h4 className="l-subtitle max-w-5xl">
+    <section id="dash-section-8" className="cardano-soild-bg w-full">
+      <div className="grid items-center py-10 md:py-16 2xl:pt-44 2xl:pb-[88px] mt-8 lg:mt-12 2xl:mt-24 justify-center px-4">
+        <div className="flex flex-col gap-3">
+          <p className="text-[#1ED6FF] text-[15px] leading-[18px] font-semibold">
+            POWERED BY CARDANO
+          </p>
+          <p className="text-[46px] leading-[52px] font-medium max-lg:text-3xl">
+            Built on a solid foundation
+          </p>
+          <p className="text-[15px] font-normal leading-[21px] max-w-[640px]">
             TeddySwap leverages on- and off-chain infrastructure to provide an
             unparalleled user experience and functionality.
-          </h4>
+          </p>
         </div>
       </div>
       <ul
@@ -27,48 +31,48 @@ const Dash_Section8 = () => {
               : "100%"
           }`,
         }}
-        className=" flex flex-wrap justify-evenly mx-auto gap-16 lg:gap-28 w-full pb-24 md:pb-36 2xl:pb-44"
+        className=" flex flex-wrap justify-center 2xl:gap-40 gap-24 mx-auto w-full pb-24 md:pb-36 2xl:pb-44 px-4"
       >
-        <li className="space-y-16 lg:space-y-28 ">
+        <li className="space-y-16 lg:space-y-24">
           <Link legacyBehavior href={`https://www.harmoniclabs.tech/`}>
             <Image
-              width={302}
-              height={302}
+              width={202}
+              height={46}
               alt="Harmonic labs"
               src={`/images/assets/harmonic.svg`}
-              className=" cursor-pointer"
+              className=" cursor-pointer drop-shadow-2xl"
             />
           </Link>
           <Link legacyBehavior href={`https://saturnlabs.org/`}>
             <Image
-              width={372}
-              height={200}
+              width={247}
+              height={46}
               alt="Saturn labs"
               src={`/images/assets/saturnlabs.svg`}
-              className=" cursor-pointer"
+              className=" cursor-pointer drop-shadow-2xl"
             />
           </Link>
         </li>
-        <li className="space-y-16 lg:space-y-28">
+        <li className="space-y-16 lg:space-y-24">
           <Link
             legacyBehavior
             href={`https://developers.cardano.org/docs/smart-contracts/plu-ts/`}
           >
             <Image
-              width={252}
-              height={252}
+              width={154}
+              height={46}
               alt="Plus Ts labs"
               src={`/images/assets/plus-ts.svg`}
-              className=" cursor-pointer"
+              className=" cursor-pointer drop-shadow-2xl flex justify-center"
             />
           </Link>
           <Link legacyBehavior href={`https://txpipe.io/`}>
             <Image
-              width={372}
-              height={200}
+              width={195}
+              height={46}
               alt="Txpipe.io"
               src={`/images/assets/tx.svg`}
-              className=" cursor-pointer"
+              className=" cursor-pointer drop-shadow-2xl"
             />
           </Link>
         </li>

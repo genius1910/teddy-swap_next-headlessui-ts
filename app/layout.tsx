@@ -33,10 +33,8 @@ function RootLayout({ children }: { children: React.ReactNode }) {
       <body className={montserrat.className}>
         <Navbar />
         <div
-          className={`mx-auto my-10 px-4 ${
-            pathname == "/"
-              ? "lg:max-w-6xl 2xl:max-w-[1620px]"
-              : "max-w-[1420px]"
+          className={`mx-auto my-10  ${
+            pathname == "/" ? "lg:max-w-full 2xl:max-w-full" : "max-w-[1420px] "
           }`}
         >
           {children}

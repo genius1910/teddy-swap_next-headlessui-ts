@@ -3,42 +3,49 @@ import React from "react";
 
 const Dash_Section5 = () => {
   return (
-    <section id="dash-section-5">
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-14 lg:gap-28 text-base 2xl:text-2xl items-center py-32 md:py-44 2xl:py-60 ">
-        <div className="col-span-1 lg:col-span-2 relative hidden lg:block">
+    <section
+      id="dash-section-5"
+      className="max-w-[1152px] mx-auto xl:zoom-80 2xl:zoom-100 px-4"
+    >
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-14 items-center py-32 max-lg:pt-16 md:py-44 2xl:pt-[280px] 2xl:pb-64">
+        <div className="col-span-1 lg:col-span-2 relative hidden lg:block ml-20 max-lg:ml-0">
           <Image
             src="/images/assets/l-sec5.svg"
             alt="Liquidity Farm image"
-            width={520}
-            height={520}
-            className="w-full drop-shadow-2xl"
+            width={476}
+            height={240}
+            className="drop-shadow-2xl"
           />
         </div>
-        <div className=" col-span-1 lg:col-span-2 flex flex-col gap-7 2xl:gap-10 lg:pl-10">
-          <h3 className="l-s-heading">A NEW PERSPECTIVE ON DEFI</h3>
-          <h1 className="l-heading font-medium">Best in Class Accessibility</h1>
-          <h4 className="l-subtitle">
+        <div className=" col-span-1 lg:col-span-2 flex flex-col ml-14 max-lg:ml-0">
+          <p className="text-sm font-medium text-[#3DFFDC] pt-4">
+            A NEW PERSPECTIVE ON DEFI
+          </p>
+          <p className="text-[#D6D4C6] font-semibold text-[46px] pt-2 max-xl:text-3xl">
+            Best in Class Accessibility
+          </p>
+          <p className="text-[#D6D4C6] font-normal text-[14.8px] leading-[24px] pr-18 pt-2">
             Access vital information about your liquidity, farming activity, and
             more, personalized to your wallet. Get actionable data at your
             fingertips, empowering you to make informed decisions and optimize
             your returns.
-          </h4>
-          <div className="col-span-1 lg:col-span-2 relative lg:hidden">
+          </p>
+          <div className="col-span-1 lg:col-span-2 relative lg:hidden mt-4">
             <Image
               src="/images/assets/l-sec5.svg"
               alt="Liquidity Farm image"
-              width={520}
-              height={520}
+              width={476}
+              height={240}
               className="w-full drop-shadow-2xl"
             />
           </div>
-          <button className="max-md:hidden mt-2 inline-flex items-center gap-4 font-medium">
+          <button className="mt-5 inline-flex items-center gap-[14px] font-medium text-sm max-lg:justify-center">
             {"Launch TeddySwap"}
             <Image
               src={`/images/assets/right-arrow-circle.svg`}
               alt="right arrow"
-              width={40}
-              height={40}
+              width={26}
+              height={26}
             />
           </button>
         </div>

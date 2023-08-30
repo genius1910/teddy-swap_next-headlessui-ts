@@ -45,13 +45,13 @@ export function PieChartTokenOmics() {
   };
 
   return (
-    <div className="relative drop-shadow-2xl w-full h-full">
+    <div className="relative drop-shadow-2xl w-full">
       <Doughnut data={data} options={options} />
       <div className="absolute pointer-events-none inset-0 m-auto flex flex-col justify-center items-center w-full h-full text-sm">
-        <h1 className="text-5xl text-[#3DFFDC] lg:text-6xl 2xl:text-8xl font-bold">
+        <p className="text-5xl text-[#3DFFDC] lg:text-6xl 2xl:text-7xl font-bold">
           85%
-        </h1>
-        <p className="text-white text-3xl lg:text-5xl 2xl:text-6xl font-semibold">
+        </p>
+        <p className="text-white text-2xl lg:text-3xl 2xl:text-[35px] 2xl:leading-[70px] font-semibold">
           Public
         </p>
       </div>

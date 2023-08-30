@@ -3,58 +3,65 @@ import React from "react";
 
 const Dash_Section6 = () => {
   return (
-    <section id="dash-section-6">
-      <div className="flex flex-col justify-center items-center text-center gap-6 2xl:gap-10 mt-10">
-        <h3 className="l-section-heading">SECURITY</h3>
-        <h1 className="l-xl-heading">Making DeFi Secure for everyone</h1>
+    <section
+      id="dash-section-6"
+      className="max-w-[1152px] mx-auto xl:zoom-80 2xl:zoom-100 px-4"
+    >
+      <div className="flex flex-col justify-center items-center text-center gap-5 2xl:gap-10">
+        <p className="text-[#ADE1FF] font-medium text-[15px] leading-[18px]">
+          SECURITY
+        </p>
+        <p className="text-[#D6D4C6] font-semibold text-[46px] leading-[56px] max-xl:text-3xl max-w-[524px]">
+          Making DeFi Secure for everyone
+        </p>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-14 lg:gap-24 text-lg 2xl:text-2xl items-center py-32 max-lg:pt-14 md:py-44 2xl:py-60">
-        <div className="max-lg:hidden col-span-1 lg:col-span-2 relative flex items-center justify-center lg:justify-end">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-14 lg:gap-24 text-lg 2xl:text-2xl items-center py-12 max-lg:pt-14 md:py-24 2xl:py-36 mr-20 max-lg:mr-0">
+        <div className="max-lg:hidden col-span-1 lg:col-span-2 relative flex items-center justify-center lg:justify-end ml-4">
           <Image
             src="/images/assets/global.svg"
             alt="Global image"
-            width={520}
-            height={520}
-            className="w-10/12 drop-shadow-2xl"
+            width={412}
+            height={414}
+            className="drop-shadow-2xl"
           />
         </div>
-        <div className=" col-span-1 lg:col-span-2 flex flex-col gap-14">
+        <div className=" col-span-1 lg:col-span-2 flex flex-col justify-center">
           <div>
-            <h3 className="l-s-heading mb-2 text-[#ADE1FF]">
+            <p className=" text-[15px] leading-[18px] font-semibold text-[#ADE1FF] mb-3">
               Batcher Protocol
-            </h3>
-            <h4 className="l-subtitle2">
+            </p>
+            <p className=" text-[14.8px] leading-[21px] font-normal text-[#E2E2E2]">
               Deconstruct the walled gardens of classic financial institutions
               by becoming an owner of the TeddySwap protocol.
-            </h4>
+            </p>
           </div>
-          <div>
-            <h3 className="l-s-heading mb-2 text-[#ADE1FF]">
+          <div className="mt-[45px]">
+            <p className=" text-[15px] leading-[18px] font-semibold text-[#ADE1FF] mb-3">
               Hosting Infrastructure
-            </h3>
-            <h4 className="l-subtitle2">
+            </p>
+            <p className=" text-[14.8px] leading-[21px] font-normal text-[#E2E2E2]">
               Level up beyond constant product pools and let your capital work
               for you by providing liquidity to historically stable and more
               predictable assets.
-            </h4>
+            </p>
           </div>
-          <div>
-            <h3 className="l-s-heading mb-2 text-[#ADE1FF]">
+          <div className="mt-[30px]">
+            <p className=" text-[15px] leading-[18px] font-semibold text-[#ADE1FF] mb-3">
               TeddySwap vaults
-            </h3>
-            <h4 className="l-subtitle2">
+            </p>
+            <p className=" text-[14.8px] leading-[21px] font-normal text-[#E2E2E2]">
               Earn our platform token TEDY by providing liquidity to the
               available stablecoin pairs on our decentralized exchange.
-            </h4>
+            </p>
           </div>
         </div>
         <div className="lg:hidden col-span-1 lg:col-span-2 relative flex items-center justify-center lg:justify-end">
           <Image
             src="/images/assets/global.svg"
             alt="Global image"
-            width={520}
-            height={520}
-            className="w-10/12 drop-shadow-2xl"
+            width={420}
+            height={420}
+            className="drop-shadow-2xl"
           />
         </div>
       </div>

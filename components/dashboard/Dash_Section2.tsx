@@ -3,20 +3,25 @@ import React from "react";
 
 const Dash_Section2 = () => {
   return (
-    <section id="dash-section-2">
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-14 text-base 2xl:text-2xl items-center py-32 md:py-44 2xl:py-60">
-        <div className=" col-span-1 lg:col-span-2 flex flex-col gap-7 2xl:gap-10">
-          <h3 className="l-s-heading">A NEW PARADIGM FOR THE DEX</h3>
-          <h1 className="l-heading">
+    <section
+      id="dash-section-2"
+      className="max-w-[1152px] mx-auto xl:zoom-80 2xl:zoom-100 px-4"
+    >
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center py-32 md:py-44 2xl:py-52">
+        <div className=" col-span-1 lg:col-span-1 flex flex-col ml-14 max-lg:ml-0">
+          <p className=" text-sm font-medium text-[#3DFFDC] pt-4">
+            A NEW PARADIGM FOR THE DEX
+          </p>
+          <p className="text-[#D6D4C6] font-semibold text-[46px] pt-2 max-xl:text-3xl">
             The {`world’s`} most accessible exchange
-          </h1>
-          <h4 className="l-subtitle">
+          </p>
+          <p className="text-[#D6D4C6] font-normal text-[14.8px] leading-[24px] pr-20 pt-2">
             TeddySwap combines stable-swap formulas, enhanced security features,
             and {`Cardano's`} first open source batcher protocol to enhance the
             AMM Decentralized Exchange experience. A cutting edge user interface
             ties it all together.
-          </h4>
-          <div className="lg:hidden col-span-1 lg:col-span-2">
+          </p>
+          <div className="lg:hidden col-span-1 lg:col-span-1 mt-4">
             <Image
               src="/images/assets/l-sec2.svg"
               alt="User info"
@@ -25,17 +30,17 @@ const Dash_Section2 = () => {
               className="w-full drop-shadow-2xl -ml-1.5"
             />
           </div>
-          <button className="mt-2 max-md:hidden inline-flex items-center gap-4 font-medium">
+          <button className="mt-5 inline-flex items-center gap-[14px] font-medium text-sm max-lg:justify-center">
             {"Try demo"}
             <Image
               src={`/images/assets/right-arrow-circle.svg`}
               alt="right arrow"
-              width={40}
-              height={40}
+              width={26}
+              height={26}
             />
           </button>
         </div>
-        <div className="max-lg:hidden col-span-1 lg:col-span-2">
+        <div className="max-lg:hidden col-span-1 lg:col-span-1">
           <Image
             src="/images/assets/l-sec2.svg"
             alt="User info"

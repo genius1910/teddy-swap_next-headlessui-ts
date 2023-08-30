@@ -68,7 +68,7 @@ const Navbar = () => {
         {/* mobile menu  */}
         {<MobileMenu toggler={toggler} setToggler={setToggler} />}
         {/* desktop menu  */}
-        <div className="hidden xl:flex items-center gap-12">
+        <div className="hidden xl:flex items-center gap-20">
           <Link legacyBehavior href="/" className="mr-8">
             <a>
               <Image
