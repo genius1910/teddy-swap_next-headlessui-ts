@@ -25,8 +25,8 @@ const QuickSwapPopup = ({ close }: { close: () => void }) => {
   return (
     <div className="">
       {showComponent === "view-1" ? (
-        <div className="relative flex flex-col gap-6 items-center px-4 p-6">
-          <div className="flex items-center justify-between w-full">
+        <div className="relative flex flex-col items-center pt-[30px] pl-[30px] pr-[22px] pb-6">
+          <div className="flex items-center justify-between w-full mb-6">
             <div className="flex gap-4">
               <button
                 type="button"
@@ -35,7 +35,7 @@ const QuickSwapPopup = ({ close }: { close: () => void }) => {
                 }}
                 className={`${
                   isMarket ? "text-gray-100" : "text-gray-400"
-                } text-base 2xl:text-xl font-medium`}
+                } text-[20px] font-medium leading-6`}
               >
                 Market
               </button>
@@ -46,12 +46,12 @@ const QuickSwapPopup = ({ close }: { close: () => void }) => {
                 }}
                 className={`${
                   !isMarket ? "text-gray-100" : "text-gray-400"
-                } text-base 2xl:text-xl font-medium`}
+                } text-[20px] font-medium leading-6`}
               >
                 Limit
               </button>
             </div>
-            <div className="flex gap-4">
+            <div className="flex gap-3">
               <button
                 className={` text-gray-300 hover:text-gray-100 text-base 2xl:text-lg`}
               >
@@ -70,14 +70,14 @@ const QuickSwapPopup = ({ close }: { close: () => void }) => {
           {isMarket ? (
             <Market
               setShowComponent={setShowComponent}
-              selectedToken={selectedToken}
-              selectedToken2={selectedToken2}
+              setSelectedToken={setSelectedToken}
+              setSelectedToken2={setSelectedToken2}
             />
           ) : (
             <Limit
               setShowComponent={setShowComponent}
-              selectedToken3={selectedToken3}
-              selectedToken4={selectedToken4}
+              setSelectedToken3={setSelectedToken3}
+              setSelectedToken4={setSelectedToken4}
             />
           )}
         </div>

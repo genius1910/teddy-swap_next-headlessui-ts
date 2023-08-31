@@ -65,14 +65,14 @@ const Trade_Swap = () => {
             {isMarket ? (
               <Market
                 setShowComponent={setShowComponent}
-                selectedToken={selectedToken}
-                selectedToken2={selectedToken2}
+                setSelectedToken={setSelectedToken}
+                setSelectedToken2={setSelectedToken2}
               />
             ) : (
               <Limit
                 setShowComponent={setShowComponent}
-                selectedToken3={selectedToken3}
-                selectedToken4={selectedToken4}
+                setSelectedToken3={setSelectedToken3}
+                setSelectedToken4={setSelectedToken4}
               />
             )}
           </div>

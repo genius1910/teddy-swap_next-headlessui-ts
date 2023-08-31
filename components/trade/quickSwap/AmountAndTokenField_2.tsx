@@ -20,47 +20,63 @@ const AmountAndTokenField_2 = ({
   name,
 }: Props) => {
   return (
-    <div className="bg-[#1F2635] flex justify-between items-end w-full rounded-[11px] p-2 pl-4">
+    <div className="bg-[#1F2635] flex justify-between items-end w-full rounded-[11px] px-5 py-2">
       <div className="font-medium space-y-1">
-        <h4 className="text-[#505A63] text-xss">{name}</h4>
-        <div className="flex text-white items-center gap-3 py-1 rounded-2xl">
-          {selectedToken?.name ? (
+        <p
+          className={
+            selectedToken?.name
+              ? "text-[#505A63] text-[13.02px] leading-[18.8px] font-medium"
+              : "text-[#505A63] text-xss leading-4 font-medium"
+          }
+        >
+          {name}
+        </p>
+        {selectedToken?.name ? (
+          <div className="flex text-white items-center gap-[9.7px] py-1 rounded-2xl">
             <button
               type="button"
               onClick={() => setShowComponent(id)}
-              className=" text-sm 2xl:text-[18px] 2xl:leading-[25px] font-medium flex gap-2 items-center"
+              className=" text-sm 2xl:text-[18px] 2xl:leading-[25px] font-medium flex gap-3 items-center"
             >
               <Image
                 src={`/images/assets/token-${selectedToken.imgId}.png`}
-                width={25}
-                height={25}
+                width={30}
+                height={30}
                 alt="Token image"
               />
-              <span>{selectedToken.name}</span>{" "}
-              <span className="w-6">
-                <FaAngleDown className="w-5 h-5" />
-              </span>
+              <div className="flex flex-row justify-center items-center">
+                <span className="text-lg 2xl:text-[24px] leading-[32px] font-medium">
+                  {selectedToken.name}
+                </span>{" "}
+                <span className="w-6">
+                  <FaAngleDown className="w-7 h-7" />
+                </span>
+              </div>
             </button>
-          ) : (
+          </div>
+        ) : (
+          <div className="flex text-white items-center gap-[7.8px] py-1 rounded-2xl">
             <button
               type="button"
               onClick={() => setShowComponent(id)}
               className=" text-sm 2xl:text-base font-medium flex items-center gap-2"
             >
-              <span>Select Token</span>
+              <span className="text-[16px] leading-[24px] font-medium">
+                Select Token
+              </span>
               <span className="w-6">
                 <FaAngleDown className="w-3 h-3" />{" "}
               </span>
             </button>
-          )}
-        </div>
+          </div>
+        )}
       </div>
       <div className="whitespace-nowrap">
         {selectedToken?.name ? (
           <input
             type="text"
             defaultValue={957.3}
-            className=" text-base pr-4 pl-2 w-full font-medium text-right 2xl:text-lg bg-transparent text-white outline-none"
+            className=" text-lg leading-[32px] pr-4 pl-2 pb-1 w-full font-medium text-right 2xl:text-[24px] bg-transparent text-white outline-none"
           />
         ) : (
           <p className=" text-xss select-none pointer-events-none text-transparent mt-1 text-center w-full">

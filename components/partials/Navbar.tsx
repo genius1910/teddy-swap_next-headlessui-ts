@@ -136,7 +136,7 @@ const Navbar = () => {
                                 leaveFrom="transform scale-100 opacity-100"
                                 leaveTo="transform scale-95 opacity-0"
                               >
-                                <Popover.Panel className="absolute outline-none component-color-2 left-[10.5rem] rounded-2xl z-50 mt-8 -translate-x-1/2 transform w-screen max-w-sm zoom-80 2xl:zoom-100 2xl:max-w-md">
+                                <Popover.Panel className="absolute outline-none component-color-2 left-[10.5rem] rounded-2xl z-50 mt-10 -translate-x-1/2 transform w-screen max-w-sm zoom-80 2xl:zoom-100 2xl:max-w-md">
                                   {({ close }) => (
                                     <QuickSwapPopup close={close} />
                                   )}

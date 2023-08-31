@@ -12,17 +12,15 @@ const ConfirmSwap = ({ setShowComponent, isNotPadding }: Props) => {
   const [confirming, setConfirming] = useState(false);
   return (
     <div
-      className={`relative font-medium flex flex-col gap-6 items-center ${
-        isNotPadding ? "" : "p-6"
+      className={`relative font-medium flex flex-col items-center ${
+        isNotPadding ? "" : "pt-[30px] pl-[22px] pr-[20px] pb-6"
       }`}
     >
       <div className="text-white flex items-center justify-between w-full">
-        <h1 className="xl:text-xl text-base">
+        <p className="xl:text-[20px] leading-6 font-medium text-base pl-[6px]">
           {confirming ? "Waiting For Confirmations" : "Confirm Swap"}
-        </h1>
-        <button
-          className={` text-gray-100 hover:text-white text-base xl:text-lg`}
-        >
+        </p>
+        <button className={` text-gray-100 hover:text-white`}>
           <RxCross2
             onClick={() =>
               confirming ? setConfirming(false) : setShowComponent("view-1")
@@ -31,38 +29,40 @@ const ConfirmSwap = ({ setShowComponent, isNotPadding }: Props) => {
           />
         </button>
       </div>
-      <div className="flex justify-between items-center px-6 w-full mb-6">
-        <div className="flex flex-col gap-2 items-center justify-center relative">
-          <div className="p-4 rounded-xl button-component-color">
+      <div className="flex justify-between items-center px-[52px] w-full pt-[26px]">
+        <div className="flex flex-col gap-2 items-center justify-center">
+          <div className="p-[14px] rounded-xl button-component-color">
             <Image
               src={`/images/assets/token-1.png`}
-              width={44}
-              height={44}
+              width={53}
+              height={53}
+              className="drop-shadow-2xl"
               alt="Token 1 image"
             />
           </div>
-          <h1 className=" whitespace-nowrap font-normal text-sm xl:text-base absolute -bottom-7">
+          <p className="text-[#DBDBDB] text-[14px] leading-[20px] font-normal pt-[6px]">
             1 ADA
-          </h1>
+          </p>
         </div>
         <BsArrowRight className="w-8 h-8 text-[#268aff]" />
-        <div className="flex flex-col gap-2 items-center justify-center relative">
-          <div className="p-4 rounded-xl button-component-color">
+        <div className="flex flex-col gap-2 items-center justify-center">
+          <div className="p-[14px] rounded-xl button-component-color">
             <Image
               src={`/images/assets/token-4.png`}
-              width={44}
-              height={44}
+              width={53}
+              height={53}
+              className="drop-shadow-2xl"
               alt="Token 1 image"
             />
           </div>
-          <h1 className=" whitespace-nowrap font-normal text-sm xl:text-base absolute -bottom-7">
+          <p className="text-[#DBDBDB] text-[14px] leading-[20px] font-normal pt-[6px]">
             24.23 TEDY
-          </h1>
+          </p>
         </div>
       </div>
       {confirming ? (
         <>
-          <p className="text-xss text-gray-200 text-center">
+          <p className="text-[12px] leading-[14px] font-normal text-[#D6D6D6] text-center pt-[26px] px-6">
             Swapping 2,000 ADA for 22.309498 cNETA. Confirm this transaction in
             your wallet.
           </p>
@@ -73,27 +73,35 @@ const ConfirmSwap = ({ setShowComponent, isNotPadding }: Props) => {
         </>
       ) : (
         <>
-          <p className="text-xss text-gray-200 text-center">
+          <p className="text-[12px] leading-[14px] font-normal text-[#D6D6D6] text-center pt-[26px]">
             Output is estimated. You will recieve at least 224.22 cNETA or the
             transaction will revert.
           </p>
-          <div className=" text-xss text-gray-200 w-full">
+          <div className=" text-xss text-gray-200 w-full pt-10 px-[6px] pb-12">
             <ul className="space-y-3 w-full font-normal px-2">
               <li className=" flex justify-between w-full items-center">
-                <h5>Slippage tolerance:</h5>
-                <p className=" text-white text-xs">437.85 iUSD</p>
+                <p className="text-[10.6px] leading-[13px] font-medium text-[#E0E0E0]">
+                  Slippage tolerance:
+                </p>
+                <p className=" text-white text-xs font-medium">437.85 iUSD</p>
               </li>
               <li className=" flex justify-between w-full items-center">
-                <h5>Nitro:</h5>
-                <p className=" text-white text-xs">0.10%</p>
+                <p className="text-[10.6px] leading-[13px] font-medium text-[#E0E0E0]">
+                  Nitro:
+                </p>
+                <p className=" text-white text-xs font-medium">0.10%</p>
               </li>
               <li className=" flex justify-between w-full items-center">
-                <h5>Estimated deposit</h5>
-                <p className=" text-white text-xs">{"<"}0.001%</p>
+                <p className="text-[10.6px] leading-[13px] font-medium text-[#E0E0E0]">
+                  Estimated deposit
+                </p>
+                <p className=" text-white text-xs font-medium">{"<"}0.001%</p>
               </li>
               <li className=" flex justify-between w-full items-center">
-                <h5>Total Fees</h5>
-                <p className=" text-white text-xs">{"<"}0.001%</p>
+                <p className="text-[10.6px] leading-[13px] font-medium text-[#E0E0E0]">
+                  Total Fees
+                </p>
+                <p className=" text-white text-xs font-medium">{"<"}0.001%</p>
               </li>
             </ul>
           </div>
@@ -107,7 +115,7 @@ const ConfirmSwap = ({ setShowComponent, isNotPadding }: Props) => {
               }, 2000);
             }}
             type="button"
-            className=" primary-button  text-sm xl:text-lg py-2 xl:py-3 rounded-lg border-2"
+            className=" primary-button font-medium text-sm xl:leading-[24px] xl:text-[20px] py-3 xl:py-4 rounded-lg border-2 pr-[2px]"
           >
             Confirm Swap
           </button>

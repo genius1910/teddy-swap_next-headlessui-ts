@@ -21,21 +21,27 @@ const Trade_Stats = () => {
     },
   ];
   return (
-    <div className="my-8">
-      <ul className="flex justify-between flex-wrap lg:flex-nowrap gap-6">
+    <div className="my-6">
+      <ul className="flex justify-between flex-wrap lg:flex-nowrap gap-5">
         {stats.map((item) => {
           return (
             <li
               key={item.name}
-              className="flex gap-2 rounded-xl p-4 component-color w-full flex-col text-lg xl:text-xl text-white"
+              className="gap-2 rounded-xl component-color w-full text-white  py-3 px-4"
             >
-              <h5 className="text-xs text-white flex items-center gap-1">
-                <span>{item.name}</span>
-                <button title={item.name}>
-                  <BsExclamationCircle className="w-3 h-3" />
-                </button>
-              </h5>
-              <h1>{item.value}</h1>
+              <div className="flex flex-col gap-[6px]">
+                <div className="flex flex-row gap-[2px]">
+                  <span className="text-[10px] leading-3 font-medium">
+                    {item.name}
+                  </span>
+                  <button title={item.name}>
+                    <BsExclamationCircle className="w-[10px] h-[10px]" />
+                  </button>
+                </div>
+                <p className="text-[16px] leading-[19.5px] font-medium text-white">
+                  {item.value}
+                </p>
+              </div>
             </li>
           );
         })}

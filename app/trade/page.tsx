@@ -16,11 +16,11 @@ const Trade = () => {
         tabs={tabs}
         setTabs={setTabs}
       />
-      <div className="max-2xl:max-w-[1400px] mx-auto xl:zoom-80 2xl:zoom-100 grid grid-cols-12 w-full gap-8 px-4 xl:px-0 items-start">
-        <div className=" col-span-12 xl:col-span-4">
+      <div className="max-2xl:max-w-[1400px] mx-auto xl:zoom-80 2xl:zoom-100 grid grid-cols-12 w-full gap-6 px-6 xl:px-0 items-start">
+        <div className=" col-span-12 tradexl:col-span-4">
           <Trade_Leftside />
         </div>
-        <div className=" col-span-12 xl:col-span-8 ">
+        <div className="max-w-[910px] col-span-12 tradexl:col-span-8 ">
           <Trade_Rightside activeTab={activeTab} setActiveTab={setActiveTab} />
         </div>
       </div>
