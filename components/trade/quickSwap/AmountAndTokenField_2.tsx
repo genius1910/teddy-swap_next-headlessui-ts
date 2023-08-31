@@ -20,7 +20,7 @@ const AmountAndTokenField_2 = ({
   name,
 }: Props) => {
   return (
-    <div className="bg-[#1F2635] flex justify-between items-end w-full rounded-2xl p-2 pl-4">
+    <div className="bg-[#1F2635] flex justify-between items-end w-full rounded-[11px] p-2 pl-4">
       <div className="font-medium space-y-1">
         <h4 className="text-[#505A63] text-xss">{name}</h4>
         <div className="flex text-white items-center gap-3 py-1 rounded-2xl">
@@ -28,7 +28,7 @@ const AmountAndTokenField_2 = ({
             <button
               type="button"
               onClick={() => setShowComponent(id)}
-              className=" text-sm 2xl:text-base font-medium flex gap-2 items-center"
+              className=" text-sm 2xl:text-[18px] 2xl:leading-[25px] font-medium flex gap-2 items-center"
             >
               <Image
                 src={`/images/assets/token-${selectedToken.imgId}.png`}

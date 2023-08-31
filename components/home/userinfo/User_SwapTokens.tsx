@@ -66,13 +66,13 @@ const User_SwapTokens = ({
             : document.getElementById("connect-wallet")?.click()
         }
         type="button"
-        className=" secondary-button text-sm xl:text-lg py-2 xl:py-3 rounded-2xl border-2"
+        className=" secondary-button text-sm xl:text-lg py-2 xl:py-3 rounded-2xl border-2 mt-2"
       >
         {authenticate.walletConnected != null
           ? "Confirm Swap"
           : "Connect Wallet"}
       </button>
-      <p className="  text-[#505A63] text-[0.65rem] mt-2 flex flex-col text-center mx-auto w-80">
+      <p className="  text-[#505A63] text-[10px] font-normal leading-[14px] mt-3 flex flex-col text-center mx-auto w-80">
         Above rates and fees are applicable to card transactions only (not
         necessarily applicable for all exchanges in wallets)
       </p>

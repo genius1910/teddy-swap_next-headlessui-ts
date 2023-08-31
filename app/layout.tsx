@@ -34,7 +34,7 @@ function RootLayout({ children }: { children: React.ReactNode }) {
         <Navbar />
         <div
           className={`mx-auto my-10  ${
-            pathname == "/" ? "lg:max-w-full 2xl:max-w-full" : "max-w-[1420px] "
+            pathname == "/" ? "lg:max-w-full 2xl:max-w-full" : "max-w-[1420px]"
           }`}
         >
           {children}

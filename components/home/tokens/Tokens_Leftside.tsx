@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React, { useEffect, useRef } from "react";
 import { createChart, ColorType } from "lightweight-charts";
-import { ChartApp } from "./TradingChart";
+import { ChartApp } from "../dexinfo/TradingChart";
 
 const batchers = [
   {
@@ -21,7 +21,7 @@ const batchers = [
   },
 ];
 
-const DEX_Leftside = () => {
+const Tokens_Leftside = () => {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 w-full gap-8 mt-5">
       {/* 1st grid  */}
@@ -131,4 +131,4 @@ const DEX_Leftside = () => {
   );
 };
 
-export default DEX_Leftside;
+export default Tokens_Leftside;

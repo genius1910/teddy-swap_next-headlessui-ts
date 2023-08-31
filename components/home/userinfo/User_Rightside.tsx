@@ -8,11 +8,13 @@ import SelectTokenView from "@/components/trade/quickSwap/SelectTokenView";
 import ConfirmSwap from "@/components/trade/quickSwap/market/ConfirmSwap";
 import ConfirmOrder from "@/components/trade/quickSwap/limit/ConfirmOrder";
 import TransactionStatus from "@/components/trade/quickSwap/market/TransactionStatus";
+import useAuthenticate from "@/context/mobx/useAuthenticate";
 
 const User_Rightside = () => {
   const [selectedToken, setSelectedToken] = useState<SelectedTokenProps>();
   const [selectedToken2, setSelectedToken2] = useState<SelectedTokenProps>();
   const [showComponent, setShowComponent] = useState("view-1");
+  const isWalletConnected = useAuthenticate.isWalletConnected();
 
   const movers = [
     {
@@ -119,21 +121,27 @@ const User_Rightside = () => {
           <TimeGroupButton />
         </div>
         <div className="list-component-color w-full xl:w-96 rounded-2xl max-xl:mt-8">
-          <h2 className="p-6">Your Top Movers</h2>
+          <p className="pl-[18px] pt-6 pb-4 text-[15px] leading-[18px] font-medium">
+            Your Top Movers
+          </p>
           <ul className="flex flex-col gap-0.5">
             {movers.map((item, i) => {
               return (
                 <li
                   key={item.name + i}
-                  className="flex top-mover last:rounded-b-2xl justify-between px-4 py-2 last:mb-0"
+                  className={
+                    isWalletConnected
+                      ? "flex top-mover last:rounded-b-2xl justify-between last:mb-0 rounded-[3px]"
+                      : "flex topmovers-bg last:rounded-b-2xl justify-between last:mb-0 rounded-[3px]"
+                  }
                 >
-                  <div className="flex gap-2 items-center">
+                  <div className="flex items-center pl-[17px] py-2 gap-[10px]">
                     <Image
-                      className=" rounded-full"
+                      className=" rounded-full drop-shadow-2xl "
                       src={item.img}
                       alt="Movers"
-                      width={36}
-                      height={36}
+                      width={30}
+                      height={30}
                     />
                     <div>
                       <h1 className="text-sm uppercase font-medium">
@@ -142,9 +150,13 @@ const User_Rightside = () => {
                       {/* <p className="text-[0.7rem] text-xs">{item.subname}</p> */}
                     </div>
                   </div>
-                  <div className="text-right text-sm">
-                    <p>${item.price}</p>
-                    <p className=" text-[#16A34A] text-xs">+${item.up_price}</p>
+                  <div className="pr-5 flex flex-col justify-center">
+                    <p className="text-[12px] leading-[25px] font-medium flex justify-end">
+                      ${item.price}
+                    </p>
+                    <p className=" text-[#16A34A] text-[10px] leading-[21px] font-medium">
+                      +${item.up_price}
+                    </p>
                   </div>
                 </li>
               );

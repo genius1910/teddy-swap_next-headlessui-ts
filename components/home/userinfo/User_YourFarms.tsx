@@ -41,79 +41,101 @@ const User_YourFarms = () => {
   const isWalletConnected = useAuthenticate.isWalletConnected();
 
   return (
-    <div className=" lg:col-span-2 rounded-3xl component-color p-6 text-white">
-      <h1 className="flex items-center gap-1">
+    <div className=" lg:col-span-2 rounded-[18px] component-color pt-6 px-8 pb-8">
+      <p className="flex items-center gap-1 text-4 leading-[19.5px]">
         {`Your Farms`}{" "}
-        <button className="text-sm">
+        <button className={isWalletConnected ? "text-sm" : "hidden"}>
           <BsQuestionCircle className="w-3 h-3" />
         </button>
-      </h1>
+      </p>
       <div className="flex gap-10 xl:gap-4 flex-wrap xl:flex-nowrap justify-center xl:justify-between items-center">
         <div className=" space-y-3">
           <div className="flex gap-4 my-4 whitespace-nowrap">
             <div className="  text-base flex flex-col leading-tight">
-              <h2 className="font-semibold">
+              <p className="flex items-center gap-1 text-4 leading-[19.5px]">
                 <span className="text-[#3DFFDC]">
                   {isWalletConnected ? "92.43%" : "--"}%{" "}
                 </span>
-                <button className="text-sm">
+                <button className={isWalletConnected ? "text-sm" : "hidden"}>
                   <BsQuestionCircle className="w-3 h-3" />
                 </button>
-              </h2>
-              <p className=" text-xss ">{`APR (weighted)`}</p>
+              </p>
+              <p className="text-[9px] leading-[10px] font-normal">{`APR (weighted)`}</p>
             </div>
             <div className="flex items-center gap-1">
               <Image
                 src={`/images/assets/teddy.png`}
                 alt="icon1"
-                width={24}
-                height={24}
+                width={22}
+                height={22}
               />
               <div className="  text-base flex flex-col leading-tight">
-                <h2 className="font-semibold flex items-center gap-1">
+                <p className="flex items-center gap-1 text-4 leading-[19.5px]">
                   <span>{isWalletConnected ? `21,134.92` : "--"} </span>
                   <span className="text-xs self-end">TEDY</span>
-                  <button title="Profit" className="text-sm ">
+                  <button
+                    title="Profit"
+                    className={isWalletConnected ? "text-sm" : "hidden"}
+                  >
                     <BsQuestionCircle className="w-3 h-3" />
                   </button>
-                </h2>
-                <p className=" text-xss flex items-center gap-1">
+                </p>
+                <p className="text-[9px] leading-[10px] font-normal flex flex-row gap-2">
                   <span className=""> {`Pending Harvest`}</span>
                   <span className="text-[#C9C9C9]">(+5 more)</span>
                 </p>
               </div>
             </div>
           </div>
-          <button className=" secondary-button text-sm">{`Harvest All`}</button>
-          <button className=" primary-button text-sm">{`View Farms`}</button>
+          <button
+            className={
+              " secondary-button text-[12px] leading-[15px] font-semibold max-w-[216px] max-lg:flex max-lg:justify-center"
+            }
+          >{`Harvest All`}</button>
+          <button
+            className={
+              isWalletConnected
+                ? " primary-button text-[12px] leading-[15px] font-semibold max-w-[216px] max-lg:flex max-lg:justify-center"
+                : " base-button text-[12px] leading-[15px] font-semibold max-w-[216px] max-lg:flex max-lg:justify-center"
+            }
+          >{`View Farms`}</button>
         </div>
         <div className=" w-40 h-40 drop-shadow-xl">
           <PieChartDoughnut />
         </div>
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-[10px] mr-10 max-lg:mr-0">
           {tvl.map((_item, i) => {
             return (
-              <div key={i} className="flex items-center gap-2">
-                <div className={`w-3.5 h-3.5 ${_item.color}`} />
-                <div className="flex items-center gap-1">
-                  <Image
-                    src={`/images/assets/token-1.png`}
-                    alt="icon1"
-                    width={20}
-                    height={20}
-                  />
-                  <Image
-                    src={`/images/assets/teddy.png`}
-                    alt="icon2"
-                    width={20}
-                    height={20}
-                    className="-ml-2"
-                  />
-                  <h4 className="text-sm">{_item.name}</h4>
+              <div key={i} className="flex items-center gap-6 justify-between">
+                <div className="flex items-center gap-2">
+                  <div className={`w-3.5 h-3.5 ${_item.color}`} />
+                  <div className="flex items-center gap-1">
+                    <Image
+                      src={`/images/assets/token-1.png`}
+                      alt="icon1"
+                      width={20}
+                      height={20}
+                    />
+                    <Image
+                      src={`/images/assets/teddy.png`}
+                      alt="icon2"
+                      width={20}
+                      height={20}
+                      className="-ml-2"
+                    />
+                    <p className="text-[14px] leading-[17px] font-semibold">
+                      {_item.name}
+                    </p>
+                  </div>
                 </div>
-                <p className="text-sm whitespace-nowrap text-right font-normal ml-4">
-                  <span>₳{isWalletConnected ? _item.price : "--"}</span>{" "}
-                  <span className=" text-xss">TVL</span>
+
+                <p className="text-sm whitespace-nowrap text-right font-normal ml-4 flex flex-row justify-center items-center max-lg:justify-end">
+                  <span className="text-[12px] leading-[17px] font-medium">
+                    ₳{isWalletConnected ? _item.price : "--"}
+                  </span>{" "}
+                  <span className="text-[10px] leading-[12px] font-medinum">
+                    TVL
+                  </span>
                 </p>
               </div>
             );
@@ -122,41 +144,45 @@ const User_YourFarms = () => {
         <div className="flex flex-col justify-between space-y-6 whitespace-nowrap font-normal">
           <div className="flex gap-5">
             <div className=" ">
-              <p className="text-xss text-gray-400 -mb-1">
+              <p className="text-[9px] leading-[10px] font-normal text-gray-400 -mb-1">
                 Earnings This Month
               </p>
-              <h4 className="text-base leading-2  font-medium">
+              <p className="text-base leading-2 text-white font-medium mt-1">
                 ₳{isWalletConnected ? "13,420.90" : "--"}
-              </h4>
+              </p>
               <p className="text-xs text-gray-400">
                 ${isWalletConnected ? "284.90" : "0.0"}
               </p>
             </div>
-            <div className=" ">
-              <p className="text-xss text-gray-400 -mb-1">Earnings All Time</p>
-              <h4 className="text-base leading-2  font-medium">
+            <div className=" text-gray-400">
+              <p className="text-[9px] leading-[10px] font-normal text-gray-400 -mb-1 ">
+                Earnings All Time
+              </p>
+              <p className="text-base leading-2 text-white font-medium mt-1">
                 ₳{isWalletConnected ? "13,420.90" : "--"}
-              </h4>
+              </p>
               <p className="text-xs text-gray-400">
                 ${isWalletConnected ? "1,420.92" : "0.0"}
               </p>
             </div>
           </div>
           <div>
-            <h4 className="text-xs  my-2">Tokens you are earning</h4>
-            <div className="flex items-center gap-2">
+            <p className="text-[10px] leading-3 font-normal text-gray-400 my-2">
+              Tokens you are earning
+            </p>
+            <div className="flex items-center gap-3">
               {earningTokens.map((token) => {
                 return (
                   <Image
                     key={token}
                     alt={token}
                     src={token}
-                    width={26}
-                    height={26}
+                    width={29}
+                    height={29}
                   />
                 );
               })}
-              <p className="text-xss ">+3more</p>
+              <p className="text-xss text-gray-400">+3more</p>
             </div>
           </div>
         </div>

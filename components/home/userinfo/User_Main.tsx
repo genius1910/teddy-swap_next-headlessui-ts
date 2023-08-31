@@ -15,7 +15,7 @@ const User_Main = () => {
   return (
     <section
       id="user-main"
-      className="max-2xl:max-w-[1400px] mx-auto xl:zoom-80 2xl:zoom-100"
+      className="max-2xl:max-w-[1400px] mx-auto xl:zoom-80 2xl:zoom-100 px-4"
     >
       <div
         className={`${
