@@ -91,7 +91,7 @@ const Farm_Dash_Leftside = () => {
         </div>
         <div className=" flex flex-col w-full gap-2">
           {items.map((item, index) => (
-            <div className="flex flex-col w-full gap-2">
+            <div className="flex flex-col w-full gap-2" key={index}>
               <div className="flex flex-row justify-between items-center w-full">
                 <span className="flex w-[128px] text-start">
                   <Image
