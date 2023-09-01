@@ -3,6 +3,7 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 import ChartDataLabels from "chartjs-plugin-datalabels";
 import Image from "next/image";
+import { BsExclamationCircle } from "react-icons/bs";
 
 ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
 
@@ -57,7 +58,7 @@ export function GaugeChart() {
   };
 
   return (
-    <div className="relative h-40 w-80">
+    <div className="relative h-[100px] w-[200px]">
       <div className="absolute inset-0 m-auto">
         <img
           src={`/images/assets/gauge.png`}
@@ -68,9 +69,12 @@ export function GaugeChart() {
       {/* <div className="opacity-0">
         <Doughnut data={data} options={options} />
       </div> */}
-      <div className="text-5xl text-white absolute pointer-events-none inset-0  top-0 my-auto flex flex-col items-center justify-center mt-11 h-full text-center">
-        <h1>86%</h1>
-        <p className="text-xs text-gray-400">Average Apr</p>
+      <div className="text-white absolute pointer-events-none inset-0  top-0 my-auto flex flex-col items-center justify-center mt-8 h-full text-center">
+        <p className="text-[36px] leading-[44px] font-normal">86%</p>
+        <span className="flex justify-center items-center text-[12px] leading-[14px] font-normal text-gray-400">
+          Average Apr
+          <BsExclamationCircle className="w-[10px] h-[10px] ml-[2px]" />
+        </span>
       </div>
     </div>
   );

@@ -1,122 +1,132 @@
-import { PieChart } from "@/components/chart/PieChart";
-import Progress from "@/components/partials/Progress";
-import ProgressLittle from "@/components/partials/ProgressLittle";
 import Image from "next/image";
 import React from "react";
+import { BsExclamationCircle } from "react-icons/bs";
 
 const Farm_Dash_Leftside = () => {
   const items = [
     {
-      color: "bg-purple-500",
+      TVL: "₳120,030",
       name: "ADA/TEDY",
-      price: "120,030",
+      price: "+3%",
     },
     {
-      color: "bg-cyan-500",
+      TVL: "₳86,342",
+      name: "ADA/cBTC ",
+      price: "+2.46%",
+    },
+    {
+      TVL: "₳23,085",
+      name: "ADA/USDA",
+      price: "-0.68%",
+    },
+    {
+      TVL: "₳16,456",
+      name: "USDA/TEDY",
+      price: "-8.18%",
+    },
+    {
+      TVL: "₳12,018",
       name: "cUSD/TEDY",
-      price: "124,943",
-    },
-    {
-      color: "bg-blue-500",
-      name: "ADA/cBTC",
-      price: "532,63",
-    },
-    {
-      color: "bg-blue-500",
-      name: "ADA/USD",
-      price: "843,030",
-    },
-    {
-      color: "bg-green-500",
-      name: "USD/TEDY",
-      price: "843,030",
+      price: "+7.53%",
     },
   ];
 
-  const farms = [12, 89, 37, 74, 55, 73];
-
   return (
-    <div className="component-color p-8 rounded-2xl flex flex-col gap-6">
-      <h1 className="heading-xl font-medium">Farms</h1>
-      <div className=" absolute text-xs font-medium right-0 top-0 p-4 flex items-center gap-1 leading-tight component-color-4 rounded-md rounded-br-none rounded-tr-2xl">
-        <Image
-          src={`/images/icons/WhiteAda.svg`}
-          alt="WhiteAda"
-          width={30}
-          height={30}
-        />
-        <div>
-          <h2>₳342,930.12</h2>
-          <p className="text-[0.6rem] text-gray-400">
-            Total Farm Position Value
-          </p>
+    <div className="component-color py-[26px] rounded-2xl flex flex-col gap-6">
+      <div className="pl-[25px] pr-[22px] w-full flex flex-col gap-6">
+        <p className="text-[20px] leading-[24px] font-medium">Liquidity</p>
+        <div className=" absolute text-xs font-medium right-0 top-0 py-3 px-[18px] flex items-center gap-1 leading-tight component-color-4 rounded-md rounded-br-none rounded-tr-2xl">
+          <Image
+            src={`/images/icons/WhiteAda.svg`}
+            alt="WhiteAda"
+            width={26}
+            height={26}
+          />
+          <div>
+            <p className="text-[12px] leading-[14px] font-medium">
+              ₳342,930.12
+            </p>
+            <p className="text-[7px] leading-[9px] text-[#FFFFFF99]">
+              Total Farm Position Value
+            </p>
+          </div>
+        </div>
+        <div className="flex flex-col w-full space-y-3">
+          <div className="bg-[#4B515D] rounded-[13px] px-[18px] py-2 flex justify-between">
+            <div className="flex justify-center items-center text-[12px] leading-[21px] font-medium gap-1">
+              <p>Total Weighted IL</p>
+              <BsExclamationCircle className="w-[11px] h-[11px] " />
+            </div>
+            <p className="text-[16px] leading-[20px] font-medium text-[#FF5757]">
+              -3.98%{" "}
+            </p>
+          </div>
+          <div className="bg-[#4B515D] rounded-[13px] px-[18px] py-2 flex justify-between">
+            <div className="flex justify-center items-center text-[12px] leading-[21px] font-medium gap-1">
+              <p>Total LP Fees Income</p>
+              <BsExclamationCircle className="w-[11px] h-[11px] " />
+            </div>
+            <p className="text-[16px] leading-[20px] font-medium text-[#57FF86]">
+              -3.98%{" "}
+            </p>
+          </div>
+          <div className="bg-[#4B515D] rounded-[13px] px-[18px] py-2 flex justify-between">
+            <div className="flex justify-center items-center text-[12px] leading-[21px] font-medium gap-1">
+              <p>Net Gain</p>
+              <BsExclamationCircle className="w-[11px] h-[11px] " />
+            </div>
+            <p className="text-[16px] leading-[20px] font-medium text-[#57FF86]">
+              -3.98%{" "}
+            </p>
+          </div>
         </div>
       </div>
-      <div className=" space-y-3">
-        {farms.map((item, i) => {
-          return (
-            <div key={i}>
-              <div className="flex justify-between 2xl:text-lg text-base">
-                <div>
-                  <span className="flex items-center gap-1">
-                    <Image
-                      src={`/images/assets/token-1.png`}
-                      alt="icon1"
-                      width={14}
-                      height={14}
-                    />
-                    <Image
-                      src={`/images/assets/teddy.png`}
-                      alt="icon2"
-                      width={14}
-                      height={14}
-                      className="-ml-3"
-                    />
-                    <h4 className="text-xs">ADA/TEDY</h4>
-                  </span>
-                </div>
-                <h5 className=" text-white text-xs">
-                  ₳120,030 <span className="text-xss text-gray-400">TVL</span>
-                </h5>
+      <div className="pt-4 flex flex-col w-full gap-4 pr-4 pl-8">
+        <div className="mt-9 flex w-full ">
+          <span className=" w-[128px] text-start">
+            <p className="text-[12px] leading-[14px] font-medium">Pair</p>
+          </span>
+          <p className="text-[12px] leading-[14px] font-medium flex-1">TVL</p>
+          <p className="text-[12px] leading-[14px] font-medium ">Net gain</p>
+        </div>
+        <div className=" flex flex-col w-full gap-2">
+          {items.map((item, index) => (
+            <div className="flex flex-col w-full gap-2">
+              <div className="flex flex-row justify-between items-center w-full">
+                <span className="flex w-[128px] text-start">
+                  <Image
+                    src={`/images/assets/token-1.png`}
+                    alt="icon1"
+                    width={14}
+                    height={14}
+                  />
+                  <Image
+                    src={`/images/assets/teddy.png`}
+                    alt="icon2"
+                    width={14}
+                    height={14}
+                    className="-ml-1"
+                  />
+                  <p className="ml-1 text-[12px] leading-[14px] font-medium">
+                    {item.name}
+                  </p>
+                </span>
+                <span className="flex items-center gap-1 flex-1">
+                  <p className="text-[12px] leading-[14px] font-medium">
+                    {item.TVL}
+                  </p>
+                  <p className="text-[9px] leading-[11px] font-normal">TVL</p>
+                </span>
+                <span className=" text-start w-[50px]">
+                  <p className="text-[12px] leading-[14px] font-medium">
+                    {item.price}
+                  </p>
+                </span>
               </div>
-              <ProgressLittle percentage={item} />
             </div>
-          );
-        })}
+          ))}
+        </div>
       </div>
-
-      {/* <div className="mx-auto w-52 h-52">
-        <PieChart />
-      </div>
-      <div className="flex flex-col gap-1">
-        {items.map((_item, i) => {
-          return (
-            <div key={i} className="flex items-center gap-2">
-              <div className={`w-3.5 h-3.5 ${_item.color}`} />
-              <div className="flex items-center gap-1">
-                <Image
-                  src={`/images/assets/token-1.png`}
-                  alt="icon1"
-                  width={20}
-                  height={20}
-                />
-                <Image
-                  src={`/images/assets/teddy.png`}
-                  alt="icon2"
-                  width={20}
-                  height={20}
-                  className="-ml-2"
-                />
-                <h4 className="text-sm">{_item.name}</h4>
-              </div>
-              <p className="text-sm whitespace-nowrap text-right font-normal ml-4">
-                <span>₳{_item.price}</span>{" "}
-                <span className=" text-xss">TVL</span>
-              </p>
-            </div>
-          );
-        })}
-      </div> */}
     </div>
   );
 };

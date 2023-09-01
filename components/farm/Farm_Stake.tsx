@@ -14,7 +14,7 @@ const Farm_Stake = ({ setShowComponent }: Props) => {
   return (
     <React.Fragment>
       <div className="w-full">
-        <span className="flex items-center gap-1 text-xl font-medium">
+        <span className="flex items-center gap-1 text-xl font-medium mt-[6px]">
           <Image
             src={`/images/assets/token-1.png`}
             alt="icon1"
@@ -28,13 +28,13 @@ const Farm_Stake = ({ setShowComponent }: Props) => {
             height={29}
             className="-ml-3"
           />
-          <h4>{`ADA / USDA - LP`}</h4>
+          <p className="ml-[6px] text-[20px] leading-[24px] font-semibold">{`ADA / USDA - LP`}</p>
         </span>
       </div>
-      <p className="text-gray-400 w-full">
+      <p className="text-[14px] leading-[17px] font-medium w-full text-[#C6C6C6]">
         LP Tokens Available: <span className="text-white">11189.1994</span>
       </p>
-      <p className="text-white text-2xl font-medium">0</p>
+      <p className="text-white text-2xl font-medium pt-1">0</p>
       <div className="relative w-full">
         <input
           type="range"
@@ -42,7 +42,7 @@ const Farm_Stake = ({ setShowComponent }: Props) => {
           min="1"
           max="4"
           step="1"
-          id="stakeRange"
+          id="removeRange"
           value={stakeRange}
           onChange={(e) => setStakeRange(Number(e.target.value))}
         />
@@ -77,23 +77,23 @@ const Farm_Stake = ({ setShowComponent }: Props) => {
           />
         </div>
       </div>
-      <div className="w-full grid grid-cols-4 gap-4">
-        <button className=" p-4 small-component-color rounded-lg col-span-1">
+      <div className="w-full grid grid-cols-4 gap-4 text-[17px] leading-[20px] font-medium">
+        <button className=" px-6 py-4 small-component-color rounded-[14px] col-span-1">
           25%
         </button>
-        <button className=" p-4 small-component-color rounded-lg col-span-1">
+        <button className=" px-6 py-4 small-component-color rounded-[14px] col-span-1">
           50%
         </button>
-        <button className=" p-4 small-component-color rounded-lg col-span-1">
+        <button className=" px-6 py-4 small-component-color rounded-[14px] col-span-1">
           75%
         </button>
-        <button className=" p-4 small-component-color rounded-lg col-span-1">
+        <button className=" px-6 py-4 small-component-color rounded-[14px] col-span-1">
           100%
         </button>
       </div>
       <div className=" w-full flex items-center gap-2 text-xs px-3 py-1">
         <BsExclamationTriangleFill className="w-6 h-6 text-[#1ED6FF]" />
-        <p>
+        <p className="text-[12.7px] leading-[20px] font-medium">
           Each Stake or Withdraw action will automatically harvest your rewards
           for this pair!
         </p>
@@ -103,7 +103,7 @@ const Farm_Stake = ({ setShowComponent }: Props) => {
         onClick={() => {
           setShowComponent("confirm-stake");
         }}
-        className=" primary-button  text-sm 2xl:text-xl py-3 2xl:py-4 rounded-lg border-2"
+        className=" primary-button  text-sm 2xl:text-[19px] 2xl:leading-[23px] font-medium py-3 2xl:py-4 rounded-[12px] border-2 mt-6"
       >
         Stake
       </button>

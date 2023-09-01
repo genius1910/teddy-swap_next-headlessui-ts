@@ -316,7 +316,7 @@ const History_Table = () => {
                 <td colSpan={5} rowSpan={6} className="mx-auto w-full py-6 ">
                   <span className="w-full mx-auto">
                     <Image
-                      src={`/images/assets/robot.svg`}
+                      src={`/images/assets/bear.svg`}
                       alt="robot"
                       width={200}
                       height={290}

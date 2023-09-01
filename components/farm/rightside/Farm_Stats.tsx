@@ -25,16 +25,20 @@ const Farm_Stats = () => {
               key={item.name}
               className="flex gap-2 whitespace-nowrap rounded-xl p-4 component-color w-full flex-col text-lg xl:text-xl text-white"
             >
-              <h5 className="text-xs text-white flex items-center gap-1">
+              <p className="text-[12px] leading-[14px] font-medium text-white flex items-center gap-1">
                 <span>{item.name}</span>
                 <button title={item.name}>
-                  <BsExclamationCircle className="w-3 h-3" />
+                  <BsExclamationCircle className="w-[10px] h-[10px]" />
                 </button>
-              </h5>
+              </p>
               {item.name == "Impermanent Loss" ? (
-                <h1 className="text-[#B0D5FF]">{item.value}</h1>
+                <h1 className="text-[#B0D5FF] text-[22px] leading-[26px] font-medium">
+                  {item.value}
+                </h1>
               ) : (
-                <h1>{item.value}</h1>
+                <h1 className="text-[22px] leading-[26px] font-medium">
+                  {item.value}
+                </h1>
               )}
             </li>
           );
