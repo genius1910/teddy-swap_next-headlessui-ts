@@ -28,11 +28,6 @@ const data = [
   { name: "10/05", price: 2200 },
 ];
 
-const fixedLines = [
-  { title: "Current Price", price: 1200 },
-  { title: "Your Liquidity Deposit", price: 700 },
-];
-
 interface Props {
   activeTab: string;
   setActiveTab: (value: string) => void;
@@ -41,6 +36,10 @@ const Liquidity_Rightside = ({ activeTab, setActiveTab }: Props) => {
   const [currentTime, setCurrentTime] = useState("1w");
   const [toggler, setToggler] = useState("Volume");
   const [hydration, setHydration] = useState(false);
+  const [fixedLines, setFixedLines] = useState({
+    current: 900,
+    deposit: 1200,
+  });
 
   useEffect(() => {
     setHydration(true);
@@ -107,7 +106,13 @@ const Liquidity_Rightside = ({ activeTab, setActiveTab }: Props) => {
             </div>
           </div>
         </div>
-        <CustomChat data={data} fixedLines={fixedLines} labelVisble unit="₳" />
+        <CustomChat
+          data={data}
+          fixedLines={fixedLines}
+          setFixedLines={setFixedLines}
+          labelVisble
+          unit="₳"
+        />
       </div>
       <Liquidity_Stats />
       <Liquidity_SelectedTokenBottomside />

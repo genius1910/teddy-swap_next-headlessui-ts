@@ -7,11 +7,11 @@ import {
   ResponsiveContainer,
   ReferenceLine,
   ReferenceDot,
+  ReferenceArea,
 } from "recharts";
 
 import { CategoricalChartState } from "recharts/types/chart/generateCategoricalChart";
 import { LabelProps } from "recharts";
-import { MouseEvent } from "react";
 import { WheelEvent } from "react";
 
 interface CustomLabelProps extends LabelProps {
@@ -19,6 +19,7 @@ interface CustomLabelProps extends LabelProps {
   size: number;
   fontsize: number;
   align: "left" | "center" | "right";
+  controlable?: boolean;
 }
 
 interface PointType {
@@ -27,24 +28,31 @@ interface PointType {
 }
 
 interface FixedLineType {
-  title: string;
-  price: number;
+  current: number;
+  deposit: number;
 }
 
 interface Props {
   data: PointType[];
-  fixedLines?: FixedLineType[];
+  fixedLines?: FixedLineType;
   labelVisble?: boolean;
   unit?: string;
+  setFixedLines?: Function;
 }
 
 interface clickType {
   x: null | number | undefined;
   y: null | number | undefined;
-  type: "graph" | "xaxis" | "yaxis" | null;
+  clicked: boolean;
 }
 
-const CustomChat = ({ data, fixedLines, labelVisble, unit }: Props) => {
+const CustomChat = ({
+  data,
+  fixedLines,
+  labelVisble,
+  unit,
+  setFixedLines,
+}: Props) => {
   const yConfig = {
     default: 100,
     min: 200,
@@ -56,11 +64,21 @@ const CustomChat = ({ data, fixedLines, labelVisble, unit }: Props) => {
     xr: 0,
     y: yConfig.default,
   });
+
   const [clickPoint, setClickPoint] = useState<clickType>({
     x: null,
     y: null,
-    type: null,
+    clicked: false,
   });
+
+  const [toggle, setToggle] = useState(false);
+  const [pickY, setPickY] = useState(false);
+  const [currentPrice, setCurrentPrice] = useState(fixedLines?.current);
+
+  const toggleFalse = () => {
+    setToggle(false);
+    setFixedLines && setFixedLines({ ...fixedLines, current: currentPrice });
+  };
 
   const CustomLabel = (props: CustomLabelProps) => {
     const bx = props.size;
@@ -68,7 +86,6 @@ const CustomChat = ({ data, fixedLines, labelVisble, unit }: Props) => {
     let sx = 0;
     if (props.align === "center")
       sx = props.viewBox.x + props.viewBox.width / 2 - bx / 2;
-
     return (
       <g>
         <defs>
@@ -78,6 +95,7 @@ const CustomChat = ({ data, fixedLines, labelVisble, unit }: Props) => {
           </linearGradient>
         </defs>
         <rect
+          className="cursor-pointer"
           x={sx}
           y={props.viewBox.y - by / 2}
           rx={5}
@@ -86,8 +104,10 @@ const CustomChat = ({ data, fixedLines, labelVisble, unit }: Props) => {
           fontStyle="#fff"
           width={bx}
           height={by}
+          onMouseDown={() => props.controlable && setToggle(true)}
         />
         <text
+          className="cursor-pointer"
           x={props.viewBox.x}
           y={props.viewBox.y}
           fill="#fff"
@@ -95,8 +115,71 @@ const CustomChat = ({ data, fixedLines, labelVisble, unit }: Props) => {
           dx={sx + props.size / 2}
           fontSize={props.fontsize}
           textAnchor="middle"
+          onMouseDown={() => props.controlable && setToggle(true)}
         >
-          {`${unit ? unit : ""}${props.value}`}
+          {props.controlable
+            ? toggle
+              ? `Predicted Price: ${unit ? unit : ""}${currentPrice}`
+              : `Current Price: ${unit ? unit : ""}${currentPrice}`
+            : `${props.value}`}
+        </text>
+        {props.controlable && (
+          <>
+            {toggle ? (
+              <image
+                x={props.viewBox.width - 20}
+                y={props.viewBox.y - 20 / 2 - 7}
+                href="/images/assets/teddybear.svg"
+                height="20"
+                width="20"
+              />
+            ) : (
+              <rect
+                className="cursor-pointer"
+                x={props.viewBox.width - 14}
+                y={props.viewBox.y - 8 / 2}
+                rx={4}
+                ry={4}
+                fill="#268AFF"
+                fontStyle="#fff"
+                width={14}
+                height={8}
+                onMouseDown={() => props.controlable && setToggle(true)}
+              />
+            )}
+          </>
+        )}
+      </g>
+    );
+  };
+
+  const CustomYLabel = (props: CustomLabelProps) => {
+    return (
+      <g>
+        <rect
+          className="cursor-ns-resize"
+          x={props.viewBox.width - 50}
+          y={0}
+          width={50}
+          height={1000}
+          fill="transparent"
+          onMouseDown={(e) => {
+            setPickY(true);
+          }}
+        />
+        <text
+          className="cursor-pointer"
+          x={props.viewBox.x}
+          y={props.viewBox.y}
+          fill="#ffffff99"
+          dy={4}
+          dx={props.viewBox.width - 20}
+          fontSize="10"
+          fontWeight="600"
+          textAnchor="middle"
+          onMouseDown={() => setToggle(true)}
+        >
+          {props.value}
         </text>
       </g>
     );
@@ -141,44 +224,37 @@ const CustomChat = ({ data, fixedLines, labelVisble, unit }: Props) => {
   }
 
   const mouseDown = (props: CategoricalChartState) => {
-    setClickPoint({ x: props?.chartX, y: props?.chartY, type: "graph" });
+    setClickPoint({ x: props?.chartX, y: props?.chartY, clicked: true });
   };
 
   const mouseUpOut = () => {
-    setClickPoint({ ...clickPoint, type: null });
+    setClickPoint({ ...clickPoint, clicked: false });
     setPoint(null);
-  };
-
-  const mouseYDown = (props: MouseEvent) => {
-    setClickPoint({ x: props?.clientX, y: props?.clientY, type: "yaxis" });
-  };
-
-  const mouseYMove = (props: MouseEvent) => {
-    if (props?.clientX && props?.clientY && clickPoint.y && clickPoint.x) {
-      setClickPoint({ ...clickPoint, y: props.clientY });
-      const dy = props.clientY - clickPoint.y;
-
-      if (clickPoint.type === "yaxis") {
-        let sy = scaleSize.y;
-        if (scaleSize.y + dy < yConfig.min) {
-          sy += dy;
-        }
-
-        setScaleSize({ ...scaleSize, y: sy });
-      }
-    }
+    toggleFalse();
+    setPickY(false);
   };
 
   const mouseMove = (props: CategoricalChartState) => {
     setPoint(props?.activePayload![0].payload);
     if (props?.chartX && props?.chartY && clickPoint.y && clickPoint.x) {
-      setClickPoint({ ...clickPoint, x: props.chartX });
+      setClickPoint({ ...clickPoint, x: props.chartX, y: props.chartY });
       const dx = props.chartX - clickPoint.x;
+      const dy = props.chartY - clickPoint.y;
 
-      if (clickPoint.type === "graph") {
-        const sxl = scaleSize.xl + dx < 0 ? scaleSize.xl + dx : 0;
-        const sxr = scaleSize.xr - dx < 0 ? scaleSize.xr - dx : 0;
-        setScaleSize({ ...scaleSize, xl: sxl, xr: sxr });
+      if (clickPoint.clicked) {
+        if (toggle) {
+          setCurrentPrice(currentPrice! - dy * 5);
+        } else if (pickY) {
+          let sy = scaleSize.y;
+          if (scaleSize.y + dy < yConfig.min) {
+            sy += dy;
+          }
+          setScaleSize({ ...scaleSize, y: sy });
+        } else {
+          const sxl = scaleSize.xl + dx < 0 ? scaleSize.xl + dx : 0;
+          const sxr = scaleSize.xr - dx < 0 ? scaleSize.xr - dx : 0;
+          setScaleSize({ ...scaleSize, xl: sxl, xr: sxr });
+        }
       }
     }
   };
@@ -256,6 +332,15 @@ const CustomChat = ({ data, fixedLines, labelVisble, unit }: Props) => {
               fill="url(#price)"
             />
 
+            {fixedLines && (
+              <ReferenceArea
+                y1={currentPrice}
+                y2={fixedLines.deposit}
+                fill="rgba(255, 87, 87, 0.08)"
+                strokeOpacity={0.3}
+              />
+            )}
+
             <ReferenceLine
               stroke="#ffffff99"
               strokeDasharray="3 3"
@@ -272,13 +357,14 @@ const CustomChat = ({ data, fixedLines, labelVisble, unit }: Props) => {
               stroke="#ffffff99"
               strokeDasharray="3 3"
               y={point?.price}
-              label={{
-                value: `${unit ? unit : ""}${point?.price}`,
-                position: "insideRight",
-                fontSize: 10,
-                fill: "#ffffff99",
-                fontWeight: "600",
-              }}
+              label={
+                <CustomYLabel
+                  value={`${unit}${point?.price}`}
+                  align="left"
+                  size={175}
+                  fontsize={9}
+                />
+              }
             />
             <ReferenceDot
               x={point?.name}
@@ -295,7 +381,7 @@ const CustomChat = ({ data, fixedLines, labelVisble, unit }: Props) => {
                 y={point?.price}
                 label={
                   <CustomLabel
-                    value={point?.price}
+                    value={`${unit}${point?.price}`}
                     align="left"
                     size={175}
                     fontsize={9}
@@ -304,24 +390,40 @@ const CustomChat = ({ data, fixedLines, labelVisble, unit }: Props) => {
               />
             )}
 
-            {fixedLines?.map((line) => {
-              return (
+            {fixedLines && (
+              <>
                 <ReferenceLine
-                  key={line.title}
+                  key="deposit"
                   stroke="#ffffff99"
                   strokeDasharray="3 3"
-                  y={line.price}
+                  style={{ cursor: "pointer" }}
+                  y={fixedLines.deposit}
                   label={
                     <CustomLabel
-                      value={line?.title}
+                      value={`Your Liquidity Deposit: ${unit}${fixedLines.deposit}`}
                       align="left"
                       size={175}
                       fontsize={9}
                     />
                   }
                 />
-              );
-            })}
+                <ReferenceLine
+                  key="current"
+                  stroke="#ffffff99"
+                  strokeDasharray="3 3"
+                  y={currentPrice}
+                  label={
+                    <CustomLabel
+                      value="Current Price"
+                      align="left"
+                      size={175}
+                      fontsize={9}
+                      controlable={true}
+                    />
+                  }
+                />
+              </>
+            )}
 
             <XAxis
               id="xaxis"
@@ -345,14 +447,6 @@ const CustomChat = ({ data, fixedLines, labelVisble, unit }: Props) => {
           </AreaChart>
         </ResponsiveContainer>
       </div>
-      <div
-        className="absolute right-0 h-full w-[40px] cursor-ns-resize top-0"
-        onMouseDown={(e) => mouseYDown(e)}
-        onMouseMove={(e) => mouseYMove(e)}
-        onMouseUp={() => mouseUpOut()}
-        onMouseOut={() => mouseUpOut()}
-      />
-      <div className="absolute left-0 h-full w-[30px]  top-0" />
     </>
   );
 };
