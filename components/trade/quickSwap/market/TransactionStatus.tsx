@@ -10,6 +10,7 @@ interface Props {
   setShowComponent: (value: string) => void;
   status: boolean;
   isLiquidity?: boolean;
+  location: string;
   isNotPadding?: boolean;
 }
 
@@ -17,13 +18,12 @@ const TransactionStatus = ({
   setShowComponent,
   status,
   isLiquidity,
+  location,
   isNotPadding,
 }: Props) => {
   return (
     <div
-      className={`relative h-60 font-medium flex flex-col gap-6 items-center rounded-2xl bg-[url('/images/assets/tokenResultBg.svg')] bg-cover bg-bottom ${
-        isNotPadding ? "" : "p-6"
-      }`}
+      className={`relative h-60 font-medium flex flex-col gap-6 items-center rounded-2xl bg-[url('/images/assets/tokenResultBg.svg')] bg-cover bg-bottom p-6`}
     >
       <div className="text-white flex items-center justify-between w-full">
         <div className="flex flex-row gap-1 items-center">
@@ -47,9 +47,9 @@ const TransactionStatus = ({
         >
           <RxCross2
             onClick={() =>
-              status
+              status || location === "confirm-harvest"
                 ? setShowComponent("view-1")
-                : setShowComponent("confirm-stake")
+                : setShowComponent(location)
             }
             className=" w-8 h-8 "
           />

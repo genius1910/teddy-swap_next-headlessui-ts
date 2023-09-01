@@ -114,6 +114,7 @@ const Farm_StakeWithdrawHarvest = () => {
             <TransactionStatus
               isLiquidity={true}
               status={true}
+              location={"confirm-" + currentTab}
               setShowComponent={setShowComponent}
             />
           )}
@@ -121,6 +122,7 @@ const Farm_StakeWithdrawHarvest = () => {
             <TransactionStatus
               isLiquidity={true}
               status={false}
+              location={"confirm-" + currentTab}
               setShowComponent={setShowComponent}
             />
           )}

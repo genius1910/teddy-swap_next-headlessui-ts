@@ -44,7 +44,7 @@ export default function Liquidity_SelectTokenView({
       : token;
   return (
     <>
-      <div className=" font-normal  w-full component-color-2 flex flex-col gap-6 p-6 rounded-2xl">
+      <div className="bg-[#272F40] font-normal  w-full flex flex-col gap-6 p-6 rounded-2xl">
         <div className="flex items-center justify-between w-full">
           <div className="flex gap-4">
             <h1 className={`text-white text-base 2xl:text-xl font-medium`}>

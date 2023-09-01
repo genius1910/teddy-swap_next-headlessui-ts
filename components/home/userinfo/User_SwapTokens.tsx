@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import AmountAndTokenField_2 from "@/components/trade/quickSwap/AmountAndTokenField_2";
 import { AiOutlineExclamationCircle } from "react-icons/ai";
 import useAuthenticate from "@/context/mobx/useAuthenticate";
+
+import SelectTokenView from "@/components/trade/quickSwap/SelectTokenView";
 
 interface Props {
   setShowComponent: (value: string) => void;
@@ -17,26 +19,75 @@ interface Props {
   };
 }
 
-const User_SwapTokens = ({
+interface SelectedTokenProps {
+  name: string;
+  imgId: number;
+  price: number;
+}
+
+interface SwapTokensProps {
+  setShowComponent: (show: string) => void;
+  selectedToken: any;
+  selectedToken2: any;
+  setSelectedToken: (token: any) => void; // Replace 'any' with the type of token
+  setSelectedToken2: (token: any) => void; // Replace 'any' with the type of token
+}
+
+const User_SwapTokens: React.FC<SwapTokensProps> = ({
   setShowComponent,
   selectedToken,
   selectedToken2,
-}: Props) => {
+  setSelectedToken,
+  setSelectedToken2,
+}) => {
   const authenticate = useAuthenticate;
+  const [show, setShow] = useState("");
+  const [selectToken, setSelectToken] = useState<SelectedTokenProps>();
+  const [selectToken2, setSelectToken2] = useState<SelectedTokenProps>();
+  useEffect(() => {
+    setSelectToken(selectedToken);
+  }, [selectedToken]);
+  useEffect(() => {
+    setSelectToken2(selectedToken2);
+  }, [selectedToken2]);
   return (
     <div className=" w-full flex flex-col gap-2">
-      <AmountAndTokenField_2
-        selectedToken={selectedToken}
-        setShowComponent={setShowComponent}
-        id="token-view-1"
-        name="Amount"
-      />
-      <AmountAndTokenField_2
-        selectedToken={selectedToken2}
-        setShowComponent={setShowComponent}
-        id="token-view-2"
-        name="Converted to"
-      />
+      <div className=" relative">
+        <AmountAndTokenField_2
+          selectedToken={selectToken}
+          setShowComponent={setShow}
+          id="token-view-1"
+          name="Amount"
+        />
+        <div
+          className={`absolute top-2 left-1 right-1 z-20 ${
+            show === "token-view-1" ? "flex" : "hidden"
+          }`}
+        >
+          <SelectTokenView
+            setSelectedToken={setSelectToken}
+            setShowComponent={setShow}
+          />
+        </div>
+      </div>
+      <div className=" relative">
+        <AmountAndTokenField_2
+          selectedToken={selectToken2}
+          setShowComponent={setShow}
+          id="token-view-2"
+          name="Converted to"
+        />
+        <div
+          className={`absolute top-2 left-1 right-1 z-20 ${
+            show === "token-view-2" ? "" : "hidden"
+          }`}
+        >
+          <SelectTokenView
+            setSelectedToken={setSelectToken2}
+            setShowComponent={setShow}
+          />
+        </div>
+      </div>
       <div className="bg-[#1F2635] text-sm text-[#505A63] flex flex-col gap-3 w-full rounded-2xl p-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -48,7 +99,7 @@ const User_SwapTokens = ({
           </div>
           <p
             className={`${
-              selectedToken && selectedToken2
+              selectToken && selectToken2
                 ? "text-xs text-white"
                 : "text-xs text-white hidden"
             }`}
@@ -66,7 +117,7 @@ const User_SwapTokens = ({
           </div>
           <p
             className={` ${
-              selectedToken && selectedToken2
+              selectToken && selectToken2
                 ? "text-xs text-white"
                 : "text-xs text-white hidden"
             }`}
@@ -76,11 +127,15 @@ const User_SwapTokens = ({
         </div>
       </div>
       <button
-        onClick={() =>
+        onClick={() => {
+          setSelectedToken(selectToken);
+          setSelectedToken2(selectToken2);
           authenticate.walletConnected != null
-            ? setShowComponent("confirm-swap")
-            : document.getElementById("connect-wallet")?.click()
-        }
+            ? selectToken && selectToken2
+              ? setShowComponent("confirm-swap")
+              : alert("Please select two tokens")
+            : document.getElementById("connect-wallet")?.click();
+        }}
         type="button"
         className=" secondary-button text-sm xl:text-lg py-2 xl:py-3 rounded-2xl border-2 mt-2"
       >

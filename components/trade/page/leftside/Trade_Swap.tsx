@@ -29,7 +29,7 @@ const Trade_Swap = () => {
     <>
       <div className="component-color rounded-2xl">
         {showComponent === "view-1" ? (
-          <div className="relative flex flex-col gap-6 items-center p-6">
+          <div className="flex flex-col gap-6 items-center p-6">
             <div className="flex items-center justify-between w-full">
               <div className="flex gap-4">
                 <button
@@ -111,12 +111,14 @@ const Trade_Swap = () => {
             {showComponent == "transaction-success" && (
               <TransactionStatus
                 status={true}
+                location={isMarket ? "confirm-swap" : "confirm-order"}
                 setShowComponent={setShowComponent}
               />
             )}
             {showComponent == "transaction-failed" && (
               <TransactionStatus
                 status={false}
+                location={isMarket ? "confirm-swap" : "confirm-order"}
                 setShowComponent={setShowComponent}
               />
             )}

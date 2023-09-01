@@ -61,8 +61,8 @@ const Liquidity_AddRemove = () => {
           {isDeposit ? (
             <Liquidity_Add
               setShowComponent={setShowComponent}
-              selectedToken={selectedToken}
-              selectedToken2={selectedToken2}
+              setSelectedToken={setSelectedToken}
+              setSelectedToken2={setSelectedToken2}
             />
           ) : (
             <Liquidity_Remove
@@ -114,6 +114,7 @@ const Liquidity_AddRemove = () => {
             <TransactionStatus
               isLiquidity={true}
               status={true}
+              location={isDeposit ? "confirm-liquidity" : "remove-liquidity"}
               setShowComponent={setShowComponent}
             />
           )}
@@ -121,6 +122,7 @@ const Liquidity_AddRemove = () => {
             <TransactionStatus
               isLiquidity={true}
               status={false}
+              location={isDeposit ? "confirm-liquidity" : "remove-liquidity"}
               setShowComponent={setShowComponent}
             />
           )}

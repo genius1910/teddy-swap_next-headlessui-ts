@@ -116,12 +116,14 @@ const QuickSwapPopup = ({ close }: { close: () => void }) => {
           {showComponent == "transaction-success" && (
             <TransactionStatus
               status={true}
+              location={isMarket ? "confirm-swap" : "confirm-order"}
               setShowComponent={setShowComponent}
             />
           )}
           {showComponent == "transaction-failed" && (
             <TransactionStatus
               status={false}
+              location={isMarket ? "confirm-swap" : "confirm-order"}
               setShowComponent={setShowComponent}
             />
           )}

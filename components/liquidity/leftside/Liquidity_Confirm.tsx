@@ -16,7 +16,11 @@ const Liquidity_Confirm = ({ setShowComponent, isAdd }: Props) => {
     >
       <div className="text-white flex items-center justify-between w-full">
         <p className="xl:text-[20px] leading-6 font-medium text-base pl-[6px]">
-          {confirming ? "Waiting For Confirmations" : "Confirm Swap"}
+          {confirming
+            ? "Waiting For Confirmations"
+            : isAdd
+            ? "Confirm Add Liquidity"
+            : "Confirm Remove Liquidity"}
         </p>
         <button className={` text-gray-100 hover:text-white`}>
           <RxCross2
@@ -115,7 +119,7 @@ const Liquidity_Confirm = ({ setShowComponent, isAdd }: Props) => {
             type="button"
             className=" primary-button font-medium text-sm xl:leading-[24px] xl:text-[20px] py-3 xl:py-4 rounded-lg border-2 pr-[2px]"
           >
-            Confirm Swap
+            {isAdd ? "Confirm Add Liquidity" : "Confirm Remove Liquidity"}
           </button>
         </>
       )}

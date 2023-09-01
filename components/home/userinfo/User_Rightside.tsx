@@ -72,7 +72,14 @@ const User_Rightside = () => {
       {/* <div className="hidden xl:block">
         <TimeGroupButton />
       </div> */}
-      <div className="w-full component-color p-4 rounded-2xl">
+      <div
+        className={`relative w-full component-color rounded-2xl ${
+          showComponent === "transaction-success" ||
+          showComponent === "transaction-failed"
+            ? "p-0"
+            : "p-4"
+        }`}
+      >
         {showComponent == "token-view-1" && (
           <SelectTokenView
             setSelectedToken={setSelectedToken}
@@ -88,8 +95,10 @@ const User_Rightside = () => {
         {showComponent == "view-1" && (
           <User_SwapTokens
             setShowComponent={setShowComponent}
-            selectedToken2={selectedToken2}
             selectedToken={selectedToken}
+            selectedToken2={selectedToken2}
+            setSelectedToken={setSelectedToken}
+            setSelectedToken2={setSelectedToken2}
           />
         )}
         {showComponent == "confirm-swap" && (
@@ -105,6 +114,7 @@ const User_Rightside = () => {
           <TransactionStatus
             isNotPadding={true}
             status={true}
+            location="confirm-swap"
             setShowComponent={setShowComponent}
           />
         )}
@@ -112,6 +122,7 @@ const User_Rightside = () => {
           <TransactionStatus
             isNotPadding={true}
             status={false}
+            location="confirm-swap"
             setShowComponent={setShowComponent}
           />
         )}
