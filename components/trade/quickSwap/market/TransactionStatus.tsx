@@ -49,7 +49,9 @@ const TransactionStatus = ({
             onClick={() =>
               status
                 ? setShowComponent("view-1")
-                : setShowComponent("confirm-swap")
+                : isLiquidity
+                ? setShowComponent("remove-liquidity")
+                : setShowComponent("view-1")
             }
             className=" w-8 h-8 "
           />

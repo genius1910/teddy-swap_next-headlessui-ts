@@ -58,11 +58,10 @@
   .mid-s-component-color {
     background: linear-gradient(
       104.24deg,
-      rgba(30, 39, 50, 0.5) -5.98%,
-      rgba(36, 44, 60, 0.5) 76.54%,
-      rgba(13, 15, 29, 0.5) 260.97%
+      rgba(69, 78, 96, 0.5) -5.98%,
+      rgba(73, 79, 89, 0.5) 76.54%,
+      rgba(43, 56, 74, 0.5) 260.97%
     );
-    @apply shadow-md;
   }
   .list-component-color {
     background: linear-gradient(

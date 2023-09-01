@@ -18,52 +18,52 @@ const User_Rightside = () => {
 
   const movers = [
     {
-      img: "/images/assets/teddy.png",
-      name: "Tedy",
+      imgId: 6,
+      name: "Teddy",
       subname: "TeddySwap",
-      price: "0.012",
+      price: 0.012,
       up_price: "0.012 (+12.34%)",
     },
     {
-      img: "/images/assets/teddy.png",
-      name: "Tedy",
+      imgId: 2,
+      name: "WMT",
       subname: "TeddySwap",
-      price: "0.012",
+      price: 0.012,
       up_price: "0.012 (+12.34%)",
     },
     {
-      img: "/images/assets/teddy.png",
-      name: "Tedy",
+      imgId: 3,
+      name: "cNETAt",
       subname: "TeddySwap",
-      price: "0.012",
+      price: 0.012,
       up_price: "0.012 (+12.34%)",
     },
     {
-      img: "/images/assets/teddy.png",
-      name: "Tedy",
+      imgId: 4,
+      name: "HOSkyt",
       subname: "TeddySwap",
-      price: "0.012",
+      price: 0.012,
       up_price: "0.012 (+12.34%)",
     },
     {
-      img: "/images/assets/teddy.png",
-      name: "Tedy",
+      imgId: 5,
+      name: "GENSt",
       subname: "TeddySwap",
-      price: "0.012",
+      price: 0.012,
       up_price: "0.012 (+12.34%)",
     },
     {
-      img: "/images/assets/teddy.png",
-      name: "Tedy",
+      imgId: 6,
+      name: "Teddy",
       subname: "TeddySwap",
-      price: "0.012",
+      price: 0.012,
       up_price: "0.012 (+12.34%)",
     },
     {
-      img: "/images/assets/teddy.png",
-      name: "Tedy",
+      imgId: 1,
+      name: "WMTt",
       subname: "TeddySwap",
-      price: "0.012",
+      price: 0.012,
       up_price: "0.012 (+54.34%)",
     },
   ];
@@ -131,31 +131,50 @@ const User_Rightside = () => {
                   key={item.name + i}
                   className={
                     isWalletConnected
-                      ? "flex top-mover last:rounded-b-2xl justify-between last:mb-0 rounded-[3px]"
+                      ? "flex top-mover last:rounded-b-2xl justify-between last:mb-0 rounded-[3px] cursor-pointer"
                       : "flex topmovers-bg last:rounded-b-2xl justify-between last:mb-0 rounded-[3px]"
                   }
+                  onClick={() => {
+                    setShowComponent("view-1");
+                    if (isWalletConnected) {
+                      setSelectedToken({
+                        name: item.name,
+                        imgId: item.imgId,
+                        price: item.price,
+                      });
+                      setSelectedToken2({
+                        name: "WMTt",
+                        imgId: 1,
+                        price: 0,
+                      });
+                    }
+                  }}
                 >
                   <div className="flex items-center pl-[17px] py-2 gap-[10px]">
                     <Image
                       className=" rounded-full drop-shadow-2xl "
-                      src={item.img}
+                      src={
+                        isWalletConnected
+                          ? `/images/assets/token-${item.imgId}.png`
+                          : `/images/assets/token-${movers[0].imgId}.png`
+                      }
                       alt="Movers"
                       width={30}
                       height={30}
                     />
                     <div>
                       <h1 className="text-sm uppercase font-medium">
-                        {item.name}
+                        {isWalletConnected ? item.name : movers[0].name}
                       </h1>
                       {/* <p className="text-[0.7rem] text-xs">{item.subname}</p> */}
                     </div>
                   </div>
                   <div className="pr-5 flex flex-col justify-center">
                     <p className="text-[12px] leading-[25px] font-medium flex justify-end">
-                      ${item.price}
+                      ${isWalletConnected ? item.price : movers[0].price}
                     </p>
                     <p className=" text-[#16A34A] text-[10px] leading-[21px] font-medium">
-                      +${item.up_price}
+                      +${isWalletConnected ? item.up_price : movers[0].up_price}
                     </p>
                   </div>
                 </li>

@@ -38,16 +38,16 @@ const History_Table = () => {
 
   const isWalletConnected = useAuthenticate.isWalletConnected();
   return (
-    <div className="w-full mt-6 component-color rounded-[18px] px-10 py-10">
+    <div className="w-full mt-6 component-color rounded-[18px] px-[70px] py-10">
       <p className="text-[18px] leading-[22px] font-semibold ">
         Transaction History
       </p>
-      <div className="flex justify-between gap-8 w-full flex-wrap xl:flex-nowrap relative  mt-9">
+      <div className="flex flex-wrap justify-between gap-8 w-full flex-wrap xl:flex-nowrap relative  mt-9">
         <div className="w-full">
           <p className="mb-2 text-[13px] leading-[16px] font-medium">
             Search by token
           </p>
-          <div className="relative mid-s-component-color flex w-full sm:w-auto items-center rounded-lg">
+          <div className="relative bg-[#2A3240] flex w-full sm:w-auto items-center rounded-lg">
             <AiOutlineSearch className=" text-gray-400 w-6 h-6 ml-4 " />
             <input
               value={query}
@@ -61,7 +61,7 @@ const History_Table = () => {
           <p className="mb-2 text-[13px] leading-[16px] font-medium">
             Search by date
           </p>
-          <div className="relative mid-s-component-color flex w-full sm:w-auto items-center rounded-lg">
+          <div className="relative bg-[#2A3240] flex w-full sm:w-auto items-center rounded-lg">
             <MdEventRepeat className=" text-[#8E8E8E] w-6 h-6 ml-4 " />
             <input
               value={query}
@@ -71,89 +71,92 @@ const History_Table = () => {
             />
           </div>
         </div>
-        <div className="w-1/2">
-          <p className="mb-2 text-[13px] leading-[16px] font-medium">
-            Search by Action
-          </p>
-          <div className="relative mid-s-component-color flex items-center rounded-lg">
-            <select
-              name="actions"
-              id="actions"
-              className=" myselect placeholder:text-[#8E8E8E] text-[12px] leading-[14px] font-medium w-full h-full py-[12px] pl-2 pr-4 bg-transparent outline-none rounded-[5px]"
-            >
-              <option
-                className="absolute p-6 top-full left-0 right-0 bg-gray-800 rounded-md"
-                value="All"
+        <div className="w-full flex gap-8">
+          <div className="w-1/2">
+            <p className="mb-2 text-[13px] leading-[16px] font-medium">
+              Search by Action
+            </p>
+            <div className="relative bg-[#2A3240] flex items-center rounded-lg">
+              <select
+                name="actions"
+                id="actions"
+                className=" myselect placeholder:text-[#8E8E8E] text-[12px] leading-[14px] font-medium w-full h-full py-[12px] pl-2 pr-4 bg-transparent outline-none rounded-[5px]"
               >
-                All
-              </option>
-              <option className="myoption bg-gray-800" value="Swap">
-                Swap
-              </option>
-              <option className="myoption bg-gray-800" value="Deposit">
-                Deposit
-              </option>
-              <option className="myoption bg-gray-800" value="Withdraw">
-                Withdraw
-              </option>
-            </select>
+                <option
+                  className="absolute p-6 top-full left-0 right-0 bg-gray-800 rounded-md"
+                  value="All"
+                >
+                  All
+                </option>
+                <option className="myoption bg-gray-800" value="Swap">
+                  Swap
+                </option>
+                <option className="myoption bg-gray-800" value="Deposit">
+                  Deposit
+                </option>
+                <option className="myoption bg-gray-800" value="Withdraw">
+                  Withdraw
+                </option>
+              </select>
+            </div>
+          </div>
+          <div className="w-1/2">
+            <p className="mb-2 text-[13px] leading-[16px] font-medium">
+              Search by Status
+            </p>
+            <div className="relative bg-[#2A3240] flex w-full sm:w-auto items-center rounded-lg">
+              <select
+                name="actions"
+                id="actions"
+                className=" placeholder:text-[#8E8E8E] text-[12px] leading-[14px] font-medium w-full h-full py-[12px] pl-2 pr-4 bg-transparent outline-none rounded-[5px]"
+              >
+                <option className=" bg-gray-800" value="All">
+                  All
+                </option>
+                <option className=" bg-gray-800" value="Complete">
+                  Complete
+                </option>
+                <option className=" bg-gray-800" value="Pending">
+                  bg-[#2A3240] Pending
+                </option>
+                <option className=" bg-gray-800" value="Canceled">
+                  Canceled
+                </option>
+              </select>
+            </div>
           </div>
         </div>
-        <div className="w-1/2">
-          <p className="mb-2 text-[13px] leading-[16px] font-medium">
-            Search by Status
-          </p>
-          <div className="relative mid-s-component-color flex w-full sm:w-auto items-center rounded-lg">
-            <select
-              name="actions"
-              id="actions"
-              className=" placeholder:text-[#8E8E8E] text-[12px] leading-[14px] font-medium w-full h-full py-[12px] pl-2 pr-4 bg-transparent outline-none rounded-[5px]"
-            >
-              <option className=" bg-gray-800" value="All">
-                All
-              </option>
-              <option className=" bg-gray-800" value="Complete">
-                Complete
-              </option>
-              <option className=" bg-gray-800" value="Pending">
-                Pending
-              </option>
-              <option className=" bg-gray-800" value="Canceled">
-                Canceled
-              </option>
-            </select>
-          </div>
-        </div>
+        <div className="w-1/2"></div>
       </div>
       <div className="mt-6 overflow-x-auto whitespace-nowrap w-full">
         <table className="w-full text-center text-sm">
-          <thead className=" mid-s-component-color text-sm text-center">
+          <thead className="text-sm text-center">
             <tr>
-              <th className=" px-4 py-2 font-medium rounded-l-md">
+              <th className=" px-4 py-2 font-medium rounded-l-md border-b-[1px] border-b-[#FFFFFF47]">
                 {" "}
                 <span className="flex items-center justify-center gap-1">
-                  Assets <BsExclamationCircle className="w-3 h-3" />
+                  Assets
                 </span>
               </th>
-              <th className=" px-4 py-2 font-medium">
+              <th className=" px-4 py-2 font-medium border-b-[1px] border-b-[#FFFFFF47]">
                 <span className="flex items-center justify-center gap-1">
-                  Action <BsExclamationCircle className="w-3 h-3" />
+                  Action
                 </span>
               </th>
-              <th className=" px-4 py-2 font-medium">
+              <th className=" px-4 py-2 font-medium border-b-[1px] border-b-[#FFFFFF47]">
                 <span className="flex items-center justify-center gap-1">
-                  Date & Time <BsExclamationCircle className="w-3 h-3" />
+                  Date & Time
                 </span>
               </th>
-              <th className=" px-4 py-2 font-medium">
+              <th className=" px-4 py-2 font-medium border-b-[1px] border-b-[#FFFFFF47]">
                 {" "}
                 <span className="flex items-center justify-center gap-1">
-                  Status <BsExclamationCircle className="w-3 h-3" />
+                  Status
                 </span>
               </th>
-              <th className="  font-medium rounded-r-md">
+              <th className="  font-medium rounded-r-md border-b-[1px] border-b-[#FFFFFF47] ">
                 <span className="flex items-center justify-center gap-1">
-                  Actions <BsExclamationCircle className="w-3 h-3" />
+                  Actions
                 </span>
               </th>
             </tr>
@@ -189,9 +192,9 @@ const History_Table = () => {
                       </tr>
                     )}
                     <tr>
-                      <td className="px-10 pl-4 py-3 whitespace-nowrap">
-                        <span className="flex items-center gap-3 justify-center ">
-                          <span className="gap-1 w-max flex items-center px-2 py-1.5 rounded-lg">
+                      <td className=" py-3 whitespace-nowrap">
+                        <span className="flex items-center gap-3 justify-start ml-2">
+                          <span className="gap-1 w-max flex items-center py-1.5 rounded-lg">
                             <Image
                               src={`/images/assets/token-1.png`}
                               height={28}
@@ -244,7 +247,7 @@ const History_Table = () => {
                         </span>
                       </td>
                       <td className="px-10 py-3  gap-1 text-sm xl:text-base">
-                        <span className="grid grid-cols-3 gap-2">
+                        <span className="flex gap-2 justify-between">
                           <button className="flex h-8 w-8 bg-gray-800 items-center gap-1 rounded-md p-1">
                             <svg
                               className="ml-1"

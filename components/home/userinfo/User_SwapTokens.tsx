@@ -46,7 +46,15 @@ const User_SwapTokens = ({
               className="cursor-pointer w-5 h-5"
             />
           </div>
-          <p className="text-xs text-white">$1 = ₳0.7777</p>
+          <p
+            className={`${
+              selectedToken && selectedToken2
+                ? "text-xs text-white"
+                : "text-xs text-white hidden"
+            }`}
+          >
+            $1 = ₳0.7777
+          </p>
         </div>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -56,7 +64,15 @@ const User_SwapTokens = ({
               className="cursor-pointer w-5 h-5"
             />
           </div>
-          <p className="text-xs text-white">$0.00</p>
+          <p
+            className={` ${
+              selectedToken && selectedToken2
+                ? "text-xs text-white"
+                : "text-xs text-white hidden"
+            }`}
+          >
+            $0.00
+          </p>
         </div>
       </div>
       <button

@@ -67,22 +67,22 @@ const Liquidity_KeyStats = () => {
   ];
   return (
     <div className="component-color rounded-2xl p-8">
-      <h1 className="heading-xl font-medium border-b border-gray-600 pb-4">
+      <p className="text-[20px] leading-[24px] font-semibold border-b-2 border-[#3D505A8C] pb-4 pl-4">
         Key Stats
-      </h1>
-      <div className=" text-sm xl:text-base text-white w-full">
-        <ul className="space-y-3 w-full font-normal mt-4">
+      </p>
+      <div className=" text-sm xl:text-[16px] xl:leading-[19.5px] font-medium text-white w-full">
+        <ul className="space-y-3 w-full font-normal mt-3 pl-[18px] pr-[10px]">
           {keyStats.map((item, i) => {
             return (
               <li
                 key={item.value + i}
                 className=" flex justify-between w-full items-center"
               >
-                <h5 className="flex items-center gap-1 font-medium">
+                <h5 className="flex items-center gap-[2px] font-medium">
                   <span>{item.property}</span>{" "}
                   {item?.about && (
                     <button title={item.about}>
-                      <BsExclamationCircle className="w-3 h-3" />
+                      <BsExclamationCircle className="w-[10px] h-[10px]" />
                     </button>
                   )}
                 </h5>
@@ -92,17 +92,18 @@ const Liquidity_KeyStats = () => {
           })}
         </ul>
       </div>
-      <div className="grid grid-cols-3 justify-items-center items-center p-4 w-full mt-8 border-2 border-[#268AFF] rounded-2xl">
-        <h1 className=" justify-self-start font-medium whitespace-nowrap text-base xl:text-lg">
+      <div className="grid grid-cols-3 justify-items-center items-center px-6 py-4 w-full mt-8 border-2 border-[#268AFF] rounded-2xl">
+        <h1 className=" justify-self-start font-medium whitespace-nowrap text-base xl:text-[20px] leading-[24px]">
           1 ADA
         </h1>
         <Image
           src={`/images/assets/exchange-blue.svg`}
-          width={36}
-          height={36}
+          width={32}
+          height={32}
           alt="Exchange image"
+          className="mr-4"
         />
-        <h1 className="font-medium justify-self-end whitespace-nowrap text-base xl:text-lg">
+        <h1 className="font-medium justify-self-end whitespace-nowrap text-base xl:text-[20px] leading-[24px]">
           24.23 TEDY
         </h1>
       </div>

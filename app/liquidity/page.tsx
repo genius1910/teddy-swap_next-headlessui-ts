@@ -40,7 +40,7 @@ const Liquidity = () => {
             <div className=" col-span-12 xl:col-span-4">
               <Liquidity_Leftside />
             </div>
-            <div className=" col-span-12 xl:col-span-8 ">
+            <div className="max-w-[910px] col-span-12 tradexl:col-span-8">
               <Liquidity_Rightside
                 activeTab={activeTab}
                 setActiveTab={setActiveTab}
