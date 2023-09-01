@@ -104,11 +104,11 @@ const Liquidity_Your = ({ setActiveTab }: Props) => {
               <div className="flex flex-col gap-[11px]">
                 {item.tvl.map((_item, i) => {
                   return (
-                    <div className="flex items-center gap-2 justify-start">
-                      <div
-                        key={i}
-                        className="flex items-center gap-[11px] w-[140px]"
-                      >
+                    <div
+                      className="flex items-center gap-2 justify-start"
+                      key={i}
+                    >
+                      <div className="flex items-center gap-[11px] w-[140px]">
                         <div className={`w-[13px] h-[13px] ${_item.color}`} />
                         <div className="flex items-center gap-1">
                           <Image
