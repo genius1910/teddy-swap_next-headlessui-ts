@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { RxCross2 } from "react-icons/rx";
 import { MdEqualizer, MdTune } from "react-icons/md";
 import TransactionStatus from "@/components/trade/quickSwap/market/TransactionStatus";
@@ -16,16 +16,40 @@ export interface SelectedTokenProps {
 }
 
 const Farm_StakeWithdrawHarvest = () => {
+  const wrapperRef = useRef(null);
+
   const [currentTab, setCurrentTab] = useState("stake");
+  const [isSuccess, setIsSuccess] = useState("view-message");
   const [showComponent, setShowComponent] = useState("view-1");
   const [selectedToken, setSelectedToken] = useState<SelectedTokenProps>();
   const [selectedToken2, setSelectedToken2] = useState<SelectedTokenProps>();
   const [selectedToken3, setSelectedToken3] = useState<SelectedTokenProps>();
   const [selectedToken4, setSelectedToken4] = useState<SelectedTokenProps>();
 
+  const useOutsideAlerter = (ref: any) => {
+    useEffect(() => {
+      /**
+       * Alert if clicked on outside of element
+       */
+      function handleClickOutside(event: any) {
+        if (ref.current && !ref.current.contains(event.target)) {
+          setIsSuccess("view-1");
+        }
+      }
+      // Bind the event listener
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+        // Unbind the event listener on clean up
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }, [ref]);
+  };
+
+  useOutsideAlerter(wrapperRef);
+
   return (
     <>
-      {showComponent === "view-1" ? (
+      {showComponent === "view-1" || showComponent === "view-2" ? (
         <div className="relative flex flex-col gap-6 items-center p-6">
           <div className="flex items-center justify-between w-full">
             <div className="flex gap-4">
@@ -75,7 +99,12 @@ const Farm_StakeWithdrawHarvest = () => {
           ) : currentTab == "withdraw" ? (
             <Farm_Withdraw setShowComponent={setShowComponent} />
           ) : (
-            <Farm_Harvest setShowComponent={setShowComponent} isAdd={true} />
+            <Farm_Harvest
+              setShowComponent={setShowComponent}
+              isAdd={true}
+              setIsSuccess={setIsSuccess}
+              status={showComponent}
+            />
           )}
         </div>
       ) : (
@@ -105,31 +134,46 @@ const Farm_StakeWithdrawHarvest = () => {
             />
           )}
           {showComponent == "confirm-stake" && (
-            <Farm_Confirm isStake={true} setShowComponent={setShowComponent} />
+            <Farm_Confirm
+              isStake={true}
+              setShowComponent={setShowComponent}
+              setIsSuccess={setIsSuccess}
+            />
           )}
           {showComponent == "confirm-withdraw" && (
-            <Farm_Confirm isStake={false} setShowComponent={setShowComponent} />
-          )}
-          {showComponent == "transaction-success" && (
-            <TransactionStatus
-              isLiquidity={true}
-              status={true}
-              location={"confirm-" + currentTab}
+            <Farm_Confirm
+              isStake={false}
               setShowComponent={setShowComponent}
+              setIsSuccess={setIsSuccess}
             />
           )}
-          {showComponent == "transaction-failed" && (
-            <TransactionStatus
-              isLiquidity={true}
-              status={false}
-              location={"confirm-" + currentTab}
-              setShowComponent={setShowComponent}
-            />
-          )}
+
           {showComponent == "settings" && (
             <Trade_Settings setShowComponent={setShowComponent} />
           )}
         </>
+      )}
+      {isSuccess == "transaction-success" && (
+        <div className=" notification-animation" ref={wrapperRef}>
+          <TransactionStatus
+            isLiquidity={true}
+            status={true}
+            location={"confirm-" + currentTab}
+            setShowComponent={setShowComponent}
+            setIsSuccess={setIsSuccess}
+          />
+        </div>
+      )}
+      {isSuccess == "transaction-failed" && (
+        <div className=" notification-animation" ref={wrapperRef}>
+          <TransactionStatus
+            isLiquidity={true}
+            status={false}
+            location={"confirm-" + currentTab}
+            setShowComponent={setShowComponent}
+            setIsSuccess={setIsSuccess}
+          />
+        </div>
       )}
     </>
   );

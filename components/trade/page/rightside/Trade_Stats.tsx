@@ -22,7 +22,7 @@ const Trade_Stats = () => {
   ];
   return (
     <div className="my-6">
-      <ul className="flex justify-between flex-wrap lg:flex-nowrap gap-5">
+      <ul className="flex justify-between flex-wrap lg:flex-nowrap gap-6">
         {stats.map((item) => {
           return (
             <li

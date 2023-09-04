@@ -5,9 +5,10 @@ import { BsArrowRight } from "react-icons/bs";
 
 interface Props {
   setShowComponent: (value: string) => void;
+  setIsSuccess: (value: string) => void;
 }
 
-const ConfirmOrder = ({ setShowComponent }: Props) => {
+const ConfirmOrder = ({ setShowComponent, setIsSuccess }: Props) => {
   const [confirming, setConfirming] = useState(false);
   return (
     <div className="relative font-medium flex flex-col gap-6 items-center p-6">
@@ -102,9 +103,13 @@ const ConfirmOrder = ({ setShowComponent }: Props) => {
             onClick={() => {
               setConfirming(true);
               setTimeout(() => {
-                Math.random() >= 0.5
-                  ? setShowComponent("transaction-success")
-                  : setShowComponent("transaction-failed");
+                if (Math.random() >= 0.5) {
+                  setShowComponent("view-1");
+                  setIsSuccess("transaction-success");
+                } else {
+                  setConfirming(false);
+                  setIsSuccess("transaction-failed");
+                }
               }, 2000);
             }}
             type="button"

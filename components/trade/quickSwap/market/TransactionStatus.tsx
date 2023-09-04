@@ -8,6 +8,7 @@ import { GoCheck as GoCheckCircle } from "react-icons/go";
 
 interface Props {
   setShowComponent: (value: string) => void;
+  setIsSuccess: (value: string) => void;
   status: boolean;
   isLiquidity?: boolean;
   location: string;
@@ -16,6 +17,7 @@ interface Props {
 
 const TransactionStatus = ({
   setShowComponent,
+  setIsSuccess,
   status,
   isLiquidity,
   location,
@@ -46,11 +48,7 @@ const TransactionStatus = ({
           className={` text-gray-100 hover:text-white text-base xl:text-lg`}
         >
           <RxCross2
-            onClick={() =>
-              status || location === "confirm-harvest"
-                ? setShowComponent("view-1")
-                : setShowComponent(location)
-            }
+            onClick={() => setIsSuccess("view-1")}
             className=" w-8 h-8 "
           />
         </button>

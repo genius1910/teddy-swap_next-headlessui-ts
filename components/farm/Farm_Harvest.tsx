@@ -1,15 +1,25 @@
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { RxCross2 } from "react-icons/rx";
 import { BsArrowRight } from "react-icons/bs";
 
 interface Props {
   setShowComponent: (value: string) => void;
   isAdd: boolean;
+  setIsSuccess: (value: string) => void;
+  status: string;
 }
 
-const Farm_Harvest = ({ setShowComponent, isAdd }: Props) => {
+const Farm_Harvest = ({
+  setShowComponent,
+  isAdd,
+  setIsSuccess,
+  status,
+}: Props) => {
   const [confirming, setConfirming] = useState(false);
+  useEffect(() => {
+    setConfirming(false);
+  }, [status]);
   return (
     <div className="relative font-medium flex flex-col gap-6 items-center">
       <div className="flex justify-between items-center w-full mb-6 py-[26px] px-[50px]">
@@ -91,9 +101,13 @@ const Farm_Harvest = ({ setShowComponent, isAdd }: Props) => {
             onClick={() => {
               setConfirming(true);
               setTimeout(() => {
-                Math.random() >= 0.5
-                  ? setShowComponent("transaction-success")
-                  : setShowComponent("transaction-failed");
+                if (Math.random() >= 0.5) {
+                  setShowComponent("view-2");
+                  setIsSuccess("transaction-success");
+                } else {
+                  setConfirming(false);
+                  setIsSuccess("transaction-failed");
+                }
               }, 2000);
             }}
             type="button"

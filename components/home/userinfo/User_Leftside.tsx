@@ -2,7 +2,6 @@ import Image from "next/image";
 import React, { useEffect, useRef } from "react";
 import { createChart, ColorType } from "lightweight-charts";
 import { ChartApp } from "../dexinfo/TradingChart";
-import { TradingLine } from "../pairs/TradingLine";
 import { PieChartDoughnut } from "@/components/chart/PieChartDoughnut";
 import useAuthenticate from "@/context/mobx/useAuthenticate";
 import { BsQuestionCircle } from "react-icons/bs";
@@ -99,7 +98,7 @@ const liquidityAndFarms = [
 const User_Leftside = () => {
   const isWalletConnected = useAuthenticate.isWalletConnected();
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 w-full gap-6 xl:pr-8 mt-6">
+    <div className="grid grid-cols-1 lg:grid-cols-2 w-full gap-6 xl:pr-6 mt-6">
       {/* 1st grid  */}
       <div className=" font-medium rounded-3xl chart-component-color h-72">
         <div className="px-6 pt-6">

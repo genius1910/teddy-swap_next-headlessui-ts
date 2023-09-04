@@ -76,25 +76,19 @@ const Liquidity_Add: React.FC<LiquidityProps> = ({
           </div>
           <div className="bg-[#1F2635] text-sm text-[#505A63] flex flex-col gap-4 w-full rounded-2xl py-[10px] px-[20px]">
             <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <p
-                  className={` ${
-                    selectToken && selectToken2
-                      ? "text-[18.8px] leading-[28px] font-normal text-[#505A63]"
-                      : "text-sm font-normal text-[#505A63]"
-                  }`}
-                >
+              <div className="flex items-center gap-[5px]">
+                <p className={"text-sm font-normal text-[#505A63]"}>
                   Batcher Fee
                 </p>
                 <AiOutlineExclamationCircle
                   title="This is our current rate"
-                  className="cursor-pointer w-5 h-5"
+                  className="cursor-pointer w-3 h-3"
                 />
               </div>
               <p
                 className={` ${
                   selectToken && selectToken2
-                    ? "text-[16px] leading-[24px] font-normal text-white"
+                    ? "text-xs text-white font-normal"
                     : "text-xs text-white hidden"
                 }`}
               >
@@ -102,25 +96,17 @@ const Liquidity_Add: React.FC<LiquidityProps> = ({
               </p>
             </div>
             <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <p
-                  className={` ${
-                    selectToken && selectToken2
-                      ? "text-[18.8px] leading-[28px] font-normal text-[#505A63]"
-                      : "text-sm font-normal text-[#505A63]"
-                  }`}
-                >
-                  Rate
-                </p>
+              <div className="flex items-center gap-[5px]">
+                <p className={"text-sm font-normal text-[#505A63]"}>Rate</p>
                 <AiOutlineExclamationCircle
                   title="This is our current rate"
-                  className="cursor-pointer w-5 h-5"
+                  className="cursor-pointer w-3 h-3"
                 />
               </div>
               <p
                 className={` ${
                   selectToken && selectToken2
-                    ? "text-[16px] leading-[24px] font-normal text-white"
+                    ? "text-xs text-white font-normal"
                     : "text-xs text-white hidden"
                 }`}
               >

@@ -5,10 +5,15 @@ import { BsArrowRight } from "react-icons/bs";
 
 interface Props {
   setShowComponent: (value: string) => void;
+  setIsSuccess: (value: string) => void;
   isNotPadding?: boolean;
 }
 
-const ConfirmSwap = ({ setShowComponent, isNotPadding }: Props) => {
+const ConfirmSwap = ({
+  setShowComponent,
+  setIsSuccess,
+  isNotPadding,
+}: Props) => {
   const [confirming, setConfirming] = useState(false);
   return (
     <div
@@ -66,7 +71,7 @@ const ConfirmSwap = ({ setShowComponent, isNotPadding }: Props) => {
             Swapping 2,000 ADA for 22.309498 cNETA. Confirm this transaction in
             your wallet.
           </p>
-          <div className="flex flex-col gap-8 items-center justify-between w-full text-center">
+          <div className="flex flex-col gap-8 items-center justify-between w-full text-center pt-6">
             <div className="w-24 relative h-24 bg-transparent border-8 border-r-[#268aff] border-transparent rounded-full animate-spin "></div>
             <h1>Confirming...</h1>
           </div>
@@ -109,9 +114,13 @@ const ConfirmSwap = ({ setShowComponent, isNotPadding }: Props) => {
             onClick={() => {
               setConfirming(true);
               setTimeout(() => {
-                Math.random() >= 0.5
-                  ? setShowComponent("transaction-success")
-                  : setShowComponent("transaction-failed");
+                if (Math.random() >= 0.5) {
+                  setShowComponent("view-1");
+                  setIsSuccess("transaction-success");
+                } else {
+                  setConfirming(false);
+                  setIsSuccess("transaction-failed");
+                }
               }, 2000);
             }}
             type="button"

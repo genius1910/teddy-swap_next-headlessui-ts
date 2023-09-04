@@ -2,7 +2,7 @@
 import { Popover, Transition } from "@headlessui/react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import {
   AiOutlineArrowDown,
   AiOutlineSetting,
@@ -11,9 +11,9 @@ import {
 } from "react-icons/ai";
 import MobileMenu from "./navbar/MobileMenu";
 import Link from "next/link";
-const QuickSwapPopup = dynamic(() => import("../trade/QuickSwapPopup"), {
-  ssr: false,
-});
+// const QuickSwapPopup = dynamic(() => import("../trade/QuickSwapPopup"), {
+//   ssr: false,
+// });
 import dynamic from "next/dynamic";
 import WalletList from "./navbar/WalletList";
 import SettingsPopup from "./navbar/SettingsPopup";
@@ -21,6 +21,8 @@ import ConnectedWallet from "./navbar/ConnectedWallet";
 import { useRouter } from "next/navigation";
 import useAuthenticate from "@/context/mobx/useAuthenticate";
 import { observer } from "mobx-react-lite";
+
+import QuickSwapPopup from "../trade/QuickSwapPopup";
 
 const navMenuList = [
   {
@@ -46,8 +48,11 @@ const navMenuList = [
 ];
 
 const Navbar = () => {
+  const wrapperRef = useRef(null);
+
   const [toggler, setToggler] = useState("USD");
   const [hydration, setHydration] = useState(false);
+  const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
 
@@ -57,6 +62,27 @@ const Navbar = () => {
 
   const authenticate = useAuthenticate;
   const wallet = authenticate.walletConnected;
+
+  const useOutsideAlerter = (ref: any) => {
+    useEffect(() => {
+      /**
+       * Alert if clicked on outside of element
+       */
+      function handleClickOutside(event: any) {
+        if (ref.current && !ref.current.contains(event.target)) {
+          setOpen(false);
+        }
+      }
+      // Bind the event listener
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+        // Unbind the event listener on clean up
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }, [ref]);
+  };
+
+  useOutsideAlerter(wrapperRef);
 
   return (
     <header className="navbar-color mx-auto">
@@ -121,33 +147,56 @@ const Navbar = () => {
                         </Link>
                         {/* quick swap popup  */}
                         {hydration && (
-                          <Popover>
-                            {({ open }) => (
-                              <>
-                                <Popover.Button className="flex flex-row justify-center items-center rounded-sm group outline-none component-color">
-                                  {!open ? (
-                                    <AiOutlineArrowDown className="2xl:w-4 2xl:h-4 w-3 h-3 outline-none text-neutral-400 group-hover:text-neutral-100 transition-all" />
-                                  ) : (
-                                    <AiOutlineArrowUp className="2xl:w-4 2xl:h-4 w-3 h-3 outline-none text-cyan-400 group-hover:text-cyan-300 transition-all" />
-                                  )}
-                                </Popover.Button>
-                                <Transition
-                                  enter="transition duration-100 ease-out"
-                                  enterFrom="transform scale-95 opacity-0"
-                                  enterTo="transform scale-100 opacity-100"
-                                  leave="transition duration-75 ease-out"
-                                  leaveFrom="transform scale-100 opacity-100"
-                                  leaveTo="transform scale-95 opacity-0"
-                                >
-                                  <Popover.Panel className="absolute outline-none component-color-2 left-[10.5rem] rounded-2xl z-50 mt-8 -translate-x-1/2 transform w-screen max-w-sm zoom-80 2xl:zoom-100 2xl:max-w-md">
-                                    {({ close }) => (
-                                      <QuickSwapPopup close={close} />
-                                    )}
-                                  </Popover.Panel>
-                                </Transition>
-                              </>
+                          <div className=" relative" ref={wrapperRef}>
+                            {!open ? (
+                              <AiOutlineArrowDown
+                                className="2xl:w-4 2xl:h-4 w-3 h-3 outline-none text-neutral-400 group-hover:text-neutral-100 transition-all"
+                                onClick={() => setOpen(true)}
+                              />
+                            ) : (
+                              <AiOutlineArrowUp
+                                className="2xl:w-4 2xl:h-4 w-3 h-3 outline-none text-cyan-400 group-hover:text-cyan-300 transition-all"
+                                onClick={() => setOpen(false)}
+                              />
                             )}
-                          </Popover>
+                            <div
+                              className={`absolute top-3 w-[440px] outline-none rounded-2xl z-50 mt-8 bg-black max-w-sm zoom-80 2xl:zoom-100 2xl:max-w-md ${
+                                open ? " block" : "hidden"
+                              }`}
+                            >
+                              <div className=" relative w-full h-full">
+                                <div className=" absolute top-0 bottom-0 left-0 right-0 component-color-23 rounded-2xl" />
+                                <QuickSwapPopup close={() => setOpen(false)} />
+                              </div>
+                            </div>
+                          </div>
+                          // <Popover>
+                          //   {({ open }) => (
+                          //     <>
+                          //       <Popover.Button className="flex flex-row justify-center items-center rounded-sm group outline-none component-color">
+                          //         {!open ? (
+                          //           <AiOutlineArrowDown className="2xl:w-4 2xl:h-4 w-3 h-3 outline-none text-neutral-400 group-hover:text-neutral-100 transition-all" />
+                          //         ) : (
+                          //           <AiOutlineArrowUp className="2xl:w-4 2xl:h-4 w-3 h-3 outline-none text-cyan-400 group-hover:text-cyan-300 transition-all" />
+                          //         )}
+                          //       </Popover.Button>
+                          //       <Transition
+                          //         enter="transition duration-100 ease-out"
+                          //         enterFrom="transform scale-95 opacity-0"
+                          //         enterTo="transform scale-100 opacity-100"
+                          //         leave="transition duration-75 ease-out"
+                          //         leaveFrom="transform scale-100 opacity-100"
+                          //         leaveTo="transform scale-95 opacity-0"
+                          //       >
+                          //         <Popover.Panel className=" absolute outline-none component-color-2 left-[10.5rem] rounded-2xl z-50 mt-8 -translate-x-1/2 transform w-screen max-w-sm zoom-80 2xl:zoom-100 2xl:max-w-md">
+                          //           {({ close }) => (
+                          //             <QuickSwapPopup close={close} />
+                          //           )}
+                          //         </Popover.Panel>
+                          //       </Transition>
+                          //     </>
+                          //   )}
+                          // </Popover>
                         )}
                       </div>
                     )}

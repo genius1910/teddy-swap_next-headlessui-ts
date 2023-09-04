@@ -45,7 +45,7 @@ const AmountAndTokenField_2 = ({
                 alt="Token image"
               />
               <div className="flex flex-row justify-center items-center">
-                <span className="text-lg 2xl:text-[24px] leading-[32px] font-medium">
+                <span className="text-[16px] leading-[24px] font-medium">
                   {selectedToken.name}
                 </span>{" "}
                 <span className="w-6">
@@ -76,7 +76,7 @@ const AmountAndTokenField_2 = ({
           <input
             type="text"
             defaultValue={957.3}
-            className=" text-lg leading-[32px] pr-4 pl-2 pb-1 w-full font-medium text-right 2xl:text-[24px] bg-transparent text-white outline-none"
+            className=" pr-4 pl-2 pb-1 w-full text-right text-[16px] leading-[24px] font-medium bg-transparent text-white outline-none"
           />
         ) : (
           <p className=" text-xss select-none pointer-events-none text-transparent mt-1 text-center w-full">

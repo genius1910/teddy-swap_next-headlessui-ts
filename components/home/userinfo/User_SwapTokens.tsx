@@ -90,11 +90,13 @@ const User_SwapTokens: React.FC<SwapTokensProps> = ({
       </div>
       <div className="bg-[#1F2635] text-sm text-[#505A63] flex flex-col gap-3 w-full rounded-2xl p-3">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <h4>Our current rate</h4>
+          <div className="flex items-center gap-[5px]">
+            <p className="text-sm font-normal text-[#505A63]">
+              Our current rate
+            </p>
             <AiOutlineExclamationCircle
               title="This is our current rate"
-              className="cursor-pointer w-5 h-5"
+              className="cursor-pointer w-3 h-3"
             />
           </div>
           <p
@@ -108,11 +110,11 @@ const User_SwapTokens: React.FC<SwapTokensProps> = ({
           </p>
         </div>
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <h4>No fees</h4>
+          <div className="flex items-center gap-[5px]">
+            <p className="text-sm font-normal text-[#505A63]">No fees</p>
             <AiOutlineExclamationCircle
               title="don't need to additional fees "
-              className="cursor-pointer w-5 h-5"
+              className="cursor-pointer w-3 h-3"
             />
           </div>
           <p

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import TimeGroupButton from "../TimeGroupButton";
 import Image from "next/image";
 import User_RecentTransactions from "./User_RecentTransactions";
@@ -11,10 +11,33 @@ import TransactionStatus from "@/components/trade/quickSwap/market/TransactionSt
 import useAuthenticate from "@/context/mobx/useAuthenticate";
 
 const User_Rightside = () => {
+  const wrapperRef = useRef(null);
+  const [isSuccess, setIsSuccess] = useState("view-message");
   const [selectedToken, setSelectedToken] = useState<SelectedTokenProps>();
   const [selectedToken2, setSelectedToken2] = useState<SelectedTokenProps>();
   const [showComponent, setShowComponent] = useState("view-1");
   const isWalletConnected = useAuthenticate.isWalletConnected();
+
+  const useOutsideAlerter = (ref: any) => {
+    useEffect(() => {
+      /**
+       * Alert if clicked on outside of element
+       */
+      function handleClickOutside(event: any) {
+        if (ref.current && !ref.current.contains(event.target)) {
+          setIsSuccess("view-1");
+        }
+      }
+      // Bind the event listener
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+        // Unbind the event listener on clean up
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }, [ref]);
+  };
+
+  useOutsideAlerter(wrapperRef);
 
   const movers = [
     {
@@ -68,7 +91,7 @@ const User_Rightside = () => {
     },
   ];
   return (
-    <div className="flex flex-col md:flex-row xl:flex-col xl:items-center gap-8 w-full xl:w-auto mt-6">
+    <div className="flex flex-col md:flex-row xl:flex-col xl:items-center gap-6 w-full xl:w-auto mt-6">
       {/* <div className="hidden xl:block">
         <TimeGroupButton />
       </div> */}
@@ -105,28 +128,38 @@ const User_Rightside = () => {
           <ConfirmSwap
             isNotPadding={true}
             setShowComponent={setShowComponent}
+            setIsSuccess={setIsSuccess}
           />
         )}
         {showComponent == "confirm-order" && (
-          <ConfirmOrder setShowComponent={setShowComponent} />
+          <ConfirmOrder
+            setShowComponent={setShowComponent}
+            setIsSuccess={setIsSuccess}
+          />
         )}
-        {showComponent == "transaction-success" && (
+      </div>
+      {isSuccess == "transaction-success" && (
+        <div className=" notification-animation" ref={wrapperRef}>
           <TransactionStatus
             isNotPadding={true}
             status={true}
             location="confirm-swap"
             setShowComponent={setShowComponent}
+            setIsSuccess={setIsSuccess}
           />
-        )}
-        {showComponent == "transaction-failed" && (
+        </div>
+      )}
+      {isSuccess == "transaction-failed" && (
+        <div className=" notification-animation" ref={wrapperRef}>
           <TransactionStatus
             isNotPadding={true}
             status={false}
             location="confirm-swap"
             setShowComponent={setShowComponent}
+            setIsSuccess={setIsSuccess}
           />
-        )}
-      </div>
+        </div>
+      )}
       <div className="w-full flex justify-center items-center flex-col">
         <div className="block xl:hidden">
           <TimeGroupButton />

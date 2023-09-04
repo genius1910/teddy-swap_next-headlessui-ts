@@ -6,9 +6,10 @@ import { BsArrowRight } from "react-icons/bs";
 interface Props {
   setShowComponent: (value: string) => void;
   isStake: boolean;
+  setIsSuccess: (value: string) => void;
 }
 
-const Farm_Confirm = ({ setShowComponent, isStake }: Props) => {
+const Farm_Confirm = ({ setShowComponent, isStake, setIsSuccess }: Props) => {
   const [confirming, setConfirming] = useState(false);
   return (
     <div
@@ -66,7 +67,7 @@ const Farm_Confirm = ({ setShowComponent, isStake }: Props) => {
             Adding 32,432 TEDY and 1013 ADA Liquidity. Confirm this transaction
             in your wallet.
           </p>
-          <div className="flex flex-col gap-8 items-center justify-between w-full text-center">
+          <div className="flex flex-col gap-8 items-center justify-between w-full text-center mt-6">
             <div className="w-24 relative h-24 bg-transparent border-8 border-r-[#268aff] border-transparent rounded-full animate-spin "></div>
             <h1>Confirming...</h1>
           </div>
@@ -105,9 +106,14 @@ const Farm_Confirm = ({ setShowComponent, isStake }: Props) => {
             onClick={() => {
               setConfirming(true);
               setTimeout(() => {
-                Math.random() >= 0.5
-                  ? setShowComponent("transaction-success")
-                  : setShowComponent("transaction-failed");
+                Math.random() >= 0.5;
+                if (Math.random() >= 0.5) {
+                  setShowComponent("view-1");
+                  setIsSuccess("transaction-success");
+                } else {
+                  setConfirming(false);
+                  setIsSuccess("transaction-failed");
+                }
               }, 2000);
             }}
             type="button"

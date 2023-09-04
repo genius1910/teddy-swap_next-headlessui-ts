@@ -6,7 +6,7 @@ import Liquidity_KeyStats from "../liquidity/leftside/Liquidity_KeyStats";
 
 const Farm_Leftside = () => {
   return (
-    <div className="space-y-4">
+    <div className="space-y-6">
       <div className="component-color rounded-2xl">
         <Farm_StakeWithdrawHarvest />
       </div>

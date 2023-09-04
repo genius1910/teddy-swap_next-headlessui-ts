@@ -1,12 +1,37 @@
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import { MdArrowDownward } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
 
 const Leftside_LBE = () => {
+  const wrapperRef = useRef(null);
+
   const [showComponent, setShowComponent] = useState("confirm-before");
   const [confirming, setConfirming] = useState(false);
+  const [isSuccess, setIsSuccess] = useState("before");
+
+  const useOutsideAlerter = (ref: any) => {
+    useEffect(() => {
+      /**
+       * Alert if clicked on outside of element
+       */
+      function handleClickOutside(event: any) {
+        if (ref.current && !ref.current.contains(event.target)) {
+          setIsSuccess("before");
+        }
+      }
+      // Bind the event listener
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+        // Unbind the event listener on clean up
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }, [ref]);
+  };
+
+  useOutsideAlerter(wrapperRef);
+
   return (
     <>
       {showComponent === "confirm-before" ? (
@@ -85,9 +110,12 @@ const Leftside_LBE = () => {
             onClick={() => {
               setShowComponent("confirm-waiting");
               setTimeout(() => {
-                Math.random() >= 0.5
-                  ? setShowComponent("confirm-success")
-                  : setShowComponent("confirm-failed");
+                if (Math.random() >= 0.5) {
+                  setIsSuccess("success");
+                } else {
+                  setIsSuccess("falied");
+                }
+                setShowComponent("confirm-before");
               }, 2000);
             }}
             className={
@@ -170,42 +198,45 @@ const Leftside_LBE = () => {
               </div>
             </>
           ) : (
-            <>
-              <div
-                className={`absolute top-0 left-0 right-0 h-60 font-medium flex flex-col gap-6 items-center rounded-2xl bg-[url('/images/assets/tokenResultBg.svg')] bg-cover bg-bottom p-6`}
-              >
-                <div className="text-white flex items-center justify-between w-full">
-                  <div className="flex flex-row gap-1 items-center">
-                    <h1 className=" xl:text-xl text-base">
-                      {showComponent === "confirm-success"
-                        ? "Transaction Successful"
-                        : "Transaction Failed"}
-                    </h1>
-                    {showComponent === "confirm-success" ? (
-                      <img
-                        src="/images/assets/tick.svg"
-                        className="xl:w-5 xl:h-5 w-5 h-5"
-                      />
-                    ) : (
-                      <img
-                        src="/images/assets/cross.svg"
-                        className="xl:w-5 xl:h-5 w-5 h-5"
-                      />
-                    )}
-                  </div>
-                  <button
-                    className={` text-gray-100 hover:text-white text-base xl:text-lg`}
-                  >
-                    <RxCross2
-                      onClick={() => setShowComponent("confirm-before")}
-                      className=" w-8 h-8 "
-                    />
-                  </button>
-                </div>
-              </div>
-            </>
+            <></>
           )}
         </>
+      )}
+      {isSuccess !== "before" && (
+        <div className="notification-animation" ref={wrapperRef}>
+          <div
+            className={`absolute top-0 left-0 right-0 h-60 font-medium flex flex-col gap-6 items-center rounded-2xl bg-[url('/images/assets/tokenResultBg.svg')] bg-cover bg-bottom p-6`}
+          >
+            <div className="text-white flex items-center justify-between w-full">
+              <div className="flex flex-row gap-1 items-center">
+                <h1 className=" xl:text-xl text-base">
+                  {isSuccess === "success"
+                    ? "Transaction Successful"
+                    : "Transaction Failed"}
+                </h1>
+                {isSuccess === "success" ? (
+                  <img
+                    src="/images/assets/tick.svg"
+                    className="xl:w-5 xl:h-5 w-5 h-5"
+                  />
+                ) : (
+                  <img
+                    src="/images/assets/cross.svg"
+                    className="xl:w-5 xl:h-5 w-5 h-5"
+                  />
+                )}
+              </div>
+              <button
+                className={` text-gray-100 hover:text-white text-base xl:text-lg`}
+              >
+                <RxCross2
+                  onClick={() => setIsSuccess("before")}
+                  className=" w-8 h-8 "
+                />
+              </button>
+            </div>
+          </div>
+        </div>
       )}
     </>
   );

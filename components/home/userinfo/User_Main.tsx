@@ -15,7 +15,7 @@ const User_Main = () => {
   return (
     <section
       id="user-main"
-      className="max-2xl:max-w-[1400px] mx-auto xl:zoom-80 2xl:zoom-100 px-4"
+      className="max-2xl:max-w-[1400px] mx-auto xl:zoom-80 2xl:zoom-100 px-4 pt-4"
     >
       <div
         className={`${
@@ -39,7 +39,7 @@ const User_Main = () => {
       </div>
       <div
         className={`${
-          lock && "blur-sm pointer-events-none select-none"
+          lock && "blur-[10px] pointer-events-none select-none"
         } flex px-0 justify-between items-start w-full flex-col xl:flex-row`}
       >
         <User_Leftside />

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { RxCross2 } from "react-icons/rx";
 import { MdEqualizer, MdTune } from "react-icons/md";
 import Market from "../../quickSwap/Market";
@@ -18,12 +18,36 @@ export interface SelectedTokenProps {
 }
 
 const Trade_Swap = () => {
+  const wrapperRef = useRef(null);
+
   const [isMarket, setIsMarket] = useState(true);
+  const [isSuccess, setIsSuccess] = useState("view-message");
   const [showComponent, setShowComponent] = useState("view-1");
   const [selectedToken, setSelectedToken] = useState<SelectedTokenProps>();
   const [selectedToken2, setSelectedToken2] = useState<SelectedTokenProps>();
   const [selectedToken3, setSelectedToken3] = useState<SelectedTokenProps>();
   const [selectedToken4, setSelectedToken4] = useState<SelectedTokenProps>();
+
+  const useOutsideAlerter = (ref: any) => {
+    useEffect(() => {
+      /**
+       * Alert if clicked on outside of element
+       */
+      function handleClickOutside(event: any) {
+        if (ref.current && !ref.current.contains(event.target)) {
+          setIsSuccess("view-1");
+        }
+      }
+      // Bind the event listener
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+        // Unbind the event listener on clean up
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }, [ref]);
+  };
+
+  useOutsideAlerter(wrapperRef);
 
   return (
     <>
@@ -103,23 +127,15 @@ const Trade_Swap = () => {
               />
             )}
             {showComponent == "confirm-swap" && (
-              <ConfirmSwap setShowComponent={setShowComponent} />
-            )}
-            {showComponent == "confirm-order" && (
-              <ConfirmOrder setShowComponent={setShowComponent} />
-            )}
-            {showComponent == "transaction-success" && (
-              <TransactionStatus
-                status={true}
-                location={isMarket ? "confirm-swap" : "confirm-order"}
+              <ConfirmSwap
                 setShowComponent={setShowComponent}
+                setIsSuccess={setIsSuccess}
               />
             )}
-            {showComponent == "transaction-failed" && (
-              <TransactionStatus
-                status={false}
-                location={isMarket ? "confirm-swap" : "confirm-order"}
+            {showComponent == "confirm-order" && (
+              <ConfirmOrder
                 setShowComponent={setShowComponent}
+                setIsSuccess={setIsSuccess}
               />
             )}
             {showComponent == "settings" && (
@@ -127,13 +143,31 @@ const Trade_Swap = () => {
             )}
           </>
         )}
+        {isSuccess == "transaction-success" && (
+          <div className=" notification-animation" ref={wrapperRef}>
+            <TransactionStatus
+              status={true}
+              location={isMarket ? "confirm-swap" : "confirm-order"}
+              setShowComponent={setShowComponent}
+              setIsSuccess={setIsSuccess}
+            />
+          </div>
+        )}
+        {isSuccess == "transaction-failed" && (
+          <div className=" notification-animation" ref={wrapperRef}>
+            <TransactionStatus
+              status={false}
+              location={isMarket ? "confirm-swap" : "confirm-order"}
+              setShowComponent={setShowComponent}
+              setIsSuccess={setIsSuccess}
+            />
+          </div>
+        )}
       </div>
-      {((selectedToken && selectedToken2) ||
-        (selectedToken3 && selectedToken4)) && (
-        <div className="component-color p-6 rounded-2xl">
-          <Trade_KeyStats />
-        </div>
-      )}
+
+      <div className="component-color p-6 rounded-2xl">
+        <Trade_KeyStats />
+      </div>
     </>
   );
 };
