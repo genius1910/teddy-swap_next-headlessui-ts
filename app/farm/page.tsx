@@ -37,7 +37,7 @@ const Index = () => {
             />
           </div>
         ) : activeTab == "ADA / TEDY" ? (
-          <div className="grid grid-cols-12 w-full gap-6 mt-10 items-start">
+          <div className="grid grid-cols-12 w-full gap-6 mt-8 items-start">
             <div className=" col-span-12 xl:col-span-4">
               <Farm_Leftside />
             </div>

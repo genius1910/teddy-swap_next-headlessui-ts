@@ -9,7 +9,7 @@ const Index = () => {
     setHydration(true);
   }, []);
   return (
-    <div className="max-2xl:max-w-[1400px] mx-auto xl:zoom-80 2xl:zoom-100 grid grid-cols-12 w-full gap-6 px-4 2xl:px-0 items-start pt-10">
+    <div className="max-2xl:max-w-[1400px] mx-auto xl:zoom-80 2xl:zoom-100 grid grid-cols-12 w-full gap-6 px-4 2xl:px-0 items-start pt-12">
       <div className=" relative col-span-12 xl:col-span-4 component-color rounded-[18px] px-6 py-[35px]">
         <LBE_Leftside />
       </div>

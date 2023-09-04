@@ -44,7 +44,7 @@ const nf2 = new Intl.NumberFormat("en-US", {
 const DEX_Main = () => {
   return (
     <div className="max-w-[1152px] mx-auto xl:zoom-80 2xl:zoom-100 px-4">
-      <div className="flex items-end justify-center mt-11 md:justify-end w-full">
+      <div className="flex items-end justify-center mt-8 md:justify-end w-full">
         <TimeGroupButton />
       </div>
       <div className="flex justify-between items-start w-full gap-8 flex-col xl:flex-row">

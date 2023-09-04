@@ -13,7 +13,7 @@ interface Props {
 
 const Liquidity_BottomTable = ({ setActiveTab }: Props) => {
   return (
-    <div className="w-full component-color rounded-2xl p-2 sm:p-[30px] mt-6">
+    <div className="w-full component-color rounded-2xl p-2 sm:p-[30px] mt-8">
       <div className="flex justify-between">
         <div className="relative small-component-color flex w-10/12 sm:w-auto items-center rounded-lg">
           <AiOutlineSearch className=" text-[#D6D4C6] w-4 h-4 ml-4 " />

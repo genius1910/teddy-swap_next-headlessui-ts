@@ -23,7 +23,7 @@ const batchers = [
 
 const DEX_Leftside = () => {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 w-full gap-6 mt-5">
+    <div className="grid grid-cols-1 lg:grid-cols-2 w-full gap-6 mt-6">
       {/* 1st grid  */}
       <div className=" font-medium rounded-3xl chart-component-color h-72">
         <div className="px-6 pt-6">

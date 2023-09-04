@@ -142,7 +142,7 @@ const User_SwapTokens: React.FC<SwapTokensProps> = ({
         className=" secondary-button text-sm xl:text-lg py-2 xl:py-3 rounded-2xl border-2 mt-2"
       >
         {authenticate.walletConnected != null
-          ? "Confirm Swap"
+          ? "Swap Tokens"
           : "Connect Wallet"}
       </button>
       <p className="  text-[#505A63] text-[10px] font-normal leading-[14px] mt-3 flex flex-col text-center mx-auto w-80">

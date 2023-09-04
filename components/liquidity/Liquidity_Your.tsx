@@ -53,7 +53,7 @@ interface Props {
 }
 const Liquidity_Your = ({ setActiveTab }: Props) => {
   return (
-    <div className="w-full mt-10">
+    <div className="w-full mt-8">
       {liquidityAndFarms.map((item) => {
         return (
           <div
