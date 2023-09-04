@@ -55,7 +55,10 @@ const Farm_Dash_Leftside = () => {
           <div className="bg-[#4B515D] rounded-[13px] px-[18px] py-2 flex justify-between">
             <div className="flex justify-center items-center text-[13px] leading-[21px] font-medium gap-1">
               <p>Total Weighted IL</p>
-              <BsExclamationCircle className="w-[11px] h-[11px] " />
+              <BsExclamationCircle
+                title="The total impermanent loss that you have incurred across all of your liquidity positions, weighted by the amount of liquidity that you have provided to each pool."
+                className="w-[11px] h-[11px] "
+              />
             </div>
             <p className="text-[16px] leading-[20px] font-medium text-[#FF5757]">
               -3.98%{" "}
@@ -64,7 +67,10 @@ const Farm_Dash_Leftside = () => {
           <div className="bg-[#4B515D] rounded-[13px] px-[18px] py-2 flex justify-between">
             <div className="flex justify-center items-center text-[13px] leading-[21px] font-medium gap-1">
               <p>Total LP Fees Income</p>
-              <BsExclamationCircle className="w-[11px] h-[11px] " />
+              <BsExclamationCircle
+                title="The total amount of fees that you have earned as a liquidity provider."
+                className="w-[11px] h-[11px] "
+              />
             </div>
             <p className="text-[16px] leading-[20px] font-medium text-[#57FF86]">
               -3.98%{" "}
@@ -73,7 +79,10 @@ const Farm_Dash_Leftside = () => {
           <div className="bg-[#4B515D] rounded-[13px] px-[18px] py-2 flex justify-between">
             <div className="flex justify-center items-center text-[13px] leading-[21px] font-medium gap-1">
               <p>Net Gain</p>
-              <BsExclamationCircle className="w-[11px] h-[11px] " />
+              <BsExclamationCircle
+                title="The total earnings that you have generated from providing liquidity, minus any impermanent loss that you have incurred."
+                className="w-[11px] h-[11px] "
+              />
             </div>
             <p className="text-[16px] leading-[20px] font-medium text-[#57FF86]">
               -3.98%{" "}

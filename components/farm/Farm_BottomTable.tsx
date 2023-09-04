@@ -100,6 +100,8 @@ const Farm_BottomTable = ({ setActiveTab, isItDashboard }: Props) => {
                     alt="table rows"
                     width={12}
                     height={6}
+                    title="The total amount of tokens that have been staked in the farm."
+                    className="cursor-pointer"
                   />
                 </th>
                 <th className="pl-4 pt-[11px] pb-[19px]  text-[16px] leading-[19.5px] font-semibold text-[#D6D4C6] pr-6">
@@ -110,6 +112,8 @@ const Farm_BottomTable = ({ setActiveTab, isItDashboard }: Props) => {
                       alt="table rows"
                       width={12}
                       height={6}
+                      title="The percentage of the total emissions that are allocated to the farm."
+                      className="cursor-pointer"
                     />
                   </span>
                 </th>
@@ -121,6 +125,8 @@ const Farm_BottomTable = ({ setActiveTab, isItDashboard }: Props) => {
                       alt="table rows"
                       width={12}
                       height={6}
+                      title="The amount of tokens that are emitted to the farm each day."
+                      className="cursor-pointer"
                     />
                   </span>
                 </th>
@@ -132,6 +138,8 @@ const Farm_BottomTable = ({ setActiveTab, isItDashboard }: Props) => {
                       alt="table rows"
                       width={12}
                       height={6}
+                      title="The amount of tokens that you have staked in the farm."
+                      className="cursor-pointer"
                     />
                   </span>
                 </th>

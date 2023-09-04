@@ -34,7 +34,7 @@ const Liquidity_BottomTable = ({ setActiveTab }: Props) => {
                 <span>TVL</span>
                 <BsExclamationCircle
                   title="The total value of the liquidity in the entire Cardano Decentralized Exchange (DEX)."
-                  className="w-[10px] h-[10px] "
+                  className="w-[10px] h-[10px] cursor-pointer"
                 />
               </th>
               <th className="pl-4 pt-[11px] pb-[19px]  text-[16px] leading-[19.5px] font-semibold text-[#D6D4C6] pr-6">
@@ -42,7 +42,7 @@ const Liquidity_BottomTable = ({ setActiveTab }: Props) => {
                   <span>Volume 24H</span>
                   <BsExclamationCircle
                     title="The total trading volume for the Teddy/ADA trading pair over the past 24 hours."
-                    className="w-[10px] h-[10px] "
+                    className="w-[10px] h-[10px] cursor-pointer"
                   />
                 </span>
               </th>
@@ -51,20 +51,26 @@ const Liquidity_BottomTable = ({ setActiveTab }: Props) => {
                   <span>Volume 7D </span>
                   <BsExclamationCircle
                     title="The total trading volume for the entire Cardano DEX over the past 7 Days."
-                    className="w-[10px] h-[10px] "
+                    className="w-[10px] h-[10px] cursor-pointer"
                   />
                 </span>
               </th>
               <th className="pl-8 pt-[11px] pb-[19px]  text-[16px] leading-[19.5px] font-semibold text-[#D6D4C6]">
                 <span className="flex items-center gap-[2px] justify-start">
                   <span>LP Fee </span>
-                  <BsExclamationCircle className="w-[10px] h-[10px] " />
+                  <BsExclamationCircle
+                    title="The fee that liquidity providers are charged when they deposit or withdraw liquidity from the pool."
+                    className="w-[10px] h-[10px] cursor-pointer "
+                  />
                 </span>
               </th>
               <th className="pr-24 pt-[11px] pb-[19px]  text-[16px] leading-[19.5px] font-semibold text-[#D6D4C6]">
                 <span className="flex items-center gap-[2px]">
                   <span> Queuing </span>
-                  <BsQuestionCircle className="w-[10px] h-[10px] " />
+                  <BsQuestionCircle
+                    title="The fee that liquidity providers are charged when they deposit or withdraw liquidity from the pool."
+                    className="w-[10px] h-[10px] cursor-pointer"
+                  />
                 </span>
               </th>
               <th className="rounded-r-lg"></th>

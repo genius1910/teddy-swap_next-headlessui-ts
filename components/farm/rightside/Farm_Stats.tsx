@@ -6,14 +6,17 @@ const Farm_Stats = () => {
     {
       name: "Earned by Farm Participants",
       value: "13,240,234 TEDY",
+      info: "",
     },
     {
       name: "Your Earnings",
       value: "10,823 TEDY",
+      info: "The total earnings that you have generated from providing liquidity to the pool.",
     },
     {
       name: "Farm APR (incl. LP Fees)",
       value: "93.61%",
+      info: "The annual percentage rate (APR) that you are earning from the farm, including both the rewards that you are earning from staking your tokens and the fees that you are earning as a liquidity provider.",
     },
   ];
   return (
@@ -27,7 +30,7 @@ const Farm_Stats = () => {
             >
               <p className="text-[12px] leading-[14px] font-medium text-white flex items-center gap-1">
                 <span>{item.name}</span>
-                <button title={item.name}>
+                <button title={item.info}>
                   <BsExclamationCircle className="w-[10px] h-[10px]" />
                 </button>
               </p>

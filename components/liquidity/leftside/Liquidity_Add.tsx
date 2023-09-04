@@ -146,7 +146,7 @@ const Liquidity_Add: React.FC<LiquidityProps> = ({
               <div className="flex items-center gap-1">
                 <p>Your share in pool</p>
                 <AiOutlineExclamationCircle
-                  title="The percentage of the pool's liquidity that you own, expressed as a decimal."
+                  title="The percentage of the pool's earnings that you are entitled to, based on your share of the liquidity."
                   className="cursor-pointer w-3 h-3"
                 />
               </div>
@@ -156,7 +156,7 @@ const Liquidity_Add: React.FC<LiquidityProps> = ({
               <div className="flex items-center gap-1">
                 <p>Fee Rate</p>
                 <AiOutlineExclamationCircle
-                  title="The current exchange rate between Teddy and ADA."
+                  title="The percentage of the trading fees that are earned by liquidity providers."
                   className="cursor-pointer w-3 h-3"
                 />
               </div>

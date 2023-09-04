@@ -100,7 +100,10 @@ const Farm_TableRow = ({ item, setActiveTab }: Props) => {
                         <span className="text-[14px] leading-[17px] font-medium text-[#899398]">
                           Pending TEDY
                         </span>
-                        <BsQuestionCircle className="w-[10px] h-[10px] " />
+                        <BsQuestionCircle
+                          title="The amount of Teddy tokens that you are due to receive from the farm, but have not yet been claimed."
+                          className="w-[10px] h-[10px] cursor-pointer"
+                        />
                       </div>
 
                       <span className="text-[18px] leading-[22px] font-medium">
@@ -119,9 +122,12 @@ const Farm_TableRow = ({ item, setActiveTab }: Props) => {
                     <span className="flex flex-col gap-[2px]">
                       <div className="flex flex-row justify-center items-center gap-1">
                         <span className="text-[14px] leading-[17px] font-medium text-[#899398]">
-                          Pending TEDY
+                          Pending ADA
                         </span>
-                        <BsQuestionCircle className="w-[10px] h-[10px] " />
+                        <BsQuestionCircle
+                          title="The amount of ADA tokens that you are due to receive from the farm, but have not yet been claimed."
+                          className="w-[10px] h-[10px] cursor-pointer"
+                        />
                       </div>
 
                       <span className="text-[18px] leading-[22px] font-medium">

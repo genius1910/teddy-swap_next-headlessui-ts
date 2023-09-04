@@ -6,23 +6,22 @@ const Liquidity_Stats = () => {
     {
       name: "LP Fee",
       value: "0.5%",
-      infoTitle: "",
+      info: "The fee that liquidity providers are charged when they deposit or withdraw liquidity from the pool.",
     },
     {
       name: "Market Earnings",
       value: "203k ₳, 1.2M TEDY",
-      infoTitle: "",
+      info: "The total earnings that all liquidity providers in the pool have generated from trading fees.",
     },
     {
       name: "Your Earnings",
       value: "146 ADA, 10.3k TEDY",
-      infoTitle: "",
+      info: "The total earnings that you have generated from providing liquidity to the pool.",
     },
     {
       name: "Impermanent Loss",
       value: "-8.36%",
-      infoTitle:
-        "The potential loss that you can incur due to price fluctuations when providing liquidity to the Teddy/ADA",
+      info: "The potential loss that you can incur due to price fluctuations when providing liquidity to the Teddy/ADA",
     },
   ];
   return (
@@ -41,7 +40,7 @@ const Liquidity_Stats = () => {
                   </span>
                   <button title={item.name}>
                     <BsExclamationCircle
-                      title={item.infoTitle}
+                      title={item.info}
                       className="w-[10px] h-[10px]"
                     />
                   </button>

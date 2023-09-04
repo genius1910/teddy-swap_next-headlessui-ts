@@ -16,8 +16,7 @@ const liquidityAndFarms = [
       "The potential loss that you can incur due to price fluctuations when providing liquidity to the Teddy/ADA",
     button1: "Add/Remove",
     button2: "View Liquidity",
-    infotitle:
-      "The amount of liquidity that you have provided to the Teddy/ADA pool.",
+    info: "The amount of liquidity that you have provided to the Teddy/ADA pool.",
     tvl: [
       {
         color: "bg-purple-500",
@@ -70,7 +69,7 @@ const Liquidity_Your = ({ setActiveTab }: Props) => {
               {item.title}{" "}
               <button>
                 <BsExclamationCircle
-                  title={item.infotitle}
+                  title={item.info}
                   className="w-[10px] h-[10px]"
                 />
               </button>{" "}

@@ -35,7 +35,10 @@ const Farm_SelectedTokenBottomside = () => {
           <p className="flex items-center gap-1 text-lg xl:text-[20px] xl:leading-[24px] mb-4 font-semibold">
             Total Liquidity
             <button>
-              <BsExclamationCircle className="w-[10px] h-[10px]" />
+              <BsExclamationCircle
+                title="The total value of liquidity in the Teddy/ADA pool."
+                className="w-[10px] h-[10px]"
+              />
             </button>
           </p>
           <ul className="space-y-1">
@@ -57,7 +60,10 @@ const Farm_SelectedTokenBottomside = () => {
           <p className="flex items-center gap-1 text-lg xl:text-[20px] xl:leading-[24px] mb-4 font-semibold">
             Your Liquidity
             <button>
-              <BsExclamationCircle className="w-[10px] h-[10px]" />
+              <BsExclamationCircle
+                title="The amount of liquidity that you have provided to the Teddy/ADA pool."
+                className="w-[10px] h-[10px]"
+              />
             </button>
           </p>
           <ul className="space-y-1">
@@ -79,7 +85,10 @@ const Farm_SelectedTokenBottomside = () => {
           <p className="flex items-center gap-1 text-lg xl:text-[20px] xl:leading-[24px] mb-4 font-semibold">
             Your Farm
             <button>
-              <BsExclamationCircle className="w-[10px] h-[10px]" />
+              <BsExclamationCircle
+                title="The farms that you are currently participating in."
+                className="w-[10px] h-[10px]"
+              />
             </button>
           </p>
           <ul className="space-y-1">
