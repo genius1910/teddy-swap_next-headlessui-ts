@@ -45,7 +45,10 @@ const User_YourLiquidity = () => {
       <p className="flex items-center gap-1 text-4 leading-[19.5px]">
         {`Your Liquidity`}{" "}
         <button className={isWalletConnected ? "text-sm" : "hidden"}>
-          <BsQuestionCircle className="w-3 h-3" />
+          <BsQuestionCircle
+            title="The total value of your liquidity positions in all the pools on the Cardano DEX."
+            className="w-3 h-3"
+          />
         </button>
       </p>
       <div className="flex gap-10 xl:gap-4 flex-wrap xl:flex-nowrap justify-center xl:justify-between items-center">
@@ -55,7 +58,10 @@ const User_YourLiquidity = () => {
               <p className="flex items-center gap-1 text-4 leading-[19.5px]">
                 {isWalletConnected ? "-8.34" : "--"}%{" "}
                 <button className={isWalletConnected ? "text-sm" : "hidden"}>
-                  <BsQuestionCircle className="w-3 h-3" />
+                  <BsQuestionCircle
+                    title="The potential loss that you can incur due to price fluctuations when providing liquidity to a pool."
+                    className="w-3 h-3"
+                  />
                 </button>
               </p>
               <p className="text-[9px] leading-[10px] font-normal">{`Impermanent Loss `}</p>
@@ -67,7 +73,10 @@ const User_YourLiquidity = () => {
                   title="Profit"
                   className={isWalletConnected ? "text-sm" : "hidden"}
                 >
-                  <BsQuestionCircle className="w-3 h-3" />
+                  <BsQuestionCircle
+                    title="The total earnings that you have generated from providing liquidity to pools, minus any fees that you have incurred."
+                    className="w-3 h-3"
+                  />
                 </button>
               </p>
               <p className="text-[9px] leading-[10px] font-normal">{`Net Earnings`}</p>

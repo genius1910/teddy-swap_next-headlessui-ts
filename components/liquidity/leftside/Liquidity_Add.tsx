@@ -81,7 +81,7 @@ const Liquidity_Add: React.FC<LiquidityProps> = ({
                   Batcher Fee
                 </p>
                 <AiOutlineExclamationCircle
-                  title="This is our current rate"
+                  title="The fee that you pay to the batcher for processing your trades."
                   className="cursor-pointer w-3 h-3"
                 />
               </div>
@@ -99,7 +99,7 @@ const Liquidity_Add: React.FC<LiquidityProps> = ({
               <div className="flex items-center gap-[5px]">
                 <p className={"text-sm font-normal text-[#505A63]"}>Rate</p>
                 <AiOutlineExclamationCircle
-                  title="This is our current rate"
+                  title="The current exchange rate between Teddy and ADA."
                   className="cursor-pointer w-3 h-3"
                 />
               </div>
@@ -143,11 +143,23 @@ const Liquidity_Add: React.FC<LiquidityProps> = ({
               <p>0.10%</p>
             </li>
             <li className="text-[#E0E0E0] text-[15px] leading-[18px] font-medium flex justify-between w-full items-center">
-              <p>Your share in pool:</p>
+              <div className="flex items-center gap-1">
+                <p>Your share in pool</p>
+                <AiOutlineExclamationCircle
+                  title="The percentage of the pool's liquidity that you own, expressed as a decimal."
+                  className="cursor-pointer w-3 h-3"
+                />
+              </div>
               <p>{"<"}0.001%</p>
             </li>
             <li className="text-[#E0E0E0] text-[15px] leading-[18px] font-medium flex justify-between w-full items-center">
-              <p>Fee Rate:</p>
+              <div className="flex items-center gap-1">
+                <p>Fee Rate</p>
+                <AiOutlineExclamationCircle
+                  title="The current exchange rate between Teddy and ADA."
+                  className="cursor-pointer w-3 h-3"
+                />
+              </div>
               <p>{"<"}0.001%</p>
             </li>
           </ul>

@@ -106,7 +106,10 @@ const Liquidity_TableRow = ({ item, setActiveTab }: Props) => {
                   <span className="text-[16px] leading-[19.5px] font-medium text-[#899398] flex items-center gap-[2px]">
                     <span>Total Liquidity</span>{" "}
                     <button>
-                      <BsExclamationCircle className="w-[10px] h-[10px]" />
+                      <BsExclamationCircle
+                        title="The total value of liquidity in the Teddy/ADA pool."
+                        className="w-[10px] h-[10px]"
+                      />
                     </button>
                   </span>
                   <span className="text-[14px] leading-[17.5px] font-medium text-[#DBDBDB]">
@@ -123,7 +126,10 @@ const Liquidity_TableRow = ({ item, setActiveTab }: Props) => {
                   <span className="text-[16px] leading-[19.5px] font-medium text-[#899398] flex items-center gap-[2px]">
                     Your Liquidity{" "}
                     <button>
-                      <BsExclamationCircle className="w-[10px] h-[10px]" />
+                      <BsExclamationCircle
+                        title="The amount of liquidity that you have provided to the Teddy/ADA pool."
+                        className="w-[10px] h-[10px]"
+                      />
                     </button>
                   </span>
                   <span className="text-[14px] leading-[17.5px] font-medium text-[#DBDBDB]">
@@ -136,7 +142,10 @@ const Liquidity_TableRow = ({ item, setActiveTab }: Props) => {
                   <span className="text-[16px] leading-[19.5px] font-medium text-[#899398] flex items-center gap-[2px]">
                     Impermanent Loss (1M){" "}
                     <button>
-                      <BsExclamationCircle className="w-[10px] h-[10px]" />
+                      <BsExclamationCircle
+                        title="The potential loss that you can incur due to price fluctuations when providing liquidity to the Teddy/ADA"
+                        className="w-[10px] h-[10px]"
+                      />
                     </button>
                   </span>
                   <span className="text-[14px] leading-[17.5px] font-medium text-[#DBDBDB]">

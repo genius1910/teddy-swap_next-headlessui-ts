@@ -6,18 +6,26 @@ const Trade_Stats = () => {
     {
       name: "Market Cap",
       value: "85,503,700 ADA",
+      infotitle:
+        "The market capitalization of Teddy, calculated by multiplying the price of Teddy by the total number of Teddy tokens in circulation.",
     },
     {
       name: "FD Market Cap",
       value: "43,203,100 ADA",
+      infotitle:
+        "The fully diluted market capitalization of Teddy, taking into account the liquidity in the Teddy/ADA pool.",
     },
     {
       name: "Circulating Supply",
       value: "623.42M TEDY",
+      infotitle:
+        "The total number of Teddy tokens that are currently in circulation.",
     },
     {
       name: "Max Supply",
       value: "5B TEDY",
+      infotitle:
+        "The maximum number of Teddy tokens that will ever be created.",
     },
   ];
   return (
@@ -35,7 +43,10 @@ const Trade_Stats = () => {
                     {item.name}
                   </span>
                   <button title={item.name}>
-                    <BsExclamationCircle className="w-[10px] h-[10px]" />
+                    <BsExclamationCircle
+                      title={item.infotitle}
+                      className="w-[10px] h-[10px]"
+                    />
                   </button>
                 </div>
                 <p className="text-[16px] leading-[19.5px] font-medium text-white">

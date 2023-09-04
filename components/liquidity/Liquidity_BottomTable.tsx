@@ -32,18 +32,27 @@ const Liquidity_BottomTable = ({ setActiveTab }: Props) => {
               </th>
               <th className=" justify-center pt-[11px] pb-[19px]  text-[16px] leading-[19.5px] text-[#D6D4C6] font-semibold  flex items-center gap-[2px]">
                 <span>TVL</span>
-                <BsExclamationCircle className="w-[10px] h-[10px] " />
+                <BsExclamationCircle
+                  title="The total value of the liquidity in the entire Cardano Decentralized Exchange (DEX)."
+                  className="w-[10px] h-[10px] "
+                />
               </th>
               <th className="pl-4 pt-[11px] pb-[19px]  text-[16px] leading-[19.5px] font-semibold text-[#D6D4C6] pr-6">
                 <span className="flex items-center gap-[2px] justify-center">
                   <span>Volume 24H</span>
-                  <BsExclamationCircle className="w-[10px] h-[10px] " />
+                  <BsExclamationCircle
+                    title="The total trading volume for the Teddy/ADA trading pair over the past 24 hours."
+                    className="w-[10px] h-[10px] "
+                  />
                 </span>
               </th>
               <th className="pl-10 pr-8 pt-[11px] pb-[19px]  text-[16px] leading-[19.5px] font-semibold text-[#D6D4C6]">
                 <span className="flex items-center gap-[2px] justify-center">
                   <span>Volume 7D </span>
-                  <BsExclamationCircle className="w-[10px] h-[10px] " />
+                  <BsExclamationCircle
+                    title="The total trading volume for the entire Cardano DEX over the past 7 Days."
+                    className="w-[10px] h-[10px] "
+                  />
                 </span>
               </th>
               <th className="pl-8 pt-[11px] pb-[19px]  text-[16px] leading-[19.5px] font-semibold text-[#D6D4C6]">

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { CgArrowsExchangeAlt } from "react-icons/cg";
 import AmountAndTokenField_2 from "./AmountAndTokenField_2";
 import { AiOutlineExclamationCircle } from "react-icons/ai";
+import { BsExclamationCircle } from "react-icons/bs";
 
 import SelectTokenView from "../quickSwap/SelectTokenView";
 
@@ -86,7 +87,7 @@ const Market: React.FC<MarketProps> = ({
                   Batcher Fee
                 </p>
                 <AiOutlineExclamationCircle
-                  title="This is our current rate"
+                  title="The fee that you pay to the batcher for processing your trades."
                   className="cursor-pointer w-3 h-3"
                 />
               </div>
@@ -104,7 +105,7 @@ const Market: React.FC<MarketProps> = ({
               <div className="flex items-center gap-[5px]">
                 <p className={"text-sm font-normal text-[#505A63]"}>Rate</p>
                 <AiOutlineExclamationCircle
-                  title="This is our current rate"
+                  title="The current exchange rate between Teddy and ADA."
                   className="cursor-pointer w-3 h-3"
                 />
               </div>
@@ -152,41 +153,71 @@ const Market: React.FC<MarketProps> = ({
                 </p>
               </li>
               <li className=" flex justify-between w-full items-center">
-                <p className="text-[15px] font-medium leading-[18px] text-[#E0E0E0]">
-                  Slippage Tolerance
-                </p>
+                <div className="flex items-center gap-[2px]">
+                  <p className="text-[15px] font-medium leading-[18px] text-[#E0E0E0]">
+                    Slippage Tolerance
+                  </p>
+                  <AiOutlineExclamationCircle
+                    title="The maximum amount that the price of Teddy can move before your trade is cancelled."
+                    className="w-3 h-3"
+                  />
+                </div>
                 <p className=" text-white text-[15px] font-medium leading-[18px]">
                   0.10%
                 </p>
               </li>
               <li className=" flex justify-between w-full items-center">
-                <p className="text-[15px] font-medium leading-[18px] text-[#E0E0E0]">
-                  Price Impact
-                </p>
+                <div className="flex items-center gap-[2px]">
+                  <p className="text-[15px] font-medium leading-[18px] text-[#E0E0E0]">
+                    Price Impact
+                  </p>
+                  <AiOutlineExclamationCircle
+                    title="The estimated impact that your trade will have on the price of Teddy."
+                    className="w-3 h-3"
+                  />
+                </div>
                 <p className=" text-white text-[15px] font-medium leading-[18px]">
                   {"<"}0.001%
                 </p>
               </li>
               <li className=" flex justify-between w-full items-center">
-                <p className="text-[15px] font-medium leading-[18px] text-[#E0E0E0]">
-                  Liquidity Provider Fee
-                </p>
+                <div className="flex items-center gap-[2px]">
+                  <p className="text-[15px] font-medium leading-[18px] text-[#E0E0E0]">
+                    Liquidity Provider Fee
+                  </p>
+                  <AiOutlineExclamationCircle
+                    title="The fee that you earn as a liquidity provider, expressed as a percentage of the trading fees that are generated in the pool."
+                    className="w-3 h-3"
+                  />
+                </div>
                 <p className=" text-white text-[15px] font-medium leading-[18px]">
                   {"<"}0.001%
                 </p>
               </li>
               <li className=" flex justify-between w-full items-center">
-                <p className="text-[15px] font-medium leading-[18px] text-[#E0E0E0]">
-                  Batcher Fee
-                </p>
+                <div className="flex items-center gap-[2px]">
+                  <p className="text-[15px] font-medium leading-[18px] text-[#E0E0E0]">
+                    Batcher Fee
+                  </p>
+                  <AiOutlineExclamationCircle
+                    title="The fee that you pay to the batcher for processing your trades."
+                    className="w-3 h-3"
+                  />
+                </div>
                 <p className=" text-white text-[15px] font-medium leading-[18px]">
                   2A
                 </p>
               </li>
               <li className=" flex justify-between w-full items-center">
-                <p className="text-[15px] font-medium leading-[18px] text-[#E0E0E0]">
-                  Deposit ADA
-                </p>
+                <div className="flex items-center gap-[2px]">
+                  <p className="text-[15px] font-medium leading-[18px] text-[#E0E0E0]">
+                    Deposit ADA
+                  </p>
+                  <AiOutlineExclamationCircle
+                    title="The amount of ADA that you want to deposit into the pool."
+                    className="w-3 h-3"
+                  />
+                </div>
                 <p className=" text-white text-[15px] font-medium leading-[18px]">
                   2A
                 </p>

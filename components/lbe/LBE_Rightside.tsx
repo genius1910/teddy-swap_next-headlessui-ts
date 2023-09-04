@@ -137,7 +137,7 @@ const LBE_Rightside = () => {
                 My TeddyADA
               </p>
               <AiOutlineInfoCircle
-                title="Estimated LP Price , write here in details"
+                title="The total amount of ADA that has been deposited into the pool."
                 className="w-[10px] h-[10px]"
               />
             </div>
@@ -149,7 +149,7 @@ const LBE_Rightside = () => {
                   Estimated LP Tokens
                 </p>
                 <AiOutlineInfoCircle
-                  title="Estimated LP Price , write here in details"
+                  title="The number of liquidity provider (LP) tokens that you will receive for depositing ADA into the pool. LP tokens represent your share of the pool's liquidity."
                   className="w-[10px] h-w-[10px]"
                 />
               </div>
@@ -164,7 +164,7 @@ const LBE_Rightside = () => {
                 Current TEDY/ADA pool
               </p>
               <AiOutlineInfoCircle
-                title="Estimated LP Price , write here in details"
+                title="The current pool of liquidity for the Teddy/ADA trading pair."
                 className="w-[10px] h-[10px]"
               />
             </div>
@@ -182,7 +182,7 @@ const LBE_Rightside = () => {
                   My Pool Share
                 </p>
                 <AiOutlineInfoCircle
-                  title="Estimated LP Price , write here in details"
+                  title="The percentage of the pool's liquidity that you own, expressed as a decimal."
                   className="w-[10px] h-[10px]"
                 />
               </div>

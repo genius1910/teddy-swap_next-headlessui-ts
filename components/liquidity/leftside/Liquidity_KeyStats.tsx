@@ -9,7 +9,8 @@ const Liquidity_KeyStats = () => {
     {
       property: "Daily Volume",
       value: "1,011,825 ₳",
-      about: "This is daily volume",
+      about:
+        "The total trading volume for the Teddy/ADA trading pair over the past 24 hours.",
     },
     {
       property: "Pooled ADA",
@@ -22,37 +23,41 @@ const Liquidity_KeyStats = () => {
     {
       property: "TEDY Holders",
       value: "10,410",
-      about: "Who keep tedy",
+      about: "The number of unique addresses that hold Teddy.",
     },
     {
       property: "Total Tx",
       value: "55,525",
-      about: "This is total tax",
+      about:
+        "The total number of transactions that have been executed on the Teddy/ADA trading pair.",
     },
     {
       property: "Market Cap",
       value: "95,525",
-      about: "Total tax charge",
+      about:
+        "The market capitalization of Teddy, calculated by multiplying the price of Teddy by the total number of Teddy tokens in circulation.",
     },
     {
       property: "FD Market Cap",
       value: "13,456",
-      about: "Fd Market cap",
+      about:
+        "The fully diluted market capitalization of Teddy, taking into account the liquidity in the Teddy/ADA pool.",
     },
     {
       property: "Circulating Supply",
       value: "1.21B (60.3%)",
-      about: "This is circulating supply",
+      about:
+        "The total number of Teddy tokens that are currently in circulation.",
     },
     {
       property: "Total Supply",
       value: "1.29B",
-      about: "This is total supply",
+      about: "The total value of liquidity in the Teddy/ADA pool.",
     },
     {
       property: "Max Supply",
       value: "2.00B",
-      about: "Total tax charge",
+      about: "The maximum number of Teddy tokens that will ever be created.",
     },
     {
       property: "Pool Created",
@@ -62,7 +67,8 @@ const Liquidity_KeyStats = () => {
     {
       property: "% of TeddySwap TVL",
       value: "3.72%",
-      about: "This is percentage",
+      about:
+        "The percentage of the total value of liquidity in the Cardano DEX that is held in the Teddy/ADA pool.",
     },
   ];
   return (
@@ -78,7 +84,7 @@ const Liquidity_KeyStats = () => {
                 key={item.value + i}
                 className=" flex justify-between w-full items-center"
               >
-                <h5 className="flex items-center gap-[2px] font-medium">
+                <h5 className="flex items-center gap-1 font-medium">
                   <span>{item.property}</span>{" "}
                   {item?.about && (
                     <button title={item.about}>

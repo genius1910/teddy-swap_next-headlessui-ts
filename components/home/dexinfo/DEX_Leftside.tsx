@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React, { useEffect, useRef } from "react";
+import { AiOutlineInfoCircle } from "react-icons/ai";
 import { createChart, ColorType } from "lightweight-charts";
 import { ChartApp } from "./TradingChart";
 
@@ -27,7 +28,14 @@ const DEX_Leftside = () => {
       {/* 1st grid  */}
       <div className=" font-medium rounded-3xl chart-component-color h-72">
         <div className="px-6 pt-6">
-          <h1 className="text-base">Volume</h1>
+          <div className="flex items-center gap-1">
+            <h1 className="text-base">Volume</h1>
+            <AiOutlineInfoCircle
+              title="The total trading volume for the entire Cardano DEX over the past 24 hours."
+              className="w-3 h-3 cursor-pointer"
+            />
+          </div>
+
           <h2 className="text-base mt-1 mb-0.5">₳6,363,639.46</h2>
           <p className=" text-[0.7rem] text-[#0FC43B]">
             +₳544.03 (+2.03%) this week
@@ -38,7 +46,13 @@ const DEX_Leftside = () => {
       {/* 2nd grid  */}
       <div className=" font-medium rounded-3xl chart-component-color h-72">
         <div className="px-6 pt-6">
-          <h1 className="text-base">TVL</h1>
+          <div className="flex items-center gap-1">
+            <h1 className="text-base">TVL</h1>
+            <AiOutlineInfoCircle
+              title="The total value of the liquidity in the entire Cardano DEX."
+              className="w-3 h-3 cursor-pointer"
+            />
+          </div>
           <h2 className="text-base mt-1 mb-0.5">₳6,363,639.46</h2>
           <p className=" text-[0.7rem] text-[#0FC43B]">
             +₳544.03 (+2.03%) this todays

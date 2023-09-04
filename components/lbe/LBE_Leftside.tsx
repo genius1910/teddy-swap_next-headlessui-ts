@@ -130,7 +130,7 @@ const Leftside_LBE = () => {
                 Estimated LP Tokens
               </p>
               <AiOutlineInfoCircle
-                title="Estimated LP Token is the powerful"
+                title="The number of liquidity provider (LP) tokens that you will receive for depositing ADA into the pool. LP tokens represent your share of the pool's liquidity."
                 className="w-[10px] h-[10px] "
               />
             </div>
@@ -141,10 +141,10 @@ const Leftside_LBE = () => {
           <div className="mt-[34px] pl-2 gap-[10px]">
             <div className="flex items-center gap-[3px] text-gray-300">
               <p className="text-[14px] leading-[17px] font-medium text-[#C6C6C6]">
-                Estimated Tedy Price
+                Estimated Teddy Price
               </p>
               <AiOutlineInfoCircle
-                title="Estimated LP Token is the powerful"
+                title="The estimated price of Teddy in ADA, based on the current pool's liquidity."
                 className="w-[10px] h-[10px] "
               />
             </div>

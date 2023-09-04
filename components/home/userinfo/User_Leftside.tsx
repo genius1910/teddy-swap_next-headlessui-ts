@@ -7,6 +7,7 @@ import useAuthenticate from "@/context/mobx/useAuthenticate";
 import { BsQuestionCircle } from "react-icons/bs";
 import User_YourLiquidity from "./User_YourLiquidity";
 import User_YourFarms from "./User_YourFarms";
+import { AiOutlineInfoCircle } from "react-icons/ai";
 
 const liquidityAndFarms = [
   {
@@ -105,7 +106,10 @@ const User_Leftside = () => {
           <div className="flex items-center gap-1">
             <h1 className="text-base">Wallet Assets</h1>
             <button className="text-sm">
-              <BsQuestionCircle className="w-3 h-3" />
+              <BsQuestionCircle
+                title="The total trading volume for the entire Cardano DEX over the past 24 hours."
+                className="w-3 h-3"
+              />
             </button>{" "}
           </div>
           <h2 className="text-base mt-1 mb-0.5">
@@ -124,7 +128,10 @@ const User_Leftside = () => {
           <div className="flex items-center gap-1">
             <h1 className="text-base">Wallet Assets + Liquidity Positions</h1>
             <button className="text-sm">
-              <BsQuestionCircle className="w-3 h-3" />
+              <BsQuestionCircle
+                title="The total value of all the tokens in your wallet, including ADA, Teddy, and any other tokens that you hold, plus the value of your liquidity positions."
+                className="w-3 h-3"
+              />
             </button>
           </div>{" "}
           <h2 className="text-base mt-1 mb-0.5">

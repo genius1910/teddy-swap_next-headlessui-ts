@@ -138,7 +138,10 @@ const Farm_BottomTable = ({ setActiveTab, isItDashboard }: Props) => {
                 <th className="pr-24 pt-[11px] pb-[19px]  text-[16px] leading-[19.5px] font-semibold text-[#D6D4C6]">
                   <span className="flex justify-center items-center gap-[2px] ml-6">
                     <span> APR </span>
-                    <BsQuestionCircle className="w-[10px] h-[10px] " />
+                    <BsQuestionCircle
+                      title="The average annual percentage rate (APR) that you are earning from your farms, taking into account the weighting of each farm."
+                      className="w-[10px] h-[10px] "
+                    />
                   </span>
                 </th>
                 <th className="rounded-r-lg"></th>

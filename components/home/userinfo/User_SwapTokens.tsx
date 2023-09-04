@@ -91,11 +91,9 @@ const User_SwapTokens: React.FC<SwapTokensProps> = ({
       <div className="bg-[#1F2635] text-sm text-[#505A63] flex flex-col gap-3 w-full rounded-2xl p-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-[5px]">
-            <p className="text-sm font-normal text-[#505A63]">
-              Our current rate
-            </p>
+            <p className="text-sm font-normal text-[#505A63]">Batcher fee</p>
             <AiOutlineExclamationCircle
-              title="This is our current rate"
+              title="The fee that you pay to the batcher for processing your trades."
               className="cursor-pointer w-3 h-3"
             />
           </div>
@@ -111,9 +109,9 @@ const User_SwapTokens: React.FC<SwapTokensProps> = ({
         </div>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-[5px]">
-            <p className="text-sm font-normal text-[#505A63]">No fees</p>
+            <p className="text-sm font-normal text-[#505A63]">Rate</p>
             <AiOutlineExclamationCircle
-              title="don't need to additional fees "
+              title="The current exchange rate between Teddy and ADA."
               className="cursor-pointer w-3 h-3"
             />
           </div>

@@ -45,7 +45,10 @@ const User_YourFarms = () => {
       <p className="flex items-center gap-1 text-4 leading-[19.5px]">
         {`Your Farms`}{" "}
         <button className={isWalletConnected ? "text-sm" : "hidden"}>
-          <BsQuestionCircle className="w-3 h-3" />
+          <BsQuestionCircle
+            title="The farms that you are currently participating in."
+            className="w-3 h-3"
+          />
         </button>
       </p>
       <div className="flex gap-10 xl:gap-4 flex-wrap xl:flex-nowrap justify-center xl:justify-between items-center">
@@ -57,7 +60,10 @@ const User_YourFarms = () => {
                   {isWalletConnected ? "92.43%" : "--"}%{" "}
                 </span>
                 <button className={isWalletConnected ? "text-sm" : "hidden"}>
-                  <BsQuestionCircle className="w-3 h-3" />
+                  <BsQuestionCircle
+                    title="The average annual percentage rate (APR) that you are earning from your farms, taking into account the weighting of each farm."
+                    className="w-3 h-3"
+                  />
                 </button>
               </p>
               <p className="text-[9px] leading-[10px] font-normal">{`APR (weighted)`}</p>
@@ -77,7 +83,10 @@ const User_YourFarms = () => {
                     title="Profit"
                     className={isWalletConnected ? "text-sm" : "hidden"}
                   >
-                    <BsQuestionCircle className="w-3 h-3" />
+                    <BsQuestionCircle
+                      title="The amount of tokens that you are due to receive from your farms, but have not yet been claimed."
+                      className="w-3 h-3"
+                    />
                   </button>
                 </p>
                 <p className="text-[9px] leading-[10px] font-normal flex flex-row gap-2">

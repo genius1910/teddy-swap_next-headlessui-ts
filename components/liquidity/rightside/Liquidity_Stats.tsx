@@ -6,18 +6,23 @@ const Liquidity_Stats = () => {
     {
       name: "LP Fee",
       value: "0.5%",
+      infoTitle: "",
     },
     {
       name: "Market Earnings",
       value: "203k ₳, 1.2M TEDY",
+      infoTitle: "",
     },
     {
       name: "Your Earnings",
       value: "146 ADA, 10.3k TEDY",
+      infoTitle: "",
     },
     {
       name: "Impermanent Loss",
       value: "-8.36%",
+      infoTitle:
+        "The potential loss that you can incur due to price fluctuations when providing liquidity to the Teddy/ADA",
     },
   ];
   return (
@@ -35,7 +40,10 @@ const Liquidity_Stats = () => {
                     {item.name}
                   </span>
                   <button title={item.name}>
-                    <BsExclamationCircle className="w-[10px] h-[10px]" />
+                    <BsExclamationCircle
+                      title={item.infoTitle}
+                      className="w-[10px] h-[10px]"
+                    />
                   </button>
                 </div>
                 <p className="text-[16px] leading-[19.5px] font-medium text-white">

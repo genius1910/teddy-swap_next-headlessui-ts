@@ -51,19 +51,28 @@ const DEX_BottomTable = () => {
               <th className="pb-[15px] font-medium text-right w-[166px] pr-[24px] border-b-[1px] border-b-[#FFFFFF47] ">
                 <span className="flex items-center justify-end place-items-end gap-1 relative">
                   Volume 1D
-                  <BsExclamationCircle className="w-2.5 h-2.5 absolute  right-[-13px]" />
+                  <BsExclamationCircle
+                    title="The total trading volume for the entire Cardano DEX over the past 24 hours."
+                    className="w-2.5 h-2.5 absolute  right-[-13px]"
+                  />
                 </span>
               </th>
               <th className="pb-[15px] font-medium text-right items-end w-[117px] pr-[24px] border-b-[1px] border-b-[#FFFFFF47] ">
                 <span className="flex items-center justify-end place-items-end gap-1 relative">
                   <MdArrowDownward className="w-4 h-4 text-[#268AFF]" /> TVL{" "}
-                  <BsExclamationCircle className="w-2.5 h-2.5 absolute  right-[-13px]" />
+                  <BsExclamationCircle
+                    title="The total value of the liquidity in the entire Cardano Decentralized Exchange (DEX)."
+                    className="w-2.5 h-2.5 absolute  right-[-13px]"
+                  />
                 </span>
               </th>
               <th className="pb-[15px] font-medium rounded-r-md text-left border-b-[1px] border-b-[#FFFFFF47] ">
                 <span className="flex items-center justify-end place-items-end gap-1 relative">
                   FD Market cap
-                  <BsExclamationCircle className="w-2.5 h-2.5 absolute right-[-13px]" />
+                  <BsExclamationCircle
+                    title="The fully diluted market capitalization of Teddy, taking into account the liquidity in the Teddy/ADA pool."
+                    className="w-2.5 h-2.5 absolute right-[-13px]"
+                  />
                 </span>
               </th>
               <th className="w-[47px]" />

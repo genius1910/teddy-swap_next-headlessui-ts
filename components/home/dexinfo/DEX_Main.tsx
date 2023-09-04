@@ -75,7 +75,7 @@ const DEX_Main = () => {
                     </p>
                     <BsPatchCheckFill className="w-[10px] h-[10px] ml-[4px]" />
                   </span>
-                  <span className="text-gray-300 text-[14px] leading-[17px] ml-12 w-[30%] text-right">
+                  <span className="text-gray-300 text-[14px] leading-[17px] ml-10 w-[30%] text-right">
                     {nf1.format(value as number)} ₳
                   </span>
                   {}

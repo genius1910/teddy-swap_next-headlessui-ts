@@ -8,10 +8,16 @@ const liquidityAndFarms = [
     title: "Your Liquidity",
     perc1: 6.52,
     perc1_Subtitle: "APR this week",
+    perc1_info:
+      "The average annual percentage rate (APR) that you are earning from your farms, taking into account the weighting of each farm.",
     perc2: 8.3,
     perc2_Subtitle: "Impermanent Loss",
+    perc2_info:
+      "The potential loss that you can incur due to price fluctuations when providing liquidity to the Teddy/ADA",
     button1: "Add/Remove",
     button2: "View Liquidity",
+    infotitle:
+      "The amount of liquidity that you have provided to the Teddy/ADA pool.",
     tvl: [
       {
         color: "bg-purple-500",
@@ -63,7 +69,10 @@ const Liquidity_Your = ({ setActiveTab }: Props) => {
             <p className="flex items-center gap-1 text-[16px] leading-[19.5px] font-medium">
               {item.title}{" "}
               <button>
-                <BsExclamationCircle className="w-[10px] h-[10px]" />
+                <BsExclamationCircle
+                  title={item.infotitle}
+                  className="w-[10px] h-[10px]"
+                />
               </button>{" "}
             </p>
             <div className="flex gap-10 xl:gap-4 flex-wrap xl:flex-nowrap justify-center xl:justify-between items-center xl:pr-[245px]">
@@ -75,7 +84,10 @@ const Liquidity_Your = ({ setActiveTab }: Props) => {
                         {item.perc1}%
                       </h2>
                       <button>
-                        <BsExclamationCircle className="w-[10px] h-[10px]" />
+                        <BsExclamationCircle
+                          title={item.perc1_info}
+                          className="w-[10px] h-[10px]"
+                        />
                       </button>{" "}
                     </div>
 
@@ -89,7 +101,10 @@ const Liquidity_Your = ({ setActiveTab }: Props) => {
                         {item.perc2}%
                       </h2>
                       <button>
-                        <BsExclamationCircle className="w-[10px] h-[10px]" />
+                        <BsExclamationCircle
+                          title={item.perc1_info}
+                          className="w-[10px] h-[10px]"
+                        />
                       </button>{" "}
                     </div>
                     <p className="text-[8px] leading-[10px] font-normal">
