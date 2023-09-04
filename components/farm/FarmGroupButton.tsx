@@ -25,7 +25,7 @@ const FarmGroupButton = ({ tabs, setTabs, activeTab, setActiveTab }: Props) => {
             >
               <span>{item}</span>
               {item == "ADA / TEDY" && item == activeTab && (
-                <HiOutlineXMark className=" absolute top-1 right-3 text-white w-5 h-5 pb-1" />
+                <HiOutlineXMark className=" text-white w-5 h-5 pb-1" />
               )}
             </li>
           );

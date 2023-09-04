@@ -48,8 +48,8 @@ const AmountAndTokenField_2 = ({
                 <span className="text-[16px] leading-[24px] font-medium">
                   {selectedToken.name}
                 </span>{" "}
-                <span className="w-6">
-                  <FaAngleDown className="w-7 h-7" />
+                <span className="w-6 ml-2">
+                  <FaAngleDown className="w-[18px] h-[18px]" />
                 </span>
               </div>
             </button>
@@ -65,7 +65,7 @@ const AmountAndTokenField_2 = ({
                 Select Token
               </span>
               <span className="w-6">
-                <FaAngleDown className="w-3 h-3" />{" "}
+                <FaAngleDown className="w-[18px] h-[18px]" />{" "}
               </span>
             </button>
           </div>

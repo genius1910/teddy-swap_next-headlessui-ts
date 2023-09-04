@@ -74,6 +74,9 @@ const User_YourLiquidity = () => {
             </div>
           </div>
           <button
+            onClick={() => {
+              document.getElementById("connect-wallet")?.click();
+            }}
             className={
               " secondary-button text-[12px] leading-[15px] font-semibold max-w-[216px] max-lg:flex max-lg:justify-center"
             }
