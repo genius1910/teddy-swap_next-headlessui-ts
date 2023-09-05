@@ -1,100 +1,10 @@
 import Image from "next/image";
 import React, { useEffect, useRef } from "react";
-import { createChart, ColorType } from "lightweight-charts";
 import CustomChart from "../../chart/CustomChart";
-import { TradingLine } from "../pairs/TradingLine";
-import { PieChartDoughnut } from "@/components/chart/PieChartDoughnut";
 import useAuthenticate from "@/context/mobx/useAuthenticate";
 import { BsQuestionCircle } from "react-icons/bs";
 import User_YourLiquidity from "./User_YourLiquidity";
 import User_YourFarms from "./User_YourFarms";
-
-const liquidityAndFarms = [
-  {
-    title: "Your Liquidity",
-    perc1: 6.52,
-    perc1_Subtitle: "APR this week",
-    perc2: 8.3,
-    perc2_Subtitle: "Pool Diversion This Week",
-    button1: "Add/Remove",
-    button2: "View Liquidity",
-    tvl: [
-      {
-        color: "bg-purple-500",
-        name: "ADA/TEDY",
-        price: "120,030",
-      },
-      {
-        color: "bg-cyan-500",
-        name: "cUSD/TEDY",
-        price: "124,943",
-      },
-      {
-        color: "bg-blue-500",
-        name: "ADA/cBTC",
-        price: "532,63",
-      },
-      {
-        color: "bg-blue-500",
-        name: "ADA/USD",
-        price: "843,030",
-      },
-      {
-        color: "bg-green-500",
-        name: "USD/TEDY",
-        price: "843,030",
-      },
-    ],
-    earningTokens: [
-      "/images/assets/teddy.png",
-      "/images/assets/blue_ada.png",
-      "/images/assets/token-1.png",
-      "/images/assets/wallet-1.png",
-    ],
-  },
-  {
-    title: "Your Farms",
-    perc1: 86.52,
-    perc1_Subtitle: "APR this week",
-    perc2: "21,134.92",
-    perc2_Subtitle: "Pending harvest |+5 more|",
-    button1: "Harvest All",
-    button2: "View Farms",
-    tvl: [
-      {
-        color: "bg-purple-500",
-        name: "ADA/TEDY",
-        price: "120,030",
-      },
-      {
-        color: "bg-cyan-500",
-        name: "cUSD/TEDY",
-        price: "124,943",
-      },
-      {
-        color: "bg-blue-500",
-        name: "ADA/cBTC",
-        price: "532,63",
-      },
-      {
-        color: "bg-blue-500",
-        name: "ADA/USD",
-        price: "843,030",
-      },
-      {
-        color: "bg-green-500",
-        name: "USD/TEDY",
-        price: "843,030",
-      },
-    ],
-    earningTokens: [
-      "/images/assets/teddy.png",
-      "/images/assets/blue_ada.png",
-      "/images/assets/token-1.png",
-      "/images/assets/wallet-1.png",
-    ],
-  },
-];
 
 const data = [
   { name: "09/20", price: 700 },
@@ -118,14 +28,17 @@ const data = [
 const User_Leftside = () => {
   const isWalletConnected = useAuthenticate.isWalletConnected();
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 w-full gap-8 xl:pr-8 mt-6">
+    <div className="grid grid-cols-1 lg:grid-cols-2 w-full gap-6 xl:pr-6 mt-6">
       {/* 1st grid  */}
       <div className=" font-medium rounded-3xl chart-component-color h-72 grid relative">
         <div className="px-6 pt-6 absolute z-10 w-full">
           <div className="flex items-center gap-1">
             <h1 className="text-base">Wallet Assets</h1>
             <button className="text-sm">
-              <BsQuestionCircle className="w-3 h-3" />
+              <BsQuestionCircle
+                title="The total trading volume for the entire Cardano DEX over the past 24 hours."
+                className="w-3 h-3"
+              />
             </button>{" "}
           </div>
           <h2 className="text-base mt-1 mb-0.5">
@@ -144,7 +57,10 @@ const User_Leftside = () => {
           <div className="flex items-center gap-1">
             <h1 className="text-base">Wallet Assets + Liquidity Positions</h1>
             <button className="text-sm">
-              <BsQuestionCircle className="w-3 h-3" />
+              <BsQuestionCircle
+                title="The total value of all the tokens in your wallet, including ADA, Teddy, and any other tokens that you hold, plus the value of your liquidity positions."
+                className="w-3 h-3"
+              />
             </button>
           </div>{" "}
           <h2 className="text-base mt-1 mb-0.5">

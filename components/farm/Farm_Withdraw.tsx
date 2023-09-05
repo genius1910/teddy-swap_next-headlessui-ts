@@ -9,7 +9,7 @@ interface Props {
 }
 
 const Farm_Withdraw = ({ setShowComponent }: Props) => {
-  const [withdrawRange, setWithdrawRange] = useState(1);
+  const [withdrawRange, setWithdrawRange] = useState(0);
 
   return (
     <React.Fragment>
@@ -34,65 +34,83 @@ const Farm_Withdraw = ({ setShowComponent }: Props) => {
       <p className="text-gray-400 w-full">
         LP Tokens Available: <span className="text-white">11189.1994</span>
       </p>
-      <p className="text-white text-2xl font-medium">0</p>
+      <p className="text-white text-2xl font-medium">{withdrawRange}</p>
       <div className="relative w-full">
         <input
           type="range"
           className="transparent h-1.5 slider w-full cursor-pointer appearance-none rounded-lg border-transparent bg-[#959595]"
-          min="1"
-          max="4"
+          min="0"
+          max="100"
           step="1"
           id="withdrawRange"
           value={withdrawRange}
           onChange={(e) => setWithdrawRange(Number(e.target.value))}
         />
         <div
-          style={{ width: `${33.33 * (withdrawRange - 1)}%` }}
-          className={`bg-[#1ED6FF] h-1.5 pointer-events-none absolute inset-0 top-1 my-auto rounded-full`}
+          style={{ width: `${1 * withdrawRange}%` }}
+          className={`bg-[#268AFF] h-1.5 pointer-events-none absolute inset-0 top-1 my-auto rounded-full`}
         />
         <div className="w-full flex justify-between text-xs absolute top-1.5 pointer-events-none">
           <div
             style={{
-              background: `${withdrawRange >= 1 ? "#1ED6FF" : "#D9D9D9"}`,
+              background: `${withdrawRange >= 0 ? "#268AFF" : "#D9D9D9"}`,
             }}
             className="w-4 h-4 rounded-full"
           />
           <div
             style={{
-              background: `${withdrawRange >= 2 ? "#1ED6FF" : "#D9D9D9"}`,
+              background: `${withdrawRange >= 25 ? "#268AFF" : "#D9D9D9"}`,
             }}
             className="w-4 h-4 rounded-full"
           />
           <div
             style={{
-              background: `${withdrawRange >= 3 ? "#1ED6FF" : "#D9D9D9"}`,
+              background: `${withdrawRange >= 50 ? "#268AFF" : "#D9D9D9"}`,
             }}
             className="w-4 h-4 rounded-full"
           />
           <div
             style={{
-              background: `${withdrawRange >= 4 ? "#1ED6FF" : "#D9D9D9"}`,
+              background: `${withdrawRange >= 75 ? "#268AFF" : "#D9D9D9"}`,
+            }}
+            className="w-4 h-4 rounded-full"
+          />
+          <div
+            style={{
+              background: `${withdrawRange >= 100 ? "#268AFF" : "#D9D9D9"}`,
             }}
             className="w-4 h-4 rounded-full"
           />
         </div>
       </div>
       <div className="w-full grid grid-cols-4 gap-4">
-        <button className=" p-4 small-component-color rounded-lg col-span-1">
+        <button
+          className={`px-6 py-4 small-component-color rounded-[14px] col-span-1`}
+          onClick={() => setWithdrawRange(25)}
+        >
           25%
         </button>
-        <button className=" p-4 small-component-color rounded-lg col-span-1">
+        <button
+          className={`px-6 py-4 small-component-color rounded-[14px] col-span-1`}
+          onClick={() => setWithdrawRange(50)}
+        >
           50%
         </button>
-        <button className=" p-4 small-component-color rounded-lg col-span-1">
+        <button
+          className={`px-6 py-4 small-component-color rounded-[14px] col-span-1`}
+          onClick={() => setWithdrawRange(75)}
+        >
           75%
         </button>
-        <button className=" p-4 small-component-color rounded-lg col-span-1">
+        <button
+          className={`px-6 py-4 small-component-color rounded-[14px] col-span-1`}
+          onClick={() => setWithdrawRange(100)}
+        >
           100%
         </button>
       </div>
       <div className=" w-full flex items-center gap-2 text-xs px-3 py-1">
-        <BsExclamationTriangleFill className="w-6 h-6 text-[#1ED6FF]" />
+        <BsExclamationTriangleFill className="w-6 h-6 text-[#268AFF]" />
         <p>
           Each Stake or Withdraw action will automatically harvest your rewards
           for this pair!

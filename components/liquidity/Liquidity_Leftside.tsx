@@ -7,7 +7,7 @@ import Liquidity_KeyStats from "./leftside/Liquidity_KeyStats";
 
 const Liquidity_Leftside = () => {
   return (
-    <div className="space-y-8">
+    <div className="space-y-6">
       <div className="component-color rounded-2xl">
         <Liquidity_AddRemove />
       </div>

@@ -7,9 +7,9 @@ import { BsExclamationCircle, BsPatchCheckFill } from "react-icons/bs";
 
 const Liquidity_SelectedTokenBottomside = () => {
   return (
-    <div className="component-color rounded-2xl p-6">
+    <div className="component-color rounded-[14px] pt-[27px] px-[29px] pb-8">
       <div className="flex justify-between text-xl">
-        <span className="flex items-center gap-1">
+        <span className="flex items-center gap-[6px]">
           <Image
             src={`/images/assets/token-1.png`}
             alt="icon1"
@@ -23,57 +23,90 @@ const Liquidity_SelectedTokenBottomside = () => {
             height={29}
             className="-ml-3"
           />
-          <h4 className="text-lg font-medium">ADA/USDA - LP</h4>
-          <BsPatchCheckFill className="w-3 h-3" />
+          <p className="text-[18px] leading-[15px] font-semibold">
+            ADA/USDA - LP
+          </p>
+          <BsPatchCheckFill className="w-[10px] h-[10px]" />
         </span>
 
-        <button className="primary-button py-2 px-6 text-sm w-auto">
+        <button className="primary-button py-2 px-6 rounded-[10px] text-[14px] leading-[17px] font-semibold w-auto">
           View Farm
         </button>
       </div>
-      <div className="grid grid-cols-3 mt-8 px-4">
+      <div className="grid grid-cols-3 mt-[46px] px-4">
         <div>
-          <h1 className="flex items-center gap-1 text-lg xl:text-xl mb-4 font-medium">
+          <p className="flex items-center gap-1 text-lg xl:text-[20px] xl:leading-[24px] mb-4 font-semibold">
             Total Liquidity
             <button>
-              <BsExclamationCircle className="w-3 h-3" />
+              <BsExclamationCircle
+                title="The total value of liquidity in the Teddy/ADA pool."
+                className="w-[10px] h-[10px]"
+              />
             </button>
-          </h1>
+          </p>
           <ul className="space-y-1">
-            <h2 className="text-sm xl:text-base">3.23m USDA</h2>
-            <h2 className="text-sm xl:text-base">6.12m ADA</h2>
-            <h2 className="text-sm xl:text-base">70,944,334,894 LP Tokens</h2>
-            <h2 className="text-sm xl:text-base">TeddySwap TVL share: 5.68%</h2>
+            <p className="text-sm xl:text-[16px] xl:leading-[24px] font-medium">
+              3.23m USDA
+            </p>
+            <p className="text-sm xl:text-[16px] xl:leading-[24px] font-medium">
+              6.12m ADA
+            </p>
+            <p className="text-sm xl:text-[16px] xl:leading-[24px] font-medium">
+              70,944,334,894 LP Tokens
+            </p>
+            <p className="text-sm xl:text-[16px] xl:leading-[24px] font-medium">
+              TeddySwap TVL share: 5.68%
+            </p>
           </ul>
         </div>
         <div>
-          <h1 className="flex items-center gap-1 text-lg xl:text-xl mb-4 font-medium">
+          <p className="flex items-center gap-1 text-lg xl:text-[20px] xl:leading-[24px] mb-4 font-semibold">
             Your Liquidity
             <button>
-              <BsExclamationCircle className="w-3 h-3" />
+              <BsExclamationCircle
+                title="The amount of liquidity that you have provided to the Teddy/ADA pool."
+                className="w-[10px] h-[10px]"
+              />
             </button>
-          </h1>
+          </p>
           <ul className="space-y-1">
-            <h2 className="text-sm xl:text-base">1,345 USDA</h2>
-            <h2 className="text-sm xl:text-base">2,130 ADA</h2>
-            <h2 className="text-sm xl:text-base">773,970 LP Tokens</h2>
-            <h2 className="text-sm xl:text-base">Pool share: 0.87%</h2>
+            <p className="text-sm xl:text-[16px] xl:leading-[24px] font-medium">
+              1,345 USDA
+            </p>
+            <p className="text-sm xl:text-[16px] xl:leading-[24px] font-medium">
+              2,130 ADA
+            </p>
+            <p className="text-sm xl:text-[16px] xl:leading-[24px] font-medium">
+              773,970 LP Tokens
+            </p>
+            <p className="text-sm xl:text-[16px] xl:leading-[24px] font-medium">
+              Pool share: 0.87%
+            </p>
           </ul>
         </div>
         <div>
-          <h1 className="flex items-center gap-1 text-lg xl:text-xl mb-4 font-medium">
+          <p className="flex items-center gap-1 text-lg xl:text-[20px] xl:leading-[24px] mb-4 font-semibold">
             Your Farm
             <button>
-              <BsExclamationCircle className="w-3 h-3" />
+              <BsExclamationCircle
+                title="The farms that you are currently participating in."
+                className="w-[10px] h-[10px]"
+              />
             </button>
-          </h1>
+          </p>
           <ul className="space-y-1">
-            <h2 className="text-sm xl:text-base">600,970 LP Tokens</h2>
-            <h2 className="text-sm xl:text-base">85.34% of LP position</h2>
-            <h2 className="text-sm xl:text-base">
+            <p className="text-sm xl:text-[16px] xl:leading-[24px] font-medium">
+              600,970 LP Tokens
+            </p>
+            <p className="text-sm xl:text-[16px] xl:leading-[24px] font-medium">
+              85.34% of LP position
+            </p>
+            <p className="text-sm xl:text-[16px] xl:leading-[24px] font-medium">
               APR <span className="text-[#268AFF]">34.56%</span>
-            </h2>
-            <h2 className="text-sm xl:text-base">Farm share: 1.67%</h2>
+            </p>
+            <p className="text-sm xl:text-[16px] xl:leading-[24px] font-medium">
+              Farm share: 1.67%
+            </p>
           </ul>
         </div>
       </div>

@@ -34,7 +34,7 @@ const SettingsPopup = ({ close }: { close: () => void }) => {
         <h1 className="flex font-medium text-xl text-[#AAA9A1]">Language</h1>
         <LanguageList />
       </div>
-      <ul className="px-8 space-y-8 w-full py-10">
+      <ul className="px-8 space-y-6 w-full py-10">
         <li className="flex items-center gap-3 cursor-pointer">
           <BsExclamationCircle className=" text-[#DBDBDB] w-6 h-6" />
           <p className="text-[#AAA9A1] text-xl font-medium">About</p>

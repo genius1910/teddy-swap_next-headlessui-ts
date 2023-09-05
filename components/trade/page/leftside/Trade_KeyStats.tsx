@@ -10,31 +10,41 @@ const Trade_KeyStats = () => {
       property: "Daily Volume",
       value: "1,011,825 ₳",
       about: "This is daily volume",
+      titleinfo:
+        "The total trading volume for the Teddy/ADA trading pair over the past 24 hours.",
     },
     {
       property: "Pooled ADA",
       value: "5,963,608 ₳",
       about: "This is pooled ADA",
+      titleinfo:
+        "The total amount of ADA that is currently deposited in the pool.",
     },
     {
       property: "Pooled TEDY",
       value: "5,762,468 AGIX",
       about: "This is pooled tedy",
+      titleinfo:
+        "The total amount of Teddy that is currently deposited in the pool.",
     },
     {
       property: "TEDY Holders",
       value: "10,410",
       about: "Who keep tedy",
+      titleinfo: "The number of unique addresses that hold Teddy.",
     },
     {
       property: "Total Tx",
       value: "55,525",
       about: "This is total tax",
+      titleinfo: "",
     },
     {
       property: "Total Tx",
       value: "55,525",
       about: "Total tax charge",
+      titleinfo:
+        "The total number of transactions that have been executed on the Teddy/ADA trading pair.",
     },
     {
       property: "Pool Created",
@@ -44,6 +54,8 @@ const Trade_KeyStats = () => {
       property: "% of TeddySwap TVL",
       value: "3.72%",
       about: "This is percentage",
+      titleinfo:
+        "The percentage of the total value of liquidity in the Cardano DEX that is held in the Teddy/ADA pool.",
     },
   ];
   return (
@@ -63,7 +75,10 @@ const Trade_KeyStats = () => {
                   <span>{item.property}</span>{" "}
                   {item?.about && (
                     <button title={item.about}>
-                      <BsExclamationCircle className="w-3 h-3" />
+                      <BsExclamationCircle
+                        title={item.titleinfo}
+                        className="w-3 h-3"
+                      />
                     </button>
                   )}
                 </h5>

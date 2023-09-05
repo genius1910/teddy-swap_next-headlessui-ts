@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { RxCross2 } from "react-icons/rx";
 import { MdEqualizer, MdTune } from "react-icons/md";
 import Liquidity_Add from "./Liquidity_Add";
@@ -15,12 +15,36 @@ export interface SelectedTokenProps {
 }
 
 const Liquidity_AddRemove = () => {
+  const wrapperRef = useRef(null);
+
   const [isDeposit, setIsDeposit] = useState(true);
+  const [isSuccess, setIsSuccess] = useState("view-message");
   const [showComponent, setShowComponent] = useState("view-1");
   const [selectedToken, setSelectedToken] = useState<SelectedTokenProps>();
   const [selectedToken2, setSelectedToken2] = useState<SelectedTokenProps>();
   const [selectedToken3, setSelectedToken3] = useState<SelectedTokenProps>();
   const [selectedToken4, setSelectedToken4] = useState<SelectedTokenProps>();
+
+  const useOutsideAlerter = (ref: any) => {
+    useEffect(() => {
+      /**
+       * Alert if clicked on outside of element
+       */
+      function handleClickOutside(event: any) {
+        if (ref.current && !ref.current.contains(event.target)) {
+          setIsSuccess("view-1");
+        }
+      }
+      // Bind the event listener
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+        // Unbind the event listener on clean up
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }, [ref]);
+  };
+
+  useOutsideAlerter(wrapperRef);
 
   return (
     <>
@@ -61,8 +85,8 @@ const Liquidity_AddRemove = () => {
           {isDeposit ? (
             <Liquidity_Add
               setShowComponent={setShowComponent}
-              selectedToken={selectedToken}
-              selectedToken2={selectedToken2}
+              setSelectedToken={setSelectedToken}
+              setSelectedToken2={setSelectedToken2}
             />
           ) : (
             <Liquidity_Remove
@@ -101,26 +125,14 @@ const Liquidity_AddRemove = () => {
           {showComponent == "confirm-liquidity" && (
             <Liquidity_Confirm
               isAdd={true}
+              setIsSuccess={setIsSuccess}
               setShowComponent={setShowComponent}
             />
           )}
           {showComponent == "remove-liquidity" && (
             <Liquidity_Confirm
               isAdd={false}
-              setShowComponent={setShowComponent}
-            />
-          )}
-          {showComponent == "transaction-success" && (
-            <TransactionStatus
-              isLiquidity={true}
-              status={true}
-              setShowComponent={setShowComponent}
-            />
-          )}
-          {showComponent == "transaction-failed" && (
-            <TransactionStatus
-              isLiquidity={true}
-              status={false}
+              setIsSuccess={setIsSuccess}
               setShowComponent={setShowComponent}
             />
           )}
@@ -128,6 +140,28 @@ const Liquidity_AddRemove = () => {
             <Trade_Settings setShowComponent={setShowComponent} />
           )}
         </>
+      )}
+      {isSuccess == "transaction-success" && (
+        <div className=" notification-animation" ref={wrapperRef}>
+          <TransactionStatus
+            isLiquidity={true}
+            status={true}
+            location={isDeposit ? "confirm-liquidity" : "remove-liquidity"}
+            setShowComponent={setShowComponent}
+            setIsSuccess={setIsSuccess}
+          />
+        </div>
+      )}
+      {isSuccess == "transaction-failed" && (
+        <div className=" notification-animation" ref={wrapperRef}>
+          <TransactionStatus
+            isLiquidity={true}
+            status={false}
+            location={isDeposit ? "confirm-liquidity" : "remove-liquidity"}
+            setShowComponent={setShowComponent}
+            setIsSuccess={setIsSuccess}
+          />
+        </div>
       )}
     </>
   );

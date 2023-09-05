@@ -8,48 +8,52 @@ import { GoCheck as GoCheckCircle } from "react-icons/go";
 
 interface Props {
   setShowComponent: (value: string) => void;
+  setIsSuccess: (value: string) => void;
   status: boolean;
   isLiquidity?: boolean;
+  location: string;
   isNotPadding?: boolean;
 }
 
 const TransactionStatus = ({
   setShowComponent,
+  setIsSuccess,
   status,
   isLiquidity,
+  location,
   isNotPadding,
 }: Props) => {
   return (
     <div
-      className={`relative font-medium flex flex-col gap-6 items-center ${
-        isNotPadding ? "" : "p-6"
-      }`}
+      className={`relative h-60 font-medium flex flex-col gap-6 items-center rounded-2xl bg-[url('/images/assets/tokenResultBg.svg')] bg-cover bg-bottom p-6`}
     >
       <div className="text-white flex items-center justify-between w-full">
-        <h1 className=" xl:text-xl text-base">
-          {status ? "Transaction Successful" : "Transaction Failed"}
-        </h1>
+        <div className="flex flex-row gap-1 items-center">
+          <h1 className=" xl:text-xl text-base">
+            {status ? "Transaction Successful" : "Transaction Failed"}
+          </h1>
+          {status ? (
+            <img
+              src="/images/assets/tick.svg"
+              className="xl:w-5 xl:h-5 w-5 h-5"
+            />
+          ) : (
+            <img
+              src="/images/assets/cross.svg"
+              className="xl:w-5 xl:h-5 w-5 h-5"
+            />
+          )}
+        </div>
         <button
           className={` text-gray-100 hover:text-white text-base xl:text-lg`}
         >
           <RxCross2
-            onClick={() => (status ? false : setShowComponent("confirm-swap"))}
+            onClick={() => setIsSuccess("view-1")}
             className=" w-8 h-8 "
           />
         </button>
       </div>
-      {status ? (
-        <img
-          src="/images/assets/tick.svg"
-          className="xl:w-28 xl:h-28 w-20 h-20"
-        />
-      ) : (
-        <img
-          src="/images/assets/cross.svg"
-          className="xl:w-28 xl:h-28 w-20 h-20"
-        />
-      )}
-      <div className="flex justify-between items-center px-6 w-full mb-6">
+      {/* <div className="flex justify-between items-center px-6 w-full mb-6">
         <div className="flex flex-col gap-2 items-center justify-center relative">
           <div className="p-4 rounded-xl button-component-color">
             <Image
@@ -96,7 +100,7 @@ const TransactionStatus = ({
         className=" primary-button  text-sm xl:text-lg py-2 xl:py-3 rounded-lg border-2"
       >
         {status ? "Done" : "Close"}
-      </button>
+      </button> */}
     </div>
   );
 };

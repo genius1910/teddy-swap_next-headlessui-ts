@@ -6,7 +6,78 @@
 :root {
 }
 
+input[type="range"]::-webkit-slider-thumb {
+  background-color: #268aff;
+  height: 24px;
+  width: 24px;
+}
+
+@keyframes example {
+  0% {
+    right: -68px;
+  }
+  10% {
+    right: -58px;
+  }
+  20% {
+    right: -48px;
+  }
+  30% {
+    right: -38px;
+  }
+  40% {
+    right: -28px;
+  }
+  50% {
+    right: -18px;
+  }
+  60% {
+    right: -8px;
+  }
+  70% {
+    right: 2px;
+  }
+  80% {
+    right: 12px;
+  }
+  90% {
+    right: 22px;
+  }
+  100% {
+    right: 32px;
+  }
+}
+
+.notification-animation {
+  position: fixed;
+  animation-name: example;
+  animation-duration: 0.2s;
+  z-index: 50;
+  width: 380px;
+  top: 76px;
+  right: 32px;
+}
+
+.component-color-23 {
+  background: linear-gradient(
+    128.53deg,
+    rgba(69, 78, 96, 0.88) 11.81%,
+    rgba(73, 79, 89, 0.88) 48.34%,
+    rgba(43, 56, 74, 0.88) 98.82%
+  );
+  box-shadow: 3px 4px 15px rgba(0, 0, 0, 0.22);
+  /* backdrop-filter: blur(11px); */
+}
+
 @layer components {
+  .notification-animation {
+    position: fixed;
+    animation-name: notification-animation;
+    animation-duration: 4s;
+    z-index: 50;
+    width: 380px;
+    top: 76px;
+  }
   .navbar-color {
     background: linear-gradient(93.42deg, #212936 -21.87%, #131725 172.12%);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -58,11 +129,10 @@
   .mid-s-component-color {
     background: linear-gradient(
       104.24deg,
-      rgba(30, 39, 50, 0.5) -5.98%,
-      rgba(36, 44, 60, 0.5) 76.54%,
-      rgba(13, 15, 29, 0.5) 260.97%
+      rgba(69, 78, 96, 0.5) -5.98%,
+      rgba(73, 79, 89, 0.5) 76.54%,
+      rgba(43, 56, 74, 0.5) 260.97%
     );
-    @apply shadow-md;
   }
   .list-component-color {
     background: linear-gradient(
@@ -104,6 +174,26 @@
     );
     @apply border-[#268AFF] w-full rounded-lg shadow-md border p-2.5 font-medium transition-all;
   }
+
+  .base-button {
+    background: linear-gradient(
+      164deg,
+      rgba(69, 78, 96, 0.63) 0%,
+      rgba(73, 79, 89, 0.63) 41.98%,
+      rgba(43, 56, 74, 0.63) 100%
+    );
+    @apply border-[#268AFF] w-full rounded-lg shadow-md border p-2.5 font-medium transition-all;
+  }
+
+  .base-button:hover {
+    background: linear-gradient(
+      164deg,
+      rgba(79, 88, 106, 0.63) 0%,
+      rgba(83, 89, 99, 0.63) 41.98%,
+      rgba(53, 66, 84, 0.63) 100%
+    );
+  }
+
   .secondary-button {
     @apply border-[#268aff] bg-[#268aff] w-full rounded-lg shadow-md border p-2 font-medium transition-all;
   }
@@ -124,7 +214,7 @@
       rgba(255, 255, 255, 0.23) 106.33%
     );
     border-radius: 7.1113px;
-    @apply active:opacity-80 hover:opacity-90;
+    @apply active:opacity-80 hover:opacity-90 p-2.5 w-full rounded-lg;
   }
   .heading-xl {
     @apply text-base 2xl:text-xl;
@@ -185,6 +275,12 @@
         rgba(73, 79, 89, 0.63) 41.98%,
         rgba(43, 56, 74, 0.63) 100%
       )
+    );
+  }
+  .topmovers-bg {
+    background: var(
+      --glass,
+      linear-gradient(315.01deg, #181d2d -11.92%, rgba(46, 47, 58, 1) 119.58%)
     );
   }
   .cardano-soild-bg {

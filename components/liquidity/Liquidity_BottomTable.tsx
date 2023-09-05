@@ -13,58 +13,70 @@ interface Props {
 
 const Liquidity_BottomTable = ({ setActiveTab }: Props) => {
   return (
-    <div className="w-full component-color rounded-2xl p-2 sm:p-6 mt-10">
+    <div className="w-full component-color rounded-2xl p-2 sm:p-[30px] mt-8">
       <div className="flex justify-between">
         <div className="relative small-component-color flex w-10/12 sm:w-auto items-center rounded-lg">
-          <AiOutlineSearch className=" text-gray-400 w-6 h-6 ml-2 " />
+          <AiOutlineSearch className=" text-[#D6D4C6] w-4 h-4 ml-4 " />
           <input
             placeholder="Type token name, ticker, or policy id"
-            className=" placeholder:text-gray-400 text-sm w-full sm:w-96 px-2 py-4 bg-transparent outline-none rounded-lg"
+            className=" placeholder:text-[#D6D4C6] text-[16px] leading-[18px] font-medium w-full sm:w-96 ml-[6px] py-[13px] bg-transparent outline-none rounded-lg"
           />
         </div>
       </div>
-      <div className="mt-6 overflow-x-auto whitespace-nowrap overflow-hidden">
+      <div className="mt-[30px] overflow-x-auto whitespace-nowrap overflow-hidden">
         <table className="w-full">
-          <tbody>
-            <tr className=" mid-s-component-color text-base ">
-              <th className="text-left pl-4 pr-10 py-2 font-medium rounded-l-md">
+          <thead>
+            <tr className=" mid-s-component-color ">
+              <th className="pr-32 pt-[11px] pb-[19px]  rounded-l-md text-[16px] leading-[19.5px] font-semibold text-[#D6D4C6] w-[288px]">
                 Asset Pair
               </th>
-              <th className=" pl-8 lg:pl-16 py-2 font-medium flex items-center gap-1">
+              <th className=" justify-center pt-[11px] pb-[19px]  text-[16px] leading-[19.5px] text-[#D6D4C6] font-semibold  flex items-center gap-[2px]">
                 <span>TVL</span>
-                <BsExclamationCircle className="w-3 h-3 " />
+                <BsExclamationCircle
+                  title="The total value of the liquidity in the entire Cardano Decentralized Exchange (DEX)."
+                  className="w-[10px] h-[10px] cursor-pointer"
+                />
               </th>
-              <th className=" pl-8 lg:pl-16 py-2 font-medium">
-                <span className="flex items-center gap-1">
-                  <button>
-                    <AiOutlineArrowDown className="w-4 h-4 text-[#268AFF]" />
-                  </button>
+              <th className="pl-4 pt-[11px] pb-[19px]  text-[16px] leading-[19.5px] font-semibold text-[#D6D4C6] pr-6">
+                <span className="flex items-center gap-[2px] justify-center">
                   <span>Volume 24H</span>
-                  <BsExclamationCircle className="w-3 h-3 " />
+                  <BsExclamationCircle
+                    title="The total trading volume for the Teddy/ADA trading pair over the past 24 hours."
+                    className="w-[10px] h-[10px] cursor-pointer"
+                  />
                 </span>
               </th>
-              <th className=" pl-8 lg:pl-16 py-2 font-medium">
-                <span className="flex items-center gap-1">
+              <th className="pl-10 pr-8 pt-[11px] pb-[19px]  text-[16px] leading-[19.5px] font-semibold text-[#D6D4C6]">
+                <span className="flex items-center gap-[2px] justify-center">
                   <span>Volume 7D </span>
-                  <BsExclamationCircle className="w-3 h-3 " />
+                  <BsExclamationCircle
+                    title="The total trading volume for the entire Cardano DEX over the past 7 Days."
+                    className="w-[10px] h-[10px] cursor-pointer"
+                  />
                 </span>
               </th>
-              <th className=" pl-8 lg:pl-16 py-2 font-medium">
-                <span className="flex items-center gap-1">
+              <th className="pl-8 pt-[11px] pb-[19px]  text-[16px] leading-[19.5px] font-semibold text-[#D6D4C6]">
+                <span className="flex items-center gap-[2px] justify-start">
                   <span>LP Fee </span>
-                  <BsExclamationCircle className="w-3 h-3 " />
+                  <BsExclamationCircle
+                    title="The fee that liquidity providers are charged when they deposit or withdraw liquidity from the pool."
+                    className="w-[10px] h-[10px] cursor-pointer "
+                  />
                 </span>
               </th>
-              <th className=" pl-10 py-2 font-medium">
-                <span className="flex items-center gap-1">
+              <th className="pr-24 pt-[11px] pb-[19px]  text-[16px] leading-[19.5px] font-semibold text-[#D6D4C6]">
+                <span className="flex items-center gap-[2px]">
                   <span> Queuing </span>
-                  <BsQuestionCircle className="w-3 h-3 " />
+                  <BsQuestionCircle
+                    title="The fee that liquidity providers are charged when they deposit or withdraw liquidity from the pool."
+                    className="w-[10px] h-[10px] cursor-pointer"
+                  />
                 </span>
               </th>
               <th className="rounded-r-lg"></th>
             </tr>
-          </tbody>
-          {[1, 2, 3, 4, 5].map((item) => {
+          </thead>
+          {[1, 2, 3, 4, 5, 6, 7].map((item) => {
             return (
               <Liquidity_TableRow
                 key={item}

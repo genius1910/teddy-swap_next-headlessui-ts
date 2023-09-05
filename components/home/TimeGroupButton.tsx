@@ -8,9 +8,7 @@ const TimeGroupButton = ({ isRelative }: Props) => {
   const [currentTime, setCurrentTime] = useState("1w");
   return (
     <div
-      className={`flex whitespace-nowrap flex-col right-0 top-2 ${
-        !isRelative && "2xl:absolute mx-auto"
-      }`}
+      className={`flex whitespace-nowrap flex-col right-0 top-2 ${!isRelative}`}
     >
       {/* all button  */}
       <ul className="flex items-center component-color rounded-xl text-sm w-full">

@@ -1,18 +1,28 @@
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { RxCross2 } from "react-icons/rx";
 import { BsArrowRight } from "react-icons/bs";
 
 interface Props {
   setShowComponent: (value: string) => void;
   isAdd: boolean;
+  setIsSuccess: (value: string) => void;
+  status: string;
 }
 
-const Farm_Harvest = ({ setShowComponent, isAdd }: Props) => {
+const Farm_Harvest = ({
+  setShowComponent,
+  isAdd,
+  setIsSuccess,
+  status,
+}: Props) => {
   const [confirming, setConfirming] = useState(false);
+  useEffect(() => {
+    setConfirming(false);
+  }, [status]);
   return (
     <div className="relative font-medium flex flex-col gap-6 items-center">
-      <div className="flex justify-between items-center w-full mb-6 p-6">
+      <div className="flex justify-between items-center w-full mb-6 py-[26px] px-[50px]">
         <div className="flex flex-col gap-2 items-center justify-center relative">
           <div className="p-4 rounded-xl button-component-color">
             <Image
@@ -48,7 +58,7 @@ const Farm_Harvest = ({ setShowComponent, isAdd }: Props) => {
       </div>
       {confirming ? (
         <>
-          <p className="text-xss text-gray-200 text-center">
+          <p className="text-[14px] leading-[17px] font-normal text-[#AAA9A1] text-center">
             Adding 32,432 TEDY and 1013 ADA Liquidity. Confirm this transaction
             in your wallet.
           </p>
@@ -59,7 +69,7 @@ const Farm_Harvest = ({ setShowComponent, isAdd }: Props) => {
         </>
       ) : (
         <>
-          <p className="text-xss text-gray-200 text-center">
+          <p className="text-[14px] leading-[17px] font-normal text-[#AAA9A1] text-center">
             Adding 32,432 TEDY and 1013 ADA Liquidity. Confirm this transaction
             in your wallet.
           </p>
@@ -91,13 +101,17 @@ const Farm_Harvest = ({ setShowComponent, isAdd }: Props) => {
             onClick={() => {
               setConfirming(true);
               setTimeout(() => {
-                Math.random() >= 0.5
-                  ? setShowComponent("transaction-success")
-                  : setShowComponent("transaction-failed");
+                if (Math.random() >= 0.5) {
+                  setShowComponent("view-2");
+                  setIsSuccess("transaction-success");
+                } else {
+                  setConfirming(false);
+                  setIsSuccess("transaction-failed");
+                }
               }, 2000);
             }}
             type="button"
-            className=" primary-button  text-sm 2xl:text-xl py-3 2xl:py-4 rounded-lg border-2"
+            className=" primary-button  font-medium text-sm xl:leading-[24px] xl:text-[20px] py-3 2xl:py-4 rounded-lg border-2 mt-4"
           >
             Harvest
           </button>
