@@ -6,6 +6,12 @@
 :root {
 }
 
+input[type="range"]::-webkit-slider-thumb {
+  background-color: #268aff;
+  height: 24px;
+  width: 24px;
+}
+
 @keyframes example {
   0% {
     right: -68px;
