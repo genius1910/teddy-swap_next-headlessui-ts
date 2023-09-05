@@ -7,7 +7,7 @@ import Trade_Stats from "./rightside/Trade_Stats";
 import Trade_History from "./rightside/Trade_History";
 import Trade_TopPairs from "./rightside/Trade_TopPairs";
 
-const times = ["1H", "1D", "1W", "1M", "All Time"];
+const times = ["1H", "1D", "1W", "1M", "3M", "1Y", "All Time"];
 
 const data = [
   { name: "09/20", price: 700 },
@@ -35,13 +35,16 @@ const Trade_Rightside = ({ activeTab, setActiveTab }: Props) => {
   const [currentTime, setCurrentTime] = useState("1w");
   const [toggler, setToggler] = useState("Volume");
   const [hydration, setHydration] = useState(false);
+  const [fixedLines, setFixedLines] = useState({
+    current: 900,
+  });
 
   useEffect(() => {
     setHydration(true);
   }, []);
 
   return (
-    <div className="">
+    <div className="select-none">
       {hydration && activeTab == "ADA / TEDY" ? (
         <>
           <div className=" font-medium component-color h-[479px] rounded-2xl grid relative">
@@ -75,7 +78,7 @@ const Trade_Rightside = ({ activeTab, setActiveTab }: Props) => {
                 <div className="flex flex-col">
                   <div className="flex gap-0.5">
                     {/* all button  */}
-                    <ul className="flex items-center component-color rounded-md text-xss w-full">
+                    <ul className="flex items-center component-color rounded-xl text-xss w-full">
                       {times.map((item) => {
                         return (
                           <li key={item}>
@@ -83,8 +86,8 @@ const Trade_Rightside = ({ activeTab, setActiveTab }: Props) => {
                               onClick={() => setCurrentTime(item)}
                               className={`${
                                 item == currentTime &&
-                                "small-component-color rounded-md"
-                              } text-white py-0.5 px-3`}
+                                "small-component-color rounded-xl"
+                              } text-white py-2 px-3.5`}
                             >
                               {item}
                             </button>
@@ -94,7 +97,7 @@ const Trade_Rightside = ({ activeTab, setActiveTab }: Props) => {
                     </ul>
                   </div>
                 </div>
-                <div className="flex items-center justify-center mt-4">
+                <div className="flex items-center justify-end mt-4">
                   <div
                     onClick={() =>
                       toggler === "Volume"
@@ -120,7 +123,7 @@ const Trade_Rightside = ({ activeTab, setActiveTab }: Props) => {
                 </div>
               </div>
             </div>
-            <CustomChart data={data} labelVisble unit="₳" />
+            <CustomChart data={data} fixedLines={fixedLines} unit="₳" />
           </div>
           <Trade_Stats />
           <Trade_History />
