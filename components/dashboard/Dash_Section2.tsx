@@ -27,7 +27,7 @@ const Dash_Section2 = () => {
               alt="User info"
               width={520}
               height={520}
-              className="w-full drop-shadow-2xl -ml-1.5"
+              className="w-full drop-shadow-2xl"
             />
           </div>
           <button className="mt-5 inline-flex items-center gap-[14px] font-medium text-sm max-lg:justify-center">
