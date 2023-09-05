@@ -118,12 +118,13 @@ input[type="range"]::-webkit-slider-thumb {
     );
     @apply shadow-md;
   }
+
+  .component-color-5 {
+    background: #4b515d;
+  }
+
   .small-component-color {
-    background: linear-gradient(
-      315.01deg,
-      #181d2d -11.92%,
-      rgba(46, 47, 58, 0.75) 119.58%
-    );
+    background: #212635;
     @apply shadow-md;
   }
   .small-component-color:hover {

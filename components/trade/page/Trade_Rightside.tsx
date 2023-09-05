@@ -7,7 +7,7 @@ import Trade_Stats from "./rightside/Trade_Stats";
 import Trade_History from "./rightside/Trade_History";
 import Trade_TopPairs from "./rightside/Trade_TopPairs";
 
-const times = ["1H", "1D", "1W", "1M", "All Time"];
+const times = ["1H", "1D", "1W", "1M", "3M", "1Y", "All Time"];
 
 const data = [
   { name: "09/20", price: 700 },
@@ -35,6 +35,9 @@ const Trade_Rightside = ({ activeTab, setActiveTab }: Props) => {
   const [currentTime, setCurrentTime] = useState("1w");
   const [toggler, setToggler] = useState("Volume");
   const [hydration, setHydration] = useState(false);
+  const [fixedLines, setFixedLines] = useState({
+    current: 900,
+  });
 
   useEffect(() => {
     setHydration(true);
