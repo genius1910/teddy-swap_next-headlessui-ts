@@ -73,7 +73,10 @@ export function GaugeChart() {
         <p className="text-[36px] leading-[44px] font-normal">86%</p>
         <span className="flex justify-center items-center text-[12px] leading-[14px] font-normal text-gray-400">
           Average Apr
-          <BsExclamationCircle className="w-[10px] h-[10px] ml-[2px]" />
+          <BsExclamationCircle
+            title="The average annual percentage rate (APR) that you are earning from the farm."
+            className="w-[10px] h-[10px] ml-[2px] cursor-pointer"
+          />
         </span>
       </div>
     </div>

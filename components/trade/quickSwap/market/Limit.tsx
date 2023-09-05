@@ -169,7 +169,7 @@ const Limit: React.FC<MarketProps> = ({
               </p>
               <AiOutlineExclamationCircle
                 title="The maximum amount that the price of Teddy can move before your trade is cancelled."
-                className="w-3 h-3"
+                className="w-3 h-3 cursor-pointer"
               />
             </div>
             <p className=" text-white text-[15px] font-medium leading-[18px]">
@@ -183,7 +183,7 @@ const Limit: React.FC<MarketProps> = ({
               </p>
               <AiOutlineExclamationCircle
                 title="The estimated impact that your trade will have on the price of Teddy."
-                className="w-3 h-3"
+                className="w-3 h-3 cursor-pointer"
               />
             </div>
             <p className=" text-white text-[15px] font-medium leading-[18px]">
@@ -197,7 +197,7 @@ const Limit: React.FC<MarketProps> = ({
               </p>
               <AiOutlineExclamationCircle
                 title="The fee that you earn as a liquidity provider, expressed as a percentage of the trading fees that are generated in the pool."
-                className="w-3 h-3"
+                className="w-3 h-3 cursor-pointer"
               />
             </div>
             <p className=" text-white text-[15px] font-medium leading-[18px]">
@@ -211,7 +211,7 @@ const Limit: React.FC<MarketProps> = ({
               </p>
               <AiOutlineExclamationCircle
                 title="The fee that you pay to the batcher for processing your trades."
-                className="w-3 h-3"
+                className="w-3 h-3 cursor-pointer"
               />
             </div>
             <p className=" text-white text-[15px] font-medium leading-[18px]">
@@ -225,7 +225,7 @@ const Limit: React.FC<MarketProps> = ({
               </p>
               <AiOutlineExclamationCircle
                 title="The amount of ADA that you want to deposit into the pool."
-                className="w-3 h-3"
+                className="w-3 h-3 cursor-pointer"
               />
             </div>
             <p className=" text-white text-[15px] font-medium leading-[18px]">

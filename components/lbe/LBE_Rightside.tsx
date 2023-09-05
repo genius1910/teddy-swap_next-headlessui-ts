@@ -138,7 +138,7 @@ const LBE_Rightside = () => {
               </p>
               <AiOutlineInfoCircle
                 title="The total amount of ADA that has been deposited into the pool."
-                className="w-[10px] h-[10px]"
+                className="w-[10px] h-[10px] cursor-pointer"
               />
             </div>
             <p className=" font-bold text-sm 2xl:text-xl mt-5 mb-16">0</p>
@@ -150,7 +150,7 @@ const LBE_Rightside = () => {
                 </p>
                 <AiOutlineInfoCircle
                   title="The number of liquidity provider (LP) tokens that you will receive for depositing ADA into the pool. LP tokens represent your share of the pool's liquidity."
-                  className="w-[10px] h-w-[10px]"
+                  className="w-[10px] h-w-[10px] cursor-pointer"
                 />
               </div>
               <p className="text-xl 2xl:text-[28px] leading-[34px] font-semibold mt-2 text-[#C6C6C6]">
@@ -165,7 +165,7 @@ const LBE_Rightside = () => {
               </p>
               <AiOutlineInfoCircle
                 title="The current pool of liquidity for the Teddy/ADA trading pair."
-                className="w-[10px] h-[10px]"
+                className="w-[10px] h-[10px] cursor-pointer"
               />
             </div>
             <p className=" text-sm 2xl:text-lg font-normal mt-[19px] gap-[14px] flex flex-row ">
@@ -183,7 +183,7 @@ const LBE_Rightside = () => {
                 </p>
                 <AiOutlineInfoCircle
                   title="The percentage of the pool's liquidity that you own, expressed as a decimal."
-                  className="w-[10px] h-[10px]"
+                  className="w-[10px] h-[10px] cursor-pointer"
                 />
               </div>
               <p className="text-xl 2xl:text-[28px] leading-[34px] font-semibold mt-2 text-[#C6C6C6]">

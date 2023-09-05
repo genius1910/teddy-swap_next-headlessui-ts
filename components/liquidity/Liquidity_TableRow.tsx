@@ -144,7 +144,7 @@ const Liquidity_TableRow = ({ item, setActiveTab }: Props) => {
                     <button>
                       <BsExclamationCircle
                         title="The potential loss that you can incur due to price fluctuations when providing liquidity to the Teddy/ADA"
-                        className="w-[10px] h-[10px]"
+                        className="w-[10px] h-[10px] cursor-pointer"
                       />
                     </button>
                   </span>

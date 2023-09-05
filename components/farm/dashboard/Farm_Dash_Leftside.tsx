@@ -57,7 +57,7 @@ const Farm_Dash_Leftside = () => {
               <p>Total Weighted IL</p>
               <BsExclamationCircle
                 title="The total impermanent loss that you have incurred across all of your liquidity positions, weighted by the amount of liquidity that you have provided to each pool."
-                className="w-[11px] h-[11px] "
+                className="w-[11px] h-[11px] cursor-pointer"
               />
             </div>
             <p className="text-[16px] leading-[20px] font-medium text-[#FF5757]">
@@ -69,7 +69,7 @@ const Farm_Dash_Leftside = () => {
               <p>Total LP Fees Income</p>
               <BsExclamationCircle
                 title="The total amount of fees that you have earned as a liquidity provider."
-                className="w-[11px] h-[11px] "
+                className="w-[11px] h-[11px] cursor-pointer"
               />
             </div>
             <p className="text-[16px] leading-[20px] font-medium text-[#57FF86]">
@@ -81,7 +81,7 @@ const Farm_Dash_Leftside = () => {
               <p>Net Gain</p>
               <BsExclamationCircle
                 title="The total earnings that you have generated from providing liquidity, minus any impermanent loss that you have incurred."
-                className="w-[11px] h-[11px] "
+                className="w-[11px] h-[11px] cursor-pointer "
               />
             </div>
             <p className="text-[16px] leading-[20px] font-medium text-[#57FF86]">

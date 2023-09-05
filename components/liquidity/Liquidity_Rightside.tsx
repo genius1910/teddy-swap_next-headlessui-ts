@@ -53,7 +53,7 @@ const Liquidity_Rightside = ({ activeTab, setActiveTab }: Props) => {
               <button>
                 <BsExclamationCircle
                   title="The potential loss that you can incur due to price fluctuations when providing liquidity to the Teddy/ADA"
-                  className="w-3 h-3"
+                  className="w-3 h-3 cursor-pointer"
                 />
               </button>
             </p>

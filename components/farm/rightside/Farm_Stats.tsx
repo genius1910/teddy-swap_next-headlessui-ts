@@ -6,7 +6,7 @@ const Farm_Stats = () => {
     {
       name: "Earned by Farm Participants",
       value: "13,240,234 TEDY",
-      info: "",
+      info: "The total earnings that you have generated from staking your tokens in the farm.",
     },
     {
       name: "Your Earnings",

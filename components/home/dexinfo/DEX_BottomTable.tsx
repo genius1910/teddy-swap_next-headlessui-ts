@@ -53,7 +53,7 @@ const DEX_BottomTable = () => {
                   Volume 1D
                   <BsExclamationCircle
                     title="The total trading volume for the entire Cardano DEX over the past 24 hours."
-                    className="w-2.5 h-2.5 absolute  right-[-13px]"
+                    className="w-2.5 h-2.5 absolute  right-[-13px] cursor-pointer"
                   />
                 </span>
               </th>
@@ -62,7 +62,7 @@ const DEX_BottomTable = () => {
                   <MdArrowDownward className="w-4 h-4 text-[#268AFF]" /> TVL{" "}
                   <BsExclamationCircle
                     title="The total value of the liquidity in the entire Cardano Decentralized Exchange (DEX)."
-                    className="w-2.5 h-2.5 absolute  right-[-13px]"
+                    className="w-2.5 h-2.5 absolute  right-[-13px] cursor-pointer"
                   />
                 </span>
               </th>
@@ -71,7 +71,7 @@ const DEX_BottomTable = () => {
                   FD Market cap
                   <BsExclamationCircle
                     title="The fully diluted market capitalization of Teddy, taking into account the liquidity in the Teddy/ADA pool."
-                    className="w-2.5 h-2.5 absolute right-[-13px]"
+                    className="w-2.5 h-2.5 absolute right-[-13px] cursor-pointer"
                   />
                 </span>
               </th>
