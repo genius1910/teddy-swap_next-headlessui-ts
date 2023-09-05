@@ -20,6 +20,7 @@ interface CustomLabelProps extends LabelProps {
   fontsize: number;
   align: "left" | "center" | "right";
   controlable?: boolean;
+  hiddenable?: boolean;
 }
 
 interface PointType {
@@ -29,7 +30,7 @@ interface PointType {
 
 interface FixedLineType {
   current: number;
-  deposit: number;
+  deposit?: number;
 }
 
 interface Props {
@@ -73,41 +74,37 @@ const CustomChat = ({
 
   const [toggle, setToggle] = useState(false);
   const [pickY, setPickY] = useState(false);
-  const [currentPrice, setCurrentPrice] = useState(fixedLines?.current);
+  const [predictedPrice, setPredictedPrice] = useState(fixedLines?.current);
+  const [fixedLineVisible, setFixedLineVisible] = useState(true);
 
   const toggleFalse = () => {
     setToggle(false);
-    setFixedLines && setFixedLines({ ...fixedLines, current: currentPrice });
+    setPredictedPrice(fixedLines?.current);
   };
 
   const CustomLabel = (props: CustomLabelProps) => {
     const bx = props.size;
-    const by = 17;
+    const by = 6;
     let sx = 0;
     if (props.align === "center")
       sx = props.viewBox.x + props.viewBox.width / 2 - bx / 2;
     return (
       <g>
-        <defs>
-          <linearGradient id="gradient" gradientTransform="rotate(90)">
-            <stop offset="0%" stopColor="#181D2D" />
-            <stop offset="100%" stopColor="#2E2F3A" />
-          </linearGradient>
-        </defs>
-        <rect
-          className="cursor-pointer"
-          x={sx}
-          y={props.viewBox.y - by / 2}
-          rx={5}
-          ry={5}
-          fill="url(#gradient)"
-          fontStyle="#fff"
-          width={bx}
-          height={by}
+        <path
+          className="cursor-pointer price-label"
+          d={`M${sx},${props.viewBox.y - by - 6}
+              h${bx}
+              q7,0 7,7
+              v${by}
+              q0,7 -7,7
+              h-${bx}
+              z
+            `}
+          fill="#353D4C"
           onMouseDown={() => props.controlable && setToggle(true)}
         />
         <text
-          className="cursor-pointer"
+          className="cursor-pointer price-label"
           x={props.viewBox.x}
           y={props.viewBox.y}
           fill="#fff"
@@ -119,8 +116,8 @@ const CustomChat = ({
         >
           {props.controlable
             ? toggle
-              ? `Predicted Price: ${unit ? unit : ""}${currentPrice}`
-              : `Current Price: ${unit ? unit : ""}${currentPrice}`
+              ? `Predicted Price: ${unit ? unit : ""}${predictedPrice}`
+              : `Current Price: ${unit ? unit : ""}${fixedLines?.current}`
             : `${props.value}`}
         </text>
         {props.controlable && (
@@ -243,7 +240,7 @@ const CustomChat = ({
 
       if (clickPoint.clicked) {
         if (toggle) {
-          setCurrentPrice(currentPrice! - dy * 5);
+          setPredictedPrice(predictedPrice! - dy * 5);
         } else if (pickY) {
           let sy = scaleSize.y;
           if (scaleSize.y + dy < yConfig.min) {
@@ -282,6 +279,7 @@ const CustomChat = ({
     scrollableElements.forEach((item) => {
       item.addEventListener("wheel", (e) => e.preventDefault());
     });
+    !fixedLines?.deposit && setFixedLineVisible(false);
   }
 
   function enableScroll() {
@@ -290,6 +288,7 @@ const CustomChat = ({
     scrollableElements.forEach((item) => {
       item.removeEventListener("wheel", (e) => e.preventDefault());
     });
+    !fixedLines?.deposit && setFixedLineVisible(true);
   }
 
   return (
@@ -332,47 +331,51 @@ const CustomChat = ({
               fill="url(#price)"
             />
 
-            {fixedLines && (
+            {fixedLines?.deposit && (
               <ReferenceArea
-                y1={currentPrice}
+                y1={predictedPrice}
                 y2={fixedLines.deposit}
                 fill="rgba(255, 87, 87, 0.08)"
                 strokeOpacity={0.3}
               />
             )}
 
-            <ReferenceLine
-              stroke="#ffffff99"
-              strokeDasharray="3 3"
-              x={point?.name}
-              label={{
-                value: point?.name,
-                position: "insideBottom",
-                fontSize: 10,
-                fill: "#ffffff99",
-                fontWeight: "600",
-              }}
-            />
-            <ReferenceLine
-              stroke="#ffffff99"
-              strokeDasharray="3 3"
-              y={point?.price}
-              label={
-                <CustomYLabel
-                  value={`${unit}${point?.price}`}
-                  align="left"
-                  size={175}
-                  fontsize={9}
+            {!toggle && (
+              <>
+                <ReferenceLine
+                  stroke="#ffffff99"
+                  strokeDasharray="3 3"
+                  x={point?.name}
+                  label={{
+                    value: point?.name,
+                    position: "insideBottom",
+                    fontSize: 10,
+                    fill: "#ffffff99",
+                    fontWeight: "600",
+                  }}
                 />
-              }
-            />
-            <ReferenceDot
-              x={point?.name}
-              y={point?.price}
-              r={4}
-              fill="#268AFF"
-              stroke="none"
-            />
+                <ReferenceLine
+                  stroke="#ffffff99"
+                  strokeDasharray="3 3"
+                  y={point?.price}
+                  label={
+                    <CustomYLabel
+                      value={`${unit}${point?.price}`}
+                      align="left"
+                      size={175}
+                      fontsize={9}
+                    />
+                  }
+                />
+                <ReferenceDot
+                  x={point?.name}
+                  y={point?.price}
+                  r={4}
+                  fill="#268AFF"
+                  stroke="none"
+                />
+              </>
+            )}
 
             {labelVisble && (
               <ReferenceLine
@@ -385,12 +388,13 @@ const CustomChat = ({
                     align="left"
                     size={175}
                     fontsize={9}
+                    hiddenable={true}
                   />
                 }
               />
             )}
 
-            {fixedLines && (
+            {fixedLines && fixedLineVisible && (
               <>
                 <ReferenceLine
                   key="deposit"
@@ -411,14 +415,14 @@ const CustomChat = ({
                   key="current"
                   stroke="#ffffff99"
                   strokeDasharray="3 3"
-                  y={currentPrice}
+                  y={predictedPrice}
                   label={
                     <CustomLabel
-                      value="Current Price"
+                      value={`${unit}${fixedLines.current}`}
                       align="left"
                       size={175}
                       fontsize={9}
-                      controlable={true}
+                      controlable={!!fixedLines.deposit}
                     />
                   }
                 />

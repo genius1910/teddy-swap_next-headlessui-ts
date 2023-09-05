@@ -7,7 +7,7 @@ import { BsExclamationCircle } from "react-icons/bs";
 import Farm_Stats from "./rightside/Farm_Stats";
 import Farm_SelectedTokenBottomside from "./rightside/Farm_SelectedTokenBottomside";
 
-const times = ["1H", "1D", "1W", "1M", "All Time"];
+const times = ["1H", "1D", "1W", "1M", "3M", "1Y", "All Time"];
 
 const data = [
   { name: "09/20", price: 700 },
@@ -47,7 +47,7 @@ const Farm_Rightside = ({ activeTab, setActiveTab }: Props) => {
   }, []);
 
   return (
-    <div className="">
+    <div className="select-none">
       <div className=" font-medium h-[479px] overflow-hidden component-color rounded-2xl grid relative">
         <div className="flex justify-between absolute z-10 w-full">
           <div className="px-6 pt-6 flex flex-col gap-1">
@@ -65,8 +65,8 @@ const Farm_Rightside = ({ activeTab, setActiveTab }: Props) => {
                 height={29}
                 className="-ml-3"
               />
-              <h4 className="text-base flex items-center gap-4">
-                ADA/TEDY
+              <h4 className="text-base flex items-center gap-2">
+                ADA/TEDY Liquidity Postition
                 <button>
                   <AiOutlineStar className="w-5 h-5 text-[#E8D648]" />
                 </button>
@@ -83,12 +83,13 @@ const Farm_Rightside = ({ activeTab, setActiveTab }: Props) => {
               </button>
             </p>
           </div>
+
           {/* rightside  */}
           <div className="flex flex-col p-6">
             <div className="flex flex-col">
               <div className="flex gap-0.5">
                 {/* all button  */}
-                <ul className="flex items-center component-color rounded-md text-xss w-full">
+                <ul className="flex items-center component-color rounded-xl text-xss w-full">
                   {times.map((item) => {
                     return (
                       <li key={item}>
@@ -96,8 +97,8 @@ const Farm_Rightside = ({ activeTab, setActiveTab }: Props) => {
                           onClick={() => setCurrentTime(item)}
                           className={`${
                             item == currentTime &&
-                            "small-component-color rounded-md"
-                          } text-white py-0.5 px-3`}
+                            "small-component-color rounded-xl"
+                          } text-white py-2 px-3.5`}
                         >
                           {item}
                         </button>
@@ -113,7 +114,6 @@ const Farm_Rightside = ({ activeTab, setActiveTab }: Props) => {
           data={data}
           fixedLines={fixedLines}
           setFixedLines={setFixedLines}
-          labelVisble
           unit="₳"
         />
       </div>
