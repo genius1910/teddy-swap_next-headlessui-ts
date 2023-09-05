@@ -42,7 +42,7 @@ const Trade_Rightside = ({ activeTab, setActiveTab }: Props) => {
 
   return (
     <div className="">
-      <div className=" font-medium overflow-hidden component-color  rounded-2xl">
+      <div className=" font-medium h-[479px] overflow-hidden component-color rounded-2xl grid relative">
         <div className="flex justify-between">
           <div className="px-6 pt-6">
             <span className="flex items-center gap-1">

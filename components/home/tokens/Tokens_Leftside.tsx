@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from "react";
 import { createChart, ColorType } from "lightweight-charts";
 import { ChartApp } from "../dexinfo/TradingChart";
 import { AiOutlineInfoCircle } from "react-icons/ai";
+import CustomChart from "../../chart/CustomChart";
 
 const batchers = [
   {
@@ -22,12 +23,31 @@ const batchers = [
   },
 ];
 
+const data = [
+  { name: "09/20", price: 700 },
+  { name: "09/21", price: 800 },
+  { name: "09/22", price: 900 },
+  { name: "09/23", price: 1200 },
+  { name: "09/24", price: 900 },
+  { name: "09/25", price: 1500 },
+  { name: "09/26", price: 900 },
+  { name: "09/27", price: 800 },
+  { name: "09/28", price: 900 },
+  { name: "09/29", price: 500 },
+  { name: "09/30", price: 1000 },
+  { name: "10/01", price: 900 },
+  { name: "10/02", price: 1500 },
+  { name: "10/03", price: 1900 },
+  { name: "10/04", price: 2000 },
+  { name: "10/05", price: 2200 },
+];
+
 const Tokens_Leftside = () => {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 w-full gap-8 mt-5">
       {/* 1st grid  */}
-      <div className=" font-medium rounded-3xl chart-component-color h-72">
-        <div className="px-6 pt-6">
+      <div className=" font-medium rounded-3xl chart-component-color h-72 grid relative">
+        <div className="px-6 pt-6 absolute z-10 w-full">
           <div className="flex items-center gap-1">
             <h1 className="text-base">Volume</h1>
             <AiOutlineInfoCircle
@@ -35,16 +55,17 @@ const Tokens_Leftside = () => {
               className="w-3 h-3 cursor-pointer"
             />
           </div>
+
           <h2 className="text-base mt-1 mb-0.5">₳6,363,639.46</h2>
           <p className=" text-[0.7rem] text-[#0FC43B]">
             +₳544.03 (+2.03%) this week
           </p>
         </div>
-        <ChartApp />
+        <CustomChart data={data} unit="k" />
       </div>
       {/* 2nd grid  */}
-      <div className=" font-medium rounded-3xl chart-component-color h-72">
-        <div className="px-6 pt-6">
+      <div className=" font-medium rounded-3xl chart-component-color h-72 grid relative">
+        <div className="px-6 pt-6 absolute z-10 w-full">
           <div className="flex items-center gap-1">
             <h1 className="text-base">TVL</h1>
             <AiOutlineInfoCircle
@@ -57,7 +78,7 @@ const Tokens_Leftside = () => {
             +₳544.03 (+2.03%) this todays
           </p>
         </div>
-        <ChartApp />
+        <CustomChart data={data} unit="k" />
       </div>
       {/* 3rd grid  */}
       {/* <div className=" rounded-3xl component-color p-6">
