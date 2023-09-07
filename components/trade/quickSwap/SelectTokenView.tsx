@@ -20,27 +20,27 @@ export default function SelectTokenView({
     {
       name: "WMTt",
       imgId: 1,
-      price: 0,
+      price: 12.3,
     },
     {
       name: "MELDt",
       imgId: 2,
-      price: 0,
+      price: 15.4,
     },
     {
       name: "cNETAt",
       imgId: 3,
-      price: 0,
+      price: 23.7,
     },
     {
       name: "HOSkyt",
       imgId: 4,
-      price: 0,
+      price: 43.1,
     },
     {
       name: "GENSt",
       imgId: 5,
-      price: 0,
+      price: 37.6,
     },
   ];
 

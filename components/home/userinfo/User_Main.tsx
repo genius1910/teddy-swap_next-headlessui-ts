@@ -40,7 +40,7 @@ const User_Main = () => {
       <div
         className={`${
           lock && "blur-[10px] pointer-events-none select-none"
-        } flex px-0 justify-between items-start w-full flex-col xl:flex-row`}
+        } flex px-0 justify-between items-start w-full flex-col xl:flex-row transition duration-300`}
       >
         <User_Leftside />
         <User_Rightside />

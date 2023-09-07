@@ -57,7 +57,7 @@ const User_YourFarms = () => {
             <div className="  text-base flex flex-col leading-tight">
               <p className="flex items-center gap-1 text-4 leading-[19.5px]">
                 <span className="text-[#3DFFDC]">
-                  {isWalletConnected ? "92.43%" : "--"}%{" "}
+                  {isWalletConnected ? "92.43" : "--"}%{" "}
                 </span>
                 <button className={isWalletConnected ? "text-sm" : "hidden"}>
                   <BsQuestionCircle

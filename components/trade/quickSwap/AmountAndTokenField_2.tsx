@@ -75,7 +75,7 @@ const AmountAndTokenField_2 = ({
         {selectedToken?.name ? (
           <input
             type="text"
-            defaultValue={957.3}
+            defaultValue={selectedToken.price}
             className=" pr-4 pl-2 pb-1 w-full text-right text-[16px] leading-[24px] font-medium bg-transparent text-white outline-none"
           />
         ) : (
