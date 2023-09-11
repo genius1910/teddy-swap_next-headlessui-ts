@@ -56,14 +56,15 @@ const CustomChat = ({
 }: Props) => {
   const yConfig = {
     default: 100,
-    min: 200,
+    min: 100,
   };
 
   const [point, setPoint] = useState<null | PointType>();
   const [scaleSize, setScaleSize] = useState({
     xl: 0,
     xr: 0,
-    y: yConfig.default,
+    yt: yConfig.default,
+    yb: 0,
   });
 
   const [clickPoint, setClickPoint] = useState<clickType>({
@@ -242,15 +243,23 @@ const CustomChat = ({
         if (toggle) {
           setPredictedPrice(predictedPrice! - dy * 5);
         } else if (pickY) {
-          let sy = scaleSize.y;
-          if (scaleSize.y + dy < yConfig.min) {
-            sy += dy;
+          let syt = scaleSize.yt;
+          let syb = 0;
+          if (dy > 0) {
+            if (scaleSize.yt < yConfig.min) syt += 15;
+            syb = scaleSize.yb < 0 ? scaleSize.yb + 15 : 0;
+          } else {
+            syt = scaleSize.yt - 10;
+            syb = scaleSize.yb - 10;
           }
-          setScaleSize({ ...scaleSize, y: sy });
+          setScaleSize({ ...scaleSize, yt: syt, yb: syb });
         } else {
           const sxl = scaleSize.xl + dx < 0 ? scaleSize.xl + dx : 0;
           const sxr = scaleSize.xr - dx < 0 ? scaleSize.xr - dx : 0;
-          setScaleSize({ ...scaleSize, xl: sxl, xr: sxr });
+          const syt =
+            scaleSize.yt + dy < yConfig.min ? scaleSize.yt + dy : yConfig.min;
+          const syb = scaleSize.yb - dy < 0 ? scaleSize.yb - dy : 0;
+          setScaleSize({ ...scaleSize, xl: sxl, xr: sxr, yt: syt, yb: syb });
         }
       }
     }
@@ -258,19 +267,20 @@ const CustomChat = ({
 
   const handleScroll = (props: WheelEvent) => {
     let sxl = 0;
-    let sxr = 0;
-    let sy = scaleSize.y;
+    let sxr = scaleSize.xr;
+    let syt = scaleSize.yt;
+    let syb = scaleSize.yb;
     if (props.deltaY > 0) {
       sxl = scaleSize.xl < 0 ? scaleSize.xl + 45 : 0;
       sxr = scaleSize.xr < 0 ? scaleSize.xr + 45 : 0;
-      if (scaleSize.y + 25 < yConfig.default) {
-        sy += 25;
+      if (scaleSize.yt + 25 < yConfig.default) {
+        syt += 25;
       }
+      syb = scaleSize.yb < 0 ? scaleSize.yb + 45 : 0;
     } else {
       sxl = scaleSize.xl - 45;
-      sxr = scaleSize.xr - 45;
     }
-    setScaleSize({ ...scaleSize, xl: sxl, xr: sxr, y: sy });
+    setScaleSize({ ...scaleSize, xl: sxl, xr: sxr, yt: syt, yb: syb });
   };
 
   function disableScroll() {
@@ -446,7 +456,7 @@ const CustomChat = ({
               tickLine={false}
               mirror
               tick={<CustomizedYAxisTick />}
-              padding={{ top: scaleSize.y }}
+              padding={{ top: scaleSize.yt, bottom: scaleSize.yb }}
             />
           </AreaChart>
         </ResponsiveContainer>
