@@ -8,7 +8,7 @@ import Image from "next/image";
 const STATS_CONFIG = [["Top Gainers"], ["Top Volume"], ["Top Losers"]];
 const STATS_DATA = [
   [
-    ["TEDY", 2.4356, 35.63],
+    ["TEDY", 2.4356, 35.64],
     ["USDA", 0.1245, 19.4],
     ["iUSD", 0.8632, 8.32],
     ["cBTC", 12.3467, 3.32],
