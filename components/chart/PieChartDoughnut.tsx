@@ -53,15 +53,15 @@ export function PieChartDoughnut() {
     <div className="relative">
       <Doughnut data={data} options={options} />
       <div className=" absolute pointer-events-none inset-0 top-32 my-auto flex flex-col items-center h-full text-center text-sm">
-        <h1>
+        <p className=" text-[16px] leading-[19.5px] font-medium">
           ₳
           {isWalletConnected
             ? "198,930"
             : pathname != "/dashboard"
             ? "124,213"
             : "--"}
-        </h1>
-        <p className="text-xs text-gray-400">
+        </p>
+        <p className="text-[10px] leading-[12px] font-medium text-[#B0B3B8]">
           $
           {isWalletConnected
             ? "54,023"

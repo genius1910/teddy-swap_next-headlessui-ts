@@ -7,7 +7,7 @@ const Dash_Section9 = () => {
   return (
     <section
       id="dash-section-9"
-      className="py-16 md:py-20 2xl:py-28 max-w-[1152px] mx-auto xl:zoom-80 2xl:zoom-100 px-4"
+      className="py-16 md:py-20 max-lg:py-12 2xl:py-28 max-w-[1152px] mx-auto xl:zoom-80 2xl:zoom-100 px-4"
     >
       <div className="flex flex-col items-center justify-center mx-auto text-center w-full max-w-6xl">
         <p className="text-4 leading-[18px] font-semibold text-[#3DFFDC]">

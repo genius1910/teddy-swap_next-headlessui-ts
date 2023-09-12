@@ -1,7 +1,6 @@
 "use client";
 import HomeGroupButton from "@/components/home/HomeGroupButton";
 import DEX_Main from "@/components/home/dexinfo/DEX_Main";
-import Pairs_Main from "@/components/home/pairs/Pairs_Main";
 import User_Main from "@/components/home/userinfo/User_Main";
 import useAuthenticate from "@/context/mobx/useAuthenticate";
 import { useSearchParams } from "next/navigation";
@@ -18,10 +17,6 @@ function Home() {
     {
       name: "User Info",
       params: "user-info",
-    },
-    {
-      name: "Pairs",
-      params: "pairs",
     },
   ];
   const connectedTabs = [
@@ -59,8 +54,6 @@ function Home() {
             <DEX_Main />
           ) : tab == "user-info" ? (
             <User_Main />
-          ) : tab == "pairs" ? (
-            <Pairs_Main />
           ) : tab == "tokens" ? (
             <Tokens_Main />
           ) : (

@@ -5,7 +5,7 @@ import Trade_KeyStats from "./leftside/Trade_KeyStats";
 
 const Trade_Leftside = () => {
   return (
-    <div className="space-y-8">
+    <div className="space-y-6">
       <Trade_Swap />
     </div>
   );

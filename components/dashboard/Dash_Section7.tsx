@@ -6,14 +6,14 @@ const Dash_Section7 = () => {
   return (
     <section
       id="dash-section-7"
-      className="max-w-[1152px] mx-auto xl:zoom-80 2xl:zoom-100 px-4"
+      className="max-w-[1152px] mx-auto xl:zoom-80 2xl:zoom-100 px-4  max-lg:pt-4"
     >
       <div className="tokenomics-bg rounded-2xl 2xl:rounded-[4rem] px-4 2xl:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-4 items-center py-4 max-lg:pt-10 md:py-18 2xl:py-24 gap-12">
           <div className="max-lg:hidden lg:col-span-2 relative w-full h-full flex items-center justify-center 2xl:px-12 xl:px-6 px-4">
             <PieChartTokenOmics />
           </div>
-          <div className=" lg:col-span-2 flex flex-col lg:px-4 2xl:px-10 gap-4">
+          <div className=" lg:col-span-2 flex flex-col lg:px-4 2xl:px-10 gap-4 max-lg:text-center">
             <p className="text-[15px] leading-[18px] font-semibold text-[#3DFFDC]">
               TOKENOMICS
             </p>

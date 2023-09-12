@@ -7,7 +7,7 @@ const Dash_Section6 = () => {
       id="dash-section-6"
       className="max-w-[1152px] mx-auto xl:zoom-80 2xl:zoom-100 px-4"
     >
-      <div className="flex flex-col justify-center items-center text-center gap-5 2xl:gap-10">
+      <div className="flex flex-col justify-center items-center text-center gap-5 2xl:gap-10 max-lg:pt-16">
         <p className="text-[#ADE1FF] font-medium text-[15px] leading-[18px]">
           SECURITY
         </p>
@@ -15,7 +15,7 @@ const Dash_Section6 = () => {
           Making DeFi Secure for everyone
         </p>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-14 lg:gap-24 text-lg 2xl:text-2xl items-center py-12 max-lg:pt-14 md:py-24 2xl:py-36 mr-20 max-lg:mr-0">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-14 lg:gap-24 text-lg 2xl:text-2xl items-center py-12 max-lg:pt-16 md:py-24 2xl:py-36 mr-20 max-lg:mr-0">
         <div className="max-lg:hidden col-span-1 lg:col-span-2 relative flex items-center justify-center lg:justify-end ml-4">
           <Image
             src="/images/assets/global.svg"

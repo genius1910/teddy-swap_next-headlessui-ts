@@ -6,18 +6,22 @@ const Liquidity_Stats = () => {
     {
       name: "LP Fee",
       value: "0.5%",
+      info: "The fee that liquidity providers are charged when they deposit or withdraw liquidity from the pool.",
     },
     {
       name: "Market Earnings",
       value: "203k ₳, 1.2M TEDY",
+      info: "The total earnings that all liquidity providers in the pool have generated from trading fees.",
     },
     {
       name: "Your Earnings",
       value: "146 ADA, 10.3k TEDY",
+      info: "The total earnings that you have generated from providing liquidity to the pool.",
     },
     {
       name: "Impermanent Loss",
       value: "-8.36%",
+      info: "The potential loss that you can incur due to price fluctuations when providing liquidity to the Teddy/ADA",
     },
   ];
   return (
@@ -27,19 +31,24 @@ const Liquidity_Stats = () => {
           return (
             <li
               key={item.name}
-              className="flex gap-2 whitespace-nowrap rounded-xl p-4 component-color w-full flex-col text-lg xl:text-xl text-white"
+              className="gap-2 rounded-xl component-color w-full text-white  py-3 px-4"
             >
-              <h5 className="text-xs text-white flex items-center gap-1">
-                <span>{item.name}</span>
-                <button title={item.name}>
-                  <BsExclamationCircle className="w-3 h-3" />
-                </button>
-              </h5>
-              {item.name == "Impermanent Loss" ? (
-                <h1 className="text-[#B0D5FF]">{item.value}</h1>
-              ) : (
-                <h1>{item.value}</h1>
-              )}
+              <div className="flex flex-col gap-[6px]">
+                <div className="flex flex-row gap-[2px]">
+                  <span className="text-[10px] leading-3 font-medium">
+                    {item.name}
+                  </span>
+                  <button title={item.name}>
+                    <BsExclamationCircle
+                      title={item.info}
+                      className="w-[10px] h-[10px]"
+                    />
+                  </button>
+                </div>
+                <p className="text-[16px] leading-[19.5px] font-medium text-white">
+                  {item.value}
+                </p>
+              </div>
             </li>
           );
         })}

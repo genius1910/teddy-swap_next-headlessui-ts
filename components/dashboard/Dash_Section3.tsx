@@ -15,7 +15,7 @@ const Dash_Section3 = () => {
           Making DeFi a joy to use for everyone
         </p>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-14 items-center py-32 max-lg:pt-16 md:py-44 2xl:py-60">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-14 items-center max-lg:pt-16 max-lg:pb-16 md:py-20 2xl:py-60">
         <div className="max-lg:hidden col-span-1 lg:col-span-2 relative max-lg:py-4 max-lg:items-center flex justify-center mr-6 max-lg:mr-0 py-8">
           <Image
             src="/images/assets/l-sec3.svg"
@@ -26,14 +26,14 @@ const Dash_Section3 = () => {
             "
           />
         </div>
-        <div className=" col-span-1 lg:col-span-2 flex flex-col ml-10 max-lg:ml-0">
+        <div className=" col-span-1 lg:col-span-2 flex flex-col ml-10 max-lg:ml-0 max-lg:text-center ">
           <p className="text-sm font-medium text-[#3DFFDC] pt-4">
             DECENTRALIZING TRADING
           </p>
           <p className="text-[#D6D4C6] font-semibold text-[46px] pt-2 max-xl:text-3xl">
             Open-Source Batcher Protocol
           </p>
-          <p className="text-[#D6D4C6] font-normal text-[14.8px] leading-[24px] pr-24 pt-2">
+          <p className="text-[#D6D4C6] font-normal text-[14.8px] leading-[24px] pr-24 pt-2 max-lg:pr-0">
             Streamline your transaction processing and boost scalability like
             never before. Our cutting-edge solution enables efficient batching
             of multiple transactions, reducing costs and improving network

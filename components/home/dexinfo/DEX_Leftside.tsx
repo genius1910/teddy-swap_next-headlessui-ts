@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React, { useEffect, useRef } from "react";
+import { AiOutlineInfoCircle } from "react-icons/ai";
 import { createChart, ColorType } from "lightweight-charts";
 import CustomChart from "../../chart/CustomChart";
 import { BsExclamationCircle } from "react-icons/bs";
@@ -48,37 +49,45 @@ const fixedLines = [
 
 const DEX_Leftside = () => {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 w-full gap-8 mt-14 ">
+    <div className="grid grid-cols-1 lg:grid-cols-2 w-full gap-6 mt-6">
       {/* 1st grid  */}
       <div className="font-medium rounded-3xl overflow-hidden chart-component-color h-72 grid relative">
-        <div className="px-6 pt-6 absolute z-10">
+        <div className="px-6 pt-6 absolute z-10 w-full">
           <div className="flex items-center gap-1">
-            <h1 className="text-base">TVL</h1>
-            <button className="text-sm">
-              <BsExclamationCircle className="w-3 h-3" />
-            </button>
+            <h1 className="text-base">Volume</h1>
+            <AiOutlineInfoCircle
+              title="The total trading volume for the entire Cardano DEX over the past 24 hours."
+              className="w-3 h-3 cursor-pointer"
+            />
           </div>
-          <h2 className="text-base mt-1 mb-0.5">₳ 8.32M</h2>
+
+          <h2 className="text-base mt-1 mb-0.5">₳6,363,639.46</h2>
+          <p className=" text-[0.7rem] text-[#0FC43B]">
+            +₳544.03 (+2.03%) this week
+          </p>
         </div>
         <CustomChart data={data} unit="k" />
       </div>
       {/* 2nd grid  */}
       <div className=" font-medium rounded-3xl overflow-hidden chart-component-color h-72 grid relative">
-        <div className="px-6 pt-6 absolute z-10">
+        <div className="px-6 pt-6 absolute z-10 w-full">
           <div className="flex items-center gap-1">
-            <h1 className="text-base">Volume</h1>
-            <button className="text-sm">
-              <BsExclamationCircle className="w-3 h-3" />
-            </button>
+            <h1 className="text-base">TVL</h1>
+            <AiOutlineInfoCircle
+              title="The total value of the liquidity in the entire Cardano DEX."
+              className="w-3 h-3 cursor-pointer"
+            />
           </div>
-          <h2 className="text-base mt-1 mb-0.5">₳ 1.25M</h2>
+          <h2 className="text-base mt-1 mb-0.5">₳6,363,639.46</h2>
+          <p className=" text-[0.7rem] text-[#0FC43B]">
+            +₳544.03 (+2.03%) this todays
+          </p>
         </div>
         <CustomChart data={data} unit="k" />
       </div>
       {/* 3rd grid  */}
-      <div className=" rounded-3xl component-color p-6">
+      {/* <div className=" rounded-3xl component-color p-6">
         <div className="flex flex-col justify-between h-full">
-          {/* topbar  */}
           <div className="flex justify-between items-center">
             <h1>Batchers</h1>
             <div className="flex items-center gap-2">
@@ -94,7 +103,6 @@ const DEX_Leftside = () => {
               </div>
             </div>
           </div>
-          {/* bottom  */}
           <div className="flex justify-between items-center p-3">
             <div className="flex flex-col gap-8">
               {batchers.map((item) => (
@@ -116,10 +124,9 @@ const DEX_Leftside = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       {/* 4th grid  */}
-      <div className=" font-medium rounded-3xl component-color p-6 flex items-end justify-between gap-6">
-        {/* leftside  */}
+      {/* <div className=" font-medium rounded-3xl component-color p-6 flex items-end justify-between gap-6">
         <div className="flex flex-col gap-6 w-1/2 ">
           <div className="flex items-center gap-2">
             <Image
@@ -143,7 +150,6 @@ const DEX_Leftside = () => {
           </div>
           <button className="primary-button text-sm">View Farms</button>
         </div>
-        {/* rightside  */}
         <div className="flex flex-col gap-6 w-1/2 ">
           <div>
             <p className="text-xs text-gray-300">Max Supply</p>
@@ -159,7 +165,7 @@ const DEX_Leftside = () => {
           </div>
           <button className="primary-button text-sm">Tokenomics</button>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

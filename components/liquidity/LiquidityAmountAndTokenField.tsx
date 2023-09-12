@@ -44,7 +44,7 @@ const LiquidityAmountAndTokenField = ({
               />
               <span>{selectedToken.name}</span>{" "}
               <span className="w-6">
-                <FaAngleDown className="w-5 h-5" />
+                <FaAngleDown className="w-[18px] h-[18px]" />
               </span>
             </button>
           ) : (
@@ -55,7 +55,7 @@ const LiquidityAmountAndTokenField = ({
             >
               <span>Select Token</span>
               <span className="w-6">
-                <FaAngleDown className="w-5 h-5" />{" "}
+                <FaAngleDown className="w-[18px] h-[18px]" />{" "}
               </span>
             </button>
           )}

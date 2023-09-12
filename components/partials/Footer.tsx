@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer
       id="footer"
-      className="py-16 md:py-28 2xl:py-36 max-w-[1152px] mx-auto xl:zoom-80 2xl:zoom-100 px-4"
+      className="py-16 md:py-28 2xl:py-36 max-w-[1152px] mx-auto xl:zoom-80 2xl:zoom-100 px-4 max-lg:py-8"
     >
       <ul className="gap-8 justify-center w-full mx-auto text-[#C2CAD1] grid gird-cols-1 max-sm:grid-cols-1 max-lg:grid-cols-2 lg:grid-cols-5">
         <li className="space-y-4 lg:col-span-1 max-lg:col-span-1 max-sm:col-span-1 flex flex-col items-center max-lg:justify-center justify-between">

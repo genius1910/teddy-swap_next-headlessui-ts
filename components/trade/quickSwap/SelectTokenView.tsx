@@ -20,27 +20,27 @@ export default function SelectTokenView({
     {
       name: "WMTt",
       imgId: 1,
-      price: 0,
+      price: 12.3,
     },
     {
       name: "MELDt",
       imgId: 2,
-      price: 0,
+      price: 15.4,
     },
     {
       name: "cNETAt",
       imgId: 3,
-      price: 0,
+      price: 23.7,
     },
     {
       name: "HOSkyt",
       imgId: 4,
-      price: 0,
+      price: 43.1,
     },
     {
       name: "GENSt",
       imgId: 5,
-      price: 0,
+      price: 37.6,
     },
   ];
 
@@ -52,7 +52,7 @@ export default function SelectTokenView({
       : token;
   return (
     <>
-      <div className=" font-normal  w-full component-color-2 flex flex-col gap-6 p-6 rounded-2xl">
+      <div className="bg-[#272F40] font-normal  w-full flex flex-col gap-6 p-6 rounded-2xl">
         <div className="flex items-center justify-between w-full">
           <div className="flex gap-4">
             <h1 className={`text-white text-base 2xl:text-xl font-medium`}>
@@ -65,7 +65,7 @@ export default function SelectTokenView({
           <input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search token by name"
+            placeholder="Token you are converting from"
             className=" placeholder:text-gray-400 w-full text-sm p-3 bg-transparent outline-none rounded-lg"
           />
         </div>
@@ -87,10 +87,10 @@ export default function SelectTokenView({
                     height={35}
                     alt="Token image"
                   />
-                  <p>
+                  <span>
                     <h2>{item.name}</h2>
                     <p className=" text-gray-400 text-xs">{item.name}</p>
-                  </p>
+                  </span>
                 </div>
                 <p> {item.price} </p>
               </li>

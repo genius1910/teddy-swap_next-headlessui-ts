@@ -9,12 +9,12 @@ interface Props {
 }
 
 const Farm_Withdraw = ({ setShowComponent }: Props) => {
-  const [withdrawRange, setWithdrawRange] = useState(1);
+  const [withdrawRange, setWithdrawRange] = useState(0);
 
   return (
     <React.Fragment>
       <div className="w-full">
-        <span className="flex items-center gap-1 text-xl font-medium">
+        <span className="flex items-center gap-1 text-xl font-medium mt-[6px]">
           <Image
             src={`/images/assets/token-1.png`}
             alt="icon1"
@@ -28,72 +28,90 @@ const Farm_Withdraw = ({ setShowComponent }: Props) => {
             height={29}
             className="-ml-3"
           />
-          <h4>{`ADA / USDA - LP`}</h4>
+          <p className="ml-[6px] text-[20px] leading-[24px] font-semibold">{`ADA / USDA - LP`}</p>
         </span>
       </div>
-      <p className="text-gray-400 w-full">
+      <p className="text-[14px] leading-[17px] font-medium w-full text-[#C6C6C6]">
         LP Tokens Available: <span className="text-white">11189.1994</span>
       </p>
-      <p className="text-white text-2xl font-medium">0</p>
+      <p className="text-white text-2xl font-medium pt-1">{withdrawRange}</p>
       <div className="relative w-full">
         <input
           type="range"
           className="transparent h-1.5 slider w-full cursor-pointer appearance-none rounded-lg border-transparent bg-[#959595]"
-          min="1"
-          max="4"
+          min="0"
+          max="100"
           step="1"
           id="withdrawRange"
           value={withdrawRange}
           onChange={(e) => setWithdrawRange(Number(e.target.value))}
         />
         <div
-          style={{ width: `${33.33 * (withdrawRange - 1)}%` }}
-          className={`bg-[#1ED6FF] h-1.5 pointer-events-none absolute inset-0 top-1 my-auto rounded-full`}
+          style={{ width: `${1 * withdrawRange}%` }}
+          className={`bg-[#268AFF] h-1.5 pointer-events-none absolute inset-0 top-1 my-auto rounded-full`}
         />
         <div className="w-full flex justify-between text-xs absolute top-1.5 pointer-events-none">
           <div
             style={{
-              background: `${withdrawRange >= 1 ? "#1ED6FF" : "#D9D9D9"}`,
+              background: `${withdrawRange >= 0 ? "#268AFF" : "#D9D9D9"}`,
             }}
             className="w-4 h-4 rounded-full"
           />
           <div
             style={{
-              background: `${withdrawRange >= 2 ? "#1ED6FF" : "#D9D9D9"}`,
+              background: `${withdrawRange >= 25 ? "#268AFF" : "#D9D9D9"}`,
             }}
             className="w-4 h-4 rounded-full"
           />
           <div
             style={{
-              background: `${withdrawRange >= 3 ? "#1ED6FF" : "#D9D9D9"}`,
+              background: `${withdrawRange >= 50 ? "#268AFF" : "#D9D9D9"}`,
             }}
             className="w-4 h-4 rounded-full"
           />
           <div
             style={{
-              background: `${withdrawRange >= 4 ? "#1ED6FF" : "#D9D9D9"}`,
+              background: `${withdrawRange >= 75 ? "#268AFF" : "#D9D9D9"}`,
+            }}
+            className="w-4 h-4 rounded-full"
+          />
+          <div
+            style={{
+              background: `${withdrawRange >= 100 ? "#268AFF" : "#D9D9D9"}`,
             }}
             className="w-4 h-4 rounded-full"
           />
         </div>
       </div>
-      <div className="w-full grid grid-cols-4 gap-4">
-        <button className=" p-4 small-component-color rounded-lg col-span-1">
+      <div className="w-full grid grid-cols-4 gap-4 text-[17px] leading-[20px] font-medium">
+        <button
+          className={`px-6 py-4 small-component-color rounded-[14px] col-span-1`}
+          onClick={() => setWithdrawRange(25)}
+        >
           25%
         </button>
-        <button className=" p-4 small-component-color rounded-lg col-span-1">
+        <button
+          className={`px-6 py-4 small-component-color rounded-[14px] col-span-1`}
+          onClick={() => setWithdrawRange(50)}
+        >
           50%
         </button>
-        <button className=" p-4 small-component-color rounded-lg col-span-1">
+        <button
+          className={`px-6 py-4 small-component-color rounded-[14px] col-span-1`}
+          onClick={() => setWithdrawRange(75)}
+        >
           75%
         </button>
-        <button className=" p-4 small-component-color rounded-lg col-span-1">
+        <button
+          className={`px-6 py-4 small-component-color rounded-[14px] col-span-1`}
+          onClick={() => setWithdrawRange(100)}
+        >
           100%
         </button>
       </div>
       <div className=" w-full flex items-center gap-2 text-xs px-3 py-1">
-        <BsExclamationTriangleFill className="w-6 h-6 text-[#1ED6FF]" />
-        <p>
+        <BsExclamationTriangleFill className="w-6 h-6 text-[#268AFF]" />
+        <p className="text-[12.7px] leading-[20px] font-medium">
           Each Stake or Withdraw action will automatically harvest your rewards
           for this pair!
         </p>
@@ -103,7 +121,7 @@ const Farm_Withdraw = ({ setShowComponent }: Props) => {
         onClick={() => {
           setShowComponent("confirm-withdraw");
         }}
-        className=" primary-button  text-sm 2xl:text-xl py-3 2xl:py-4 rounded-lg border-2"
+        className=" primary-button  text-sm 2xl:text-[19px] 2xl:leading-[23px] font-medium py-3 2xl:py-4 rounded-[12px] border-2 mt-6"
       >
         Withdraw
       </button>

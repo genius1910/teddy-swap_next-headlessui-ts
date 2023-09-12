@@ -36,11 +36,11 @@ const Liquidity = () => {
         ) : activeTab == "Your Liquidity" ? (
           <Liquidity_Your setActiveTab={setActiveTab} />
         ) : activeTab == "ADA / TEDY" ? (
-          <div className="grid grid-cols-12 w-full gap-8 mt-10 items-start">
+          <div className="grid grid-cols-12 w-full gap-6 mt-8 items-start">
             <div className=" col-span-12 xl:col-span-4">
               <Liquidity_Leftside />
             </div>
-            <div className=" col-span-12 xl:col-span-8 ">
+            <div className="max-w-[910px] col-span-12 tradexl:col-span-8">
               <Liquidity_Rightside
                 activeTab={activeTab}
                 setActiveTab={setActiveTab}

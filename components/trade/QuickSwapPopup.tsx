@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { RxCross2 } from "react-icons/rx";
 import { MdEqualizer } from "react-icons/md";
 import Market from "./quickSwap/Market";
@@ -15,18 +15,42 @@ export interface SelectedTokenProps {
 }
 
 const QuickSwapPopup = ({ close }: { close: () => void }) => {
+  const wrapperRef = useRef(null);
+
   const [isMarket, setIsMarket] = useState(true);
   const [showComponent, setShowComponent] = useState("view-1");
+  const [isSuccess, setIsSuccess] = useState("view-message");
   const [selectedToken, setSelectedToken] = useState<SelectedTokenProps>();
   const [selectedToken2, setSelectedToken2] = useState<SelectedTokenProps>();
   const [selectedToken3, setSelectedToken3] = useState<SelectedTokenProps>();
   const [selectedToken4, setSelectedToken4] = useState<SelectedTokenProps>();
 
+  const useOutsideAlerter = (ref: any) => {
+    useEffect(() => {
+      /**
+       * Alert if clicked on outside of element
+       */
+      function handleClickOutside(event: any) {
+        if (ref.current && !ref.current.contains(event.target)) {
+          setIsSuccess("view-1");
+        }
+      }
+      // Bind the event listener
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+        // Unbind the event listener on clean up
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }, [ref]);
+  };
+
+  useOutsideAlerter(wrapperRef);
+
   return (
     <div className="">
       {showComponent === "view-1" ? (
-        <div className="relative flex flex-col gap-6 items-center px-4 p-6">
-          <div className="flex items-center justify-between w-full">
+        <div className="relative flex flex-col items-center pt-[30px] pl-[30px] pr-[22px] pb-6">
+          <div className="flex items-center justify-between w-full mb-6">
             <div className="flex gap-4">
               <button
                 type="button"
@@ -35,7 +59,7 @@ const QuickSwapPopup = ({ close }: { close: () => void }) => {
                 }}
                 className={`${
                   isMarket ? "text-gray-100" : "text-gray-400"
-                } text-base 2xl:text-xl font-medium`}
+                } text-[20px] font-medium leading-6`}
               >
                 Market
               </button>
@@ -46,12 +70,12 @@ const QuickSwapPopup = ({ close }: { close: () => void }) => {
                 }}
                 className={`${
                   !isMarket ? "text-gray-100" : "text-gray-400"
-                } text-base 2xl:text-xl font-medium`}
+                } text-[20px] font-medium leading-6`}
               >
                 Limit
               </button>
             </div>
-            <div className="flex gap-4">
+            <div className="flex gap-3">
               <button
                 className={` text-gray-300 hover:text-gray-100 text-base 2xl:text-lg`}
               >
@@ -70,14 +94,14 @@ const QuickSwapPopup = ({ close }: { close: () => void }) => {
           {isMarket ? (
             <Market
               setShowComponent={setShowComponent}
-              selectedToken={selectedToken}
-              selectedToken2={selectedToken2}
+              setSelectedToken={setSelectedToken}
+              setSelectedToken2={setSelectedToken2}
             />
           ) : (
             <Limit
               setShowComponent={setShowComponent}
-              selectedToken3={selectedToken3}
-              selectedToken4={selectedToken4}
+              setSelectedToken3={setSelectedToken3}
+              setSelectedToken4={setSelectedToken4}
             />
           )}
         </div>
@@ -108,24 +132,38 @@ const QuickSwapPopup = ({ close }: { close: () => void }) => {
             />
           )}
           {showComponent == "confirm-swap" && (
-            <ConfirmSwap setShowComponent={setShowComponent} />
-          )}
-          {showComponent == "confirm-order" && (
-            <ConfirmOrder setShowComponent={setShowComponent} />
-          )}
-          {showComponent == "transaction-success" && (
-            <TransactionStatus
-              status={true}
+            <ConfirmSwap
               setShowComponent={setShowComponent}
+              setIsSuccess={setIsSuccess}
             />
           )}
-          {showComponent == "transaction-failed" && (
-            <TransactionStatus
-              status={false}
+          {showComponent == "confirm-order" && (
+            <ConfirmOrder
               setShowComponent={setShowComponent}
+              setIsSuccess={setIsSuccess}
             />
           )}
         </>
+      )}
+      {isSuccess == "transaction-success" && (
+        <div className=" notification-animation" ref={wrapperRef}>
+          <TransactionStatus
+            status={true}
+            location={isMarket ? "confirm-swap" : "confirm-order"}
+            setShowComponent={setShowComponent}
+            setIsSuccess={setIsSuccess}
+          />
+        </div>
+      )}
+      {isSuccess == "transaction-failed" && (
+        <div className=" notification-animation" ref={wrapperRef}>
+          <TransactionStatus
+            status={false}
+            location={isMarket ? "confirm-swap" : "confirm-order"}
+            setShowComponent={setShowComponent}
+            setIsSuccess={setIsSuccess}
+          />
+        </div>
       )}
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import TimeGroupButton from "../TimeGroupButton";
 import Image from "next/image";
 import User_RecentTransactions from "./User_RecentTransactions";
@@ -8,69 +8,101 @@ import SelectTokenView from "@/components/trade/quickSwap/SelectTokenView";
 import ConfirmSwap from "@/components/trade/quickSwap/market/ConfirmSwap";
 import ConfirmOrder from "@/components/trade/quickSwap/limit/ConfirmOrder";
 import TransactionStatus from "@/components/trade/quickSwap/market/TransactionStatus";
+import useAuthenticate from "@/context/mobx/useAuthenticate";
 
 const User_Rightside = () => {
+  const wrapperRef = useRef(null);
+  const [isSuccess, setIsSuccess] = useState("view-message");
   const [selectedToken, setSelectedToken] = useState<SelectedTokenProps>();
   const [selectedToken2, setSelectedToken2] = useState<SelectedTokenProps>();
   const [showComponent, setShowComponent] = useState("view-1");
+  const isWalletConnected = useAuthenticate.isWalletConnected();
+
+  const useOutsideAlerter = (ref: any) => {
+    useEffect(() => {
+      /**
+       * Alert if clicked on outside of element
+       */
+      function handleClickOutside(event: any) {
+        if (ref.current && !ref.current.contains(event.target)) {
+          setIsSuccess("view-1");
+        }
+      }
+      // Bind the event listener
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+        // Unbind the event listener on clean up
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }, [ref]);
+  };
+
+  useOutsideAlerter(wrapperRef);
 
   const movers = [
     {
-      img: "/images/assets/teddy.png",
-      name: "Tedy",
+      imgId: 6,
+      name: "Teddy",
       subname: "TeddySwap",
-      price: "0.012",
+      price: 0.012,
       up_price: "0.012 (+12.34%)",
     },
     {
-      img: "/images/assets/teddy.png",
-      name: "Tedy",
+      imgId: 2,
+      name: "WMT",
       subname: "TeddySwap",
-      price: "0.012",
+      price: 0.012,
       up_price: "0.012 (+12.34%)",
     },
     {
-      img: "/images/assets/teddy.png",
-      name: "Tedy",
+      imgId: 3,
+      name: "cNETAt",
       subname: "TeddySwap",
-      price: "0.012",
+      price: 0.012,
       up_price: "0.012 (+12.34%)",
     },
     {
-      img: "/images/assets/teddy.png",
-      name: "Tedy",
+      imgId: 4,
+      name: "HOSkyt",
       subname: "TeddySwap",
-      price: "0.012",
+      price: 0.012,
       up_price: "0.012 (+12.34%)",
     },
     {
-      img: "/images/assets/teddy.png",
-      name: "Tedy",
+      imgId: 5,
+      name: "GENSt",
       subname: "TeddySwap",
-      price: "0.012",
+      price: 0.012,
       up_price: "0.012 (+12.34%)",
     },
     {
-      img: "/images/assets/teddy.png",
-      name: "Tedy",
+      imgId: 6,
+      name: "Teddy",
       subname: "TeddySwap",
-      price: "0.012",
+      price: 0.012,
       up_price: "0.012 (+12.34%)",
     },
     {
-      img: "/images/assets/teddy.png",
-      name: "Tedy",
+      imgId: 1,
+      name: "WMTt",
       subname: "TeddySwap",
-      price: "0.012",
+      price: 0.012,
       up_price: "0.012 (+54.34%)",
     },
   ];
   return (
-    <div className="flex flex-col md:flex-row xl:flex-col xl:items-center gap-8 w-full xl:w-auto mt-6">
+    <div className="flex flex-col md:flex-row xl:flex-col xl:items-center gap-6 w-full xl:w-auto mt-6">
       {/* <div className="hidden xl:block">
         <TimeGroupButton />
       </div> */}
-      <div className="w-full component-color p-4 rounded-2xl">
+      <div
+        className={`relative w-full component-color rounded-2xl ${
+          showComponent === "transaction-success" ||
+          showComponent === "transaction-failed"
+            ? "p-0"
+            : "p-4"
+        }`}
+      >
         {showComponent == "token-view-1" && (
           <SelectTokenView
             setSelectedToken={setSelectedToken}
@@ -86,65 +118,108 @@ const User_Rightside = () => {
         {showComponent == "view-1" && (
           <User_SwapTokens
             setShowComponent={setShowComponent}
-            selectedToken2={selectedToken2}
             selectedToken={selectedToken}
+            selectedToken2={selectedToken2}
+            setSelectedToken={setSelectedToken}
+            setSelectedToken2={setSelectedToken2}
           />
         )}
         {showComponent == "confirm-swap" && (
           <ConfirmSwap
             isNotPadding={true}
             setShowComponent={setShowComponent}
+            setIsSuccess={setIsSuccess}
           />
         )}
         {showComponent == "confirm-order" && (
-          <ConfirmOrder setShowComponent={setShowComponent} />
-        )}
-        {showComponent == "transaction-success" && (
-          <TransactionStatus
-            isNotPadding={true}
-            status={true}
+          <ConfirmOrder
             setShowComponent={setShowComponent}
-          />
-        )}
-        {showComponent == "transaction-failed" && (
-          <TransactionStatus
-            isNotPadding={true}
-            status={false}
-            setShowComponent={setShowComponent}
+            setIsSuccess={setIsSuccess}
           />
         )}
       </div>
+      {isSuccess == "transaction-success" && (
+        <div className=" notification-animation" ref={wrapperRef}>
+          <TransactionStatus
+            isNotPadding={true}
+            status={true}
+            location="confirm-swap"
+            setShowComponent={setShowComponent}
+            setIsSuccess={setIsSuccess}
+          />
+        </div>
+      )}
+      {isSuccess == "transaction-failed" && (
+        <div className=" notification-animation" ref={wrapperRef}>
+          <TransactionStatus
+            isNotPadding={true}
+            status={false}
+            location="confirm-swap"
+            setShowComponent={setShowComponent}
+            setIsSuccess={setIsSuccess}
+          />
+        </div>
+      )}
       <div className="w-full flex justify-center items-center flex-col">
         <div className="block xl:hidden">
           <TimeGroupButton />
         </div>
         <div className="list-component-color w-full xl:w-96 rounded-2xl max-xl:mt-8">
-          <h2 className="p-6">Your Top Movers</h2>
+          <p className="pl-[18px] pt-6 pb-4 text-[15px] leading-[18px] font-medium">
+            Your Top Movers
+          </p>
           <ul className="flex flex-col gap-0.5">
             {movers.map((item, i) => {
               return (
                 <li
                   key={item.name + i}
-                  className="flex top-mover last:rounded-b-2xl justify-between px-4 py-2 last:mb-0"
+                  className={
+                    isWalletConnected
+                      ? "flex top-mover last:rounded-b-2xl justify-between last:mb-0 rounded-[3px] cursor-pointer"
+                      : "flex topmovers-bg last:rounded-b-2xl justify-between last:mb-0 rounded-[3px]"
+                  }
+                  onClick={() => {
+                    setShowComponent("view-1");
+                    if (isWalletConnected) {
+                      setSelectedToken({
+                        name: item.name,
+                        imgId: item.imgId,
+                        price: item.price,
+                      });
+                      setSelectedToken2({
+                        name: "WMTt",
+                        imgId: 1,
+                        price: 0,
+                      });
+                    }
+                  }}
                 >
-                  <div className="flex gap-2 items-center">
+                  <div className="flex items-center pl-[17px] py-2 gap-[10px]">
                     <Image
-                      className=" rounded-full"
-                      src={item.img}
+                      className=" rounded-full drop-shadow-2xl "
+                      src={
+                        isWalletConnected
+                          ? `/images/assets/token-${item.imgId}.png`
+                          : `/images/assets/token-${movers[0].imgId}.png`
+                      }
                       alt="Movers"
-                      width={36}
-                      height={36}
+                      width={30}
+                      height={30}
                     />
                     <div>
                       <h1 className="text-sm uppercase font-medium">
-                        {item.name}
+                        {isWalletConnected ? item.name : movers[0].name}
                       </h1>
                       {/* <p className="text-[0.7rem] text-xs">{item.subname}</p> */}
                     </div>
                   </div>
-                  <div className="text-right text-sm">
-                    <p>${item.price}</p>
-                    <p className=" text-[#16A34A] text-xs">+${item.up_price}</p>
+                  <div className="pr-5 flex flex-col justify-center">
+                    <p className="text-[12px] leading-[25px] font-medium flex justify-end">
+                      ${isWalletConnected ? item.price : movers[0].price}
+                    </p>
+                    <p className=" text-[#16A34A] text-[10px] leading-[21px] font-medium">
+                      +${isWalletConnected ? item.up_price : movers[0].up_price}
+                    </p>
                   </div>
                 </li>
               );

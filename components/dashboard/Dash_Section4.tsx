@@ -8,7 +8,7 @@ const Dash_Section4 = () => {
       className="max-w-[1152px] mx-auto xl:zoom-80 2xl:zoom-100 px-4"
     >
       <div className="grid grid-cols-1 lg:grid-cols-4 mt-4 px-20 max-lg:px-0">
-        <div className=" col-span-1 lg:col-span-2 flex flex-col justify-center">
+        <div className=" col-span-1 lg:col-span-2 flex flex-col justify-center max-lg:text-center">
           <p className="text-[#ADE1FF] font-semibold text-[15px] leading-[18px]">
             CARDANO TOKENS, AT YOUR FINGERTIPS
           </p>
