@@ -55,7 +55,7 @@ const Farm_Dash_Rightside = () => {
       {/* rightside  */}
       <div className=" h-full w-full lg:w-2/3 space-y-4 relative flex flex-col items-end ">
         <TimeGroupButton isRelative={true} />
-        <div className=" rounded-2xl w-full chart-component-color flex flex-col h-[87%] grid relative">
+        <div className=" rounded-2xl w-full chart-component-color overflow-hidden flex flex-col h-[87%] grid relative">
           <div className="flex justify-between items-center p-5 px-6 absolute z-10 w-full">
             <div className="flex items-center gap-1">
               <h1 className="text-base">Earnings</h1>

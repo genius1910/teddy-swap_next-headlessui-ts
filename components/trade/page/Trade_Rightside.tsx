@@ -47,7 +47,7 @@ const Trade_Rightside = ({ activeTab, setActiveTab }: Props) => {
     <div className="select-none">
       {hydration && activeTab == "ADA / TEDY" ? (
         <>
-          <div className=" font-medium component-color h-[479px] rounded-2xl grid relative">
+          <div className=" font-medium component-color overflow-hidden h-[479px] rounded-2xl grid relative">
             <div className="flex justify-between absolute z-10 w-full">
               <div className="px-6 pt-6">
                 <span className="flex items-center gap-1">

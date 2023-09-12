@@ -120,7 +120,7 @@ const User_Leftside = () => {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 w-full gap-8 xl:pr-8 mt-6">
       {/* 1st grid  */}
-      <div className=" font-medium rounded-3xl chart-component-color h-72 grid relative">
+      <div className=" font-medium overflow-hidden rounded-3xl chart-component-color h-72 grid relative">
         <div className="px-6 pt-6 absolute z-10 w-full">
           <div className="flex items-center gap-1">
             <h1 className="text-base">Wallet Assets</h1>
@@ -139,7 +139,7 @@ const User_Leftside = () => {
         <CustomChart data={data} unit="₳" />
       </div>
       {/* 2nd grid  */}
-      <div className=" font-medium rounded-3xl chart-component-color h-72 grid relative">
+      <div className=" font-medium rounded-3xl overflow-hidden chart-component-color h-72 grid relative">
         <div className="px-6 pt-6 absolute z-10 w-full">
           <div className="flex items-center gap-1">
             <h1 className="text-base">Wallet Assets + Liquidity Positions</h1>

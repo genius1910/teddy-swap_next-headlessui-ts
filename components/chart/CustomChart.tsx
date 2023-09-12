@@ -166,16 +166,14 @@ const CustomChat = ({
           }}
         />
         <text
-          className="cursor-pointer"
           x={props.viewBox.x}
           y={props.viewBox.y}
           fill="#ffffff99"
-          dy={4}
+          dy={2}
           dx={props.viewBox.width - 20}
           fontSize="10"
           fontWeight="600"
           textAnchor="middle"
-          onMouseDown={() => setToggle(true)}
         >
           {props.value}
         </text>
@@ -189,6 +187,9 @@ const CustomChat = ({
       return (
         payload.index < data.length - 1 && (
           <g transform={`translate(${x},${y + 3})`}>
+            <text fill="#7a7a7a" fontSize={5} transform="translate(0,-15)">
+              |
+            </text>
             <text
               fill="#ffffff99"
               fontSize={10}
@@ -207,7 +208,7 @@ const CustomChat = ({
     render() {
       const { x, y, payload }: any = this.props;
       return (
-        <g transform={`translate(${x - 12},${y})`}>
+        <g transform={`translate(${x - 12},${y + 2})`}>
           <text
             fill="#ffffff99"
             fontSize={10}
@@ -357,7 +358,10 @@ const CustomChat = ({
                   strokeDasharray="3 3"
                   x={point?.name}
                   label={{
-                    value: point?.name,
+                    value:
+                      point?.name !== data[data.length - 1].name
+                        ? point?.name
+                        : "",
                     position: "insideBottom",
                     fontSize: 10,
                     fill: "#ffffff99",
@@ -443,7 +447,7 @@ const CustomChat = ({
               id="xaxis"
               dataKey="name"
               axisLine={{ stroke: "transparent" }}
-              tickLine={{ transform: "translate(0,-20)" }}
+              tickLine={false}
               tick={<CustomizedXAxisTick />}
               mirror
               padding={{ left: scaleSize.xl, right: scaleSize.xr }}
