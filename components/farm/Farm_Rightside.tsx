@@ -72,16 +72,39 @@ const Farm_Rightside = ({ activeTab, setActiveTab }: Props) => {
                 </button>
               </h4>
             </span>
-            <h2 className="text-2xl text-[#268AFF]">-8.36%</h2>
-            <p className="mb-4 text-xs flex items-center gap-1">
-              Impermanent Loss{" "}
-              <button>
-                <BsExclamationCircle
-                  title="The potential loss that you can incur due to price fluctuations when providing liquidity to the Teddy/ADA"
-                  className="w-3 h-3 cursor-pointer"
-                />
-              </button>
-            </p>
+            <div className="flex justify-between items-center p-3 gap-x-3">
+              <div className="flex flex-col gap-y-1.5">
+                <div className="flex justify-around items-center component-color-5 w-48 h-8 rounded-xl">
+                  <p className="text-[9px] flex items-center">
+                    Impermanent Loss &nbsp;
+                    <button>
+                      <BsExclamationCircle className="w-2 h-2" />
+                    </button>
+                  </p>
+                  <p className="text-sm text-[#FF5757]">-3.98%</p>
+                </div>
+                <div className="flex justify-around items-center component-color-5  w-48 h-8 rounded-xl">
+                  <p className="text-[9px] flex items-center">
+                    LP fees Income &nbsp;
+                    <button>
+                      <BsExclamationCircle className="w-2 h-2" />
+                    </button>
+                  </p>
+                  <p className="text-sm text-[#57FF86]">+4.2%</p>
+                </div>
+              </div>
+              <div className="flex flex-col items-center justify-center component-color-5 w-28 h-full rounded-xl">
+                <div>
+                  <p className="text-[9px] flex items-center">
+                    Net Gain &nbsp;
+                    <button>
+                      <BsExclamationCircle className="w-2 h-2" />
+                    </button>
+                  </p>
+                  <p className="text-xl text-[#57FF86]">+1.76%</p>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* rightside  */}
