@@ -1,4 +1,15 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
+    config.module.rules.push({
+      test: /\.wasm$/,
+      type: "webassembly/async",
+    });
 
-module.exports = nextConfig
+    config.experiments = { asyncWebAssembly: true, layers: true };
+
+    return config;
+  },
+};
+
+module.exports = nextConfig;

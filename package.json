@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emurgo/cardano-serialization-lib-asmjs": "^11.5.0",
+    "@emurgo/cardano-serialization-lib-browser": "^11.5.0",
     "@headlessui/react": "^1.7.14",
     "@types/chart.js": "^2.9.37",
     "@types/node": "20.2.5",

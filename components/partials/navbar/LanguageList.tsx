@@ -19,7 +19,6 @@ export default function LanguageList() {
     id: 1,
     name: "English",
   });
-  console.log(selectedPerson);
 
   const filteredPeople =
     query === ""

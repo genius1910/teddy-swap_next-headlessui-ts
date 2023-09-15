@@ -60,10 +60,18 @@ const ConnectedWallet = ({ close }: Props) => {
         </div>
       </div>
       <div className="flex items-center gap-1 small-component-color py-2 px-4 rounded-2xl">
-        <p className="hidden lg:block">addr1qyktedkdpu...av5tsefrbxuhsxkyq0u</p>
-        <p className=" lg:hidden">addr1qy...sxkyq0u</p>
+        <p className="hidden lg:block">
+          {wallet.address.substring(0, 15) +
+            "..." +
+            wallet.address.substring(wallet.address.length - 19)}
+        </p>
+        <p className=" lg:hidden">
+          {wallet.address.substring(0, 7) +
+            "..." +
+            wallet.address.substring(wallet.address.length - 7)}
+        </p>
 
-        <button>
+        <button onClick={() => navigator.clipboard.writeText(wallet.address)}>
           <BsClipboard className="w-4 h-4" />
         </button>
       </div>

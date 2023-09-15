@@ -256,7 +256,7 @@ const Navbar = () => {
               </Popover>
             ) : (
               <div className="component-color h-auto flex items-center gap-6 rounded-md pr-0.5 pl-4 2xl:pl-6 py-0.5">
-                <span className="">9,386.5863 ₳</span>
+                <span className="">₳ {wallet.balance}</span>
                 <Popover>
                   {({ open }) => (
                     <>
@@ -267,7 +267,14 @@ const Navbar = () => {
                           width={24}
                           height={24}
                         />
-                        <span className=" font-normal">addr1...qx6lyz1h</span>
+                        <span className=" font-normal">
+                          {wallet.address &&
+                            wallet.address.substring(0, 3) +
+                              "..." +
+                              wallet.address.substring(
+                                wallet.address.length - 6
+                              )}
+                        </span>
                       </Popover.Button>
                       <Transition
                         enter="transition duration-100 ease-out"
