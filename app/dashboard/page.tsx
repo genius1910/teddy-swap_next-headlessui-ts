@@ -3,7 +3,7 @@ import HomeGroupButton from "@/components/home/HomeGroupButton";
 import DEX_Main from "@/components/home/dexinfo/DEX_Main";
 import User_Main from "@/components/home/userinfo/User_Main";
 import useAuthenticate from "@/context/mobx/useAuthenticate";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { observer } from "mobx-react-lite";
 import Tokens_Main from "@/components/home/tokens/Tokens_Main";
@@ -38,11 +38,15 @@ function Home() {
   const searchParams = useSearchParams();
   const tab = searchParams.get("tab");
 
+  const router = useRouter();
+
   useEffect(() => {
     setHydration(true);
     setTabs(
       authenticate.walletConnected != null ? connectedTabs : disconnectedTabs
     );
+    if (authenticate.walletConnected != null)
+      router.push(`/dashboard?tab=tokens`);
   }, [authenticate.walletConnected]);
 
   return (

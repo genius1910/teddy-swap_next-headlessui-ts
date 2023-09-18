@@ -9,11 +9,13 @@ import { getTokenData } from "@/apis/dashboard/dexMain";
 const DEX_BottomTable = () => {
   const [time, setTime] = useState<string>('1D');
   const [tokenData, setTokenData] = useState<{ name: string, price: number, change: number, volume: number, tvl: number, cap: number }[]>([]);
+  const [showData, setShowData] = useState<{ name: string, price: number, change: number, volume: number, tvl: number, cap: number }[]>([]);
 
   useEffect(() => {
     const getData = async () => {
       const tokenDataA = await getTokenData(time);
       tokenDataA && setTokenData(tokenDataA);
+      tokenDataA && setShowData(tokenDataA);
     }
     getData();
   }, [time])
@@ -40,6 +42,7 @@ const DEX_BottomTable = () => {
             <input
               placeholder="Type token name, ticker, or policy id"
               className="text-[#C7C7C7] text-[14px] w-full sm:w-[368px] py-3 ml-[8px] bg-transparent outline-none rounded-lg"
+              onChange={(e) => { e.target.value ? setShowData(tokenData.filter(item => item.name.includes(e.target.value))) : setShowData(tokenData) }}
             />
           </div>
         </div>
@@ -93,7 +96,7 @@ const DEX_BottomTable = () => {
           </thead>
           <tbody className=" cursor-pointer medium-text rounded-lg transition-all duration-150 ease-in-out justify-center items">
             <tr className="h-3" />
-            {tokenData.map(({ name, price, change, volume, tvl, cap }, index) => {
+            {showData.map(({ name, price, change, volume, tvl, cap }, index) => {
               return (
                 <tr key={index} className="hover:bg-[#D9D9D9]/10">
                   <td className="w-10" />
