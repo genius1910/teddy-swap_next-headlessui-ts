@@ -3,9 +3,10 @@ import React, { useState } from "react";
 const times = ["1H", "1D", "1W", "1M", "3M", "1Y", "All Time"];
 interface Props {
   isRelative?: boolean;
+  time?: string;
+  setTime?: any;
 }
-const TimeGroupButton = ({ isRelative }: Props) => {
-  const [currentTime, setCurrentTime] = useState("1w");
+const TimeGroupButton = ({ isRelative, time, setTime }: Props) => {
   return (
     <div
       className={`flex whitespace-nowrap flex-col right-0 top-2 ${!isRelative}`}
@@ -16,10 +17,9 @@ const TimeGroupButton = ({ isRelative }: Props) => {
           return (
             <li key={item}>
               <button
-                onClick={() => setCurrentTime(item)}
-                className={`${
-                  item == currentTime && "small-component-color rounded-xl"
-                } text-white py-2 px-3 sm:px-4`}
+                onClick={() => setTime(item)}
+                className={`${item == time && "small-component-color rounded-xl"
+                  } text-white py-2 px-3 sm:px-4`}
               >
                 {item}
               </button>

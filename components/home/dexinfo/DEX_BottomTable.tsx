@@ -1,11 +1,23 @@
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import { MdArrowDownward } from "react-icons/md";
 import { BsExclamationCircle, BsPatchCheckFill } from "react-icons/bs";
 import { MdKeyboardArrowDown } from "react-icons/md";
+import { getTokenData } from "@/apis/dashboard/dexMain";
 
 const DEX_BottomTable = () => {
+  const [time, setTime] = useState<string>('1D');
+  const [tokenData, setTokenData] = useState<{ name: string, price: number, change: number, volume: number, tvl: number, cap: number }[]>([]);
+
+  useEffect(() => {
+    const getData = async () => {
+      const tokenDataA = await getTokenData(time);
+      tokenDataA && setTokenData(tokenDataA);
+    }
+    getData();
+  }, [time])
+
   return (
     <div className="w-full mt-6 component-color rounded-2xl ">
       <div className="px-4 sm:px-8 py-6">
@@ -14,6 +26,7 @@ const DEX_BottomTable = () => {
             <select
               className=" text-[15px] leading-[18.3px] py-3 bg-[#333B4B] rounded-[8px] ml-[4px] pr-2 w-[58px] h-10 pl-[11px] pt-[12px]"
               style={{ appearance: "none" }}
+              onChange={(e) => setTime(e.target.value)}
             >
               <option value="1D">1D</option>
               <option value="2D">2D</option>
@@ -80,9 +93,9 @@ const DEX_BottomTable = () => {
           </thead>
           <tbody className=" cursor-pointer medium-text rounded-lg transition-all duration-150 ease-in-out justify-center items">
             <tr className="h-3" />
-            {[1, 2, 3, 4, 5].map((item, index) => {
+            {tokenData.map(({ name, price, change, volume, tvl, cap }, index) => {
               return (
-                <tr key={item} className="hover:bg-[#D9D9D9]/10">
+                <tr key={index} className="hover:bg-[#D9D9D9]/10">
                   <td className="w-10" />
                   <td className="py-2 text-[#C4C4C4] text-left text-sm pt-3">
                     {index + 1}
@@ -98,7 +111,7 @@ const DEX_BottomTable = () => {
                       />
                       <div className="flex gap-1 items-center">
                         <p className="text-[16px] leading-[19.5px] font-[500]">
-                          TEDY
+                          {name}
                         </p>
                         <BsPatchCheckFill className="w-2.5 h-2.5" />
                         <p className="text-[#8D8D8D] text-[10px] leading-[12.2px] mt-0.5">
@@ -109,30 +122,30 @@ const DEX_BottomTable = () => {
                   </td>
                   <td className="py-2 gap-1 text-right pr-[10px]">
                     <span className="text-[16px] leading-[19.5px] font-[500] text-[#DBDBDB]">
-                      ₳2.000341
+                      ₳{price.toFixed(6)}
                     </span>
                   </td>
-                  <td className="py-2  gap-1  text-[#2CC696] text-right pr-[10px]">
+                  <td className={`py-2  gap-1 text-right pr-[10px] ${change >= 0 ? 'text-[#2CC696]' : 'text-o_red'}`}>
                     <span className="text-[16px] leading-[19.5px] font-[500] ">
-                      +{(Math.random() * 4).toFixed(2)}%
+                      {change > 0 ? '+' : ''}{change.toFixed(2)}%
                     </span>
                   </td>
                   <td className="py-2  gap-1  text-right pr-[24px] text-[#DBDBDB] font-[500]">
                     <span className="text-[16px] leading-[19.5px]">
                       {" "}
-                      ₳{(Math.random() * 7).toFixed(1)}M
+                      ₳{volume.toFixed(1)}M
                     </span>
                   </td>
                   <td className="py-2  gap-1  text-right pr-[24px] text-[#DBDBDB] font-[500]">
                     <span className="text-[16px] leading-[19.5px]">
                       {" "}
-                      ₳{(Math.random() * 7).toFixed(1)}M
+                      ₳{tvl.toFixed(1)}M
                     </span>
                   </td>
                   <td className="py-2  gap-1  text-right">
                     <span className="text-[16px] leading-[19.5px] text-[#DBDBDB] font-[500]">
                       {" "}
-                      ₳{(Math.random() * 120).toFixed(0)}M
+                      ₳{cap.toFixed(0)}M
                     </span>
                   </td>
                   <td className="w-[47px]" />

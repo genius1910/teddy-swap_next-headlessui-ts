@@ -1,9 +1,10 @@
 import Image from "next/image";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import { createChart, ColorType } from "lightweight-charts";
 import CustomChart from "../../chart/CustomChart";
 import { BsExclamationCircle } from "react-icons/bs";
+import { getVolume, getTVL } from "@/apis/dashboard/dexMain";
 
 const batchers = [
   {
@@ -47,7 +48,24 @@ const fixedLines = [
   { title: "Your Liquidity Deposit", price: 1000 },
 ];
 
-const DEX_Leftside = () => {
+interface Props {
+  time: string;
+}
+
+const DEX_Leftside = ({ time }: Props) => {
+  const [volume, setVolume] = useState<{ name: string, price: number }[]>([]);
+  const [tvl, setTVL] = useState<{ name: string, price: number }[]>([]);
+
+  useEffect(() => {
+    const getData = async () => {
+      const volumeData = await getVolume(time);
+      volumeData && setVolume(volumeData);
+      const tvlData = await getTVL(time);
+      tvlData && setTVL(tvlData);
+    }
+    getData();
+  }, [time])
+
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 w-full gap-6 mt-6">
       {/* 1st grid  */}
@@ -61,12 +79,12 @@ const DEX_Leftside = () => {
             />
           </div>
 
-          <h2 className="text-base mt-1 mb-0.5">₳6,363,639.46</h2>
+          <h2 className="text-base mt-1 mb-0.5">₳{volume.length !== 0 ? volume[volume.length - 1].price : 100}</h2>
           <p className=" text-[0.7rem] text-[#0FC43B]">
             +₳544.03 (+2.03%) this week
           </p>
         </div>
-        <CustomChart data={data} unit="k" />
+        <CustomChart data={volume.length !== 0 ? volume : data} unit="k" />
       </div>
       {/* 2nd grid  */}
       <div className=" font-medium rounded-3xl overflow-hidden chart-component-color h-72 grid relative">
@@ -78,12 +96,12 @@ const DEX_Leftside = () => {
               className="w-3 h-3 cursor-pointer"
             />
           </div>
-          <h2 className="text-base mt-1 mb-0.5">₳6,363,639.46</h2>
+          <h2 className="text-base mt-1 mb-0.5">₳{tvl.length !== 0 ? tvl[tvl.length - 1].price : 100}</h2>
           <p className=" text-[0.7rem] text-[#0FC43B]">
             +₳544.03 (+2.03%) this todays
           </p>
         </div>
-        <CustomChart data={data} unit="k" />
+        <CustomChart data={tvl.length !== 0 ? tvl : data} unit="k" />
       </div>
       {/* 3rd grid  */}
       {/* <div className=" rounded-3xl component-color p-6">
