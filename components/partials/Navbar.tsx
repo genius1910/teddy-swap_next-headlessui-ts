@@ -11,10 +11,6 @@ import {
 } from "react-icons/ai";
 import MobileMenu from "./navbar/MobileMenu";
 import Link from "next/link";
-// const QuickSwapPopup = dynamic(() => import("../trade/QuickSwapPopup"), {
-//   ssr: false,
-// });
-import dynamic from "next/dynamic";
 import WalletList from "./navbar/WalletList";
 import SettingsPopup from "./navbar/SettingsPopup";
 import ConnectedWallet from "./navbar/ConnectedWallet";

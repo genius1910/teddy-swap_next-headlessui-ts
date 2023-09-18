@@ -1,12 +1,16 @@
 "use client";
 import React from "react";
-import Navbar from "@/components/partials/Navbar";
+import dynamic from 'next/dynamic';
+
 import "./globals.css";
 import { Montserrat } from "next/font/google";
 import { usePathname } from "next/navigation";
 import { useWindowSize } from "@/hook/useWindowSize";
 import { calculateZoom } from "@/utils/calculateZoom";
 import { observer } from "mobx-react-lite";
+
+const Navbar = dynamic(() => import("@/components/partials/Navbar"), { ssr: false });
+
 const montserrat = Montserrat({ subsets: ["latin"] });
 
 function RootLayout({ children }: { children: React.ReactNode }) {
