@@ -45,8 +45,10 @@ function Home() {
     setTabs(
       authenticate.walletConnected != null ? connectedTabs : disconnectedTabs
     );
-    if (authenticate.walletConnected != null)
+    if (authenticate.walletConnected != null && tab != 'user-info')
       router.push(`/dashboard?tab=tokens`);
+    else if (authenticate.walletConnected == null && tab != 'user-info')
+      router.push(`/dashboard?tab=dex-info`);
   }, [authenticate.walletConnected]);
 
   return (

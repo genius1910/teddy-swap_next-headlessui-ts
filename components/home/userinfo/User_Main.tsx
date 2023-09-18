@@ -9,6 +9,7 @@ import useAuthenticate from "@/context/mobx/useAuthenticate";
 
 const User_Main = () => {
   const [lock, setLock] = useState(false);
+  const [time, setTime] = useState<string>('1W');
 
   const isWalletConnected = useAuthenticate.isWalletConnected();
 
@@ -34,7 +35,7 @@ const User_Main = () => {
           <span className="sr-only">No lock button</span>
         )}
         <div className={`${lock && "blur-sm pointer-events-none select-none"}`}>
-          <TimeGroupButton isRelative={true} />
+          <TimeGroupButton isRelative={true} time={time} setTime={setTime} />
         </div>
       </div>
       <div
