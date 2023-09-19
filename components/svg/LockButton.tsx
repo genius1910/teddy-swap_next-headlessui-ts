@@ -14,7 +14,7 @@ const LockButton = () => {
         height="37"
         rx="8"
         fill="url(#paint0_linear_898_5519)"
-        fill-opacity="0.63"
+        fillOpacity="0.63"
       />
       <mask
         id="mask0_898_5519"
@@ -42,9 +42,9 @@ const LockButton = () => {
           y2="20.842"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#454E60" />
-          <stop offset="0.419785" stop-color="#494F59" />
-          <stop offset="1" stop-color="#2B384A" />
+          <stop stopColor="#454E60" />
+          <stop offset="0.419785" stopColor="#494F59" />
+          <stop offset="1" stopColor="#2B384A" />
         </linearGradient>
       </defs>
     </svg>

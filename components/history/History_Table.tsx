@@ -106,8 +106,8 @@ const History_Table = () => {
             </p>
             <div className="relative bg-[#2A3240] flex w-full sm:w-auto items-center rounded-lg">
               <select
-                name="actions"
-                id="actions"
+                name="status"
+                id="status"
                 className=" placeholder:text-[#8E8E8E] text-[12px] leading-[14px] font-medium w-full h-full py-[12px] pl-2 pr-4 bg-transparent outline-none rounded-[5px]"
               >
                 <option className=" bg-gray-800" value="All">

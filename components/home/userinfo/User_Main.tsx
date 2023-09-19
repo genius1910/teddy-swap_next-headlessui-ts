@@ -1,3 +1,4 @@
+'use client'
 import React, { useState } from "react";
 import User_Rightside from "./User_Rightside";
 import User_Leftside from "./User_Leftside";
