@@ -1,8 +1,9 @@
-import { PieChartDoughnut } from "@/components/chart/PieChartDoughnut";
 import useAuthenticate from "@/context/mobx/useAuthenticate";
 import Image from "next/image";
 import React from "react";
 import { BsQuestionCircle } from "react-icons/bs";
+import dynamic from "next/dynamic";
+const PieChartDoughnut = dynamic(() => import('@/components/chart/PieChartDoughnut').then(mod => mod.PieChartDoughnut), { ssr: true });
 
 const User_YourFarms = () => {
   const earningTokens = [
@@ -110,7 +111,7 @@ const User_YourFarms = () => {
           >{`View Farms`}</button>
         </div>
         <div className=" w-40 h-40 drop-shadow-xl">
-          <PieChartDoughnut />
+          <PieChartDoughnut isWalletConnected={isWalletConnected}/>
         </div>
         <div className="flex flex-col gap-[10px] mr-10 max-lg:mr-0">
           {tvl.map((_item, i) => {

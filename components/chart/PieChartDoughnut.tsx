@@ -1,26 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { Doughnut } from "react-chartjs-2";
 import { Chart, ArcElement } from "chart.js";
-import useAuthenticate from "@/context/mobx/useAuthenticate";
 import { usePathname } from "next/navigation";
 Chart.register(ArcElement);
 
-const data = {
-  labels: ["ADA/TEDY", "cUSD/TEDY", "ADA/cBTC", "ADA/USD"],
-  datasets: [
-    {
-      label: "Coin database",
-      data: [120030, 86342, 23085, 12018],
-      backgroundColor: ["#3DFFDC", "#5A3FFF", "#268AFF", "#1ED6FF"],
-      borderColor: "transparent",
-      borderWidth: 5,
-      hoverOffset: 4,
-    },
-  ],
-};
 
-export function PieChartDoughnut() {
-  const options: any = {
+export function PieChartDoughnut(isWalletConnected:any) {
+
+  const [data,] = useState({
+    labels: ["ADA/TEDY", "cUSD/TEDY", "ADA/cBTC", "ADA/USD"],
+    datasets: [
+      {
+        label: "Coin database",
+        data: [120030, 86342, 23085, 12018],
+        backgroundColor: ["#3DFFDC", "#5A3FFF", "#268AFF", "#1ED6FF"],
+        borderColor: "transparent",
+        borderWidth: 5,
+        hoverOffset: 4,
+      },
+    ],
+  });
+  const [options,]: any = useState({
     cutout: "80%",
     doughnutCenterText: {
       text: "Center Text",
@@ -44,9 +44,8 @@ export function PieChartDoughnut() {
         display: false,
       },
     },
-  };
+  });
 
-  const isWalletConnected = useAuthenticate.isWalletConnected();
   const pathname = usePathname();
 
   return (
