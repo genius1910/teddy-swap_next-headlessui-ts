@@ -8,8 +8,7 @@ import { usePathname } from "next/navigation";
 import { useWindowSize } from "@/hook/useWindowSize";
 import { calculateZoom } from "@/utils/calculateZoom";
 import { observer } from "mobx-react-lite";
-
-const Navbar = dynamic(() => import("@/components/partials/Navbar"), { ssr: false });
+import Navbar from "@/components/partials/Navbar";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 

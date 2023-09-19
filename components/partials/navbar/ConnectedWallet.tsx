@@ -111,10 +111,10 @@ const ConnectedWallet = ({ close }: Props) => {
                   height={35}
                   alt="Token image"
                 />
-                <p>
+                <span>
                   <h2>{item.name}</h2>
                   <p className=" text-gray-400 text-xs">{item.name}</p>
-                </p>
+                </span>
               </div>
               <p> {item.price} </p>
             </li>

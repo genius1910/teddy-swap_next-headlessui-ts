@@ -19,6 +19,8 @@ import useAuthenticate from "@/context/mobx/useAuthenticate";
 import { observer } from "mobx-react-lite";
 
 import QuickSwapPopup from "../trade/QuickSwapPopup";
+import { WALLET_IDS } from "@/wallets/base";
+import { connetingWallet } from "@/hook/listWallets";
 
 const navMenuList = [
   {
@@ -54,6 +56,13 @@ const Navbar = () => {
 
   useEffect(() => {
     setHydration(true);
+    const getWallet = async () => {
+      if (typeof window != undefined && localStorage.getItem('wallet')) {
+        const id = localStorage.getItem('wallet');
+        connetingWallet(id as WALLET_IDS);
+      }
+    }
+    getWallet();
   }, []);
 
   const authenticate = useAuthenticate;
@@ -83,9 +92,8 @@ const Navbar = () => {
   return (
     <header className="navbar-color mx-auto">
       <div
-        className={`${
-          pathname != "/" ? "max-w-[1880px] xl:py-2" : ""
-        } justify-between mx-auto relative z-50 py-4 2xl:py-4 px-4 flex items-center gap-4`}
+        className={`${pathname != "/" ? "max-w-[1880px] xl:py-2" : ""
+          } justify-between mx-auto relative z-50 py-4 2xl:py-4 px-4 flex items-center gap-4`}
       >
         {/* mobile menu  */}
         {pathname != "/" && (
@@ -119,11 +127,10 @@ const Navbar = () => {
                     {item.link != "/trade" ? (
                       <Link legacyBehavior href={item.link}>
                         <a
-                          className={`${
-                            item.link == pathname
-                              ? "text-white"
-                              : "text-neutral-400 transition-all hover:text-neutral-100"
-                          }`}
+                          className={`${item.link == pathname
+                            ? "text-white"
+                            : "text-neutral-400 transition-all hover:text-neutral-100"
+                            }`}
                         >
                           {item.name}
                         </a>
@@ -132,11 +139,10 @@ const Navbar = () => {
                       <div className="flex items-center gap-1 ">
                         <Link href={item.link} legacyBehavior>
                           <a
-                            className={`${
-                              item.link == pathname
-                                ? "text-white"
-                                : "text-neutral-400 transition-all hover:text-neutral-100"
-                            }`}
+                            className={`${item.link == pathname
+                              ? "text-white"
+                              : "text-neutral-400 transition-all hover:text-neutral-100"
+                              }`}
                           >
                             {item.name}
                           </a>
@@ -156,9 +162,8 @@ const Navbar = () => {
                               />
                             )}
                             <div
-                              className={`absolute top-3 w-[440px] outline-none rounded-2xl z-50 mt-8 bg-black max-w-sm zoom-80 2xl:zoom-100 2xl:max-w-md ${
-                                open ? " block" : "hidden"
-                              }`}
+                              className={`absolute top-3 w-[440px] outline-none rounded-2xl z-50 mt-8 bg-black max-w-sm zoom-80 2xl:zoom-100 2xl:max-w-md ${open ? " block" : "hidden"
+                                }`}
                             >
                               <div className=" relative w-full h-full">
                                 <div className=" absolute top-0 bottom-0 left-0 right-0 component-color-23 rounded-2xl" />
@@ -212,9 +217,8 @@ const Navbar = () => {
               className="component-color relative cursor-pointer flex justify-center items-center rounded-[8px] h-auto"
             >
               <span
-                className={`${
-                  toggler == "USD" ? "-translate-x-1/2" : "translate-x-1/2"
-                } absolute small-component-color w-6/12 h-full z-0 transition-all duration-500 ease-in-out rounded-[10px]`}
+                className={`${toggler == "USD" ? "-translate-x-1/2" : "translate-x-1/2"
+                  } absolute small-component-color w-6/12 h-full z-0 transition-all duration-500 ease-in-out rounded-[10px]`}
               ></span>
               <span className="h-full flex justify-center items-center my-auto py-2 px-4 2xl:px-6 rounded-[8px] relative z-10">
                 USD
@@ -266,10 +270,10 @@ const Navbar = () => {
                         <span className=" font-normal">
                           {wallet.address &&
                             wallet.address.substring(0, 3) +
-                              "..." +
-                              wallet.address.substring(
-                                wallet.address.length - 6
-                              )}
+                            "..." +
+                            wallet.address.substring(
+                              wallet.address.length - 6
+                            )}
                         </span>
                       </Popover.Button>
                       <Transition
@@ -293,9 +297,8 @@ const Navbar = () => {
             {/* history  */}
             <button
               onClick={() => router.push("/history")}
-              className={`${
-                pathname == "/history" && "bg-gray-500"
-              } component-color rounded-md p-2 cursor-pointer text-gray-200 hover:text-white transition-all`}
+              className={`${pathname == "/history" && "bg-gray-500"
+                } component-color rounded-md p-2 cursor-pointer text-gray-200 hover:text-white transition-all`}
             >
               <AiOutlineHistory className="w-4 h-4 2xl:w-6 2xl:h-6" />
             </button>

@@ -1,6 +1,8 @@
+'use client'
 import { makeAutoObservable } from "mobx";
 
 interface AuthenticateProps {
+  id: string | null,
   img: string;
   name: string;
   balance: string;
@@ -17,19 +19,11 @@ class Authenticate {
 
   constructor() {
     makeAutoObservable(this);
-    if (typeof window !== "undefined") {
-      const item = localStorage.getItem("wallet");
-      if (item) {
-        this.walletConnected = JSON.parse(item);
-      } else {
-        this.walletConnected = null;
-      }
-    }
   }
 
   setWalletConnections(data: AuthenticateProps) {
     this.walletConnected = data;
-    localStorage.setItem("wallet", JSON.stringify(data));
+    localStorage.setItem("wallet", data.id as string);
   }
 
   disconnectWallet() {

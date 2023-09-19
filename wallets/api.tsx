@@ -3,7 +3,7 @@ import { WalletMetadata } from "../hook/listWallets";
 import { WALLET_IDS, Wallet } from "./base";
 import { WalletNotAvailableError, WalletNotEnabledError } from "./errors";
 import { Address, Value } from "@emurgo/cardano-serialization-lib-asmjs";
-const cardanoSerializationLib = require("@emurgo/cardano-serialization-lib-browser");
+// const cardanoSerializationLib = require("@emurgo/cardano-serialization-lib-browser");
 // const Address = cardanoSerializationLib.Address;
 // const Value = cardanoSerializationLib.Value;
 
