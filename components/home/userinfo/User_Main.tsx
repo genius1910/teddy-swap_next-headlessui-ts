@@ -12,7 +12,10 @@ const User_Main = () => {
   const [lock, setLock] = useState(false);
   const [time, setTime] = useState<string>('1W');
 
-  const isWalletConnected = useAuthenticate.isWalletConnected();
+  // const isWalletConnected = useAuthenticate.isWalletConnected();
+  
+  const authenticate = useAuthenticate;
+  const wallet = authenticate.walletConnected;
 
   return (
     <section
@@ -21,10 +24,10 @@ const User_Main = () => {
     >
       <div
         className={`${
-          isWalletConnected ? "justify-between" : "justify-end"
+          wallet ? "justify-between" : "justify-end"
         } flex max-sm:justify-center max-sm:items-center gap-6 flex-wrap items-center mt-6 xl:mt-0 xl:px-0 sm:px-4`}
       >
-        {isWalletConnected ? (
+        {wallet ? (
           <button
             onClick={() => (lock ? setLock(false) : setLock(true))}
             type="button"
