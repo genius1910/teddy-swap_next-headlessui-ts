@@ -3,7 +3,6 @@ import HomeGroupButton from "@/components/home/HomeGroupButton";
 import DEX_Main from "@/components/home/dexinfo/DEX_Main";
 import User_Main from "@/components/home/userinfo/User_Main";
 import useAuthenticate from "@/context/mobx/useAuthenticate";
-import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { observer } from "mobx-react-lite";
 import Tokens_Main from "@/components/home/tokens/Tokens_Main";
@@ -35,25 +34,17 @@ function Home() {
   const [tabs, setTabs] = useState(
     authenticate.walletConnected != null ? connectedTabs : disconnectedTabs
   );
-  const searchParams = useSearchParams();
-  const tab = searchParams.get("tab");
-
-  const router = useRouter();
+  const [tab, setTab] = useState('dex-info');
 
   useEffect(() => {
     setHydration(true);
-    setTabs(
-      authenticate.walletConnected != null ? connectedTabs : disconnectedTabs
-    );
-    if (authenticate.walletConnected != null && tab != 'user-info')
-      router.push(`/dashboard?tab=tokens`);
-    else if (authenticate.walletConnected == null && tab != 'user-info')
-      router.push(`/dashboard?tab=dex-info`);
+    setTabs(authenticate.walletConnected != null ? connectedTabs : disconnectedTabs);
+    setTab(authenticate.walletConnected != null ? 'tokens' : "dex-info");
   }, [authenticate.walletConnected]);
 
   return (
     <main className="relative">
-      <HomeGroupButton tabs={tabs} />
+      <HomeGroupButton tabs={tabs} tab={tab} setTab={setTab} />
       {hydration ? (
         <>
           {tab == "dex-info" ? (

@@ -13,6 +13,8 @@ import {
 import { CategoricalChartState } from "recharts/types/chart/generateCategoricalChart";
 import { LabelProps } from "recharts";
 import { WheelEvent } from "react";
+import { useWindowSize } from "@/hook/useWindowSize";
+import { calculateZoom } from "@/utils/calculateZoom";
 
 interface CustomLabelProps extends LabelProps {
   viewBox?: any;
@@ -305,7 +307,7 @@ const CustomChat = ({
   return (
     <>
       <div
-        className="scrollable select-none"
+        className="scrollable select-none zoom-100 xl:zoom-125 2xl:zoom-100"
         onWheel={(e) => handleScroll(e)}
         onMouseLeave={() => enableScroll()}
         onMouseEnter={() => disableScroll()}

@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { HiOutlineXMark } from "react-icons/hi2";
+import { AiOutlinePlusCircle } from "react-icons/ai";
 
 interface Props {
   tabs: string[];
@@ -35,6 +36,14 @@ const LiquidityGroupButton = ({
             </li>
           );
         })}
+        <li>
+          <button
+            onClick={() => setActiveTab("ADA / TEDY")}
+            className={`cursor-pointer px-6 2xl:pl-10 2xl:pr-4 md:pl-8 md:pr-4 py-2 text-xs 2xl:text-base text-neutral-400 hover:text-white font-semibold transition-all`}
+          >
+            <AiOutlinePlusCircle className=" text-neutral-400 hover:text-white w-5 h-5 transition-all" />
+          </button>
+        </li>
       </ul>
     </div>
   );

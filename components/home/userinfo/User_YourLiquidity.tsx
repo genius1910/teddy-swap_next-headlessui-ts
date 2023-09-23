@@ -2,8 +2,7 @@ import useAuthenticate from "@/context/mobx/useAuthenticate";
 import Image from "next/image";
 import React from "react";
 import { BsQuestionCircle } from "react-icons/bs";
-import dynamic from "next/dynamic";
-const PieChartDoughnut = dynamic(() => import('@/components/chart/PieChartDoughnut').then(mod => mod.PieChartDoughnut), { ssr: true });
+import { PieChartDoughnut } from "@/components/chart/PieChartDoughnut";
 
 const User_YourLiquidity = () => {
   const earningTokens = [

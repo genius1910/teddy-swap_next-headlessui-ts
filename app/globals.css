@@ -331,6 +331,9 @@ input[type="range"]::-webkit-slider-thumb {
   .zoom-120 {
     zoom: 120%;
   }
+  .zoom-125 {
+    zoom: 125%;
+  }
 }
 
 body {
