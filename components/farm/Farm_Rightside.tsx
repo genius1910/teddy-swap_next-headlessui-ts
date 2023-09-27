@@ -78,7 +78,7 @@ const Farm_Rightside = ({ activeTab, setActiveTab }: Props) => {
                   <p className="text-[9px] flex items-center">
                     Impermanent Loss &nbsp;
                     <button>
-                      <BsExclamationCircle className="w-2 h-2" />
+                      <BsExclamationCircle title="The potential loss that you can incur due to price fluctuations when providing liquidity to a pool." className="w-2 h-2" />
                     </button>
                   </p>
                   <p className="text-sm text-[#FF5757]">-3.98%</p>
@@ -87,7 +87,7 @@ const Farm_Rightside = ({ activeTab, setActiveTab }: Props) => {
                   <p className="text-[9px] flex items-center">
                     LP fees Income &nbsp;
                     <button>
-                      <BsExclamationCircle className="w-2 h-2" />
+                      <BsExclamationCircle title="The total amount of fees that you have earned as a liquidity provider." className="w-2 h-2" />
                     </button>
                   </p>
                   <p className="text-sm text-[#57FF86]">+4.2%</p>
@@ -98,7 +98,7 @@ const Farm_Rightside = ({ activeTab, setActiveTab }: Props) => {
                   <p className="text-[9px] flex items-center">
                     Net Gain &nbsp;
                     <button>
-                      <BsExclamationCircle className="w-2 h-2" />
+                      <BsExclamationCircle title="The total earnings that you have generated from providing liquidity, minus any impermanent loss that you have incurred." className="w-2 h-2" />
                     </button>
                   </p>
                   <p className="text-xl text-[#57FF86]">+1.76%</p>
@@ -118,10 +118,9 @@ const Farm_Rightside = ({ activeTab, setActiveTab }: Props) => {
                       <li key={item}>
                         <button
                           onClick={() => setCurrentTime(item)}
-                          className={`${
-                            item == currentTime &&
+                          className={`${item == currentTime &&
                             "small-component-color rounded-xl"
-                          } text-white py-2 px-3.5`}
+                            } text-white py-2 px-3.5`}
                         >
                           {item}
                         </button>

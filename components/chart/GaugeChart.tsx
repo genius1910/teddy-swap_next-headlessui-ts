@@ -58,7 +58,14 @@ export function GaugeChart() {
   };
 
   return (
-    <div className="relative h-[100px] w-[200px]">
+    <div className="relative h-[100px] w-[200px] items-center">
+      <span className="flex justify-center items-center text-[12px] leading-[14px] font-normal text-gray-400 absolute -bottom-6 left-[calc(50%-42px)]">
+        Average Apr
+        <BsExclamationCircle
+          title="The average annual percentage rate (APR) that you are earning from the farm."
+          className="w-[10px] h-[10px] ml-[2px] cursor-pointer"
+        />
+      </span>
       <div className="absolute inset-0 m-auto">
         <img
           src={`/images/assets/gauge.png`}
@@ -71,13 +78,6 @@ export function GaugeChart() {
       </div> */}
       <div className="text-white absolute pointer-events-none inset-0  top-0 my-auto flex flex-col items-center justify-center mt-8 h-full text-center">
         <p className="text-[36px] leading-[44px] font-normal">86%</p>
-        <span className="flex justify-center items-center text-[12px] leading-[14px] font-normal text-gray-400">
-          Average Apr
-          <BsExclamationCircle
-            title="The average annual percentage rate (APR) that you are earning from the farm."
-            className="w-[10px] h-[10px] ml-[2px] cursor-pointer"
-          />
-        </span>
       </div>
     </div>
   );
