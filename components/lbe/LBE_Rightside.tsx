@@ -204,7 +204,7 @@ const LBE_Rightside = () => {
           participants will be effectively swapping half of the ADA they supply
           for TEDY, at the price discovered at the end of the event. Starting on
           June 5th, you can start to claim the Liquidity Pool tokens that
-          represent your share of teh TEDY/ADA pool, 50% in ADA and 50% in MIN.
+          represent your share of teh TEDY/ADA pool, 50% in ADA and 50% in Teddy.
           <p className="mt-6 text-[15px] leading-[18px] font-medium">
             Please read our teddyswap{" "}
             <a className=" underline text-[#51A1FF]" href="#">
